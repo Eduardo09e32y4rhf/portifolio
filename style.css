@@ -14,6 +14,7 @@ body {
 .interface {
     max-width: 1280px;
     margin: 0 auto;
+   
 }
 
 .flex {
@@ -50,6 +51,18 @@ form .btn-enviar input:hover {
 /* ESTILO DO CABEÇALHO */
 header {
     padding: 40px 4%;
+    
+    background-image: linear-gradient(45deg, #03071e, #03045e,#800f2f);
+    background-size: 200% 10%;
+    animation: degrade 1s infinite alternate ;  
+}
+@keyframes degrade{
+    0%{
+        background-position: 0%;
+    }
+    100%{
+        background-position: 100%;
+    }
 }
 
 header>.interface {
@@ -59,14 +72,14 @@ header>.interface {
 }
 
 header a {
-    color: #5c5c5c;
+    color: #fff;
     text-decoration: none;
     display: inline-block;
     transition: .2s;
 }
 
 header nav.menu-desktop a:hover {
-    color: #fff;
+    color: #831313;
     transform: scale(1.05);
 }
 
@@ -176,7 +189,9 @@ section.topo-do-site .flex {
 
 .topo-do-site .img-topo-site img {
     position: relative;
-    animation: flutuar 2s ease-in-out infinite alternate;
+    animation: flutuar 1s ease-in-out infinite alternate;
+  
+    
 }
 
 
@@ -276,8 +291,8 @@ section.portfolio .flex {
 }
 
 .img-port {
-    width: 360px;
-    height: 460px;
+    width: 200px;
+    height: 120px;
     background-size: cover;
     background-position: 100% 0%;
     transition: 8s;
@@ -406,6 +421,7 @@ footer .line-footer p a {
     .menu-desktop,
     .btn-contato {
         display: none;
+     
     }
 
     /* TOPO DO SITE */
@@ -423,7 +439,7 @@ footer .line-footer p a {
     }
 
     .topo-do-site .img-topo-site img {
-        width: 100%;
+        width: 80%; 
     }
 
     /* ESPECIALIDADES */
