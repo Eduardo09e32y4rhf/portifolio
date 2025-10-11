@@ -1,194 +1,149 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- GOOGLE FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <!-- FIM GOOGLE FONTES -->
-    <!-- BOOTSTRAP ICONS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <!-- FIM BOOTSTRAP ICONS -->
-    <link rel="stylesheet" href="style.css">
-
-    <script src="menu.js" defer></script>
-
-    <title>Agência BRN</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prosolution - Tecnologia e Inovação</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Prosolution - Inovação e Tecnologia em São Paulo. Soluções em RH, Programação, Formação Profissional e Contabilidade.">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <header>
-        <div class="interface">
-            <div class="logo">
-                <a href="#">
-                    <img src="img/foto.png.ico" alt="Logo da Agência BRN">
-                </a>
-            </div><!--logo-->
 
-            <nav class="menu-desktop">
-                <ul>
-                    <li><a href="#">Início</a></li>
-                    <li><a href="#">Especialidades</a></li>
-                    <li><a href="#">Sobre</a></li>
-                    <li><a href="#">Projetos</a></li>
-                </ul>
-            </nav>
+  <!-- NAV -->
+  <nav>
+    <div class="logo">Prosolution</div>
+    <ul id="menu">
+      <li><a href="#inicio">Início</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#acionistas">Acionistas</a></li>
+      <li><a href="#depoimentos">Depoimentos</a></li>
+    </ul>
+    <div class="menu-toggle" aria-label="Menu mobile">
+      <div></div><div></div><div></div>
+    </div>
+  </nav>
 
-            <div class="btn-contato">
-                <a href="#">
-                    <button>Contato</button>
-                </a>
-            </div><!--btn-contato-->
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div>
+      <h1>Inovação e Tecnologia para o Futuro</h1>
+      <p>Prosolution - Soluções em Tecnologia, com sede em São Paulo</p>
+    </div>
+  </section>
 
-            <div class="btn-abrir-menu" id="btn-menu">
-                <i class="bi bi-list"></i>
-            </div>
+  <!-- SOBRE -->
+  <section id="sobre">
+    <h2>Sobre Nós</h2>
+    <p>A Prosolution é uma empresa de tecnologia sediada em São Paulo, focada em trazer inovação e soluções completas para empresas de diversos setores.</p>
+  </section>
 
-            <div class="menu-mobile" id="menu-mobile">
-                <div class="btn-fechar">
-                    <i class="bi bi-x-lg"></i>
-                </div>
+  <!-- SERVIÇOS -->
+  <section id="servicos">
+    <h2>Nossos Serviços</h2>
+    <div class="services">
+      <div class="service">
+        💻 Formação Profissional
+        <p>Cursos de capacitação em tecnologia e negócios.</p>
+      </div>
+      <div class="service">
+        👥 Recursos Humanos
+        <p>Recrutamento, seleção e treinamento de equipes.</p>
+      </div>
+      <div class="service">
+        🖥 Programação & Software
+        <p>Desenvolvimento de sistemas, aplicativos e sites.</p>
+      </div>
+      <div class="service">
+        📊 Serviços Contábeis
+        <p>Gestão financeira, fiscal e consultoria estratégica.</p>
+      </div>
+    </div>
+  </section>
 
-                <nav>
-                    <ul>
-                        <li><a href="#">Início</a></li>
-                        <li><a href="#">Especialidades</a></li>
-                        <li><a href="#">Sobre</a></li>
-                        <li><a href="#">Projetos</a></li>
-                        <li><a href="#">Contato</a></li>
-                    </ul>
-                </nav>
+  <!-- ACIONISTAS -->
+  <section id="acionistas">
+    <h2>Acionistas</h2>
+    <div class="team">
+      <div class="member">
+        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Acionista 1" loading="lazy">
+        <h3>João Silva</h3>
+        <p class="role">CEO</p>
+        <p class="desc">Responsável pela visão estratégica e liderança da Prosolution.</p>
+      </div>
+      <div class="member">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Acionista 2" loading="lazy">
+        <h3>Ana Souza</h3>
+        <p class="role">Diretora Financeira</p>
+        <p class="desc">Gestão financeira e planejamento de investimentos.</p>
+      </div>
+      <div class="member">
+        <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Acionista 3" loading="lazy">
+        <h3>Carlos Pereira</h3>
+        <p class="role">CTO</p>
+        <p class="desc">Inovação tecnológica e desenvolvimento de soluções digitais.</p>
+      </div>
+    </div>
+  </section>
 
-            </div><!--menu-mobile-->
-            <div class="overlay-menu" id="overlay-menu"></div>
-        </div><!--interface-->
-    </header>
+  <!-- DEPOIMENTOS -->
+  <section id="depoimentos" class="testimonials">
+    <h2>Depoimentos de Clientes</h2>
+    <div class="testimonial-container">
+      <div class="testimonial-slide">
+        <div class="testimonial">
+          <p>"A Prosolution transformou nossa equipe com treinamentos incríveis."</p>
+          <h4>- Mariana Lima</h4>
+        </div>
+        <div class="testimonial">
+          <p>"Serviços de RH eficientes, confiáveis e ágeis. Recomendo!"</p>
+          <h4>- Felipe Santos</h4>
+        </div>
+        <div class="testimonial">
+          <p>"Software e programação de altíssimo nível. Nossa produtividade aumentou!"</p>
+          <h4>- Carla Mendes</h4>
+        </div>
+        <div class="testimonial">
+          <p>"A consultoria contábil foi fundamental para organizar nosso fluxo de caixa."</p>
+          <h4>- Roberto Almeida</h4>
+        </div>
+        <div class="testimonial">
+          <p>"Atendimento rápido e soluções inovadoras. A parceria tem sido excelente."</p>
+          <h4>- Fernanda Rocha</h4>
+        </div>
+        <div class="testimonial">
+          <p>"Profissionais competentes e dedicados. Nossos resultados melhoraram muito."</p>
+          <h4>- Lucas Martins</h4>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <main>
-        <section class="topo-do-site">
-            <div class="interface">
-                <div class="flex">
-                    <div class="txt-topo-site">
-                        <h1>TRANSFORMANDO IDEIAS EM REALIDADE DIGITAL<span>.</span></h1>
-                        <p>Criatividade e inovação andam lado a lado. Com uma combinação única de design impactante, funcionalidade intuitiva e otimização para resultados, estou pronto(a) para criar a presença online dos seus sonhos.</p>
+  <!-- CONTATO -->
+  <section id="contato" class="contact">
+    <h2>Fale Conosco</h2>
+    <p>📱 Entre em contato direto pelo WhatsApp:</p>
+    <a href="https://wa.me/5515998216626?text=quero%20ferias" target="_blank" class="whatsapp-link">
+      👉 +55 15 99821-6626
+    </a>
+  </section>
 
-                        <div class="btn-contato">
-                            <a href="#">
-                                <button>Entre em contato</button>
-                            </a>
-                        </div>
-                    </div><!--txt-topo-site-->
+  <!-- WHATSAPP FIXO -->
+  <a href="https://wa.me/5515998216626?text=quero%20ferias" target="_blank" class="whatsapp-fixed" aria-label="Fale conosco no WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
 
-                    <div class="img-topo-site">
-                        <img src="img/fotSo.png.png" alt="">
-                    </div><!--img-topo-site-->
-                </div><!--flex-->
-            </div><!--interface-->
-        </section><!--topo-do-site-->
+  <!-- FOOTER -->
+  <footer>
+    <p>Feito por Eduardo Silva - SA © 2025 | Prosolution - São Paulo</p>
+    <div>
+      <a href="#">LinkedIn</a> | <a href="#">Instagram</a> | <a href="#">Facebook</a>
+    </div>
+  </footer>
 
-        <section class="especiliadades">
-            <div class="interface">
-                <h2 class="titulo">MINHAS <span>ESPECIALIDADES.</span></h2>
-                <div class="flex">
-                    <div class="especialidades-box">
-                        <i class="bi bi-code-square"></i>
-                        <h3>Website</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, nulla rem dolore inventore delectus at.</p>
-                    </div><!--especialidades-box-->
-
-                    <div class="especialidades-box">
-                        <i class="bi bi-cart"></i>
-                        <h3>Loja online</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, nulla rem dolore inventore delectus at.</p>
-                    </div><!--especialidades-box-->
-
-                    <div class="especialidades-box">
-                        <i class="bi bi-wordpress"></i>
-                        <h3>Blog</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, nulla rem dolore inventore delectus at.</p>
-                    </div><!--especialidades-box-->
-                </div><!--flex-->
-            </div><!--interface-->
-        </section><!--especiliadades-->
-
-        <section class="sobre">
-            <div class="interface">
-                <div class="flex">
-                    <div class="img-sobre">
-                        <img src="img/android-chrome-512x512.png" alt="">
-                    </div><!--img-sobre-->
-
-                    <div class="txt-sobre">
-                        <h2>MUITO PRAZER, <span>SOU EDUARDO SILVA.</span></h2>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. At accusantium ducimus dicta suscipit, neque cumque sunt tenetur totam delectus magnam minus ratione. Quidem sequi velit voluptatibus eos omnis ullam officiis.</p>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam quidem quae iusto repellendus eaque, ipsum sed voluptate explicabo voluptas, dolorum porro sequi laudantium? Obcaecati quae, dolores illo officiis a numquam.</p>
-                        <div class="btn-social">
-                            <a href="https://www.instagram.com/0eduardosilva_"><button><i class="bi bi-instagram"></i></button></a>
-                            <a href="#"><button><i class="bi bi-youtube"></i></button></a>
-                            <a href="#"><button><i class="bi bi-linkedin"></i></button></a>
-                        </div><!--btn-social-->
-                    </div><!--txt-sobre-->
-                </div><!--flex-->
-            </div><!--interface-->
-        </section><!--sobre-->
-
-        <section class="portfolio">
-            <div class="interface">
-                <h2 class="titulo">MEU <span>PORTFÓLIO.</span></h2>
-                <div class="flex">
-                    <div class="img-port" style="background-image: url(images/imagem.jpg);">
-                       
-                        <img class="img-port" src="img/img.png" alt="img">
-
-                    </div>
-                    <div class="img-port" style="background-image: url(images/imagem.jpg);">
-                        <img class="img-port" src="img/img.png" alt="img">
-                    </div>
-                    <div class="img-port" style="background-image: url(images/imagem.jpg);">
-                        <img class="img-port" src="img/img.png" alt="img">
-                    </div>
-                </div><!--flex-->
-            </div><!--interface-->
-        </section><!--portfolio-->
-
-        <section class="formulario">
-            <div class="interface">
-                <h2 class="titulo">FALA <span>COMIGO.</span></h2>
-
-                <form action="">
-                    <input type="text" name="" id="" placeholder="Seu nome completo:" required>
-                    <input type="text" name="" id="" placeholder="Seu e-mail:" required>
-                    <input type="text" name="" id="" placeholder="Seu celular:">
-                    <textarea name="" id="" placeholder="Sua mensagem" required></textarea>
-                    <div class="btn-enviar"><input type="submit" value="ENVIAR"></div>
-                </form>
-            </div><!--interface-->
-        </section><!--formulario-->
-
-    </main>
-
-    <footer>
-        <div class="interface">
-            <div class="line-footer">
-                <div class="flex"> 
-                    <div class="logo-footer">
-                        <img src="img/android-chrome-512x512.png" alt="Logotipo Agência BRN">
-                    </div><!--logo-footer-->
-                    <div class="btn-social">
-                        <a href="#"><button><i class="bi bi-instagram"></i></button></a>
-                        <a href="#"><button><i class="bi bi-youtube"></i></button></a>
-                        <a href="#"><button><i class="bi bi-linkedin"></i></button></a>
-                    </div><!--btn-social-->
-                </div>
-            </div><!--line-footer-->
-
-            <div class="line-footer borda">
-                <p><i class="bi bi-envelope-fill"></i> <a href="mailto: eduardsilva@dev.com">contato@eduardo-silva.com.br</a></p>
-            </div><!--line-footer-->
-        </div><!--interface-->
-    </footer>
-
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="script.js"></script>
 </body>
 </html>
