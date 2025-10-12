@@ -1,53 +1,32 @@
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prosolution - Tecnologia e Inovação em Soluções Digitais</title>
-  <meta name="description" content="Prosolution: Transformamos ideias em soluções digitais poderosas. Desenvolvimento de software, consultoria de TI e automação de processos.">
+  <title>Prosolution - Tecnologia e Inovação</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMD/cdCbdzO7L2V8sI9/8Wv2T51Qx0u8R0k03hU7a7A9/XG+5B6sN3H5a6Wz5r9" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
-    /* RESET E BASE */
     * {margin: 0; padding: 0; box-sizing: border-box;}
-    body {font-family: 'Roboto', sans-serif; background: #000; color: #fff; overflow-x: hidden; line-height: 1.6;}
-    a {text-decoration: none; color: inherit;}
-
-    /* TIPOGRAFIA E ELEMENTOS REUSÁVEIS */
-    section {padding: 120px 50px; text-align:center;}
-    h2 {font-family:'Orbitron',sans-serif; color:#0ff; font-size:2.5rem; margin-bottom:25px; text-transform: uppercase; letter-spacing: 2px;}
-    p {color:#ccc; line-height:1.8; max-width:800px; margin:auto;}
-
-    /* BOTÃO DE DESTAQUE */
-    .btn-primary {
-        display: inline-block; padding: 12px 30px; margin-top: 30px;
-        background: #0099ff; color: #000; font-weight: bold;
-        border-radius: 5px; transition: background 0.3s, transform 0.3s;
-        font-family: 'Orbitron', sans-serif;
-    }
-    .btn-primary:hover {
-        background: #0ff; color: #000; transform: translateY(-3px);
-    }
+    body {font-family: 'Roboto', sans-serif; background: #000; color: #fff; overflow-x: hidden;}
 
     /* NAV */
     nav {
       position: fixed; top: 0; left: 0; width: 100%;
       background: linear-gradient(90deg, #001f3f, #0047ab);
       display: flex; justify-content: space-between; align-items: center;
-      padding: 15px 40px; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      padding: 15px 40px; z-index: 1000;
     }
     .logo {font-family: 'Orbitron', sans-serif; font-size: 1.8rem; color: #0ff; letter-spacing: 2px;}
-    nav ul {display: flex; gap: 30px; list-style: none;}
-    nav ul li a {color: #fff; text-decoration: none; font-weight: bold; transition: 0.3s; padding: 5px 0;}
+    nav ul {display: flex; gap: 25px; list-style: none;}
+    nav ul li a {color: #fff; text-decoration: none; font-weight: bold; transition: 0.3s;}
     nav ul li a:hover {color: #0ff;}
     .menu-toggle {display: none; flex-direction: column; cursor: pointer;}
-    .menu-toggle div {width: 28px; height: 3px; background: #fff; margin: 5px 0; transition: 0.3s;}
-    @media (max-width: 900px) { /* Ajuste do breakpoint para navbar */
+    .menu-toggle div {width: 28px; height: 3px; background: #fff; margin: 5px 0;}
+    @media (max-width: 768px) {
       nav ul {display: none; flex-direction: column; position: absolute; top: 70px; right: 0; background: #002b5c;
-        width: 100%; max-width: 300px; padding: 20px; border-radius: 0 0 10px 10px; text-align: left;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.5);}
-      nav ul li {width: 100%; margin: 10px 0;}
-      nav ul li a {display: block; padding: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);}
+        width: 200px; padding: 20px; border-radius: 0 0 10px 10px;}
       nav ul.active {display: flex;}
       .menu-toggle {display: flex;}
     }
@@ -59,105 +38,68 @@
       display: flex; align-items: center; justify-content: center;
       text-align: center; position: relative;
     }
-    .hero::after {content:""; position:absolute; inset:0; background:rgba(0,0,0,0.8); backdrop-filter: blur(1px);}
-    .hero div {position:relative; z-index:1; padding: 20px;}
-    .hero h1 {font-family:'Orbitron',sans-serif; font-size:4.5rem; color:#0ff; margin-bottom:20px; text-shadow: 0 0 10px #0ff;}
-    .hero p {font-size:1.6rem; color:#ddd; font-weight: 300;}
+    .hero::after {content:""; position:absolute; inset:0; background:rgba(0,0,0,0.7);}
+    .hero div {position:relative; z-index:1;}
+    .hero h1 {font-family:'Orbitron',sans-serif; font-size:3rem; color:#0ff; margin-bottom:15px;}
+    .hero p {font-size:1.2rem; color:#ddd;}
+
+    section {padding: 120px 50px; text-align:center;}
+    h2 {font-family:'Orbitron',sans-serif; color:#0ff; font-size:2.2rem; margin-bottom:25px;}
+    p {color:#ccc; line-height:1.7; max-width:800px; margin:auto;}
 
     /* SERVIÇOS */
     .services {display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin-top:40px;}
     .service-card {
-      background:rgba(10,10,10,0.8); border:2px solid #0047ab; border-radius:15px;
-      padding:35px 25px; width:300px; transition:transform 0.4s, box-shadow 0.4s;
-      box-shadow: 0 0 15px rgba(0, 71, 171, 0.3);
-      min-height: 250px;
+      background:#0a0a0a; border:1px solid #0047ab; border-radius:10px;
+      padding:25px; width:280px; transition:transform 0.3s;
     }
-    .service-card:hover {
-        transform:translateY(-5px);
-        box-shadow: 0 10px 25px rgba(0, 71, 171, 0.6);
-    }
-    .service-card .icon {font-size: 3rem; color: #0099ff; margin-bottom: 15px;}
-    .service-card h3 {color:#0ff; margin-bottom:10px; font-family: 'Orbitron', sans-serif;}
+    .service-card:hover {transform:scale(1.05);}
+    .service-card h3 {color:#0ff; margin-bottom:10px;}
 
     /* SOBRE - CARROSSEL */
-    .sobre-carousel {position:relative; width:100%; max-width:900px; margin:40px auto; overflow:hidden; border-radius:15px; box-shadow: 0 0 20px rgba(0, 153, 255, 0.2);}
-    .sobre-track {display:flex; transition:transform 1s ease; cursor: grab;}
-    .sobre-track img {width: calc(100% / 3); height:250px; object-fit: cover; margin:0; transition: 0.3s;}
-    /* Ajuste para carrossel (3 itens visíveis) */
-    @media (max-width: 900px) {
-        .sobre-track img {width: calc(100% / 2); height:200px;}
-    }
-    @media (max-width: 600px) {
-        .sobre-track img {width: 100%; height:180px;}
-    }
+    .sobre-carousel {position:relative; width:100%; max-width:900px; margin:40px auto; overflow:hidden; border-radius:15px;}
+    .sobre-track {display:flex; transition:transform 1s ease;}
+    .sobre-track img {width:300px; height:200px; border-radius:10px; margin:0 10px;}
 
     /* CONTADOR */
-    .counter {font-family:'Orbitron',sans-serif; font-size:3rem; color:#0099ff; margin-top:80px; text-shadow: 0 0 5px #0ff;}
+    .counter {font-family:'Orbitron',sans-serif; font-size:2.5rem; color:#0ff; margin-top:80px;}
 
     /* PARCEIROS */
     .partners {display:flex; flex-wrap:wrap; justify-content:center; gap:40px; margin-top:50px;}
-    .partners img {width:120px; height: auto; filter:brightness(0) invert(1); opacity:0.6; transition:0.3s;}
-    .partners img:hover {opacity:1; transform: scale(1.1);}
+    .partners img {width:150px; filter:brightness(0) invert(1); opacity:0.8; transition:0.3s;}
+    .partners img:hover {opacity:1;}
 
-    /* TIME (ACIONISTAS) */
+    /* ACIONISTAS */
     .team {display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin-top:40px;}
     .member {
-      background:#0a0a0a; border:2px solid #003366; padding:25px; border-radius:15px; width:280px; transition:0.4s;
-      box-shadow: 0 0 10px rgba(0, 51, 102, 0.5);
+      background:#0a0a0a; border:1px solid #003366; padding:25px; border-radius:15px; width:250px; transition:0.3s;
     }
-    .member:hover {transform:translateY(-5px); box-shadow: 0 10px 20px rgba(0, 51, 102, 0.8);}
-    .member img {width:100%; height: 280px; object-fit: cover; border-radius:10px; margin-bottom:15px;}
-    .member h3 {color:#0ff; margin-bottom:5px; font-family: 'Orbitron', sans-serif;}
-    .member p.role {font-weight:bold; color:#0099ff; margin-bottom: 10px; font-size: 0.9rem;}
+    .member:hover {transform:scale(1.05);}
+    .member img {width:100%; border-radius:10px; margin-bottom:10px;}
+    .member h3 {color:#0ff; margin-bottom:5px;}
+    .member p.role {font-weight:bold; color:#0099ff;}
 
     /* DEPOIMENTOS */
     .testimonials {background:#0a0a0a; overflow:hidden; padding:80px 50px;}
-    .testimonial-container {overflow: hidden; max-width: 800px; margin: 40px auto;}
-    .testimonial-slide {display:flex; transition:transform 1s ease; white-space: nowrap;}
-    .testimonial {
-        min-width: 100%; box-sizing: border-box; display: inline-block;
-        padding: 20px; text-align: center;
-    }
-    .testimonial img {width:80px; height:80px; border-radius:50%; margin-bottom:15px; border: 3px solid #0099ff;}
-    .testimonial p {font-style: italic; font-size: 1.1rem; color: #fff; max-width: 600px; margin: 10px auto;}
-    .testimonial h4 {color:#0ff; margin-top:10px; font-weight: 700;}
-    .testimonial-dots {text-align: center; margin-top: 20px;}
-    .dot {
-        height: 10px; width: 10px; background-color: #555; border-radius: 50%;
-        display: inline-block; margin: 0 5px; cursor: pointer; transition: background-color 0.3s;
-    }
-    .dot.active {background-color: #0ff;}
+    .testimonial-slide {display:flex; transition:transform 1s ease;}
+    .testimonial {min-width:100%; box-sizing:border-box;}
+    .testimonial img {width:80px; height:80px; border-radius:50%; margin-bottom:10px;}
+    .testimonial h4 {color:#0ff; margin-top:10px;}
 
     /* CONTATO */
-    .contact .socials {display:flex; justify-content:center; gap:35px; margin-top:35px;}
-    .contact a {
-        display: flex; justify-content: center; align-items: center;
-        width: 60px; height: 60px; border-radius: 50%; background: #0047ab;
-        transition: background 0.3s, transform 0.3s;
-    }
-    .contact a:hover {background: #0ff; transform: scale(1.1);}
-    .contact a img {width:35px; height:35px; filter: invert(1); transition: none;}
+    .contact .socials {display:flex; justify-content:center; gap:25px; margin-top:25px;}
+    .contact a img {width:40px; height:40px; transition:transform 0.3s;}
+    .contact a img:hover {transform:scale(1.1);}
 
     /* WHATSAPP FIXO */
     .whatsapp-fixed {position:fixed; bottom:20px; right:20px; background:#25d366; border-radius:50%;
       width:60px; height:60px; display:flex; justify-content:center; align-items:center;
-      box-shadow:0 6px 12px rgba(0,0,0,0.6); transition:transform 0.3s, background 0.3s; z-index:2000;}
-    .whatsapp-fixed:hover {transform:scale(1.15); background: #128c7e;}
-    .whatsapp-fixed img {width:35px; height:35px; filter: invert(0);}
+      box-shadow:0 4px 8px rgba(0,0,0,0.4); transition:0.3s; z-index:2000;}
+    .whatsapp-fixed:hover {transform:scale(1.1);}
+    .whatsapp-fixed img {width:35px; height:35px;}
 
     /* FOOTER */
-    footer {background:#001f3f; text-align:center; padding:30px; color:#999; font-size:0.9rem;}
-
-    /* RESPONSIVIDADE GERAL */
-    @media (max-width: 600px) {
-        section {padding: 80px 20px;}
-        .hero h1 {font-size: 3rem;}
-        .hero p {font-size: 1.2rem;}
-        h2 {font-size: 2rem;}
-        .service-card {width: 100%;}
-        .whatsapp-fixed {width: 50px; height: 50px;}
-        .whatsapp-fixed img {width: 30px; height: 30px;}
-    }
+    footer {background:#001f3f; text-align:center; padding:25px; color:#ccc; font-size:0.9rem;}
   </style>
 </head>
 
@@ -168,55 +110,51 @@
       <li><a href="#inicio">Início</a></li>
       <li><a href="#sobre">Sobre</a></li>
       <li><a href="#servicos">Serviços</a></li>
-      <li><a href="#time">Time</a></li>
+      <li><a href="#acionistas">Acionistas</a></li>
       <li><a href="#depoimentos">Depoimentos</a></li>
       <li><a href="#contato">Contato</a></li>
     </ul>
     <div class="menu-toggle"><div></div><div></div><div></div></div>
   </nav>
 
+  <!-- HERO -->
   <section class="hero" id="inicio">
     <div>
       <h1>Conectando Tecnologia e Inovação</h1>
-      <p>Transformamos ideias em **soluções digitais poderosas** e sob medida.</p>
-      <a href="#contato" class="btn-primary">Fale com um Especialista</a>
+      <p>Transformamos ideias em soluções digitais poderosas.</p>
     </div>
   </section>
 
+  <!-- SERVIÇOS -->
   <section id="servicos">
     <h2>Serviços</h2>
-    <p>Atuamos em diversas áreas da tecnologia, sempre com foco em inovação, excelência e resultados que impulsionam o seu negócio.</p>
+    <p>Atuamos em diversas áreas da tecnologia, sempre com foco em inovação e excelência.</p>
     <div class="services">
       <div class="service-card">
-        <div class="icon"><i class="fas fa-code"></i></div>
         <h3>Desenvolvimento de Software</h3>
-        <p>Criação de sistemas personalizados, aplicativos mobile e plataformas web eficientes e escaláveis.</p>
+        <p>Criação de sistemas personalizados e eficientes para atender às necessidades do seu negócio.</p>
       </div>
       <div class="service-card">
-        <div class="icon"><i class="fas fa-network-wired"></i></div>
-        <h3>Consultoria de TI Estratégica</h3>
-        <p>Análise, planejamento estratégico e otimização da infraestrutura tecnológica para máxima performance.</p>
+        <h3>Consultoria de TI</h3>
+        <p>Planejamento estratégico e otimização da infraestrutura tecnológica da sua empresa.</p>
       </div>
       <div class="service-card">
-        <div class="icon"><i class="fas fa-robot"></i></div>
-        <h3>Automação de Processos (RPA)</h3>
-        <p>Reduza custos operacionais e aumente a produtividade com soluções inteligentes de automação e IA.</p>
+        <h3>Automação de Processos</h3>
+        <p>Reduza custos e aumente produtividade com soluções inteligentes de automação.</p>
       </div>
     </div>
   </section>
 
+  <!-- SOBRE -->
   <section id="sobre">
     <h2>Sobre Nós</h2>
-    <p>A Prosolution é especializada em soluções de TI de alto nível, com um histórico comprovado em automação e inovação digital. Nossa missão é ser o seu parceiro tecnológico de confiança.</p>
+    <p>A Prosolution é especializada em soluções de TI, automação e inovação digital, com foco em desempenho e confiabilidade.</p>
 
     <div class="sobre-carousel">
       <div class="sobre-track" id="sobreTrack">
-        <img src="https://images.unsplash.com/photo-1581092334707-39c4c30bfbcd?auto=format&fit=crop&w=500&q=80" alt="Equipe de desenvolvimento trabalhando">
-        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=500&q=80" alt="Reunião de brainstorming">
-        <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=500&q=80" alt="Infraestrutura de datacenter">
-        <img src="https://images.unsplash.com/photo-1581092334707-39c4c30bfbcd?auto=format&fit=crop&w=500&q=80" alt="Equipe de desenvolvimento trabalhando">
-        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=500&q=80" alt="Reunião de brainstorming">
-        <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=500&q=80" alt="Infraestrutura de datacenter">
+        <img src="https://images.unsplash.com/photo-1581092334707-39c4c30bfbcd?auto=format&fit=crop&w=500&q=80" alt="">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=500&q=80" alt="">
+        <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=500&q=80" alt="">
       </div>
     </div>
 
@@ -231,166 +169,76 @@
     </div>
   </section>
 
-  <section id="time">
-    <h2>Nosso Time</h2>
-    <p>Conheça os líderes que impulsionam a Prosolution rumo ao futuro da tecnologia.</p>
+  <!-- ACIONISTAS -->
+  <section id="acionistas">
+    <h2>Acionistas</h2>
     <div class="team">
       <div class="member">
-        <img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?auto=format&fit=crop&w=400&q=80" alt="Foto de Anderson">
-        <h3>Anderson M.</h3>
-        <p class="role">CEO & Estratégia</p>
-        <p>Responsável pela visão de longo prazo e expansão internacional da Prosolution.</p>
+        <img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?auto=format&fit=crop&w=400&q=80" alt="Anderson">
+        <h3>Anderson</h3>
+        <p class="role">Acionista</p>
+        <p>Responsável pela estratégia e expansão internacional da Prosolution.</p>
       </div>
       <div class="member">
-        <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=400&q=80" alt="Foto de Eduardo">
-        <h3>Eduardo S.</h3>
-        <p class="role">CTO & Inovação</p>
-        <p>Lidera a direção executiva e garante a vanguarda tecnológica de todos os nossos projetos.</p>
+        <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=400&q=80" alt="Eduardo">
+        <h3>Eduardo</h3>
+        <p class="role">Diretor</p>
+        <p>Lidera a direção executiva e inovação tecnológica da empresa.</p>
       </div>
     </div>
   </section>
 
+  <!-- DEPOIMENTOS -->
   <section id="depoimentos" class="testimonials">
-    <h2>O Que Dizem Nossos Clientes</h2>
-    <div class="testimonial-container">
-        <div class="testimonial-slide" id="testimonialSlide">
-          <div class="testimonial"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Foto de João Lima"><p>"Equipe excepcional! Elevou o padrão de nossa TI com soluções robustas e fáceis de usar. Recomendo a todos!"</p><h4>- João Lima, Diretor Executivo da Alpha Corp</h4></div>
-          <div class="testimonial"><img src="https://randomuser.me/api/portraits/women/55.jpg" alt="Foto de Ana Souza"><p>"Resultados rápidos e soluções inovadoras. A Prosolution compreendeu nossas necessidades e entregou além das expectativas."</p><h4>- Ana Souza, Gerente de Projetos na Beta Tech</h4></div>
-          <div class="testimonial"><img src="https://randomuser.me/api/portraits/men/64.jpg" alt="Foto de Carlos Mendes"><p>"Excelente suporte e tecnologia de ponta. O projeto de automação que implementamos nos fez economizar 40% em custos operacionais."</p><h4>- Carlos Mendes, Head de Operações</h4></div>
-        </div>
-    </div>
-    <div class="testimonial-dots" id="testimonialDots">
-        <span class="dot active" data-index="0"></span>
-        <span class="dot" data-index="1"></span>
-        <span class="dot" data-index="2"></span>
+    <h2>Depoimentos</h2>
+    <div class="testimonial-slide" id="testimonialSlide">
+      <div class="testimonial"><img src="https://randomuser.me/api/portraits/men/32.jpg"><p>"Equipe excepcional! Elevou o padrão de nossa TI."</p><h4>- João Lima</h4></div>
+      <div class="testimonial"><img src="https://randomuser.me/api/portraits/women/55.jpg"><p>"Resultados rápidos e soluções inovadoras."</p><h4>- Ana Souza</h4></div>
+      <div class="testimonial"><img src="https://randomuser.me/api/portraits/men/64.jpg"><p>"Excelente suporte e tecnologia de ponta."</p><h4>- Carlos Mendes</h4></div>
     </div>
   </section>
 
+  <!-- CONTATO -->
   <section id="contato" class="contact">
     <h2>Fale Conosco</h2>
-    <p>Pronto para transformar seu negócio com tecnologia? Entre em contato agora e comece a inovar!</p>
+    <p>Entre em contato conosco pelas redes sociais:</p>
     <div class="socials">
-      <a href="https://wa.me/5515998216626?text=Ol%C3%A1%20Prosolution!%20Gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os%20de%20voc%C3%AAs." target="_blank" aria-label="WhatsApp"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a>
-      <a href="https://www.instagram.com/prosolution_tech" target="_blank" aria-label="Instagram"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"></a>
-      <a href="mailto:contato@prosolution.com.br" aria-label="Email"><i class="fas fa-envelope" style="color: white; font-size: 25px;"></i></a>
+      <a href="https://wa.me/5515998216626?text=Olá%20Prosolution!" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"></a>
+      <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"></a>
+      <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Facebook_icon_%28black%29.svg"></a>
     </div>
-    <p style="margin-top: 25px; color: #0ff;">contato@prosolution.com.br | (15) 99821-6626</p>
   </section>
 
-  <a href="https://wa.me/5515998216626?text=Ol%C3%A1%20Prosolution!" target="_blank" class="whatsapp-fixed" aria-label="Fale conosco pelo WhatsApp">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  <!-- WHATSAPP -->
+  <a href="https://wa.me/5515998216626?text=Olá%20Prosolution!" target="_blank" class="whatsapp-fixed">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
   </a>
 
-  <footer>© 2025 Prosolution - Tecnologia e Inovação | CNPJ: 54.694.364/0001-48 | Todos os direitos reservados.</footer>
+  <!-- FOOTER -->
+  <footer>© 2025 Prosolution - Tecnologia e Inovação | CNPJ: 54.694.364/0001-48</footer>
 
   <script>
-    // ------------------------------------
-    // MENU MOBILE
-    // ------------------------------------
-    const toggle = document.querySelector('.menu-toggle');
-    const menu = document.querySelector('#menu');
-    toggle.addEventListener('click', () => {
-        menu.classList.toggle('active');
-        // Fecha o menu ao clicar em um link
-        menu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.remove('active');
-            });
-        });
-    });
+    // MENU
+    const toggle=document.querySelector('.menu-toggle');
+    const menu=document.querySelector('#menu');
+    toggle.addEventListener('click',()=>menu.classList.toggle('active'));
 
+    // DEPOIMENTOS
+    const slide=document.getElementById('testimonialSlide');
+    let idx=0;const total=slide.children.length;
+    setInterval(()=>{idx=(idx+1)%total;slide.style.transform=`translateX(-${idx*100}%)`;},3500);
 
-    // ------------------------------------
-    // DEPOIMENTOS (Com Dots e Hover)
-    // ------------------------------------
-    const slide = document.getElementById('testimonialSlide');
-    const dotsContainer = document.getElementById('testimonialDots');
-    const total = slide.children.length;
-    let idx = 0;
-    let slideInterval;
-
-    function updateDots() {
-        document.querySelectorAll('.dot').forEach(dot => dot.classList.remove('active'));
-        document.querySelector(`.dot[data-index="${idx}"]`).classList.add('active');
-    }
-
-    function moveSlide(index) {
-        idx = index;
-        slide.style.transform = `translateX(-${idx * 100}%)`;
-        updateDots();
-    }
-
-    function startSlider() {
-        slideInterval = setInterval(() => {
-            idx = (idx + 1) % total;
-            moveSlide(idx);
-        }, 3500);
-    }
-
-    dotsContainer.addEventListener('click', (e) => {
-        if (e.target.classList.contains('dot')) {
-            clearInterval(slideInterval);
-            moveSlide(parseInt(e.target.dataset.index));
-            startSlider(); // Reinicia o intervalo após clique manual
-        }
-    });
-
-    // Pausa e reinicia ao passar o mouse
-    const testimonialContainer = document.querySelector('.testimonial-container');
-    testimonialContainer.addEventListener('mouseenter', () => clearInterval(slideInterval));
-    testimonialContainer.addEventListener('mouseleave', startSlider);
-
-    startSlider(); // Inicia o carrossel
-
-    // ------------------------------------
     // CONTADOR
-    // ------------------------------------
-    const counter = document.getElementById("counter");
-    const target = 4000;
-    let count = 0;
-    
-    // Observador para iniciar a contagem quando o elemento estiver visível
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const timer = setInterval(() => {
-                    count += 80;
-                    if (count >= target) {
-                        count = target; // Garante que não passe do target
-                        clearInterval(timer);
-                    }
-                    counter.textContent = `+${count.toLocaleString('pt-BR')} Clientes Atendidos`;
-                }, 40);
-                observer.unobserve(entry.target); // Para de observar após iniciar
-            }
-        });
-    }, { threshold: 0.5 }); // Inicia quando 50% do elemento estiver visível
+    const counter=document.getElementById("counter");
+    let count=0;const target=4000;
+    const timer=setInterval(()=>{count+=80;counter.textContent=`+${count.toLocaleString()} Clientes Atendidos`;
+      if(count>=target)clearInterval(timer);
+    },40);
 
-    observer.observe(counter);
-
-
-    // ------------------------------------
-    // SOBRE - CARROSSEL (Loop Infinito)
-    // ------------------------------------
-    const sobreTrack = document.getElementById("sobreTrack");
-    let i = 0;
-    const itemWidth = sobreTrack.children[0].offsetWidth; // Largura do primeiro item (dinâmica)
-    const numOriginalItems = 3;
-
-    function updateSobreTrack() {
-        // O JS não é mais necessário aqui, pois o CSS já está configurado para 3 colunas visíveis.
-        // O efeito de carrossel infinito é melhor feito com repetição de itens no HTML e tradução contínua.
-        // O código original não tinha loop infinito. Vamos ajustar.
-
-        i = (i + 1);
-
-        // Se o índice for igual ao número original de itens, "reseta" para o começo instantaneamente
-        // e continua o movimento para dar a ilusão de loop infinito.
-        if (i > numOriginalItems) {
-            sobreTrack.style.transition = 'none'; // Remove a transição
-            i = 1; // Volta para o primeiro item repetido
-        } else {
-            sobreTrack.style.transition = 'transform 1s ease';
-        }
-
-        const itemToTranslate = sobreTrack.children[0].offsetWidth;
+    // SOBRE - CARROSSEL
+    const sobreTrack=document.getElementById("sobreTrack");
+    let i=0;
+    setInterval(()=>{i=(i+1)%3;sobreTrack.style.transform=`translateX(-${i*320}px)`;},2500);
+  </script>
+</body>
+</html>
