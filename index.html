@@ -1,105 +1,161 @@
-
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prosolution - Tecnologia e Inovação</title>
+  <title>Prosolution - Tecnologia de Ponta e Soluções Digitais Inovadoras</title>
+  <meta name="description" content="Prosolution: Liderança em Desenvolvimento de Software, Automação Inteligente e Consultoria de TI. Transforme seu negócio com inovação de ponta.">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMD/cdCbdzO7L2V8sI9/8Wv2T51Qx0u8R0k03hU7a7A9/XG+5B6sN3H5a6Wz5r9" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
+    /* ------------------------------------ */
+    /* RESET E BASE */
+    /* ------------------------------------ */
     * {margin: 0; padding: 0; box-sizing: border-box;}
-    body {font-family: 'Roboto', sans-serif; background: #000; color: #fff; overflow-x: hidden;}
-
-    /* NAV */
-    nav {
-      position: fixed; top: 0; left: 0; width: 100%;
-      background: linear-gradient(90deg, #001f3f, #0047ab);
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 15px 40px; z-index: 1000;
-    }
-    .logo {font-family: 'Orbitron', sans-serif; font-size: 1.8rem; color: #0ff; letter-spacing: 2px;}
-    nav ul {display: flex; gap: 25px; list-style: none;}
-    nav ul li a {color: #fff; text-decoration: none; font-weight: bold; transition: 0.3s;}
-    nav ul li a:hover {color: #0ff;}
-    .menu-toggle {display: none; flex-direction: column; cursor: pointer;}
-    .menu-toggle div {width: 28px; height: 3px; background: #fff; margin: 5px 0;}
-    @media (max-width: 768px) {
-      nav ul {display: none; flex-direction: column; position: absolute; top: 70px; right: 0; background: #002b5c;
-        width: 200px; padding: 20px; border-radius: 0 0 10px 10px;}
-      nav ul.active {display: flex;}
-      .menu-toggle {display: flex;}
-    }
-
-    /* HERO */
-    .hero {
-      height: 100vh;
-      background: url('https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1920&q=80') no-repeat center/cover;
-      display: flex; align-items: center; justify-content: center;
-      text-align: center; position: relative;
-    }
-    .hero::after {content:""; position:absolute; inset:0; background:rgba(0,0,0,0.7);}
-    .hero div {position:relative; z-index:1;}
-    .hero h1 {font-family:'Orbitron',sans-serif; font-size:3rem; color:#0ff; margin-bottom:15px;}
-    .hero p {font-size:1.2rem; color:#ddd;}
+    body {font-family: 'Roboto', sans-serif; background: #000; color: #fff; overflow-x: hidden; line-height: 1.6;}
+    a {text-decoration: none; color: inherit;}
 
     section {padding: 120px 50px; text-align:center;}
-    h2 {font-family:'Orbitron',sans-serif; color:#0ff; font-size:2.2rem; margin-bottom:25px;}
-    p {color:#ccc; line-height:1.7; max-width:800px; margin:auto;}
+    h2 {font-family:'Orbitron',sans-serif; color:#0ff; font-size:2.5rem; margin-bottom:25px; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);}
+    p {color:#ccc; line-height:1.8; max-width:800px; margin:auto;}
 
-    /* SERVIÇOS */
-    .services {display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin-top:40px;}
+    /* ------------------------------------ */
+    /* BOTÃO DE DESTAQUE (VENDAS) */
+    /* ------------------------------------ */
+    .btn-primary {
+        display: inline-block; padding: 15px 35px; margin-top: 30px;
+        background: linear-gradient(90deg, #0099ff, #0ff); 
+        color: #000; font-weight: 700;
+        border-radius: 8px; transition: all 0.3s;
+        font-family: 'Orbitron', sans-serif;
+        text-transform: uppercase;
+        box-shadow: 0 0 15px rgba(0, 153, 255, 0.5);
+    }
+    .btn-primary:hover {
+        background: linear-gradient(90deg, #0ff, #0099ff); 
+        color: #000; transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 10px 25px rgba(0, 153, 255, 0.8);
+    }
+
+    /* ------------------------------------ */
+    /* NAV & HERO (Manteve) */
+    /* ------------------------------------ */
+    nav {position: fixed; top: 0; left: 0; width: 100%; background: linear-gradient(90deg, #001f3f, #0047ab); display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.5);}
+    .logo {font-family: 'Orbitron', sans-serif; font-size: 1.8rem; color: #0ff; letter-spacing: 2px;}
+    nav ul {display: flex; gap: 30px; list-style: none;}
+    nav ul li a {color: #fff; text-decoration: none; font-weight: bold; transition: 0.3s; padding: 5px 0;}
+    nav ul li a:hover {color: #0ff;}
+    .menu-toggle {display: none; flex-direction: column; cursor: pointer;}
+    .menu-toggle div {width: 28px; height: 3px; background: #fff; margin: 5px 0; transition: 0.3s;}
+    @media (max-width: 900px) {nav ul {display: none; flex-direction: column; position: absolute; top: 70px; right: 0; background: #002b5c; width: 100%; max-width: 300px; padding: 20px; border-radius: 0 0 10px 10px; text-align: left; box-shadow: 0 5px 10px rgba(0,0,0,0.5);} nav ul li {width: 100%; margin: 10px 0;} nav ul li a {display: block; padding: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.1);} nav ul.active {display: flex;} .menu-toggle {display: flex;}}
+
+    .hero {height: 100vh; background: url('https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1920&q=80') no-repeat center/cover; display: flex; align-items: center; justify-content: center; text-align: center; position: relative;}
+    .hero::after {content:""; position:absolute; inset:0; background:rgba(0,0,0,0.85); backdrop-filter: blur(2px);}
+    .hero div {position:relative; z-index:1; padding: 20px;}
+    .hero h1 {font-family:'Orbitron',sans-serif; font-size:4.5rem; color:#0ff; margin-bottom:20px; text-shadow: 0 0 15px #0ff;}
+    .hero p {font-size:1.6rem; color:#ddd; font-weight: 300;}
+
+    /* ------------------------------------ */
+    /* SERVIÇOS (Foco em Vendas) */
+    /* ------------------------------------ */
     .service-card {
-      background:#0a0a0a; border:1px solid #0047ab; border-radius:10px;
-      padding:25px; width:280px; transition:transform 0.3s;
+      background: #0a0a0a; 
+      border: 2px solid #0047ab; 
+      border-radius: 15px;
+      padding: 35px 25px; 
+      width: 300px; 
+      transition: transform 0.4s, box-shadow 0.4s;
+      box-shadow: 0 0 15px rgba(0, 71, 171, 0.3), inset 0 0 10px rgba(0, 153, 255, 0.1); /* Sombra interna */
+      min-height: 250px;
     }
-    .service-card:hover {transform:scale(1.05);}
-    .service-card h3 {color:#0ff; margin-bottom:10px;}
+    .service-card:hover {
+        transform:translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 71, 171, 0.8), inset 0 0 20px rgba(0, 153, 255, 0.4);
+    }
+    .service-card .icon {
+        font-size: 3rem; 
+        color: #0099ff; 
+        margin-bottom: 15px; 
+        animation: pulse 2s infinite; /* Pequena animação */
+    }
+    @keyframes pulse {
+        0% {text-shadow: 0 0 5px #0099ff;}
+        50% {text-shadow: 0 0 15px #0099ff;}
+        100% {text-shadow: 0 0 5px #0099ff;}
+    }
 
-    /* SOBRE - CARROSSEL */
-    .sobre-carousel {position:relative; width:100%; max-width:900px; margin:40px auto; overflow:hidden; border-radius:15px;}
-    .sobre-track {display:flex; transition:transform 1s ease;}
-    .sobre-track img {width:300px; height:200px; border-radius:10px; margin:0 10px;}
+    /* ------------------------------------ */
+    /* CASES DE SUCESSO (Novo!) */
+    /* ------------------------------------ */
+    #cases {background: #0a0a0a;}
+    .case-container {display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px;}
+    .case-card {
+        background: #000; border: 1px solid #0ff; border-radius: 10px;
+        padding: 25px; width: 350px; text-align: left;
+        transition: transform 0.3s, box-shadow 0.3s;
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+    }
+    .case-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 30px rgba(0, 255, 255, 0.5);
+    }
+    .case-card h3 {color: #0099ff; margin-bottom: 10px; font-family: 'Orbitron', sans-serif;}
+    .case-card strong {color: #0ff;}
 
-    /* CONTADOR */
-    .counter {font-family:'Orbitron',sans-serif; font-size:2.5rem; color:#0ff; margin-top:80px;}
+    /* ------------------------------------ */
+    /* CARROSSEL DE LOGOS (Manteve) */
+    /* ------------------------------------ */
+    .partners-carousel-container {width: 100%; max-width: 1200px; margin: 50px auto 0; overflow: hidden; position: relative;}
+    .partners-track {display: flex; animation: scrollLogos 25s linear infinite;} 
+    .partners-track:hover {animation-play-state: paused;}
+    .partners-track img {width: 120px; height: auto; filter: brightness(0) invert(1); opacity: 0.6; transition: opacity 0.3s, transform 0.3s; margin: 0 30px; flex-shrink: 0;}
+    .partners-track img:hover {opacity: 1; transform: scale(1.1);}
+    @keyframes scrollLogos {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-50% - 30px)); } 
+    }
+    @media (max-width: 600px) {
+        .partners-track img {width: 80px; margin: 0 15px;}
+        @keyframes scrollLogos {100% { transform: translateX(calc(-50% - 15px));}}
+    }
 
-    /* PARCEIROS */
-    .partners {display:flex; flex-wrap:wrap; justify-content:center; gap:40px; margin-top:50px;}
-    .partners img {width:150px; filter:brightness(0) invert(1); opacity:0.8; transition:0.3s;}
-    .partners img:hover {opacity:1;}
-
-    /* ACIONISTAS */
+    /* ------------------------------------ */
+    /* CONTADOR, TIME, DEPOIMENTOS (Manteve) */
+    /* ------------------------------------ */
+    .counter {font-family:'Orbitron',sans-serif; font-size:3rem; color:#0099ff; margin-top:80px; text-shadow: 0 0 5px #0ff;}
     .team {display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin-top:40px;}
-    .member {
-      background:#0a0a0a; border:1px solid #003366; padding:25px; border-radius:15px; width:250px; transition:0.3s;
-    }
-    .member:hover {transform:scale(1.05);}
-    .member img {width:100%; border-radius:10px; margin-bottom:10px;}
-    .member h3 {color:#0ff; margin-bottom:5px;}
-    .member p.role {font-weight:bold; color:#0099ff;}
-
-    /* DEPOIMENTOS */
+    .member {background:#0a0a0a; border:2px solid #003366; padding:25px; border-radius:15px; width:280px; transition:0.4s; box-shadow: 0 0 10px rgba(0, 51, 102, 0.5);}
+    .member:hover {transform:translateY(-5px); box-shadow: 0 10px 20px rgba(0, 51, 102, 0.8);}
+    .member img {width:100%; height: 280px; object-fit: cover; border-radius:10px; margin-bottom:15px;}
+    .member h3 {color:#0ff; margin-bottom:5px; font-family: 'Orbitron', sans-serif;}
+    .member p.role {font-weight:bold; color:#0099ff; margin-bottom: 10px; font-size: 0.9rem;}
     .testimonials {background:#0a0a0a; overflow:hidden; padding:80px 50px;}
-    .testimonial-slide {display:flex; transition:transform 1s ease;}
-    .testimonial {min-width:100%; box-sizing:border-box;}
-    .testimonial img {width:80px; height:80px; border-radius:50%; margin-bottom:10px;}
-    .testimonial h4 {color:#0ff; margin-top:10px;}
+    .testimonial-container {overflow: hidden; max-width: 800px; margin: 40px auto;}
+    .testimonial-slide {display:flex; transition:transform 1s ease; white-space: nowrap;}
+    .testimonial {min-width: 100%; box-sizing: border-box; display: inline-block; padding: 20px; text-align: center;}
+    .testimonial img {width:80px; height:80px; border-radius:50%; margin-bottom:15px; border: 3px solid #0099ff;}
+    .testimonial p {font-style: italic; font-size: 1.1rem; color: #fff; max-width: 600px; margin: 10px auto;}
+    .testimonial h4 {color:#0ff; margin-top:10px; font-weight: 700;}
+    .testimonial-dots {text-align: center; margin-top: 20px;}
+    .dot {height: 10px; width: 10px; background-color: #555; border-radius: 50%; display: inline-block; margin: 0 5px; cursor: pointer; transition: background-color 0.3s;}
+    .dot.active {background-color: #0ff;}
 
-    /* CONTATO */
-    .contact .socials {display:flex; justify-content:center; gap:25px; margin-top:25px;}
-    .contact a img {width:40px; height:40px; transition:transform 0.3s;}
-    .contact a img:hover {transform:scale(1.1);}
+    /* ------------------------------------ */
+    /* CONTATO & FOOTER (Ajustado) */
+    /* ------------------------------------ */
+    .contact .socials {display:flex; justify-content:center; gap:35px; margin-top:35px;}
+    .contact a {display: flex; justify-content: center; align-items: center; width: 60px; height: 60px; border-radius: 50%; background: #0047ab; transition: background 0.3s, transform 0.3s;}
+    .contact a:hover {background: #0ff; transform: scale(1.1);}
+    .contact a img {width:35px; height:35px; filter: invert(1); transition: none;}
 
-    /* WHATSAPP FIXO */
-    .whatsapp-fixed {position:fixed; bottom:20px; right:20px; background:#25d366; border-radius:50%;
-      width:60px; height:60px; display:flex; justify-content:center; align-items:center;
-      box-shadow:0 4px 8px rgba(0,0,0,0.4); transition:0.3s; z-index:2000;}
-    .whatsapp-fixed:hover {transform:scale(1.1);}
-    .whatsapp-fixed img {width:35px; height:35px;}
+    .whatsapp-fixed {position:fixed; bottom:20px; right:20px; background:#25d366; border-radius:50%; width:60px; height:60px; display:flex; justify-content:center; align-items:center; box-shadow:0 6px 12px rgba(0,0,0,0.6); transition:transform 0.3s, background 0.3s; z-index:2000;}
+    .whatsapp-fixed:hover {transform:scale(1.15); background: #128c7e;}
 
-    /* FOOTER */
-    footer {background:#001f3f; text-align:center; padding:25px; color:#ccc; font-size:0.9rem;}
+    footer {
+        background:#001f3f; text-align:center; padding:30px; color:#999; font-size:0.9rem;
+        border-top: 3px solid #0047ab;
+    }
+    footer a {color: #0ff; margin: 0 5px;}
   </style>
 </head>
 
@@ -110,135 +166,145 @@
       <li><a href="#inicio">Início</a></li>
       <li><a href="#sobre">Sobre</a></li>
       <li><a href="#servicos">Serviços</a></li>
-      <li><a href="#acionistas">Acionistas</a></li>
+      <li><a href="#cases">Cases</a></li>
+      <li><a href="#time">Time</a></li>
       <li><a href="#depoimentos">Depoimentos</a></li>
       <li><a href="#contato">Contato</a></li>
     </ul>
     <div class="menu-toggle"><div></div><div></div><div></div></div>
   </nav>
 
-  <!-- HERO -->
   <section class="hero" id="inicio">
     <div>
-      <h1>Conectando Tecnologia e Inovação</h1>
-      <p>Transformamos ideias em soluções digitais poderosas.</p>
+      <h1>Tecnologia de Ponta: O Futuro do Seu Negócio</h1>
+      <p>Transformamos **desafios complexos** em **soluções digitais inteligentes**, garantindo crescimento exponencial.</p>
+      <a href="#contato" class="btn-primary">Agende uma Análise Estratégica Gratuita <i class="fas fa-arrow-right"></i></a>
     </div>
   </section>
 
-  <!-- SERVIÇOS -->
   <section id="servicos">
-    <h2>Serviços</h2>
-    <p>Atuamos em diversas áreas da tecnologia, sempre com foco em inovação e excelência.</p>
+    <h2>Nossas Soluções de Alto Impacto</h2>
+    <p>Nossa expertise em engenharia de software e consultoria estratégica impulsiona a eficiência e a competitividade do mercado.</p>
     <div class="services">
       <div class="service-card">
-        <h3>Desenvolvimento de Software</h3>
-        <p>Criação de sistemas personalizados e eficientes para atender às necessidades do seu negócio.</p>
+        <div class="icon"><i class="fas fa-microchip"></i></div>
+        <h3>Desenvolvimento Sob Medida</h3>
+        <p>Criamos sistemas complexos e escaláveis do zero, focados em performance e segurança. **Não adaptamos, criamos.**</p>
       </div>
       <div class="service-card">
-        <h3>Consultoria de TI</h3>
-        <p>Planejamento estratégico e otimização da infraestrutura tecnológica da sua empresa.</p>
+        <div class="icon"><i class="fas fa-shield-alt"></i></div>
+        <h3>Cibersegurança e Cloud</h3>
+        <p>Migração segura para Cloud e estratégias de segurança cibernética para proteger seus ativos mais valiosos 24/7.</p>
       </div>
       <div class="service-card">
-        <h3>Automação de Processos</h3>
-        <p>Reduza custos e aumente produtividade com soluções inteligentes de automação.</p>
+        <div class="icon"><i class="fas fa-brain"></i></div>
+        <h3>Inteligência Artificial & Dados</h3>
+        <p>Implementação de modelos de Machine Learning e IA para análise preditiva e tomada de decisão automatizada.</p>
       </div>
     </div>
   </section>
+  
+  <section id="cases">
+    <h2>Cases de Sucesso</h2>
+    <p>Resultados que falam por si. Veja como a Prosolution transformou o desempenho de empresas líderes.</p>
+    <div class="case-container">
+        <div class="case-card">
+            <h3>Projeto Sigma (Financeiro)</h3>
+            <p>Implementação de **RPA** para processamento de transações.</p>
+            <p>Resultado: **98% de precisão** e redução de **600h/mês** de trabalho manual.</p>
+        </div>
+        <div class="case-card">
+            <h3>Plataforma Orion (Logística)</h3>
+            <p>Desenvolvimento de software de **otimização de rotas com IA**.</p>
+            <p>Resultado: **15% de economia** em combustível e logística em 6 meses.</p>
+        </div>
+        <div class="case-card">
+            <h3>Defesa Digital (Varejo)</h3>
+            <p>Consultoria e implementação de **frameworks de Cibersegurança**.</p>
+            <p>Resultado: **Zero incidentes** de segurança após a implantação completa.</p>
+        </div>
+    </div>
+    <a href="#contato" class="btn-primary">Conheça Nossas Soluções Personalizadas</a>
+  </section>
 
-  <!-- SOBRE -->
+
   <section id="sobre">
-    <h2>Sobre Nós</h2>
-    <p>A Prosolution é especializada em soluções de TI, automação e inovação digital, com foco em desempenho e confiabilidade.</p>
+    <h2>Visão e Inovação</h2>
+    <p>A Prosolution é especializada em soluções de TI de alto nível, com um histórico comprovado em automação e inovação digital. Nossa missão é ser o seu parceiro tecnológico de confiança.</p>
 
     <div class="sobre-carousel">
       <div class="sobre-track" id="sobreTrack">
-        <img src="https://images.unsplash.com/photo-1581092334707-39c4c30bfbcd?auto=format&fit=crop&w=500&q=80" alt="">
-        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=500&q=80" alt="">
-        <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=500&q=80" alt="">
+        <img src="https://images.unsplash.com/photo-1581092334707-39c4c30bfbcd?auto=format&fit=crop&w=500&q=80" alt="Equipe de desenvolvimento trabalhando">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=500&q=80" alt="Reunião de brainstorming">
+        <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=500&q=80" alt="Infraestrutura de datacenter">
+        <img src="https://images.unsplash.com/photo-1581092334707-39c4c30bfbcd?auto=format&fit=crop&w=500&q=80" alt="Equipe de desenvolvimento trabalhando">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=500&q=80" alt="Reunião de brainstorming">
+        <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=500&q=80" alt="Infraestrutura de datacenter">
       </div>
     </div>
 
     <div class="counter" id="counter">+0 Clientes Atendidos</div>
 
     <h2 style="margin-top:70px;">Empresas Parceiras</h2>
-    <div class="partners">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Dell_Logo.svg" alt="Dell">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/HP_logo_2012.svg" alt="HP">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Intel-logo.svg" alt="Intel">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg" alt="Oracle">
+    <div class="partners-carousel-container">
+        <div class="partners-track" id="partnersTrack">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Dell_Logo.svg" alt="Dell">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/HP_logo_2012.svg" alt="HP">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Intel-logo.svg" alt="Intel">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg" alt="Oracle">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Microsoft_logo.svg" alt="Microsoft">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/IBM_logo.svg" alt="IBM">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Amazon_Web_Services_Logo.svg/2560px-Amazon_Web_Services_Logo.svg.png" alt="AWS">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Google_flutter_logo.svg" alt="Flutter">
+            
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Dell_Logo.svg" alt="Dell">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/HP_logo_2012.svg" alt="HP">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Intel-logo.svg" alt="Intel">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg" alt="Oracle">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Microsoft_logo.svg" alt="Microsoft">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/IBM_logo.svg" alt="IBM">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Amazon_Web_Services_Logo.svg/2560px-Amazon_Web_Services_Logo.svg.png" alt="AWS">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Google_flutter_logo.svg" alt="Flutter">
+        </div>
     </div>
   </section>
 
-  <!-- ACIONISTAS -->
-  <section id="acionistas">
-    <h2>Acionistas</h2>
+  <section id="time">
+    <h2>Liderança de Tecnologia</h2>
+    <p>Conheça os líderes que impulsionam a Prosolution, garantindo que cada projeto utilize a melhor e mais recente tecnologia.</p>
     <div class="team">
       <div class="member">
-        <img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?auto=format&fit=crop&w=400&q=80" alt="Anderson">
-        <h3>Anderson</h3>
-        <p class="role">Acionista</p>
-        <p>Responsável pela estratégia e expansão internacional da Prosolution.</p>
+        <img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?auto=format&fit=crop&w=400&q=80" alt="Foto de Anderson">
+        <h3>Anderson M.</h3>
+        <p class="role">CEO & Estratégia</p>
+        <p>Foco em crescimento escalável e visão de mercado global.</p>
       </div>
       <div class="member">
-        <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=400&q=80" alt="Eduardo">
-        <h3>Eduardo</h3>
-        <p class="role">Diretor</p>
-        <p>Lidera a direção executiva e inovação tecnológica da empresa.</p>
+        <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=400&q=80" alt="Foto de Eduardo">
+        <h3>Eduardo S.</h3>
+        <p class="role">CTO & Vanguarda Tech</p>
+        <p>Responsável por integrar a **tecnologia de ponta** em todas as soluções.</p>
       </div>
     </div>
   </section>
 
-  <!-- DEPOIMENTOS -->
   <section id="depoimentos" class="testimonials">
-    <h2>Depoimentos</h2>
-    <div class="testimonial-slide" id="testimonialSlide">
-      <div class="testimonial"><img src="https://randomuser.me/api/portraits/men/32.jpg"><p>"Equipe excepcional! Elevou o padrão de nossa TI."</p><h4>- João Lima</h4></div>
-      <div class="testimonial"><img src="https://randomuser.me/api/portraits/women/55.jpg"><p>"Resultados rápidos e soluções inovadoras."</p><h4>- Ana Souza</h4></div>
-      <div class="testimonial"><img src="https://randomuser.me/api/portraits/men/64.jpg"><p>"Excelente suporte e tecnologia de ponta."</p><h4>- Carlos Mendes</h4></div>
+    <h2>Provas Sociais</h2>
+    <div class="testimonial-container">
+        <div class="testimonial-slide" id="testimonialSlide">
+          <div class="testimonial"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Foto de João Lima"><p>"Equipe excepcional! Elevou o padrão de nossa TI com soluções robustas e fáceis de usar. Recomendo a todos!"</p><h4>- João Lima, Diretor Executivo da Alpha Corp</h4></div>
+          <div class="testimonial"><img src="https://randomuser.me/api/portraits/women/55.jpg" alt="Foto de Ana Souza"><p>"Resultados rápidos e soluções inovadoras. A Prosolution compreendeu nossas necessidades e entregou além das expectativas."</p><h4>- Ana Souza, Gerente de Projetos na Beta Tech</h4></div>
+          <div class="testimonial"><img src="https://randomuser.me/api/portraits/men/64.jpg" alt="Foto de Carlos Mendes"><p>"Excelente suporte e tecnologia de ponta. O projeto de automação que implementamos nos fez economizar 40% em custos operacionais."</p><h4>- Carlos Mendes, Head de Operações</h4></div>
+          <div class="testimonial"><img src="https://randomuser.me/api/portraits/women/66.jpg" alt="Foto de Mariana Costa"><p>"Parceria fundamental para o nosso crescimento. A Prosolution é sinônimo de comprometimento e alta qualidade."</p><h4>- Mariana Costa, CEO da Connect Hub</h4></div>
+          <div class="testimonial"><img src="https://randomuser.me/api/portraits/men/43.jpg" alt="Foto de Rafael Oliveira"><p>"A expertise em software da Prosolution foi crucial para digitalizarmos nossos serviços. Estamos muito satisfeitos!"</p><h4>- Rafael Oliveira, Diretor de TI da Solutions Corp</h4></div>
+          <div class="testimonial"><img src="https://randomuser.me/api/portraits/women/21.jpg" alt="Foto de Fernanda Almeida"><p>"Profissionalismo e agilidade definem o trabalho da Prosolution. Otimizaram nossos processos de forma impressionante."</p><h4>- Fernanda Almeida, Gerente de Operações</h4></div>
+          <div class="testimonial"><img src="https://randomuser.me/api/portraits/men/19.jpg" alt="Foto de Lucas Pereira"><p>"Desde a consultoria inicial até a entrega final, a Prosolution superou todas as nossas expectativas. Uma equipe de ponta!"</p><h4>- Lucas Pereira, Fundador da TechWave</h4></div>
+          <div class="testimonial"><img src="https://randomuser.me/api/portraits/women/80.jpg" alt="Foto de Sofia Rodrigues"><p>"Transformaram nossos desafios em oportunidades com soluções criativas e eficientes. Altamente recomendável!"</p><h4>- Sofia Rodrigues, Coordenadora de Inovação</h4></div>
+        </div>
     </div>
+    <div class="testimonial-dots" id="testimonialDots"></div>
   </section>
 
-  <!-- CONTATO -->
   <section id="contato" class="contact">
-    <h2>Fale Conosco</h2>
-    <p>Entre em contato conosco pelas redes sociais:</p>
-    <div class="socials">
-      <a href="https://wa.me/5515998216626?text=Olá%20Prosolution!" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"></a>
-      <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"></a>
-      <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Facebook_icon_%28black%29.svg"></a>
-    </div>
-  </section>
-
-  <!-- WHATSAPP -->
-  <a href="https://wa.me/5515998216626?text=Olá%20Prosolution!" target="_blank" class="whatsapp-fixed">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
-  </a>
-
-  <!-- FOOTER -->
-  <footer>© 2025 Prosolution - Tecnologia e Inovação | CNPJ: 54.694.364/0001-48</footer>
-
-  <script>
-    // MENU
-    const toggle=document.querySelector('.menu-toggle');
-    const menu=document.querySelector('#menu');
-    toggle.addEventListener('click',()=>menu.classList.toggle('active'));
-
-    // DEPOIMENTOS
-    const slide=document.getElementById('testimonialSlide');
-    let idx=0;const total=slide.children.length;
-    setInterval(()=>{idx=(idx+1)%total;slide.style.transform=`translateX(-${idx*100}%)`;},3500);
-
-    // CONTADOR
-    const counter=document.getElementById("counter");
-    let count=0;const target=4000;
-    const timer=setInterval(()=>{count+=80;counter.textContent=`+${count.toLocaleString()} Clientes Atendidos`;
-      if(count>=target)clearInterval(timer);
-    },40);
-
-    // SOBRE - CARROSSEL
-    const sobreTrack=document.getElementById("sobreTrack");
-    let i=0;
-    setInterval(()=>{i=(i+1)%3;sobreTrack.style.transform=`translateX(-${i*320}px)`;},2500);
-  </script>
-</body>
-</html>
+    <h2>Impulsione Sua Inovação</h2>
+    <p>Pronto para transformar seu negócio com tecnologia de ponta? Entre em contato e descu
