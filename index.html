@@ -1,237 +1,261 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Prosolution - Tecnologia & Inovação</title>
-  <meta name="description" content="Prosolution — Soluções em TI, RH, formação profissional e contabilidade. São Paulo." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prosolution - Tecnologia e Inovação</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Prosolution - Inovação e Tecnologia da Informação. Soluções em Programação, RH, Formação Profissional e Consultoria.">
+  <style>
+    /* RESET */
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+    body { font-family: 'Roboto', sans-serif; background-color: #000; color: #fff; }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      background: linear-gradient(90deg, #001f3f, #0047ab);
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 15px 40px; z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem; color: #0ff; letter-spacing: 2px;
+    }
+    nav ul {
+      list-style: none; display: flex; gap: 25px;
+    }
+    nav ul li a {
+      color: #fff; text-decoration: none; font-weight: bold; transition: color 0.3s;
+    }
+    nav ul li a:hover { color: #0ff; }
+
+    /* MENU SANDUÍCHE */
+    .menu-toggle {
+      display: none; flex-direction: column; cursor: pointer;
+    }
+    .menu-toggle div {
+      width: 28px; height: 3px; background: #fff; margin: 5px 0; transition: 0.4s;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none; flex-direction: column; position: absolute;
+        top: 70px; right: 0; background: #002b5c;
+        width: 200px; padding: 20px; border-radius: 0 0 10px 10px;
+      }
+      nav ul.active { display: flex; }
+      .menu-toggle { display: flex; }
+    }
+
+    /* HERO */
+    .hero {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+      display: flex; align-items: center; justify-content: center; text-align: center;
+      position: relative;
+    }
+    .hero::after {
+      content: ""; position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%; background: rgba(0,0,0,0.7);
+    }
+    .hero div { position: relative; z-index: 1; }
+    .hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      color: #0ff; font-size: 3rem; margin-bottom: 15px;
+    }
+    .hero p { font-size: 1.2rem; color: #ddd; }
+
+    /* SECTIONS */
+    section { padding: 100px 50px; text-align: center; }
+    h2 {
+      font-size: 2.2rem; font-family: 'Orbitron', sans-serif; color: #0ff; margin-bottom: 25px;
+    }
+    p { max-width: 800px; margin: auto; line-height: 1.7; color: #ccc; }
+
+    /* SERVIÇOS */
+    .services {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px; margin-top: 40px;
+    }
+    .service {
+      background: #0a0a0a; border: 1px solid #003366; padding: 30px; border-radius: 15px;
+      transition: 0.3s; font-size: 1.1rem;
+    }
+    .service:hover { background: #0ff; color: #000; transform: translateY(-8px); }
+
+    /* EFEITO TECNOLÓGICO DE FUNDO */
+    body::before {
+      content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      opacity: 0.1; z-index: -1;
+    }
+
+    /* ACIONISTAS */
+    .team {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px;
+    }
+    .member {
+      background: #0a0a0a; border: 1px solid #003366; padding: 25px; border-radius: 15px;
+      width: 250px; transition: transform 0.3s;
+    }
+    .member:hover { transform: scale(1.05); }
+    .member img {
+      width: 100%; border-radius: 10px; margin-bottom: 10px;
+    }
+    .member h3 { color: #0ff; margin-bottom: 5px; }
+    .member p.role { font-weight: bold; color: #0099ff; margin-bottom: 5px; }
+
+    /* DEPOIMENTOS */
+    .testimonials { background: #0a0a0a; padding: 80px 50px; }
+    .testimonial-container { display: flex; overflow-x: auto; gap: 25px; scroll-behavior: smooth; }
+    .testimonial {
+      flex: 0 0 300px; background: #111; border-radius: 15px; padding: 20px; text-align: left;
+    }
+    .testimonial img {
+      width: 60px; height: 60px; border-radius: 50%; object-fit: cover; margin-bottom: 10px;
+    }
+    .testimonial h4 { color: #0ff; margin-bottom: 5px; }
+
+    /* CONTATO */
+    .contact .socials { display: flex; justify-content: center; gap: 20px; margin-top: 20px; }
+    .contact a {
+      color: #0ff; font-weight: bold; font-size: 1.1rem; transition: color 0.3s;
+    }
+    .contact a:hover { color: #fff; }
+
+    /* WHATSAPP FIXO */
+    .whatsapp-fixed {
+      position: fixed; bottom: 20px; right: 20px;
+      background: #25d366; border-radius: 50%; width: 60px; height: 60px;
+      display: flex; justify-content: center; align-items: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+      transition: transform 0.3s; z-index: 2000;
+    }
+    .whatsapp-fixed:hover { transform: scale(1.1); }
+    .whatsapp-fixed img { width: 35px; height: 35px; }
+
+    /* FOOTER */
+    footer {
+      background: #001f3f; text-align: center; padding: 25px; color: #ccc; font-size: 0.9rem;
+    }
+    footer a { color: #0ff; margin: 0 10px; }
+    footer a:hover { color: #fff; }
+  </style>
 </head>
+
 <body>
   <!-- NAV -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <a class="brand" href="#inicio" aria-label="Prosolution - Início">
-        <span class="brand-logo">Prosolution</span>
-      </a>
-
-      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
-        <span class="menu-icon" aria-hidden="true">
-          <span></span><span></span><span></span>
-        </span>
-      </button>
-
-      <ul id="menu" class="nav-menu" role="menubar" aria-hidden="true">
-        <li role="none"><a role="menuitem" href="#inicio">Início</a></li>
-        <li role="none"><a role="menuitem" href="#sobre">Sobre</a></li>
-        <li role="none"><a role="menuitem" href="#servicos">Serviços</a></li>
-        <li role="none"><a role="menuitem" href="#portfolio">Portfólio</a></li>
-        <li role="none"><a role="menuitem" href="#acionistas">Acionistas</a></li>
-        <li role="none"><a role="menuitem" href="#depoimentos">Depoimentos</a></li>
-        <li role="none"><a role="menuitem" href="#contato">Contato</a></li>
-      </ul>
-    </div>
+  <nav>
+    <div class="logo">Prosolution</div>
+    <ul id="menu">
+      <li><a href="#inicio">Início</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#acionistas">Acionistas</a></li>
+      <li><a href="#depoimentos">Depoimentos</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+    <div class="menu-toggle"><div></div><div></div><div></div></div>
   </nav>
 
   <!-- HERO -->
-  <header class="hero" id="inicio" role="banner">
-    <div class="hero-content">
-      <h1>Inovação & Tecnologia para o Futuro</h1>
-      <p>Prosolution — Transformando empresas com soluções em Tecnologia da Informação, RH e consultoria estratégica.</p>
-      <a class="cta" href="#contato">Fale com a Prosolution</a>
+  <section class="hero" id="inicio">
+    <div>
+      <h1>Tecnologia e Inovação que Conectam o Futuro</h1>
+      <p>Prosolution — Excelência em Tecnologia da Informação e Soluções Empresariais</p>
     </div>
-    <div class="hero-image-credit">Imagens: conexões digitais</div>
-  </header>
+  </section>
 
   <!-- SOBRE -->
-  <section id="sobre" class="container about">
+  <section id="sobre">
     <h2>Sobre Nós</h2>
-    <p class="lead">Somos especialistas em integrar tecnologia, pessoas e processos. Desde formação profissional até desenvolvimento de sistemas e consultoria contábil estratégica — entregamos soluções que aceleram resultados.</p>
-
-    <div class="about-grid">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1200&q=80" alt="Redes e conexões digitais" loading="lazy">
-        <h3>Infraestrutura & Redes</h3>
-        <p>Projetos de rede, cloud e conectividade com foco em performance e segurança.</p>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80" alt="Desenvolvimento de software" loading="lazy">
-        <h3>Desenvolvimento & Software</h3>
-        <p>Aplicativos, plataformas web e integrações sob medida para seu negócio.</p>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1526378724246-09c0b6e6b2c9?auto=format&fit=crop&w=1200&q=80" alt="Capacitação profissional" loading="lazy">
-        <h3>Capacitação & RH</h3>
-        <p>Treinamentos técnicos e programas de desenvolvimento para equipes de TI.</p>
-      </div>
-    </div>
+    <p>A Prosolution é uma empresa líder em tecnologia e inovação, com foco em desenvolvimento de software, automação empresarial e capacitação digital.  
+      Atuamos conectando empresas às soluções do futuro, integrando sistemas, pessoas e resultados.</p>
   </section>
 
   <!-- SERVIÇOS -->
-  <section id="servicos" class="container services-section">
+  <section id="servicos">
     <h2>Nossos Serviços</h2>
-    <div class="services-grid">
-      <article class="service-card">
-        <h4>Formação Profissional</h4>
-        <p>Bootcamps e cursos práticos em programação, infraestrutura e segurança.</p>
-      </article>
-      <article class="service-card">
-        <h4>Recursos Humanos</h4>
-        <p>Recrutamento técnico, seleção e consultoria para estruturação de times.</p>
-      </article>
-      <article class="service-card">
-        <h4>Programação & Software</h4>
-        <p>Desenvolvimento ágil, arquiteturas escaláveis e manutenção evolutiva.</p>
-      </article>
-      <article class="service-card">
-        <h4>Serviços Contábeis</h4>
-        <p>Gestão fiscal, financeira e consultoria para tomada de decisão.</p>
-      </article>
-      <article class="service-card">
-        <h4>Cloud & Segurança</h4>
-        <p>Implantação de nuvem, backup e políticas de segurança da informação.</p>
-      </article>
-      <article class="service-card">
-        <h4>Consultoria Estratégica</h4>
-        <p>Mapeamento de processos, automação e redução de custos.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- PORTFÓLIO -->
-  <section id="portfolio" class="container portfolio">
-    <h2>Portfólio</h2>
-    <p class="lead">Alguns projetos recentes — integração de sistemas e modernização digital.</p>
-    <div class="portfolio-grid">
-      <figure><img src="https://images.unsplash.com/photo-1508385082359-f1e30d73b7c4?auto=format&fit=crop&w=1200&q=80" alt="Projeto 1" loading="lazy"><figcaption>Integração de ERP</figcaption></figure>
-      <figure><img src="https://images.unsplash.com/photo-1526378724246-09c0b6e6b2c9?auto=format&fit=crop&w=1200&q=80" alt="Projeto 2" loading="lazy"><figcaption>Plataforma de treinamento</figcaption></figure>
-      <figure><img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1200&q=80" alt="Projeto 3" loading="lazy"><figcaption>Modernização de infra</figcaption></figure>
+    <div class="services">
+      <div class="service">💻 Desenvolvimento de Software <p>Criação de sistemas, sites e aplicativos personalizados.</p></div>
+      <div class="service">☁️ Cloud e Infraestrutura <p>Gerenciamento em nuvem e segurança da informação.</p></div>
+      <div class="service">📈 Consultoria Tecnológica <p>Planejamento e modernização de processos empresariais.</p></div>
+      <div class="service">👨‍💼 Formação Profissional <p>Treinamentos e capacitação em TI e negócios digitais.</p></div>
     </div>
   </section>
 
   <!-- ACIONISTAS -->
-  <section id="acionistas" class="container team-section">
-    <h2>Acionistas e Diretores</h2>
-    <div class="team-grid">
-      <div class="member-card">
-        <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Anderson - Acionista" loading="lazy">
+  <section id="acionistas">
+    <h2>Acionistas</h2>
+    <div class="team">
+      <div class="member">
+        <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Anderson">
         <h3>Anderson</h3>
         <p class="role">Acionista</p>
-        <p class="desc">Parceiro estratégico com forte atuação em investimentos e crescimento.</p>
+        <p>Responsável por estratégias e parcerias de inovação na Prosolution.</p>
       </div>
-      <div class="member-card">
-        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Eduardo - Diretor" loading="lazy">
+      <div class="member">
+        <img src="https://randomuser.me/api/portraits/men/46.jpg" alt="Eduardo">
         <h3>Eduardo</h3>
         <p class="role">Diretor</p>
-        <p class="desc">Diretor operacional — responsável por entregas e gestão de equipes.</p>
-      </div>
-      <div class="member-card">
-        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Carlos Pereira - CTO" loading="lazy">
-        <h3>Carlos Pereira</h3>
-        <p class="role">CTO</p>
-        <p class="desc">Inovação tecnológica e desenvolvimento de soluções digitais.</p>
+        <p>Direção executiva e liderança tecnológica da empresa.</p>
       </div>
     </div>
   </section>
 
   <!-- DEPOIMENTOS -->
-  <section id="depoimentos" class="container testimonials">
-    <h2>O que nossos clientes dizem</h2>
-    <div class="testimonials-wrap" id="testimonialsWrap" aria-live="polite">
-      <div class="testimonials-track" id="testimonialsTrack">
-        <!-- 8 depoimentos -->
-        <blockquote class="testimonial">
-          <img src="https://randomuser.me/api/portraits/women/10.jpg" alt="Mariana Lima" loading="lazy">
-          <p class="quote">"A Prosolution transformou nossa equipe com treinamentos práticos e assertivos."</p>
-          <cite>- Mariana Lima</cite>
-        </blockquote>
-        <blockquote class="testimonial">
-          <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="Felipe Santos" loading="lazy">
-          <p class="quote">"Serviços de RH eficientes, confiáveis e com excelente acompanhamento."</p>
-          <cite>- Felipe Santos</cite>
-        </blockquote>
-        <blockquote class="testimonial">
-          <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Carla Mendes" loading="lazy">
-          <p class="quote">"Software entregue no prazo e com alta qualidade técnica."</p>
-          <cite>- Carla Mendes</cite>
-        </blockquote>
-        <blockquote class="testimonial">
-          <img src="https://randomuser.me/api/portraits/men/13.jpg" alt="Roberto Almeida" loading="lazy">
-          <p class="quote">"A consultoria contábil foi essencial para nossa tomada de decisões."</p>
-          <cite>- Roberto Almeida</cite>
-        </blockquote>
-        <blockquote class="testimonial">
-          <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="Fernanda Rocha" loading="lazy">
-          <p class="quote">"Atendimento rápido, eficiente e soluções inovadoras."</p>
-          <cite>- Fernanda Rocha</cite>
-        </blockquote>
-        <blockquote class="testimonial">
-          <img src="https://randomuser.me/api/portraits/men/15.jpg" alt="Lucas Martins" loading="lazy">
-          <p class="quote">"Profissionais competentes e foco em resultado. Recomendo."</p>
-          <cite>- Lucas Martins</cite>
-        </blockquote>
-        <blockquote class="testimonial">
-          <img src="https://randomuser.me/api/portraits/women/16.jpg" alt="Paula Costa" loading="lazy">
-          <p class="quote">"Nossa performance melhorou após a integração de sistemas."</p>
-          <cite>- Paula Costa</cite>
-        </blockquote>
-        <blockquote class="testimonial">
-          <img src="https://randomuser.me/api/portraits/men/17.jpg" alt="Eduardo Lima" loading="lazy">
-          <p class="quote">"Equipe ágil, transparente e altamente técnica."</p>
-          <cite>- Eduardo Lima</cite>
-        </blockquote>
-      </div>
-
-      <!-- controls -->
-      <div class="testimonials-controls">
-        <button id="prevTest" aria-label="Depoimento anterior">◀</button>
-        <button id="nextTest" aria-label="Próximo depoimento">▶</button>
-      </div>
+  <section id="depoimentos" class="testimonials">
+    <h2>Depoimentos de Clientes</h2>
+    <div class="testimonial-container">
+      <div class="testimonial"><img src="https://randomuser.me/api/portraits/women/32.jpg"><p>“A Prosolution elevou o nível digital da nossa empresa.”</p><h4>- Camila Rocha</h4></div>
+      <div class="testimonial"><img src="https://randomuser.me/api/portraits/men/21.jpg"><p>“Excelente equipe de desenvolvimento e suporte.”</p><h4>- Bruno Costa</h4></div>
+      <div class="testimonial"><img src="https://randomuser.me/api/portraits/women/65.jpg"><p>“Soluções ágeis e modernas. Parceria de sucesso.”</p><h4>- Juliana Lima</h4></div>
+      <div class="testimonial"><img src="https://randomuser.me/api/portraits/men/76.jpg"><p>“A consultoria tecnológica mudou nossa forma de trabalhar.”</p><h4>- Ricardo Silva</h4></div>
+      <div class="testimonial"><img src="https://randomuser.me/api/portraits/men/51.jpg"><p>“Serviço impecável e atendimento personalizado.”</p><h4>- Carlos Alberto</h4></div>
+      <div class="testimonial"><img src="https://randomuser.me/api/portraits/women/55.jpg"><p>“Design incrível e performance excepcional.”</p><h4>- Fernanda Moura</h4></div>
+      <div class="testimonial"><img src="https://randomuser.me/api/portraits/men/11.jpg"><p>“Recomendo! Equipe muito competente e profissional.”</p><h4>- Rafael Nunes</h4></div>
+      <div class="testimonial"><img src="https://randomuser.me/api/portraits/women/41.jpg"><p>“Nosso sistema foi modernizado em tempo recorde.”</p><h4>- Laura Torres</h4></div>
     </div>
   </section>
 
   <!-- CONTATO -->
-  <section id="contato" class="container contact-section">
+  <section id="contato" class="contact">
     <h2>Fale Conosco</h2>
-    <p class="lead">Estamos prontos para ouvir seu projeto. Conecte-se conosco pelas redes:</p>
-
-    <div class="contact-grid">
-      <div class="contact-card">
-        <h4>WhatsApp</h4>
-        <a class="contact-link" href="https://wa.me/5515998216626?text=Olá%20Prosolution" target="_blank" rel="noopener noreferrer">+55 15 99821-6626</a>
-      </div>
-      <div class="contact-card">
-        <h4>Instagram</h4>
-        <a class="contact-link" href="https://instagram.com/" target="_blank" rel="noopener noreferrer">@prosolution</a>
-      </div>
-      <div class="contact-card">
-        <h4>Facebook</h4>
-        <a class="contact-link" href="https://facebook.com/" target="_blank" rel="noopener noreferrer">facebook.com/prosolution</a>
-      </div>
+    <p>Entre em contato conosco e leve sua empresa para o futuro:</p>
+    <div class="socials">
+      <a href="https://wa.me/5515998216626?text=Olá%20Prosolution!" target="_blank">WhatsApp</a>
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
     </div>
-
-    <p class="small">Atendimento: Segunda à Sexta — 09:00 às 18:00 (São Paulo)</p>
   </section>
 
   <!-- WHATSAPP FLUTUANTE -->
-  <a class="whatsapp-fixed" href="https://wa.me/5515998216626?text=Olá%20Prosolution" target="_blank" aria-label="Fale conosco no WhatsApp">
+  <a href="https://wa.me/5515998216626?text=Olá%20Prosolution!" target="_blank" class="whatsapp-fixed">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
   </a>
 
   <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <p>Feito por Eduardo Silva - SA © <span id="year"></span> | Prosolution - São Paulo</p>
-      <nav class="socials" aria-label="Redes sociais">
-        <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a>
-        <a href="https://wa.me/5515998216626?text=Olá%20Prosolution" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-      </nav>
+  <footer>
+    <p>© 2025 Prosolution - Tecnologia e Inovação | Desenvolvido por Eduardo Silva</p>
+    <div>
+      <a href="#">LinkedIn</a> | <a href="#">Instagram</a> | <a href="#">Facebook</a>
     </div>
   </footer>
 
-  <script src="scripts.js" defer></script>
+  <!-- JS -->
+  <script>
+    // Menu Mobile
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('#menu');
+    menuToggle.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+    document.querySelectorAll('#menu li a').forEach(link => {
+      link.addEventListener('click', () => menu.classList.remove('active'));
+    });
+  </script>
 </body>
-  </html>
+</html>
