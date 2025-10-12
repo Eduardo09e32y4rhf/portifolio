@@ -6,120 +6,108 @@
   <title>Prosolution - Tecnologia e Inovação</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-    body { font-family: 'Roboto', sans-serif; background-color: #000; color: #fff; overflow-x: hidden; }
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {font-family: 'Roboto', sans-serif; background: #000; color: #fff; overflow-x: hidden;}
 
-    /* NAVBAR */
+    /* NAV */
     nav {
       position: fixed; top: 0; left: 0; width: 100%;
       background: linear-gradient(90deg, #001f3f, #0047ab);
       display: flex; justify-content: space-between; align-items: center;
-      padding: 15px 40px; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      padding: 15px 40px; z-index: 1000;
     }
-    .logo { font-family: 'Orbitron', sans-serif; font-size: 1.8rem; color: #0ff; letter-spacing: 2px; }
-    nav ul { list-style: none; display: flex; gap: 25px; }
-    nav ul li a { color: #fff; text-decoration: none; font-weight: bold; transition: color 0.3s; }
-    nav ul li a:hover { color: #0ff; }
-    .menu-toggle { display: none; flex-direction: column; cursor: pointer; }
-    .menu-toggle div { width: 28px; height: 3px; background: #fff; margin: 5px 0; transition: 0.4s; }
+    .logo {font-family: 'Orbitron', sans-serif; font-size: 1.8rem; color: #0ff; letter-spacing: 2px;}
+    nav ul {display: flex; gap: 25px; list-style: none;}
+    nav ul li a {color: #fff; text-decoration: none; font-weight: bold; transition: 0.3s;}
+    nav ul li a:hover {color: #0ff;}
+    .menu-toggle {display: none; flex-direction: column; cursor: pointer;}
+    .menu-toggle div {width: 28px; height: 3px; background: #fff; margin: 5px 0;}
     @media (max-width: 768px) {
-      nav ul { display: none; flex-direction: column; position: absolute; top: 70px; right: 0; background: #002b5c;
-        width: 200px; padding: 20px; border-radius: 0 0 10px 10px; }
-      nav ul.active { display: flex; }
-      .menu-toggle { display: flex; }
+      nav ul {display: none; flex-direction: column; position: absolute; top: 70px; right: 0; background: #002b5c;
+        width: 200px; padding: 20px; border-radius: 0 0 10px 10px;}
+      nav ul.active {display: flex;}
+      .menu-toggle {display: flex;}
     }
 
     /* HERO */
     .hero {
       height: 100vh;
       background: url('https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1920&q=80') no-repeat center/cover;
-      display: flex; align-items: center; justify-content: center; text-align: center; position: relative;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; position: relative;
     }
-    .hero::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.7); }
-    .hero div { position: relative; z-index: 1; }
-    .hero h1 { font-family: 'Orbitron', sans-serif; color: #0ff; font-size: 3rem; margin-bottom: 15px; }
-    .hero p { font-size: 1.2rem; color: #ddd; }
+    .hero::after {content:""; position:absolute; inset:0; background:rgba(0,0,0,0.7);}
+    .hero div {position:relative; z-index:1;}
+    .hero h1 {font-family:'Orbitron',sans-serif; font-size:3rem; color:#0ff; margin-bottom:15px;}
+    .hero p {font-size:1.2rem; color:#ddd;}
 
-    section { padding: 100px 50px; text-align: center; }
-    h2 { font-size: 2.2rem; font-family: 'Orbitron', sans-serif; color: #0ff; margin-bottom: 25px; }
-    p { max-width: 800px; margin: auto; line-height: 1.7; color: #ccc; }
+    section {padding: 120px 50px; text-align:center;}
+    h2 {font-family:'Orbitron',sans-serif; color:#0ff; font-size:2.2rem; margin-bottom:25px;}
+    p {color:#ccc; line-height:1.7; max-width:800px; margin:auto;}
 
-    /* SOBRE NÓS */
-    #sobre { position: relative; }
-    .sobre-content { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px; }
-    .sobre-content img { width: 300px; border-radius: 10px; border: 2px solid #0047ab; }
+    /* SERVIÇOS */
+    .services {display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin-top:40px;}
+    .service-card {
+      background:#0a0a0a; border:1px solid #0047ab; border-radius:10px;
+      padding:25px; width:280px; transition:transform 0.3s;
+    }
+    .service-card:hover {transform:scale(1.05);}
+    .service-card h3 {color:#0ff; margin-bottom:10px;}
+
+    /* SOBRE - CARROSSEL */
+    .sobre-carousel {position:relative; width:100%; max-width:900px; margin:40px auto; overflow:hidden; border-radius:15px;}
+    .sobre-track {display:flex; transition:transform 1s ease;}
+    .sobre-track img {width:300px; height:200px; border-radius:10px; margin:0 10px;}
 
     /* CONTADOR */
-    .counter {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 2.5rem;
-      color: #0ff;
-      margin-top: 40px;
-    }
+    .counter {font-family:'Orbitron',sans-serif; font-size:2.5rem; color:#0ff; margin-top:80px;}
 
     /* PARCEIROS */
-    .partners {
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px;
-    }
-    .partners img {
-      width: 130px; height: auto; filter: brightness(0) invert(1);
-      opacity: 0.8; transition: opacity 0.3s;
-    }
-    .partners img:hover { opacity: 1; }
+    .partners {display:flex; flex-wrap:wrap; justify-content:center; gap:40px; margin-top:50px;}
+    .partners img {width:150px; filter:brightness(0) invert(1); opacity:0.8; transition:0.3s;}
+    .partners img:hover {opacity:1;}
 
     /* ACIONISTAS */
-    .team { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px; }
+    .team {display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin-top:40px;}
     .member {
-      background: #0a0a0a; border: 1px solid #003366; padding: 25px; border-radius: 15px;
-      width: 250px; transition: transform 0.3s;
+      background:#0a0a0a; border:1px solid #003366; padding:25px; border-radius:15px; width:250px; transition:0.3s;
     }
-    .member:hover { transform: scale(1.05); }
-    .member img { width: 100%; border-radius: 10px; margin-bottom: 10px; }
-    .member h3 { color: #0ff; margin-bottom: 5px; }
-    .member p.role { font-weight: bold; color: #0099ff; margin-bottom: 5px; }
+    .member:hover {transform:scale(1.05);}
+    .member img {width:100%; border-radius:10px; margin-bottom:10px;}
+    .member h3 {color:#0ff; margin-bottom:5px;}
+    .member p.role {font-weight:bold; color:#0099ff;}
 
     /* DEPOIMENTOS */
-    .testimonials { background: #0a0a0a; padding: 80px 50px; overflow: hidden; position: relative; }
-    .testimonial-slide {
-      display: flex; transition: transform 0.8s ease-in-out;
-    }
-    .testimonial {
-      min-width: 100%; padding: 30px; box-sizing: border-box;
-    }
-    .testimonial img { width: 80px; height: 80px; border-radius: 50%; margin-bottom: 10px; }
-    .testimonial h4 { color: #0ff; margin-top: 10px; }
+    .testimonials {background:#0a0a0a; overflow:hidden; padding:80px 50px;}
+    .testimonial-slide {display:flex; transition:transform 1s ease;}
+    .testimonial {min-width:100%; box-sizing:border-box;}
+    .testimonial img {width:80px; height:80px; border-radius:50%; margin-bottom:10px;}
+    .testimonial h4 {color:#0ff; margin-top:10px;}
 
     /* CONTATO */
-    .contact .socials {
-      display: flex; justify-content: center; gap: 25px; margin-top: 25px;
-    }
-    .contact a img { width: 40px; height: 40px; transition: transform 0.3s; }
-    .contact a img:hover { transform: scale(1.1); }
+    .contact .socials {display:flex; justify-content:center; gap:25px; margin-top:25px;}
+    .contact a img {width:40px; height:40px; transition:transform 0.3s;}
+    .contact a img:hover {transform:scale(1.1);}
 
     /* WHATSAPP FIXO */
-    .whatsapp-fixed {
-      position: fixed; bottom: 20px; right: 20px; background: #25d366;
-      border-radius: 50%; width: 60px; height: 60px; display: flex;
-      justify-content: center; align-items: center;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.4); transition: transform 0.3s;
-      z-index: 2000;
-    }
-    .whatsapp-fixed:hover { transform: scale(1.1); }
-    .whatsapp-fixed img { width: 35px; height: 35px; }
+    .whatsapp-fixed {position:fixed; bottom:20px; right:20px; background:#25d366; border-radius:50%;
+      width:60px; height:60px; display:flex; justify-content:center; align-items:center;
+      box-shadow:0 4px 8px rgba(0,0,0,0.4); transition:0.3s; z-index:2000;}
+    .whatsapp-fixed:hover {transform:scale(1.1);}
+    .whatsapp-fixed img {width:35px; height:35px;}
 
     /* FOOTER */
-    footer { background: #001f3f; text-align: center; padding: 25px; color: #ccc; font-size: 0.9rem; }
+    footer {background:#001f3f; text-align:center; padding:25px; color:#ccc; font-size:0.9rem;}
   </style>
 </head>
 
 <body>
-
-  <!-- NAV -->
   <nav>
     <div class="logo">Prosolution</div>
     <ul id="menu">
       <li><a href="#inicio">Início</a></li>
       <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#servicos">Serviços</a></li>
       <li><a href="#acionistas">Acionistas</a></li>
       <li><a href="#depoimentos">Depoimentos</a></li>
       <li><a href="#contato">Contato</a></li>
@@ -135,24 +123,47 @@
     </div>
   </section>
 
+  <!-- SERVIÇOS -->
+  <section id="servicos">
+    <h2>Serviços</h2>
+    <p>Atuamos em diversas áreas da tecnologia, sempre com foco em inovação e excelência.</p>
+    <div class="services">
+      <div class="service-card">
+        <h3>Desenvolvimento de Software</h3>
+        <p>Criação de sistemas personalizados e eficientes para atender às necessidades do seu negócio.</p>
+      </div>
+      <div class="service-card">
+        <h3>Consultoria de TI</h3>
+        <p>Planejamento estratégico e otimização da infraestrutura tecnológica da sua empresa.</p>
+      </div>
+      <div class="service-card">
+        <h3>Automação de Processos</h3>
+        <p>Reduza custos e aumente produtividade com soluções inteligentes de automação.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- SOBRE -->
   <section id="sobre">
     <h2>Sobre Nós</h2>
-    <p>A Prosolution é especializada em soluções de TI, consultoria tecnológica, automação e desenvolvimento de sistemas personalizados.</p>
-    <div class="sobre-content">
-      <img src="https://images.unsplash.com/photo-1581092334707-39c4c30bfbcd?auto=format&fit=crop&w=500&q=80" alt="TI">
-      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=500&q=80" alt="Desenvolvimento">
-      <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=500&q=80" alt="Inovação">
+    <p>A Prosolution é especializada em soluções de TI, automação e inovação digital, com foco em desempenho e confiabilidade.</p>
+
+    <div class="sobre-carousel">
+      <div class="sobre-track" id="sobreTrack">
+        <img src="https://images.unsplash.com/photo-1581092334707-39c4c30bfbcd?auto=format&fit=crop&w=500&q=80" alt="">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=500&q=80" alt="">
+        <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=500&q=80" alt="">
+      </div>
     </div>
 
     <div class="counter" id="counter">+0 Clientes Atendidos</div>
 
     <h2 style="margin-top:70px;">Empresas Parceiras</h2>
     <div class="partners">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Upwork_Logo.svg" alt="Upwork">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Fiverr_Logo.svg" alt="Fiverr">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Zoho_logo.svg" alt="Zoho">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Asana_logo.svg" alt="Asana">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Dell_Logo.svg" alt="Dell">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/HP_logo_2012.svg" alt="HP">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Intel-logo.svg" alt="Intel">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg" alt="Oracle">
     </div>
   </section>
 
@@ -161,32 +172,27 @@
     <h2>Acionistas</h2>
     <div class="team">
       <div class="member">
-        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=400&q=80" alt="Anderson">
+        <img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?auto=format&fit=crop&w=400&q=80" alt="Anderson">
         <h3>Anderson</h3>
         <p class="role">Acionista</p>
-        <p>Estratégia, expansão e visão corporativa global.</p>
+        <p>Responsável pela estratégia e expansão internacional da Prosolution.</p>
       </div>
       <div class="member">
-        <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=400&q=80" alt="Eduardo">
+        <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=400&q=80" alt="Eduardo">
         <h3>Eduardo</h3>
         <p class="role">Diretor</p>
-        <p>Direção executiva e inovação tecnológica da Prosolution.</p>
+        <p>Lidera a direção executiva e inovação tecnológica da empresa.</p>
       </div>
     </div>
   </section>
 
   <!-- DEPOIMENTOS -->
   <section id="depoimentos" class="testimonials">
-    <h2>Depoimentos de Clientes</h2>
+    <h2>Depoimentos</h2>
     <div class="testimonial-slide" id="testimonialSlide">
-      <div class="testimonial"><img src="https://randomuser.me/api/portraits/women/44.jpg"><p>"Equipe altamente profissional, transformaram nossa TI!"</p><h4>- Carla Silva</h4></div>
-      <div class="testimonial"><img src="https://randomuser.me/api/portraits/men/33.jpg"><p>"O sistema que criaram otimizou toda a nossa operação."</p><h4>- João Mendes</h4></div>
-      <div class="testimonial"><img src="https://randomuser.me/api/portraits/women/65.jpg"><p>"Atendimento rápido e resultados excelentes."</p><h4>- Marina Costa</h4></div>
-      <div class="testimonial"><img src="https://randomuser.me/api/portraits/men/71.jpg"><p>"Consultoria técnica de alto nível."</p><h4>- Paulo Henrique</h4></div>
-      <div class="testimonial"><img src="https://randomuser.me/api/portraits/women/52.jpg"><p>"Recomendo sem dúvidas, super profissionais."</p><h4>- Beatriz Lima</h4></div>
-      <div class="testimonial"><img src="https://randomuser.me/api/portraits/men/58.jpg"><p>"Melhor empresa de tecnologia que já contratamos."</p><h4>- Fernando Dias</h4></div>
-      <div class="testimonial"><img src="https://randomuser.me/api/portraits/women/40.jpg"><p>"A parceria com a Prosolution elevou nossos padrões."</p><h4>- Amanda Rocha</h4></div>
-      <div class="testimonial"><img src="https://randomuser.me/api/portraits/men/46.jpg"><p>"Profissionalismo e inovação em cada entrega."</p><h4>- Thiago Gomes</h4></div>
+      <div class="testimonial"><img src="https://randomuser.me/api/portraits/men/32.jpg"><p>"Equipe excepcional! Elevou o padrão de nossa TI."</p><h4>- João Lima</h4></div>
+      <div class="testimonial"><img src="https://randomuser.me/api/portraits/women/55.jpg"><p>"Resultados rápidos e soluções inovadoras."</p><h4>- Ana Souza</h4></div>
+      <div class="testimonial"><img src="https://randomuser.me/api/portraits/men/64.jpg"><p>"Excelente suporte e tecnologia de ponta."</p><h4>- Carlos Mendes</h4></div>
     </div>
   </section>
 
@@ -195,48 +201,42 @@
     <h2>Fale Conosco</h2>
     <p>Entre em contato conosco pelas redes sociais:</p>
     <div class="socials">
-      <a href="https://wa.me/5515998216626?text=Olá%20Prosolution!" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a>
-      <a href="#" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"></a>
-      <a href="#" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Facebook_icon_%28black%29.svg" alt="Facebook"></a>
+      <a href="https://wa.me/5515998216626?text=Olá%20Prosolution!" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"></a>
+      <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"></a>
+      <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Facebook_icon_%28black%29.svg"></a>
     </div>
   </section>
 
-  <!-- WHATSAPP FLUTUANTE -->
+  <!-- WHATSAPP -->
   <a href="https://wa.me/5515998216626?text=Olá%20Prosolution!" target="_blank" class="whatsapp-fixed">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
   </a>
 
   <!-- FOOTER -->
-  <footer>
-    <p>© 2025 Prosolution - Tecnologia e Inovação | CNPJ: 54.694.364/0001-48</p>
-  </footer>
+  <footer>© 2025 Prosolution - Tecnologia e Inovação | CNPJ: 54.694.364/0001-48</footer>
 
-  <!-- JS -->
   <script>
     // MENU
-    const menuToggle = document.querySelector('.menu-toggle');
-    const menu = document.querySelector('#menu');
-    menuToggle.addEventListener('click', () => menu.classList.toggle('active'));
-    document.querySelectorAll('#menu li a').forEach(link => link.addEventListener('click', () => menu.classList.remove('active')));
+    const toggle=document.querySelector('.menu-toggle');
+    const menu=document.querySelector('#menu');
+    toggle.addEventListener('click',()=>menu.classList.toggle('active'));
 
-    // DEPOIMENTOS AUTOMÁTICOS
-    const slide = document.getElementById('testimonialSlide');
-    const total = slide.children.length;
-    let index = 0;
-    setInterval(() => {
-      index = (index + 1) % total;
-      slide.style.transform = `translateX(-${index * 100}%)`;
-    }, 3500);
+    // DEPOIMENTOS
+    const slide=document.getElementById('testimonialSlide');
+    let idx=0;const total=slide.children.length;
+    setInterval(()=>{idx=(idx+1)%total;slide.style.transform=`translateX(-${idx*100}%)`;},3500);
 
-    // CONTADOR ANIMADO
-    const counter = document.getElementById("counter");
-    let count = 0;
-    const target = 4000;
-    const interval = setInterval(() => {
-      count += 80;
-      counter.textContent = `+${count.toLocaleString()} Clientes Atendidos`;
-      if (count >= target) clearInterval(interval);
-    }, 50);
+    // CONTADOR
+    const counter=document.getElementById("counter");
+    let count=0;const target=4000;
+    const timer=setInterval(()=>{count+=80;counter.textContent=`+${count.toLocaleString()} Clientes Atendidos`;
+      if(count>=target)clearInterval(timer);
+    },40);
+
+    // SOBRE - CARROSSEL
+    const sobreTrack=document.getElementById("sobreTrack");
+    let i=0;
+    setInterval(()=>{i=(i+1)%3;sobreTrack.style.transform=`translateX(-${i*320}px)`;},2500);
   </script>
 </body>
 </html>
