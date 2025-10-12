@@ -1,146 +1,136 @@
-/* scripts.js
-   Funcionalidades:
-   - Menu "sanduíche" mobile (toggle acessível)
-   - Carrossel de depoimentos com autoplay, controles e pausa no hover
-   - Insert ano no rodapé
-*/
-
-document.addEventListener('DOMContentLoaded', function () {
-  // NAV MENU (sandwich) - mobile
-  const menuBtn = document.getElementById('menuBtn');
-  const menu = document.getElementById('menu');
-
-  function setMenu(open) {
-    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    menu.setAttribute('aria-hidden', open ? 'false' : 'true');
-    if (open) menu.classList.add('mobile-open');
-    else menu.classList.remove('mobile-open');
-  }
-
-  menuBtn.addEventListener('click', () => {
-    const isOpen = menuBtn.getAttribute('aria-expanded') === 'true';
-    setMenu(!isOpen);
-  });
-
-  // Close menu when a link is clicked (mobile)
-  menu.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => setMenu(false));
-  });
-
-  // Close menu on ESC
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') setMenu(false);
-  });
-
-  // FOOTER YEAR
-  const yearEl = document.getElementById('year');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-  /* TESTIMONIALS CAROUSEL */
-  const track = document.getElementById('testimonialsTrack');
-  const items = Array.from(track.querySelectorAll('.testimonial'));
-  const prevBtn = document.getElementById('prevTest');
-  const nextBtn = document.getElementById('nextTest');
-
-  // duplicate to make infinite feel smoother: clone first and last
-  if (items.length > 0) {
-    const firstClone = items[0].cloneNode(true);
-    const lastClone = items[items.length - 1].cloneNode(true);
-    track.appendChild(firstClone);
-    track.insertBefore(lastClone, track.firstChild);
-  }
-
-  let index = 1; // start after the prepended clone
-  let itemWidth = items[0] ? items[0].getBoundingClientRect().width + 14 : 340; // include gap
-  function updateWidths() {
-    const firstItem = track.querySelector('.testimonial');
-    itemWidth = firstItem ? firstItem.getBoundingClientRect().width + 14 : 340;
-    moveToIndex(index, false);
-  }
-
-  window.addEventListener('resize', updateWidths);
-
-  function moveToIndex(i, animate = true) {
-    if (!track) return;
-    if (!animate) track.style.transition = 'none';
-    else track.style.transition = 'transform .6s cubic-bezier(.2,.9,.3,1)';
-
-    const x = - (i * itemWidth);
-    track.style.transform = `translateX(${x}px)`;
-    if (!animate) requestAnimationFrame(() => track.style.transition = 'transform .6s cubic-bezier(.2,.9,.3,1)');
-  }
-
-  // initial layout after DOM paints
-  setTimeout(() => {
-    updateWidths();
-  }, 50);
-
-  function next() {
-    if (index >= track.children.length - 1) return;
-    index++;
-    moveToIndex(index, true);
-  }
-  function prev() {
-    if (index <= 0) return;
-    index--;
-    moveToIndex(index, true);
-  }
-
-  nextBtn.addEventListener('click', () => {
-    next();
-    resetAutoplay();
-  });
-  prevBtn.addEventListener('click', () => {
-    prev();
-    resetAutoplay();
-  });
-
-  // when transition ends: handle clones wrap-around
-  track.addEventListener('transitionend', () => {
-    // if at last clone (end), jump to real first
-    if (track.children[index].classList.contains('testimonial') && index === track.children.length - 1) {
-      index = 1;
-      moveToIndex(index, false);
-    }
-    // if at first clone, jump to real last
-    if (index === 0) {
-      index = track.children.length - 2;
-      moveToIndex(index, false);
-    }
-  });
-
-  // Autoplay
-  let autoplay = true;
-  let autoplayInterval = 4200;
-  let autoplayId = null;
-
-  function startAutoplay() {
-    if (autoplayId) clearInterval(autoplayId);
-    autoplayId = setInterval(() => {
-      next();
-    }, autoplayInterval);
-  }
-
-  function stopAutoplay() {
-    if (autoplayId) { clearInterval(autoplayId); autoplayId = null; }
-  }
-
-  function resetAutoplay() {
-    stopAutoplay();
-    startAutoplay();
-  }
-
-  // Pause on hover/focus
-  const testimonialsWrap = document.getElementById('testimonialsWrap');
-  if (testimonialsWrap) {
-    testimonialsWrap.addEventListener('mouseenter', stopAutoplay);
-    testimonialsWrap.addEventListener('mouseleave', startAutoplay);
-    testimonialsWrap.addEventListener('focusin', stopAutoplay);
-    testimonialsWrap.addEventListener('focusout', startAutoplay);
-  }
-
-  startAutoplay();
-
-  // improve initial visibility: ensure nav menu closed
-  setMenu(false);
+// ------------------------------------
+// MENU MOBILE
+// ------------------------------------
+const toggle = document.querySelector('.menu-toggle');
+const menu = document.querySelector('#menu');
+toggle.addEventListener('click', () => {
+    menu.classList.toggle('active');
 });
+menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        menu.classList.remove('active');
+    });
+});
+
+
+// ------------------------------------
+// DEPOIMENTOS (Carrossel com Dots e Hover)
+// ------------------------------------
+const testimonialSlide = document.getElementById('testimonialSlide');
+const testimonialDotsContainer = document.getElementById('testimonialDots');
+const totalTestimonials = testimonialSlide.children.length;
+let currentTestimonialIndex = 0;
+let testimonialSlideInterval;
+
+// Gera os dots dinamicamente
+for (let i = 0; i < totalTestimonials; i++) {
+    const dot = document.createElement('span');
+    dot.classList.add('dot');
+    dot.dataset.index = i;
+    testimonialDotsContainer.appendChild(dot);
+}
+
+function updateTestimonialDots() {
+    document.querySelectorAll('.testimonial-dots .dot').forEach(dot => dot.classList.remove('active'));
+    document.querySelector(`.testimonial-dots .dot[data-index="${currentTestimonialIndex}"]`).classList.add('active');
+}
+
+function moveTestimonialSlide(index) {
+    currentTestimonialIndex = index;
+    testimonialSlide.style.transform = `translateX(-${currentTestimonialIndex * 100}%)`;
+    updateTestimonialDots();
+}
+
+function startTestimonialSlider() {
+    testimonialSlideInterval = setInterval(() => {
+        currentTestimonialIndex = (currentTestimonialIndex + 1) % totalTestimonials;
+        moveTestimonialSlide(currentTestimonialIndex);
+    }, 4000);
+}
+
+testimonialDotsContainer.addEventListener('click', (e) => {
+    if (e.target.classList.contains('dot')) {
+        clearInterval(testimonialSlideInterval);
+        moveTestimonialSlide(parseInt(e.target.dataset.index));
+        startTestimonialSlider(); 
+    }
+});
+
+const testimonialContainer = document.querySelector('.testimonial-container');
+testimonialContainer.addEventListener('mouseenter', () => clearInterval(testimonialSlideInterval));
+testimonialContainer.addEventListener('mouseleave', startTestimonialSlider);
+
+moveTestimonialSlide(0); 
+startTestimonialSlider(); 
+
+
+// ------------------------------------
+// CONTADOR (Rápido e na Visibilidade)
+// ------------------------------------
+const counterElement = document.getElementById("counter");
+const counterTarget = 4000;
+let counterAnimationStarted = false;
+
+const counterObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !counterAnimationStarted) {
+            counterAnimationStarted = true;
+            const duration = 1500; // 1.5 segundos
+            let startTime;
+
+            function animateCounter(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const progress = timestamp - startTime;
+                const percentage = Math.min(progress / duration, 1); 
+
+                let currentCount = Math.floor(percentage * counterTarget);
+                counterElement.textContent = `+${currentCount.toLocaleString('pt-BR')} Clientes Atendidos`;
+
+                if (percentage < 1) {
+                    requestAnimationFrame(animateCounter);
+                } else {
+                    counterElement.textContent = `+${counterTarget.toLocaleString('pt-BR')} Clientes Atendidos`; 
+                }
+            }
+            requestAnimationFrame(animateCounter);
+            observer.unobserve(entry.target); 
+        }
+    });
+}, { threshold: 0.5 }); 
+
+counterObserver.observe(counterElement);
+
+
+// ------------------------------------
+// SOBRE - CARROSSEL DE IMAGENS (Loop Infinito)
+// ------------------------------------
+const sobreTrack = document.getElementById("sobreTrack");
+let sobreIdx = 0;
+const numOriginalSobreItems = 3;
+let sobreInterval;
+
+function updateSobreTrack() {
+    sobreIdx = (sobreIdx + 1);
+    const itemToTranslate = sobreTrack.children[0].offsetWidth;
+
+    if (sobreIdx > numOriginalSobreItems) {
+        sobreTrack.style.transition = 'none';
+        sobreIdx = 1;
+        sobreTrack.style.transform = `translateX(-${sobreIdx * itemToTranslate}px)`;
+        void sobreTrack.offsetWidth; // Força reflow
+        sobreTrack.style.transition = 'transform 1s ease';
+    } else {
+        sobreTrack.style.transition = 'transform 1s ease';
+    }
+
+    sobreTrack.style.transform = `translateX(-${sobreIdx * itemToTranslate}px)`;
+}
+
+function startSobreSlider() {
+    sobreInterval = setInterval(updateSobreTrack, 2500);
+}
+
+sobreTrack.addEventListener('mouseenter', () => clearInterval(sobreInterval));
+sobreTrack.addEventListener('mouseleave', startSobreSlider);
+
+startSobreSlider();
