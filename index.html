@@ -1,86 +1,134 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prosolution - Tecnologia e Inovação</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prosolution - Tecnologia & Inovação</title>
+  <meta name="description" content="Prosolution — Soluções em TI, RH, formação profissional e contabilidade. São Paulo." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-  <meta name="description" content="Prosolution - Inovação e Tecnologia em São Paulo. Soluções em RH, Programação, Formação Profissional e Contabilidade.">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
   <!-- NAV -->
-  <nav>
-    <div class="logo">Prosolution</div>
-    <ul id="menu">
-      <li><a href="#inicio">Início</a></li>
-      <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#servicos">Serviços</a></li>
-      <li><a href="#acionistas">Acionistas</a></li>
-      <li><a href="#depoimentos">Depoimentos</a></li>
-    </ul>
-    <div class="menu-toggle" aria-label="Menu mobile">
-      <div></div><div></div><div></div>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#inicio" aria-label="Prosolution - Início">
+        <span class="brand-logo">Prosolution</span>
+      </a>
+
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
+        <span class="menu-icon" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+
+      <ul id="menu" class="nav-menu" role="menubar" aria-hidden="true">
+        <li role="none"><a role="menuitem" href="#inicio">Início</a></li>
+        <li role="none"><a role="menuitem" href="#sobre">Sobre</a></li>
+        <li role="none"><a role="menuitem" href="#servicos">Serviços</a></li>
+        <li role="none"><a role="menuitem" href="#portfolio">Portfólio</a></li>
+        <li role="none"><a role="menuitem" href="#acionistas">Acionistas</a></li>
+        <li role="none"><a role="menuitem" href="#depoimentos">Depoimentos</a></li>
+        <li role="none"><a role="menuitem" href="#contato">Contato</a></li>
+      </ul>
     </div>
   </nav>
 
   <!-- HERO -->
-  <section class="hero" id="inicio">
-    <div>
-      <h1>Inovação e Tecnologia para o Futuro</h1>
-      <p>Prosolution - Soluções em Tecnologia, com sede em São Paulo</p>
+  <header class="hero" id="inicio" role="banner">
+    <div class="hero-content">
+      <h1>Inovação & Tecnologia para o Futuro</h1>
+      <p>Prosolution — Transformando empresas com soluções em Tecnologia da Informação, RH e consultoria estratégica.</p>
+      <a class="cta" href="#contato">Fale com a Prosolution</a>
+    </div>
+    <div class="hero-image-credit">Imagens: conexões digitais</div>
+  </header>
+
+  <!-- SOBRE -->
+  <section id="sobre" class="container about">
+    <h2>Sobre Nós</h2>
+    <p class="lead">Somos especialistas em integrar tecnologia, pessoas e processos. Desde formação profissional até desenvolvimento de sistemas e consultoria contábil estratégica — entregamos soluções que aceleram resultados.</p>
+
+    <div class="about-grid">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1200&q=80" alt="Redes e conexões digitais" loading="lazy">
+        <h3>Infraestrutura & Redes</h3>
+        <p>Projetos de rede, cloud e conectividade com foco em performance e segurança.</p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80" alt="Desenvolvimento de software" loading="lazy">
+        <h3>Desenvolvimento & Software</h3>
+        <p>Aplicativos, plataformas web e integrações sob medida para seu negócio.</p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1526378724246-09c0b6e6b2c9?auto=format&fit=crop&w=1200&q=80" alt="Capacitação profissional" loading="lazy">
+        <h3>Capacitação & RH</h3>
+        <p>Treinamentos técnicos e programas de desenvolvimento para equipes de TI.</p>
+      </div>
     </div>
   </section>
 
-  <!-- SOBRE -->
-  <section id="sobre">
-    <h2>Sobre Nós</h2>
-    <p>A Prosolution é uma empresa de tecnologia sediada em São Paulo, focada em trazer inovação e soluções completas para empresas de diversos setores.</p>
+  <!-- SERVIÇOS -->
+  <section id="servicos" class="container services-section">
+    <h2>Nossos Serviços</h2>
+    <div class="services-grid">
+      <article class="service-card">
+        <h4>Formação Profissional</h4>
+        <p>Bootcamps e cursos práticos em programação, infraestrutura e segurança.</p>
+      </article>
+      <article class="service-card">
+        <h4>Recursos Humanos</h4>
+        <p>Recrutamento técnico, seleção e consultoria para estruturação de times.</p>
+      </article>
+      <article class="service-card">
+        <h4>Programação & Software</h4>
+        <p>Desenvolvimento ágil, arquiteturas escaláveis e manutenção evolutiva.</p>
+      </article>
+      <article class="service-card">
+        <h4>Serviços Contábeis</h4>
+        <p>Gestão fiscal, financeira e consultoria para tomada de decisão.</p>
+      </article>
+      <article class="service-card">
+        <h4>Cloud & Segurança</h4>
+        <p>Implantação de nuvem, backup e políticas de segurança da informação.</p>
+      </article>
+      <article class="service-card">
+        <h4>Consultoria Estratégica</h4>
+        <p>Mapeamento de processos, automação e redução de custos.</p>
+      </article>
+    </div>
   </section>
 
-  <!-- SERVIÇOS -->
-  <section id="servicos">
-    <h2>Nossos Serviços</h2>
-    <div class="services">
-      <div class="service">
-        💻 Formação Profissional
-        <p>Cursos de capacitação em tecnologia e negócios.</p>
-      </div>
-      <div class="service">
-        👥 Recursos Humanos
-        <p>Recrutamento, seleção e treinamento de equipes.</p>
-      </div>
-      <div class="service">
-        🖥 Programação & Software
-        <p>Desenvolvimento de sistemas, aplicativos e sites.</p>
-      </div>
-      <div class="service">
-        📊 Serviços Contábeis
-        <p>Gestão financeira, fiscal e consultoria estratégica.</p>
-      </div>
+  <!-- PORTFÓLIO -->
+  <section id="portfolio" class="container portfolio">
+    <h2>Portfólio</h2>
+    <p class="lead">Alguns projetos recentes — integração de sistemas e modernização digital.</p>
+    <div class="portfolio-grid">
+      <figure><img src="https://images.unsplash.com/photo-1508385082359-f1e30d73b7c4?auto=format&fit=crop&w=1200&q=80" alt="Projeto 1" loading="lazy"><figcaption>Integração de ERP</figcaption></figure>
+      <figure><img src="https://images.unsplash.com/photo-1526378724246-09c0b6e6b2c9?auto=format&fit=crop&w=1200&q=80" alt="Projeto 2" loading="lazy"><figcaption>Plataforma de treinamento</figcaption></figure>
+      <figure><img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1200&q=80" alt="Projeto 3" loading="lazy"><figcaption>Modernização de infra</figcaption></figure>
     </div>
   </section>
 
   <!-- ACIONISTAS -->
-  <section id="acionistas">
-    <h2>Acionistas</h2>
-    <div class="team">
-      <div class="member">
-        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Acionista 1" loading="lazy">
-        <h3>João Silva</h3>
-        <p class="role">CEO</p>
-        <p class="desc">Responsável pela visão estratégica e liderança da Prosolution.</p>
+  <section id="acionistas" class="container team-section">
+    <h2>Acionistas e Diretores</h2>
+    <div class="team-grid">
+      <div class="member-card">
+        <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Anderson - Acionista" loading="lazy">
+        <h3>Anderson</h3>
+        <p class="role">Acionista</p>
+        <p class="desc">Parceiro estratégico com forte atuação em investimentos e crescimento.</p>
       </div>
-      <div class="member">
-        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Acionista 2" loading="lazy">
-        <h3>Ana Souza</h3>
-        <p class="role">Diretora Financeira</p>
-        <p class="desc">Gestão financeira e planejamento de investimentos.</p>
+      <div class="member-card">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Eduardo - Diretor" loading="lazy">
+        <h3>Eduardo</h3>
+        <p class="role">Diretor</p>
+        <p class="desc">Diretor operacional — responsável por entregas e gestão de equipes.</p>
       </div>
-      <div class="member">
-        <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Acionista 3" loading="lazy">
+      <div class="member-card">
+        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Carlos Pereira - CTO" loading="lazy">
         <h3>Carlos Pereira</h3>
         <p class="role">CTO</p>
         <p class="desc">Inovação tecnológica e desenvolvimento de soluções digitais.</p>
@@ -89,61 +137,101 @@
   </section>
 
   <!-- DEPOIMENTOS -->
-  <section id="depoimentos" class="testimonials">
-    <h2>Depoimentos de Clientes</h2>
-    <div class="testimonial-container">
-      <div class="testimonial-slide">
-        <div class="testimonial">
-          <p>"A Prosolution transformou nossa equipe com treinamentos incríveis."</p>
-          <h4>- Mariana Lima</h4>
-        </div>
-        <div class="testimonial">
-          <p>"Serviços de RH eficientes, confiáveis e ágeis. Recomendo!"</p>
-          <h4>- Felipe Santos</h4>
-        </div>
-        <div class="testimonial">
-          <p>"Software e programação de altíssimo nível. Nossa produtividade aumentou!"</p>
-          <h4>- Carla Mendes</h4>
-        </div>
-        <div class="testimonial">
-          <p>"A consultoria contábil foi fundamental para organizar nosso fluxo de caixa."</p>
-          <h4>- Roberto Almeida</h4>
-        </div>
-        <div class="testimonial">
-          <p>"Atendimento rápido e soluções inovadoras. A parceria tem sido excelente."</p>
-          <h4>- Fernanda Rocha</h4>
-        </div>
-        <div class="testimonial">
-          <p>"Profissionais competentes e dedicados. Nossos resultados melhoraram muito."</p>
-          <h4>- Lucas Martins</h4>
-        </div>
+  <section id="depoimentos" class="container testimonials">
+    <h2>O que nossos clientes dizem</h2>
+    <div class="testimonials-wrap" id="testimonialsWrap" aria-live="polite">
+      <div class="testimonials-track" id="testimonialsTrack">
+        <!-- 8 depoimentos -->
+        <blockquote class="testimonial">
+          <img src="https://randomuser.me/api/portraits/women/10.jpg" alt="Mariana Lima" loading="lazy">
+          <p class="quote">"A Prosolution transformou nossa equipe com treinamentos práticos e assertivos."</p>
+          <cite>- Mariana Lima</cite>
+        </blockquote>
+        <blockquote class="testimonial">
+          <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="Felipe Santos" loading="lazy">
+          <p class="quote">"Serviços de RH eficientes, confiáveis e com excelente acompanhamento."</p>
+          <cite>- Felipe Santos</cite>
+        </blockquote>
+        <blockquote class="testimonial">
+          <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Carla Mendes" loading="lazy">
+          <p class="quote">"Software entregue no prazo e com alta qualidade técnica."</p>
+          <cite>- Carla Mendes</cite>
+        </blockquote>
+        <blockquote class="testimonial">
+          <img src="https://randomuser.me/api/portraits/men/13.jpg" alt="Roberto Almeida" loading="lazy">
+          <p class="quote">"A consultoria contábil foi essencial para nossa tomada de decisões."</p>
+          <cite>- Roberto Almeida</cite>
+        </blockquote>
+        <blockquote class="testimonial">
+          <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="Fernanda Rocha" loading="lazy">
+          <p class="quote">"Atendimento rápido, eficiente e soluções inovadoras."</p>
+          <cite>- Fernanda Rocha</cite>
+        </blockquote>
+        <blockquote class="testimonial">
+          <img src="https://randomuser.me/api/portraits/men/15.jpg" alt="Lucas Martins" loading="lazy">
+          <p class="quote">"Profissionais competentes e foco em resultado. Recomendo."</p>
+          <cite>- Lucas Martins</cite>
+        </blockquote>
+        <blockquote class="testimonial">
+          <img src="https://randomuser.me/api/portraits/women/16.jpg" alt="Paula Costa" loading="lazy">
+          <p class="quote">"Nossa performance melhorou após a integração de sistemas."</p>
+          <cite>- Paula Costa</cite>
+        </blockquote>
+        <blockquote class="testimonial">
+          <img src="https://randomuser.me/api/portraits/men/17.jpg" alt="Eduardo Lima" loading="lazy">
+          <p class="quote">"Equipe ágil, transparente e altamente técnica."</p>
+          <cite>- Eduardo Lima</cite>
+        </blockquote>
+      </div>
+
+      <!-- controls -->
+      <div class="testimonials-controls">
+        <button id="prevTest" aria-label="Depoimento anterior">◀</button>
+        <button id="nextTest" aria-label="Próximo depoimento">▶</button>
       </div>
     </div>
   </section>
 
   <!-- CONTATO -->
-  <section id="contato" class="contact">
+  <section id="contato" class="container contact-section">
     <h2>Fale Conosco</h2>
-    <p>📱 Entre em contato direto pelo WhatsApp:</p>
-    <a href="https://wa.me/5515998216626?text=quero%20ferias" target="_blank" class="whatsapp-link">
-      👉 +55 15 99821-6626
-    </a>
+    <p class="lead">Estamos prontos para ouvir seu projeto. Conecte-se conosco pelas redes:</p>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h4>WhatsApp</h4>
+        <a class="contact-link" href="https://wa.me/5515998216626?text=Olá%20Prosolution" target="_blank" rel="noopener noreferrer">+55 15 99821-6626</a>
+      </div>
+      <div class="contact-card">
+        <h4>Instagram</h4>
+        <a class="contact-link" href="https://instagram.com/" target="_blank" rel="noopener noreferrer">@prosolution</a>
+      </div>
+      <div class="contact-card">
+        <h4>Facebook</h4>
+        <a class="contact-link" href="https://facebook.com/" target="_blank" rel="noopener noreferrer">facebook.com/prosolution</a>
+      </div>
+    </div>
+
+    <p class="small">Atendimento: Segunda à Sexta — 09:00 às 18:00 (São Paulo)</p>
   </section>
 
-  <!-- WHATSAPP FIXO -->
-  <a href="https://wa.me/5515998216626?text=quero%20ferias" target="_blank" class="whatsapp-fixed" aria-label="Fale conosco no WhatsApp">
+  <!-- WHATSAPP FLUTUANTE -->
+  <a class="whatsapp-fixed" href="https://wa.me/5515998216626?text=Olá%20Prosolution" target="_blank" aria-label="Fale conosco no WhatsApp">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
   </a>
 
   <!-- FOOTER -->
-  <footer>
-    <p>Feito por Eduardo Silva - SA © 2025 | Prosolution - São Paulo</p>
-    <div>
-      <a href="#">LinkedIn</a> | <a href="#">Instagram</a> | <a href="#">Facebook</a>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>Feito por Eduardo Silva - SA © <span id="year"></span> | Prosolution - São Paulo</p>
+      <nav class="socials" aria-label="Redes sociais">
+        <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://wa.me/5515998216626?text=Olá%20Prosolution" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </nav>
     </div>
   </footer>
 
-  <script src="https://unpkg.com/scrollreveal"></script>
-  <script src="script.js"></script>
+  <script src="scripts.js" defer></script>
 </body>
 </html>
