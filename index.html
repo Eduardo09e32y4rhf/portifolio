@@ -1,242 +1,564 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prosolution - Tecnologia e Inovação</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-  <style>
-    * {margin: 0; padding: 0; box-sizing: border-box;}
-    body {font-family: 'Roboto', sans-serif; background: #000; color: #fff; overflow-x: hidden;}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gslimp - Limpeza de Estofados em Arapiraca e Região</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    /* NAV */
-    nav {
-      position: fixed; top: 0; left: 0; width: 100%;
-      background: linear-gradient(90deg, #001f3f, #0047ab);
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 15px 40px; z-index: 1000;
-    }
-    .logo {font-family: 'Orbitron', sans-serif; font-size: 1.8rem; color: #0ff; letter-spacing: 2px;}
-    nav ul {display: flex; gap: 25px; list-style: none;}
-    nav ul li a {color: #fff; text-decoration: none; font-weight: bold; transition: 0.3s;}
-    nav ul li a:hover {color: #0ff;}
-    .menu-toggle {display: none; flex-direction: column; cursor: pointer;}
-    .menu-toggle div {width: 28px; height: 3px; background: #fff; margin: 5px 0;}
-    @media (max-width: 768px) {
-      nav ul {display: none; flex-direction: column; position: absolute; top: 70px; right: 0; background: #002b5c;
-        width: 200px; padding: 20px; border-radius: 0 0 10px 10px;}
-      nav ul.active {display: flex;}
-      .menu-toggle {display: flex;}
-    }
+    <style>
+        /* Variáveis de Cor */
+        :root {
+            --cor-primaria: #007bff; /* Azul vibrante (limpeza) */
+            --cor-secundaria: #28a745; /* Verde (WhatsApp, sucesso) */
+            --cor-fundo: #f8f9fa;
+            --cor-texto: #343a40;
+            --cor-clara: #ffffff;
+        }
 
-    /* HERO */
-    .hero {
-      height: 100vh;
-      background: url('https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1920&q=80') no-repeat center/cover;
-      display: flex; align-items: center; justify-content: center;
-      text-align: center; position: relative;
-    }
-    .hero::after {content:""; position:absolute; inset:0; background:rgba(0,0,0,0.7);}
-    .hero div {position:relative; z-index:1;}
-    .hero h1 {font-family:'Orbitron',sans-serif; font-size:3rem; color:#0ff; margin-bottom:15px;}
-    .hero p {font-size:1.2rem; color:#ddd;}
+        /* Estilos Globais e Reset Simples */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    section {padding: 120px 50px; text-align:center;}
-    h2 {font-family:'Orbitron',sans-serif; color:#0ff; font-size:2.2rem; margin-bottom:25px;}
-    p {color:#ccc; line-height:1.7; max-width:800px; margin:auto;}
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--cor-texto);
+            background-color: var(--cor-fundo);
+            scroll-behavior: smooth;
+        }
 
-    /* SERVIÇOS */
-    .services {display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin-top:40px;}
-    .service-card {
-      background:#0a0a0a; border:1px solid #0047ab; border-radius:10px;
-      padding:25px; width:280px; transition:transform 0.3s;
-    }
-    .service-card:hover {transform:scale(1.05);}
-    .service-card h3 {color:#0ff; margin-bottom:10px;}
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px 0;
+        }
 
-    /* SOBRE - CARROSSEL */
-    .sobre-carousel {position:relative; width:100%; max-width:900px; margin:40px auto; overflow:hidden; border-radius:15px;}
-    .sobre-track {display:flex; transition:transform 1s ease;}
-    .sobre-track img {width:300px; height:200px; border-radius:10px; margin:0 10px;}
+        section {
+            padding: 60px 0;
+            overflow: hidden; /* Garante que o carrossel infinito funcione */
+        }
 
-    /* CONTADOR */
-    .counter {font-family:'Orbitron',sans-serif; font-size:2.5rem; color:#0ff; margin-top:80px;}
+        /* -------------------------- */
+        /* CABEÇALHO E NAVEGAÇÃO */
+        /* -------------------------- */
+        header {
+            background-color: var(--cor-primaria);
+            color: var(--cor-clara);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-    /* PARCEIROS */
-    .partners {display:flex; flex-wrap:wrap; justify-content:center; gap:40px; margin-top:50px;}
-    .partners img {width:150px; filter:brightness(0) invert(1); opacity:0.8; transition:0.3s;}
-    .partners img:hover {opacity:1;}
+        .logo {
+            font-size: 2em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
 
-    /* ACIONISTAS */
-    .team {display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin-top:40px;}
-    .member {
-      background:#0a0a0a; border:1px solid #003366; padding:25px; border-radius:15px; width:250px; transition:0.3s;
-    }
-    .member:hover {transform:scale(1.05);}
-    .member img {width:100%; border-radius:10px; margin-bottom:10px;}
-    .member h3 {color:#0ff; margin-bottom:5px;}
-    .member p.role {font-weight:bold; color:#0099ff;}
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    /* DEPOIMENTOS */
-    .testimonials {background:#0a0a0a; overflow:hidden; padding:80px 50px;}
-    .testimonial-slide {display:flex; transition:transform 1s ease;}
-    .testimonial {min-width:100%; box-sizing:border-box;}
-    .testimonial img {width:80px; height:80px; border-radius:50%; margin-bottom:10px;}
-    .testimonial h4 {color:#0ff; margin-top:10px;}
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
 
-    /* CONTATO */
-    .contact .socials {display:flex; justify-content:center; gap:25px; margin-top:25px;}
-    .contact a img {width:40px; height:40px; transition:transform 0.3s;}
-    .contact a img:hover {transform:scale(1.1);}
+        .nav-links a {
+            color: var(--cor-clara);
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+            transition: background-color 0.3s;
+        }
 
-    /* WHATSAPP FIXO */
-    .whatsapp-fixed {position:fixed; bottom:20px; right:20px; background:#25d366; border-radius:50%;
-      width:60px; height:60px; display:flex; justify-content:center; align-items:center;
-      box-shadow:0 4px 8px rgba(0,0,0,0.4); transition:0.3s; z-index:2000;}
-    .whatsapp-fixed:hover {transform:scale(1.1);}
-    .whatsapp-fixed img {width:35px; height:35px;}
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
 
-    /* FOOTER */
-    footer {background:#001f3f; text-align:center; padding:25px; color:#ccc; font-size:0.9rem;}
-  </style>
+        /* Menu Hambúrguer (Mobile) */
+        .hamburger {
+            display: none; /* Esconde por padrão em desktop */
+            font-size: 2em;
+            cursor: pointer;
+        }
+
+        /* Menu Dropdown Mobile (Inicialmente Escondido) */
+        .nav-links.active {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 60px; /* Ajuste com a altura do header */
+            left: 0;
+            width: 100%;
+            background-color: var(--cor-primaria);
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+        }
+
+        /* -------------------------- */
+        /* SEÇÃO SOBRE (APRESENTAÇÃO) */
+        /* -------------------------- */
+        #sobre {
+            background-color: var(--cor-clara);
+            text-align: center;
+        }
+
+        #sobre h2 {
+            color: var(--cor-primaria);
+            margin-bottom: 20px;
+        }
+
+        /* -------------------------- */
+        /* CARROSSEL INFINITO */
+        /* -------------------------- */
+        #carrossel {
+            background-color: var(--cor-fundo);
+        }
+
+        .carrossel-container {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .carrossel-slide-wrapper {
+            display: flex;
+            width: fit-content;
+            animation: carrossel-animacao 20s linear infinite; /* Rápido: 20s */
+        }
+
+        .carrossel-item {
+            min-width: 300px; /* Largura de cada item */
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            padding: 10px;
+            color: var(--cor-clara);
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+            margin-right: 10px;
+            border-radius: 5px;
+        }
+
+        /* Imagens de Exemplo para os Itens do Carrossel */
+        .carrossel-item:nth-child(1) { background-image: url('https://picsum.photos/300/200?random=1'); }
+        .carrossel-item:nth-child(2) { background-image: url('https://picsum.photos/300/200?random=2'); }
+        .carrossel-item:nth-child(3) { background-image: url('https://picsum.photos/300/200?random=3'); }
+        .carrossel-item:nth-child(4) { background-image: url('https://picsum.photos/300/200?random=4'); }
+        .carrossel-item:nth-child(5) { background-image: url('https://picsum.photos/300/200?random=5'); }
+
+        /* AQUI O JOGO DE DUPLICAR E FAZER O EFEITO INFINITO */
+        @keyframes carrossel-animacao {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); } /* Move a metade do wrapper */
+        }
+
+        /* -------------------------- */
+        /* VÍDEO E ORÇAMENTO */
+        /* -------------------------- */
+        .grid-2-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .video-box {
+            background-color: #000;
+            aspect-ratio: 16/9; /* Proporção de vídeo */
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--cor-clara);
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        /* Formulário de Orçamento */
+        #orcamento h3 {
+            color: var(--cor-secundaria);
+            margin-bottom: 15px;
+        }
+
+        #orcamento form input, #orcamento form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #orcamento form button {
+            background-color: var(--cor-secundaria);
+            color: var(--cor-clara);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #orcamento form button:hover {
+            background-color: #1e7e34;
+        }
+
+        /* -------------------------- */
+        /* COMENTÁRIOS DE CLIENTES */
+        /* -------------------------- */
+        #clientes {
+            background-color: var(--cor-fundo);
+            text-align: center;
+        }
+
+        .comentarios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .comentario-card {
+            background-color: var(--cor-clara);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .comentario-card img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+            float: left; /* Alinha a imagem à esquerda */
+        }
+
+        .comentario-card p {
+            font-style: italic;
+            margin-top: 10px;
+            clear: both; /* Limpa o float para o texto não ficar ao lado da foto */
+        }
+
+        /* -------------------------- */
+        /* MARKETING (Aba Criativa) */
+        /* -------------------------- */
+        #marketing {
+            background-color: #0d6efd; /* Azul mais escuro */
+            color: var(--cor-clara);
+            text-align: center;
+        }
+
+        #marketing h2 {
+            margin-bottom: 30px;
+        }
+
+        .marketing-box {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .marketing-box h3 {
+            margin-bottom: 15px;
+            color: #ffc107; /* Amarelo de destaque */
+        }
+
+        /* -------------------------- */
+        /* REDES SOCIAIS E WHATSAPP */
+        /* -------------------------- */
+        #contato {
+            text-align: center;
+        }
+
+        .social-icons a {
+            font-size: 2.5em;
+            margin: 0 15px;
+            color: var(--cor-texto);
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--cor-primaria);
+        }
+
+        /* WhatsApp Flutuante */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: var(--cor-secundaria);
+            color: var(--cor-clara);
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            line-height: 60px;
+            z-index: 999;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* -------------------------- */
+        /* RODAPÉ */
+        /* -------------------------- */
+        footer {
+            background-color: var(--cor-texto);
+            color: #adb5bd;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9em;
+        }
+
+        /* -------------------------- */
+        /* RESPONSIVIDADE (MOBILE-FIRST) */
+        /* -------------------------- */
+        @media (max-width: 768px) {
+            /* Navegação Mobile */
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: block; /* Mostra o ícone Hambúrguer */
+            }
+
+            .grid-2-col {
+                grid-template-columns: 1fr; /* Coluna única em mobile */
+            }
+
+            .video-box, #orcamento {
+                margin-top: 20px;
+            }
+            
+            /* Carrossel mais estreito */
+            .carrossel-item {
+                min-width: 200px;
+                height: 150px;
+            }
+
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 25px;
+                line-height: 50px;
+            }
+        }
+    </style>
 </head>
-
 <body>
-  <nav>
-    <div class="logo">Prosolution</div>
-    <ul id="menu">
-      <li><a href="#inicio">Início</a></li>
-      <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#servicos">Serviços</a></li>
-      <li><a href="#acionistas">Acionistas</a></li>
-      <li><a href="#depoimentos">Depoimentos</a></li>
-      <li><a href="#contato">Contato</a></li>
-    </ul>
-    <div class="menu-toggle"><div></div><div></div><div></div></div>
-  </nav>
 
-  <!-- HERO -->
-  <section class="hero" id="inicio">
-    <div>
-      <h1>Conectando Tecnologia e Inovação</h1>
-      <p>Transformamos ideias em soluções digitais poderosas.</p>
-    </div>
-  </section>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Gslimp</div>
+                
+                <div class="hamburger" onclick="toggleMenu()">
+                    <i class="fa fa-bars"></i>
+                </div>
 
-  <!-- SERVIÇOS -->
-  <section id="servicos">
-    <h2>Serviços</h2>
-    <p>Atuamos em diversas áreas da tecnologia, sempre com foco em inovação e excelência.</p>
-    <div class="services">
-      <div class="service-card">
-        <h3>Desenvolvimento de Software</h3>
-        <p>Criação de sistemas personalizados e eficientes para atender às necessidades do seu negócio.</p>
-      </div>
-      <div class="service-card">
-        <h3>Consultoria de TI</h3>
-        <p>Planejamento estratégico e otimização da infraestrutura tecnológica da sua empresa.</p>
-      </div>
-      <div class="service-card">
-        <h3>Automação de Processos</h3>
-        <p>Reduza custos e aumente produtividade com soluções inteligentes de automação.</p>
-      </div>
-    </div>
-  </section>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#carrossel">Galeria</a></li>
+                    <li><a href="#videos">Vídeos</a></li>
+                    <li><a href="#orcamento">Orçamento</a></li>
+                    <li><a href="#clientes">Clientes</a></li>
+                    <li><a href="#marketing">Marketing</a></li>
+                    <li><a href="#contato">Redes</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <!-- SOBRE -->
-  <section id="sobre">
-    <h2>Sobre Nós</h2>
-    <p>A Prosolution é especializada em soluções de TI, automação e inovação digital, com foco em desempenho e confiabilidade.</p>
+    <section id="sobre">
+        <div class="container">
+            <h2>Gslimp: Qualidade e Confiança em Limpeza de Estofados</h2>
+            <p><strong>Fundada em 2020</strong>, a Gslimp nasceu da necessidade de oferecer um serviço de limpeza de estofados premium e acessível em **Arapiraca e Região**. Nossa missão é transformar ambientes e promover saúde, removendo sujidades, ácaros e bactérias de sofás, colchões, cadeiras e interiores de veículos.</p>
+            <p>Contamos com uma equipe especializada e equipamentos de última geração, garantindo resultados que superam as expectativas. **Sua família e seu conforto merecem a excelência Gslimp!**</p>
+        </div>
+    </section>
 
-    <div class="sobre-carousel">
-      <div class="sobre-track" id="sobreTrack">
-        <img src="https://images.unsplash.com/photo-1581092334707-39c4c30bfbcd?auto=format&fit=crop&w=500&q=80" alt="">
-        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=500&q=80" alt="">
-        <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=500&q=80" alt="">
-      </div>
-    </div>
+    <section id="carrossel">
+        <div class="container">
+            <h2 style="text-align: center; color: var(--cor-primaria); margin-bottom: 20px;">Nossos Serviços em Ação</h2>
+            <div class="carrossel-container">
+                <div class="carrossel-slide-wrapper" id="carrosselWrapper">
+                    <div class="carrossel-item">Sofá 3 Lugares - Limpo e Renovado</div>
+                    <div class="carrossel-item">Limpeza de Colchões - Adeus Ácaros!</div>
+                    <div class="carrossel-item">Higienização Interna Automotiva</div>
+                    <div class="carrossel-item">Remoção de Manchas Difíceis</div>
+                    <div class="carrossel-item">Cadeiras de Jantar - Brilho Restaurado</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="counter" id="counter">+0 Clientes Atendidos</div>
+    <section id="videos">
+        <div class="container grid-2-col">
+            <div id="videos-content">
+                <h2 style="color: var(--cor-primaria); margin-bottom: 20px;">Veja a Transformação (Vídeo)</h2>
+                <div class="video-box">
+                    <iframe 
+                        width="100%" 
+                        height="100%" 
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen
+                        title="Exemplo de Vídeo Gslimp">
+                    </iframe>
+                </div>
+            </div>
 
-    <h2 style="margin-top:70px;">Empresas Parceiras</h2>
-    <div class="partners">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Dell_Logo.svg" alt="Dell">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/HP_logo_2012.svg" alt="HP">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Intel-logo.svg" alt="Intel">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg" alt="Oracle">
-    </div>
-  </section>
+            <div id="orcamento">
+                <h3>Solicite seu Orçamento Grátis!</h3>
+                <p>Atendemos Arapiraca e toda a região. Receba uma proposta em minutos pelo WhatsApp!</p>
+                <form onsubmit="return handleOrcamento(event)">
+                    <input type="text" placeholder="Seu Nome Completo" required>
+                    <input type="tel" placeholder="WhatsApp (DDD + Número)" required>
+                    <textarea placeholder="Tipo de Estofado e Tamanho (Ex: Sofá Retrátil 3m)" required></textarea>
+                    <button type="submit">Enviar Pedido de Orçamento</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
-  <!-- ACIONISTAS -->
-  <section id="acionistas">
-    <h2>Acionistas</h2>
-    <div class="team">
-      <div class="member">
-        <img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?auto=format&fit=crop&w=400&q=80" alt="Anderson">
-        <h3>Anderson</h3>
-        <p class="role">Acionista</p>
-        <p>Responsável pela estratégia e expansão internacional da Prosolution.</p>
-      </div>
-      <div class="member">
-        <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=400&q=80" alt="Eduardo">
-        <h3>Eduardo</h3>
-        <p class="role">Diretor</p>
-        <p>Lidera a direção executiva e inovação tecnológica da empresa.</p>
-      </div>
-    </div>
-  </section>
+    <section id="clientes">
+        <div class="container">
+            <h2 style="color: var(--cor-primaria);">Quem Confia na Gslimp</h2>
+            <p>Resultados comprovados e clientes satisfeitos em Arapiraca e região.</p>
+            <div class="comentarios-grid">
+                
+                <div class="comentario-card">
+                    <img src="https://picsum.photos/60/60?random=10" alt="Foto Cliente 1">
+                    <h4>Maria S.</h4>
+                    <span>(Arapiraca)</span>
+                    <p>"Fiquei impressionada! Meu sofá parecia novo. Atendimento nota 10 e preço justo. Recomendo muito!"</p>
+                </div>
+                
+                <div class="comentario-card">
+                    <img src="https://picsum.photos/60/60?random=11" alt="Foto Cliente 2">
+                    <h4>João P.</h4>
+                    <span>(Região)</span>
+                    <p>"Limparam o interior do meu carro, e o cheiro de mofo sumiu. Profissionais cuidadosos e serviço rápido. Parabéns à Gslimp!"</p>
+                </div>
 
-  <!-- DEPOIMENTOS -->
-  <section id="depoimentos" class="testimonials">
-    <h2>Depoimentos</h2>
-    <div class="testimonial-slide" id="testimonialSlide">
-      <div class="testimonial"><img src="https://randomuser.me/api/portraits/men/32.jpg"><p>"Equipe excepcional! Elevou o padrão de nossa TI."</p><h4>- João Lima</h4></div>
-      <div class="testimonial"><img src="https://randomuser.me/api/portraits/women/55.jpg"><p>"Resultados rápidos e soluções inovadoras."</p><h4>- Ana Souza</h4></div>
-      <div class="testimonial"><img src="https://randomuser.me/api/portraits/men/64.jpg"><p>"Excelente suporte e tecnologia de ponta."</p><h4>- Carlos Mendes</h4></div>
-    </div>
-  </section>
+                <div class="comentario-card">
+                    <img src="https://picsum.photos/60/60?random=12" alt="Foto Cliente 3">
+                    <h4>Carla R.</h4>
+                    <span>(Arapiraca)</span>
+                    <p>"Contratei para limpar o meu colchão. Nunca imaginei quanta sujeira saiu. O sono melhorou muito! Indico a todos."</p>
+                </div>
 
-  <!-- CONTATO -->
-  <section id="contato" class="contact">
-    <h2>Fale Conosco</h2>
-    <p>Entre em contato conosco pelas redes sociais:</p>
-    <div class="socials">
-      <a href="https://wa.me/5515998216626?text=Olá%20Prosolution!" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"></a>
-      <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"></a>
-      <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Facebook_icon_%28black%29.svg"></a>
-    </div>
-  </section>
+            </div>
+        </div>
+    </section>
 
-  <!-- WHATSAPP -->
-  <a href="https://wa.me/5515998216626?text=Olá%20Prosolution!" target="_blank" class="whatsapp-fixed">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
-  </a>
+    <section id="marketing">
+        <div class="container">
+            <h2>Marketing Gslimp: O Seu Estofado Pede Ajuda!</h2>
+            <div class="marketing-box">
+                <h3>O Desafio da Mancha Invisível</h3>
+                <p>Você sabia que a cada 6 meses seu estofado acumula em média 1kg de sujeira invisível, ácaros e pele morta? Não se trata apenas de estética, mas de **SAÚDE RESPIRATÓRIA**.</p>
+                <p>A Gslimp não limpa, **HIGIENIZA** de verdade. Use nosso cupom <strong>#GslimpSaude</strong> e ganhe 10% de desconto na primeira higienização de colchão!</p>
+            </div>
+        </div>
+    </section>
 
-  <!-- FOOTER -->
-  <footer>© 2025 Prosolution - Tecnologia e Inovação | CNPJ: 54.694.364/0001-48</footer>
+    <section id="contato">
+        <div class="container">
+            <h2 style="color: var(--cor-primaria); margin-bottom: 30px;">Fique Conectado</h2>
+            <div class="social-icons">
+                <a href="https://api.whatsapp.com/send?phone=5582999999999" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp" style="color: var(--cor-secundaria);"></i></a>
+                <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+    </section>
 
-  <script>
-    // MENU
-    const toggle=document.querySelector('.menu-toggle');
-    const menu=document.querySelector('#menu');
-    toggle.addEventListener('click',()=>menu.classList.toggle('active'));
+    <a href="https://api.whatsapp.com/send?phone=5582999999999&text=Olá! Gostaria de um orçamento para limpeza de estofado." target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-    // DEPOIMENTOS
-    const slide=document.getElementById('testimonialSlide');
-    let idx=0;const total=slide.children.length;
-    setInterval(()=>{idx=(idx+1)%total;slide.style.transform=`translateX(-${idx*100}%)`;},3500);
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Gslimp. Todos os direitos reservados. Atendimento em Arapiraca e Região.</p>
+            <p>Desenvolvido por **Gsempreendimentos**</p>
+            <p>Servidores: São Paulo (Nota: Isso é uma menção de localização de servidor e não afeta o código front-end.)</p>
+        </div>
+    </footer>
 
-    // CONTADOR
-    const counter=document.getElementById("counter");
-    let count=0;const target=4000;
-    const timer=setInterval(()=>{count+=80;counter.textContent=`+${count.toLocaleString()} Clientes Atendidos`;
-      if(count>=target)clearInterval(timer);
-    },40);
+    <script>
+        // --------------------------
+        // 1. FUNCIONALIDADE DO MENU HAMBÚRGUER
+        // --------------------------
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            // Alterna a classe 'active' para mostrar/esconder o menu
+            navLinks.classList.toggle('active');
 
-    // SOBRE - CARROSSEL
-    const sobreTrack=document.getElementById("sobreTrack");
-    let i=0;
-    setInterval(()=>{i=(i+1)%3;sobreTrack.style.transform=`translateX(-${i*320}px)`;},2500);
-  </script>
-</body>
-</html>
+            // Fecha o menu se um link for clicado (para mobile)
+            const links = navLinks.querySelectorAll('a');
+            links.forEach(link => {
+                link.onclick = () => {
+                    navLinks.classList.remove('active');
+                };
+            });
+        }
+
+        // --------------------------
+        // 2. FUNCIONALIDADE DO CARROSSEL INFINITO (Clonagem)
+        // --------------------------
+        document.addEventListener('DOMContentLoaded', () => {
+            const carrosselWrapper = document.getElementById('carrosselWrapper');
+            
+            // Clona o conteúdo do carrossel (a primeira metade)
+            const slides = Array.from(carrosselWrapper.children);
+            slides.forEach(item => {
+                const clone = item.cloneNode(true);
+                carrosselWrapper.appendChild(clone);
+            });
+            // Agora o wrapper tem o dobro do tamanho, permitindo a animação infinita em CSS.
+        });
+
+        // --------------------------
+        // 3. FUNCIONALIDADE DE ORÇAMENTO (Simulação de Envio)
+        // --------------------------
+        function handleOrcamento(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+
+            const nome = event.target.elements[0].value;
+            const telefone = event.target.elements[1].value;
+            const detalhes = event.target.elements[2].value;
+
+            // Cria a mensagem para o WhatsApp
+            const mensagem = `Olá, Gslimp! Meu nome é ${nome} e gostaria de um orçamento. Meu telefone é ${telefone}. Detalhes do serviço: ${detalhes}`;
+            
+            // Número de WhatsApp (Substitua pelo seu número real - 55 DDI +
