@@ -1,564 +1,241 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gslimp - Limpeza de Estofados em Arapiraca e Região</title>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-    <style>
-        /* Variáveis de Cor */
-        :root {
-            --cor-primaria: #007bff; /* Azul vibrante (limpeza) */
-            --cor-secundaria: #28a745; /* Verde (WhatsApp, sucesso) */
-            --cor-fundo: #f8f9fa;
-            --cor-texto: #343a40;
-            --cor-clara: #ffffff;
-        }
-
-        /* Estilos Globais e Reset Simples */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: var(--cor-texto);
-            background-color: var(--cor-fundo);
-            scroll-behavior: smooth;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px 0;
-        }
-
-        section {
-            padding: 60px 0;
-            overflow: hidden; /* Garante que o carrossel infinito funcione */
-        }
-
-        /* -------------------------- */
-        /* CABEÇALHO E NAVEGAÇÃO */
-        /* -------------------------- */
-        header {
-            background-color: var(--cor-primaria);
-            color: var(--cor-clara);
-            padding: 15px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .logo {
-            font-size: 2em;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-        }
-
-        .nav-links a {
-            color: var(--cor-clara);
-            text-decoration: none;
-            padding: 10px 15px;
-            display: block;
-            transition: background-color 0.3s;
-        }
-
-        .nav-links a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-
-        /* Menu Hambúrguer (Mobile) */
-        .hamburger {
-            display: none; /* Esconde por padrão em desktop */
-            font-size: 2em;
-            cursor: pointer;
-        }
-
-        /* Menu Dropdown Mobile (Inicialmente Escondido) */
-        .nav-links.active {
-            display: flex;
-            flex-direction: column;
-            position: absolute;
-            top: 60px; /* Ajuste com a altura do header */
-            left: 0;
-            width: 100%;
-            background-color: var(--cor-primaria);
-            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
-            z-index: 999;
-        }
-
-        /* -------------------------- */
-        /* SEÇÃO SOBRE (APRESENTAÇÃO) */
-        /* -------------------------- */
-        #sobre {
-            background-color: var(--cor-clara);
-            text-align: center;
-        }
-
-        #sobre h2 {
-            color: var(--cor-primaria);
-            margin-bottom: 20px;
-        }
-
-        /* -------------------------- */
-        /* CARROSSEL INFINITO */
-        /* -------------------------- */
-        #carrossel {
-            background-color: var(--cor-fundo);
-        }
-
-        .carrossel-container {
-            display: flex;
-            overflow: hidden;
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .carrossel-slide-wrapper {
-            display: flex;
-            width: fit-content;
-            animation: carrossel-animacao 20s linear infinite; /* Rápido: 20s */
-        }
-
-        .carrossel-item {
-            min-width: 300px; /* Largura de cada item */
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: flex-end;
-            padding: 10px;
-            color: var(--cor-clara);
-            font-weight: bold;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-            margin-right: 10px;
-            border-radius: 5px;
-        }
-
-        /* Imagens de Exemplo para os Itens do Carrossel */
-        .carrossel-item:nth-child(1) { background-image: url('https://picsum.photos/300/200?random=1'); }
-        .carrossel-item:nth-child(2) { background-image: url('https://picsum.photos/300/200?random=2'); }
-        .carrossel-item:nth-child(3) { background-image: url('https://picsum.photos/300/200?random=3'); }
-        .carrossel-item:nth-child(4) { background-image: url('https://picsum.photos/300/200?random=4'); }
-        .carrossel-item:nth-child(5) { background-image: url('https://picsum.photos/300/200?random=5'); }
-
-        /* AQUI O JOGO DE DUPLICAR E FAZER O EFEITO INFINITO */
-        @keyframes carrossel-animacao {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); } /* Move a metade do wrapper */
-        }
-
-        /* -------------------------- */
-        /* VÍDEO E ORÇAMENTO */
-        /* -------------------------- */
-        .grid-2-col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .video-box {
-            background-color: #000;
-            aspect-ratio: 16/9; /* Proporção de vídeo */
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--cor-clara);
-            font-weight: bold;
-            font-size: 1.2em;
-        }
-
-        /* Formulário de Orçamento */
-        #orcamento h3 {
-            color: var(--cor-secundaria);
-            margin-bottom: 15px;
-        }
-
-        #orcamento form input, #orcamento form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        #orcamento form button {
-            background-color: var(--cor-secundaria);
-            color: var(--cor-clara);
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        #orcamento form button:hover {
-            background-color: #1e7e34;
-        }
-
-        /* -------------------------- */
-        /* COMENTÁRIOS DE CLIENTES */
-        /* -------------------------- */
-        #clientes {
-            background-color: var(--cor-fundo);
-            text-align: center;
-        }
-
-        .comentarios-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        .comentario-card {
-            background-color: var(--cor-clara);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            text-align: left;
-        }
-
-        .comentario-card img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            margin-right: 15px;
-            object-fit: cover;
-            float: left; /* Alinha a imagem à esquerda */
-        }
-
-        .comentario-card p {
-            font-style: italic;
-            margin-top: 10px;
-            clear: both; /* Limpa o float para o texto não ficar ao lado da foto */
-        }
-
-        /* -------------------------- */
-        /* MARKETING (Aba Criativa) */
-        /* -------------------------- */
-        #marketing {
-            background-color: #0d6efd; /* Azul mais escuro */
-            color: var(--cor-clara);
-            text-align: center;
-        }
-
-        #marketing h2 {
-            margin-bottom: 30px;
-        }
-
-        .marketing-box {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 10px;
-            max-width: 600px;
-            margin: 20px auto;
-        }
-
-        .marketing-box h3 {
-            margin-bottom: 15px;
-            color: #ffc107; /* Amarelo de destaque */
-        }
-
-        /* -------------------------- */
-        /* REDES SOCIAIS E WHATSAPP */
-        /* -------------------------- */
-        #contato {
-            text-align: center;
-        }
-
-        .social-icons a {
-            font-size: 2.5em;
-            margin: 0 15px;
-            color: var(--cor-texto);
-            transition: color 0.3s;
-        }
-
-        .social-icons a:hover {
-            color: var(--cor-primaria);
-        }
-
-        /* WhatsApp Flutuante */
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 40px;
-            right: 40px;
-            background-color: var(--cor-secundaria);
-            color: var(--cor-clara);
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            line-height: 60px;
-            z-index: 999;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
-
-        /* -------------------------- */
-        /* RODAPÉ */
-        /* -------------------------- */
-        footer {
-            background-color: var(--cor-texto);
-            color: #adb5bd;
-            text-align: center;
-            padding: 20px 0;
-            font-size: 0.9em;
-        }
-
-        /* -------------------------- */
-        /* RESPONSIVIDADE (MOBILE-FIRST) */
-        /* -------------------------- */
-        @media (max-width: 768px) {
-            /* Navegação Mobile */
-            .nav-links {
-                display: none;
-            }
-
-            .hamburger {
-                display: block; /* Mostra o ícone Hambúrguer */
-            }
-
-            .grid-2-col {
-                grid-template-columns: 1fr; /* Coluna única em mobile */
-            }
-
-            .video-box, #orcamento {
-                margin-top: 20px;
-            }
-            
-            /* Carrossel mais estreito */
-            .carrossel-item {
-                min-width: 200px;
-                height: 150px;
-            }
-
-            .whatsapp-float {
-                bottom: 20px;
-                right: 20px;
-                width: 50px;
-                height: 50px;
-                font-size: 25px;
-                line-height: 50px;
-            }
-        }
-    </style>
-</head>
+    <title>GSLIMP - Sua Especialista em Higienização Profissional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    </head>
 <body>
 
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">Gslimp</div>
-                
-                <div class="hamburger" onclick="toggleMenu()">
-                    <i class="fa fa-bars"></i>
-                </div>
-
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="#carrossel">Galeria</a></li>
-                    <li><a href="#videos">Vídeos</a></li>
-                    <li><a href="#orcamento">Orçamento</a></li>
-                    <li><a href="#clientes">Clientes</a></li>
-                    <li><a href="#marketing">Marketing</a></li>
-                    <li><a href="#contato">Redes</a></li>
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">GSLIMP</a>
+            
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li><a href="#about" class="nav__link">Quem Somos</a></li>
+                    <li><a href="#services" class="nav__link">Serviços</a></li>
+                    <li><a href="#process" class="nav__link">Como Fazemos</a></li>
+                    <li><a href="#testimonials" class="nav__link">Clientes</a></li>
                 </ul>
-            </nav>
-        </div>
+                 <a href="#contact" class="button nav__button nav__button--mobile">Orçamento Rápido</a> 
+            </div>
+            
+        
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
     </header>
 
-    <section id="sobre">
-        <div class="container">
-            <h2>Gslimp: Qualidade e Confiança em Limpeza de Estofados</h2>
-            <p><strong>Fundada em 2020</strong>, a Gslimp nasceu da necessidade de oferecer um serviço de limpeza de estofados premium e acessível em **Arapiraca e Região**. Nossa missão é transformar ambientes e promover saúde, removendo sujidades, ácaros e bactérias de sofás, colchões, cadeiras e interiores de veículos.</p>
-            <p>Contamos com uma equipe especializada e equipamentos de última geração, garantindo resultados que superam as expectativas. **Sua família e seu conforto merecem a excelência Gslimp!**</p>
-        </div>
-    </section>
+    <main class="main">
+        <section class="home section" id="home">
+            <div class="container home__container">
+                <div class="home__content">
+                    <p class="section__subtitle">RENOVAÇÃO COMPLETA</p>
+                    <h1 class="section__title section__title--large section__title--white">Seu Sofá Novo, Seu Ambiente Saudável.</h1>
+                    <p class="home__description">Cansado de manchas e mau odor? A **GSLIMP** traz o poder da higienização profunda para estofados, colchões e interiores de veículos. Experimente a sensação de ter tudo "Novo de Novo".</p>
+                    
+                    <a href="#contact" class="button home__button">QUERO RENOVAR MEU ESTOFADO</a>
+                    <p class="home__cta-subtitle">Elimine a sujeira invisível e melhore a sua saúde respiratória.</p>
+                </div>
+                </div>
+        </section>
 
-    <section id="carrossel">
-        <div class="container">
-            <h2 style="text-align: center; color: var(--cor-primaria); margin-bottom: 20px;">Nossos Serviços em Ação</h2>
-            <div class="carrossel-container">
-                <div class="carrossel-slide-wrapper" id="carrosselWrapper">
-                    <div class="carrossel-item">Sofá 3 Lugares - Limpo e Renovado</div>
-                    <div class="carrossel-item">Limpeza de Colchões - Adeus Ácaros!</div>
-                    <div class="carrossel-item">Higienização Interna Automotiva</div>
-                    <div class="carrossel-item">Remoção de Manchas Difíceis</div>
-                    <div class="carrossel-item">Cadeiras de Jantar - Brilho Restaurado</div>
+        <section class="benefits section" id="benefits">
+            <div class="container">
+                <h2 class="section__title">Resultados que Você Vai Sentir</h2>
+                <div class="benefits__grid">
+                    <div class="benefit__item">
+                        <i class="fas fa-heartbeat benefit__icon" style="color: #0582CA;"></i>
+                        <h3>Saúde em Primeiro Lugar</h3>
+                        <p>Eliminação comprovada de 99,9% dos ácaros e alérgenos.</p>
+                    </div>
+                    <div class="benefit__item">
+                        <i class="fas fa-magic benefit__icon" style="color: #ffc107;"></i>
+                        <h3>Renovação Estética</h3>
+                        <p>Revitalizamos as cores e a textura original do seu estofado.</p>
+                    </div>
+                    <div class="benefit__item">
+                        <i class="fas fa-shield-alt benefit__icon" style="color: #17a2b8;"></i>
+                        <h3>Proteção e Durabilidade</h3>
+                        <p>Aumentamos a vida útil do seu bem com limpeza e impermeabilização.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="videos">
-        <div class="container grid-2-col">
-            <div id="videos-content">
-                <h2 style="color: var(--cor-primaria); margin-bottom: 20px;">Veja a Transformação (Vídeo)</h2>
-                <div class="video-box">
-                    <iframe 
-                        width="100%" 
-                        height="100%" 
-                        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen
-                        title="Exemplo de Vídeo Gslimp">
-                    </iframe>
+        <section class="about section" id="about">
+            <div class="container about__content">
+                <div class="about__text-side">
+                    <p class="section__subtitle">HIGIENIZAÇÃO PROFISSIONAL PARA SEU BEM-ESTAR</p>
+                    <h2 class="section__title section__title--large" style="text-align: left;">GSLIMP: Especialistas em Higienização desde 2020.</h2>
+                    <p>Desde **2020**, a GSLIMP transforma ambientes em Arapiraca, sendo sua referência em limpeza e higienização profissional. Nossa dedicação está em:</p>
+                    
+                    <ul class="home__list-points about__list">
+                        <li>Oferecer o mais alto padrão de limpeza para sua casa ou veículo.</li>
+                        <li>Utilizar exclusivamente insumos biodegradáveis, seguros para sua família e pets.</li>
+                        <li>Garantir sua completa satisfação com resultados impecáveis.</li>
+                    </ul>
+                    <p>Conte com nossa equipe certificada e tecnologia avançada para o cuidado que você merece.</p>
+                    <a href="#services" class="button">Conheça Nossa Tecnologia</a>
+                </div>
+                <div class="about__image-side">
+                    <img src="assets/img/equipe-gslimp-em-acao-profissional-e-certificada.jpg" alt="Equipe GSLIMP em ação, profissional e certificada" class="img-responsive">
                 </div>
             </div>
+        </section>
 
-            <div id="orcamento">
-                <h3>Solicite seu Orçamento Grátis!</h3>
-                <p>Atendemos Arapiraca e toda a região. Receba uma proposta em minutos pelo WhatsApp!</p>
-                <form onsubmit="return handleOrcamento(event)">
-                    <input type="text" placeholder="Seu Nome Completo" required>
-                    <input type="tel" placeholder="WhatsApp (DDD + Número)" required>
-                    <textarea placeholder="Tipo de Estofado e Tamanho (Ex: Sofá Retrátil 3m)" required></textarea>
-                    <button type="submit">Enviar Pedido de Orçamento</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <section id="clientes">
-        <div class="container">
-            <h2 style="color: var(--cor-primaria);">Quem Confia na Gslimp</h2>
-            <p>Resultados comprovados e clientes satisfeitos em Arapiraca e região.</p>
-            <div class="comentarios-grid">
-                
-                <div class="comentario-card">
-                    <img src="https://picsum.photos/60/60?random=10" alt="Foto Cliente 1">
-                    <h4>Maria S.</h4>
-                    <span>(Arapiraca)</span>
-                    <p>"Fiquei impressionada! Meu sofá parecia novo. Atendimento nota 10 e preço justo. Recomendo muito!"</p>
+        <section class="differentials section" id="differentials">
+            <div class="container">
+                <h2 class="section__title">Diferenciais que Nos Tornam a Melhor Escolha</h2>
+                <div class="differentials__grid">
+                    <div class="differential__item">
+                        <i class="fas fa-microscope differential__icon"></i>
+                        <h3>Foco Antialérgico</h3>
+                        <p>Eliminamos os focos de ácaros e bactérias, cruciais para quem tem alergias ou crianças em casa.</p>
+                    </div>
+                    <div class="differential__item">
+                        <i class="fas fa-leaf differential__icon"></i>
+                        <h3>Ecológico e Seguro</h3>
+                        <p>Utilizamos produtos de PH balanceado, seguros para animais, crianças e para o meio ambiente.</p>
+                    </div>
+                    <div class="differential__item">
+                        <i class="fas fa-bolt differential__icon"></i>
+                        <h3>Secagem Rápida</h3>
+                        <p>Nossas extratoras de alta sucção reduzem o tempo de secagem para você usar o estofado mais rápido.</p>
+                    </div>
+                    <div class="differential__item">
+                        <i class="fas fa-check-circle differential__icon"></i>
+                        <h3>Garantia de Satisfação</h3>
+                        <p>Nosso trabalho só termina quando você estiver 100% satisfeito com o resultado da limpeza.</p>
+                    </div>
                 </div>
-                
-                <div class="comentario-card">
-                    <img src="https://picsum.photos/60/60?random=11" alt="Foto Cliente 2">
-                    <h4>João P.</h4>
-                    <span>(Região)</span>
-                    <p>"Limparam o interior do meu carro, e o cheiro de mofo sumiu. Profissionais cuidadosos e serviço rápido. Parabéns à Gslimp!"</p>
+            </div>
+        </section>
+
+        <section class="services section" id="services">
+            <div class="container">
+                <h2 class="section__title">Nossos Serviços: Soluções Completas para Você</h2>
+                <div class="services__grid">
+                    <div class="service__item">
+                        <img src="assets/img/servico-sofas-poltronas.jpg" alt="Higienização profissional de sofás" class="service__img">
+                        <div class="service__content">
+                            <h3>Higienização de Sofás e Poltronas</h3>
+                            <p>Removemos sujeira profunda, manchas e odores, devolvendo a vida ao seu estofado.</p>
+                        </div>
+                    </div>
+                    <div class="service__item">
+                        <img src="assets/img/servico-colchoes-camas.jpg" alt="Limpeza de colchão para eliminar ácaros" class="service__img">
+                        <div class="service__content">
+                            <h3>Limpeza de Colchões e Camas Box</h3>
+                            <p>Durma melhor com um colchão livre de ácaros, fungos e alérgenos.</p>
+                        </div>
+                    </div>
+                    <div class="service__item">
+                        <img src="assets/img/servico-veiculos.jpg" alt="Higienização interna de veículos" class="service__img">
+                        <div class="service__content">
+                            <h3>Higienização de Interiores Veiculares</h3>
+                            <p>Seu carro limpo e cheiroso, desde os bancos até o teto, valorizando seu patrimônio.</p>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="comentario-card">
-                    <img src="https://picsum.photos/60/60?random=12" alt="Foto Cliente 3">
-                    <h4>Carla R.</h4>
-                    <span>(Arapiraca)</span>
-                    <p>"Contratei para limpar o meu colchão. Nunca imaginei quanta sujeira saiu. O sono melhorou muito! Indico a todos."</p>
+        <section class="process section" id="process">
+            <div class="container">
+                <h2 class="section__title section__title--white">O Segredo da Limpeza Profunda GSLIMP (4 Passos)</h2>
+                <div class="process__grid">
+                    <div class="process__step">
+                        <span class="step__number">1</span>
+                        <h3>Aspiração Industrial</h3>
+                        <p>Remoção de partículas secas, poeira e detritos com aspirador de alta potência.</p>
+                    </div>
+                    <div class="process__step">
+                        <span class="step__number">2</span>
+                        <h3>Aplicação e Esfregação</h3>
+                        <p>Aplicação de produto biodegradável e esfregação controlada para soltar a sujeira incrustada.</p>
+                    </div>
+                    <div class="process__step">
+                        <span class="step__number">3</span>
+                        <h3>Extração Profunda</h3>
+                        <p>Uso de extratora profissional para sugar a sujeira, a umidade e o produto, garantindo a secagem rápida.</p>
+                    </div>
+                    <div class="process__step">
+                        <span class="step__number">4</span>
+                        <h3>Desodorização e Acabamento</h3>
+                        <p>Aplicação de finalizador e desodorizante, deixando o tecido com aspecto de novo e cheiro agradável.</p>
+                    </div>
                 </div>
-
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="marketing">
-        <div class="container">
-            <h2>Marketing Gslimp: O Seu Estofado Pede Ajuda!</h2>
-            <div class="marketing-box">
-                <h3>O Desafio da Mancha Invisível</h3>
-                <p>Você sabia que a cada 6 meses seu estofado acumula em média 1kg de sujeira invisível, ácaros e pele morta? Não se trata apenas de estética, mas de **SAÚDE RESPIRATÓRIA**.</p>
-                <p>A Gslimp não limpa, **HIGIENIZA** de verdade. Use nosso cupom <strong>#GslimpSaude</strong> e ganhe 10% de desconto na primeira higienização de colchão!</p>
+        <section class="testimonials section" id="testimonials">
+            <div class="container">
+                <h2 class="section__title">O Que Nossos Clientes Dizem</h2>
+                <div class="testimonials__grid">
+                    <div class="testimonial__card">
+                        <img src="assets/img/cliente-ana-paula.jpg" alt="Foto de Ana Paula S." class="testimonial__img">
+                        <p class="testimonial__text">"Serviço impecável!!! Meu sofá estava com manchas antigas e a GSLIMP resolveu. Atendimento super rápido e profissional. Recomendo muito!"</p>
+                        <span class="testimonial__author">- Ana Paula S., Arapiraca</span>
+                    </div>
+                    <div class="testimonial__card">
+                         <img src="assets/img/cliente-roberto-m.jpg" alt="Foto de Robert M." class="testimonial__img">
+                        <p class="testimonial__text">"Higienizaram o colchão e o carro. A diferença é incrível, parece novo! Além da limpeza, senti uma melhora na qualidade do ar em casa."</p>
+                        <span class="testimonial__author">- Roberto M., Palmeira dos Índios</span>
+                    </div>
+                    <div class="testimonial__card">
+                         <img src="assets/img/cliente-camila-f.jpg" alt="Foto de Camila F." class="testimonial__img">
+                        <p class="testimonial__text">"A equipe foi muito atenciosa e pontual. O processo de lavagem é transparente e os produtos são cheirosos. Nota 10!"</p>
+                        <span class="testimonial__author">- Camila F., Limoeiro de Anadia</span>
+                    </div>
+                    <BR></BR>
+                </div>
+                <a href="URL_DO_SEU_INSTAGRAM" target="_blank" class="button button--link button--large-cta">VEJA MAIS RESULTADOS NO INSTAGRAM</a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contato">
-        <div class="container">
-            <h2 style="color: var(--cor-primaria); margin-bottom: 30px;">Fique Conectado</h2>
-            <div class="social-icons">
-                <a href="https://api.whatsapp.com/send?phone=5582999999999" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp" style="color: var(--cor-secundaria);"></i></a>
-                <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <section class="contact section" id="contact">
+            <div class="container contact__content">
+                <h2 class="section__title section__title--white section__title--large">Pronto para Transformar seu Ambiente?</h2>
+                <p class="contact__text">Fale diretamente com nossa equipe de especialistas. O orçamento é rápido, gratuito e sem compromisso.</p>
+                <a href="https://api.whatsapp.com/send?phone=SEU_NUMERO_WHATSAPP&text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20higieniza%C3%A7%C3%A3o." target="_blank" class="button contact__button">Receber Orçamento Gratuito Agora</a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <a href="https://api.whatsapp.com/send?phone=5582999999999&text=Olá! Gostaria de um orçamento para limpeza de estofado." target="_blank" class="whatsapp-float">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Gslimp. Todos os direitos reservados. Atendimento em Arapiraca e Região.</p>
-            <p>Desenvolvido por **Gsempreendimentos**</p>
-            <p>Servidores: São Paulo (Nota: Isso é uma menção de localização de servidor e não afeta o código front-end.)</p>
+    <footer class="footer">
+        <div class="container footer__container">
+            <a href="#" class="footer__logo">GSLIMP</a>
+            
+            <div class="footer__social-area">
+                <p>Fique Conectado</p>
+                <a href="URL_INSTAGRAM" target="_blank" class="social__icon-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="URL_FACEBOOK" target="_blank" class="social__icon-link">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            
+            <p class="footer__copy">
+                © 2025 GSLIMP. Todos os direitos reservados. | CNPJ: XX.XXX.XXX/0001-XX 
+                <a href="#" style="color: rgba(255, 255, 255, 0.7); text-decoration: none;">Política de Privacidade</a>
+            </p>
         </div>
     </footer>
 
-    <script>
-        // --------------------------
-        // 1. FUNCIONALIDADE DO MENU HAMBÚRGUER
-        // --------------------------
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            // Alterna a classe 'active' para mostrar/esconder o menu
-            navLinks.classList.toggle('active');
+    <a href="https://api.whatsapp.com/send?phone=SEU_NUMERO_WHATSAPP&text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20higieniza%C3%A7%C3%A3o." target="_blank" class="whatsapp__float">
+        <i class="fab fa-whatsapp"></i>
+        </a>
 
-            // Fecha o menu se um link for clicado (para mobile)
-            const links = navLinks.querySelectorAll('a');
-            links.forEach(link => {
-                link.onclick = () => {
-                    navLinks.classList.remove('active');
-                };
-            });
-        }
 
-        // --------------------------
-        // 2. FUNCIONALIDADE DO CARROSSEL INFINITO (Clonagem)
-        // --------------------------
-        document.addEventListener('DOMContentLoaded', () => {
-            const carrosselWrapper = document.getElementById('carrosselWrapper');
-            
-            // Clona o conteúdo do carrossel (a primeira metade)
-            const slides = Array.from(carrosselWrapper.children);
-            slides.forEach(item => {
-                const clone = item.cloneNode(true);
-                carrosselWrapper.appendChild(clone);
-            });
-            // Agora o wrapper tem o dobro do tamanho, permitindo a animação infinita em CSS.
-        });
+    <script src="script.js"></script>
 
-        // --------------------------
-        // 3. FUNCIONALIDADE DE ORÇAMENTO (Simulação de Envio)
-        // --------------------------
-        function handleOrcamento(event) {
-            event.preventDefault(); // Impede o envio padrão do formulário
-
-            const nome = event.target.elements[0].value;
-            const telefone = event.target.elements[1].value;
-            const detalhes = event.target.elements[2].value;
-
-            // Cria a mensagem para o WhatsApp
-            const mensagem = `Olá, Gslimp! Meu nome é ${nome} e gostaria de um orçamento. Meu telefone é ${telefone}. Detalhes do serviço: ${detalhes}`;
-            
-            // Número de WhatsApp (Substitua pelo seu número real - 55 DDI +
+</body>
+</html>
