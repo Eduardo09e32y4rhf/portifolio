@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GSLIMP - Sua Especialista em Higienização Profissional</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght[600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -20,15 +20,15 @@
                     <li><a href="#services" class="nav__link">Serviços</a></li>
                     <li><a href="#process" class="nav__link">Como Fazemos</a></li>
                     <li><a href="#testimonials" class="nav__link">Clientes</a></li>
+                    <li><a href="#contact" class="nav__link nav__link--mobile-cta">Orçamento</a></li> 
                 </ul>
-                 <a href="#contact" class="button nav__button nav__button--mobile">Orçamento Rápido</a> 
             </div>
             
             <a href="#contact" class="button nav__button nav__button--desktop">Orçamento Rápido</a>
             
-            <div class="nav__toggle" id="nav-toggle">
+            <button class="nav__toggle" id="nav-toggle" aria-label="Abrir Menu">
                 <span></span>
-            </div>
+            </button>
         </nav>
     </header>
 
@@ -38,12 +38,12 @@
                 <div class="home__content">
                     <p class="section__subtitle">HIGIENIZAÇÃO QUE CUIDA DA SUA SAÚDE</p>
                     <h1 class="section__title section__title--large section__title--white">Elimine Ácaros e Devolva a Vida ao Seu Estofado.</h1>
-                    <p class="home__description">Cansado de manchas, mau odor e alergias? A **GSLIMP** traz o poder da higienização profunda para estofados, colchões e veículos. **Experimente a sensação de ter tudo "Novo de Novo".**</p>
+                    <p class="home__description">Cansado de manchas, mau odor e alergias? A GSLIMP traz o poder da higienização profunda para estofados, colchões e veículos. Experimente a sensação de ter tudo "Novo de Novo".</p>
                     
-                    <a href="#contact" class="button home__button">QUERO MEU ORÇAMENTO GRÁTIS</a>
+                    <a href="https://api.whatsapp.com/send?phone=SEU_NUMERO_WHATSAPP&text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20higieniza%C3%A7%C3%A3o." target="_blank" class="button home__button">QUERO MEU ORÇAMENTO GRÁTIS</a>
                     <p class="home__cta-subtitle">Atendimento em Arapiraca e Região. Agende pelo WhatsApp!</p>
                 </div>
-                </div>
+            </div>
         </section>
 
         <section class="benefits section" id="benefits">
@@ -74,7 +74,7 @@
                 <div class="about__text-side">
                     <p class="section__subtitle">HIGIENIZAÇÃO PROFISSIONAL PARA SEU BEM-ESTAR</p>
                     <h2 class="section__title section__title--large" style="text-align: left;">GSLIMP: Especialistas em Higienização desde 2020.</h2>
-                    <p>Desde **2020**, a GSLIMP transforma ambientes em Arapiraca, sendo sua referência em limpeza e higienização profissional. Nossa dedicação está em:</p>
+                    <p>Desde 2020, a GSLIMP transforma ambientes em Arapiraca, sendo sua referência em limpeza e higienização profissional. Nossa dedicação está em:</p>
                     
                     <ul class="home__list-points about__list">
                         <li>Oferecer o mais alto padrão de limpeza para sua casa ou veículo.</li>
@@ -82,10 +82,10 @@
                         <li>Garantir sua completa satisfação com resultados impecáveis.</li>
                     </ul>
                     <p>Conte com nossa equipe certificada e tecnologia avançada para o cuidado que você merece.</p>
-                    <a href="#services" class="button">Conheça Nossa Tecnologia</a>
+                    <a href="#services" class="button">Conheça Nossos Serviços</a>
                 </div>
                 <div class="about__image-side">
-                    <img src="assets/img/equipe-gslimp-em-acao-profissional-e-certificada.jpg" alt="Equipe GSLIMP em ação, profissional e certificada" class="img-responsive">
+                    <img src="https://picsum.photos/id/405/600/400" alt="Equipe GSLIMP em ação, profissional e certificada" class="img-responsive">
                 </div>
             </div>
         </section>
@@ -121,28 +121,50 @@
         <section class="services section" id="services">
             <div class="container">
                 <h2 class="section__title">Nossos Serviços: Soluções Para Um Lar Mais Saudável</h2>
-                <div class="services__grid">
-                    <div class="service__item">
-                        <img src="assets/img/servico-sofas-poltronas.jpg" alt="Higienização profissional de sofás" class="service__img">
-                        <div class="service__content">
-                            <h3>Higienização de Sofás e Poltronas</h3>
-                            <p>Removemos sujeira profunda, manchas e odores, devolvendo a vida ao seu estofado.</p>
+                <div class="services__carousel-container">
+                    <div class="services__carousel-track">
+                        
+                        <div class="service__item">
+                            <img src="https://picsum.photos/id/214/400/250" alt="Higienização profissional de sofás" class="service__img">
+                            <div class="service__content">
+                                <h3>Higienização de Sofás e Poltronas</h3>
+                                <p>Removemos sujeira profunda, manchas e odores, devolvendo a vida ao seu estofado.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="service__item">
-                        <img src="assets/img/servico-colchoes-camas.jpg" alt="Limpeza de colchão para eliminar ácaros" class="service__img">
-                        <div class="service__content">
-                            <h3>Limpeza de Colchões e Camas Box</h3>
-                            <p>Durma melhor com um colchão livre de ácaros, fungos e alérgenos.</p>
+                        
+                        <div class="service__item">
+                            <img src="https://picsum.photos/id/231/400/250" alt="Limpeza de colchão para eliminar ácaros" class="service__img">
+                            <div class="service__content">
+                                <h3>Limpeza de Colchões e Camas Box</h3>
+                                <p>Durma melhor com um colchão livre de ácaros, fungos e alérgenos.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="service__item">
-                        <img src="assets/img/servico-veiculos.jpg" alt="Higienização interna de veículos" class="service__img">
-                        <div class="service__content">
-                            <h3>Higienização de Interiores Veiculares</h3>
-                            <p>Seu carro limpo e cheiroso, desde os bancos até o teto, valorizando seu patrimônio.</p>
+                        
+                        <div class="service__item">
+                            <img src="https://picsum.photos/id/298/400/250" alt="Higienização interna de veículos" class="service__img">
+                            <div class="service__content">
+                                <h3>Higienização de Interiores Veiculares</h3>
+                                <p>Seu carro limpo e cheiroso, desde os bancos até o teto, valorizando seu patrimônio.</p>
+                            </div>
                         </div>
-                    </div>
+
+                        <div class="service__item">
+                            <img src="https://picsum.photos/id/190/400/250" alt="Impermeabilização de Estofados" class="service__img">
+                            <div class="service__content">
+                                <h3>Impermeabilização de Estofados</h3>
+                                <p>Proteja seu estofado contra líquidos e facilite a limpeza diária, prolongando a vida útil.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service__item">
+                            <img src="https://picsum.photos/id/175/400/250" alt="Limpeza de Tapetes e Carpetes" class="service__img">
+                            <div class="service__content">
+                                <h3>Limpeza de Tapetes e Carpetes</h3>
+                                <p>Removemos sujeira, manchas e mau cheiro de tapetes, restaurando a maciez da fibra.</p>
+                            </div>
+                        </div>
+                        
+                        </div>
                 </div>
             </div>
         </section>
@@ -154,22 +176,22 @@
                     <div class="process__step">
                         <span class="step__number">1</span>
                         <h3>Preparo e Aspiração de Alto Poder</h3>
-                        <p>Remoção de partículas secas, poeira e detritos com aspirador de alta potência, **garantindo a base para a limpeza real.**</p>
+                        <p>Remoção de partículas secas, poeira e detritos com aspirador de alta potência, garantindo a base para a limpeza real.</p>
                     </div>
                     <div class="process__step">
                         <span class="step__number">2</span>
                         <h3>Ação Biodegradável e Esfregação</h3>
-                        <p>Aplicação de produto **ecologicamente correto** e esfregação controlada para soltar a sujeira mais incrustada.</p>
+                        <p>Aplicação de produto ecologicamente correto e esfregação controlada para soltar a sujeira mais incrustada.</p>
                     </div>
                     <div class="process__step">
                         <span class="step__number">3</span>
                         <h3>Extração Total e Secagem Rápida</h3>
-                        <p>Uso de extratora profissional para sugar a sujeira, a umidade e o produto, **garantindo a secagem rápida e eficiente.**</p>
+                        <p>Uso de extratora profissional para sugar a sujeira, a umidade e o produto, garantindo a secagem rápida e eficiente.</p>
                     </div>
                     <div class="process__step">
                         <span class="step__number">4</span>
                         <h3>Acabamento, Cheiro Agradável e Proteção</h3>
-                        <p>Aplicação de finalizador e desodorizante, deixando o tecido com **aspecto de novo e cheiro agradável.**</p>
+                        <p>Aplicação de finalizador e desodorizante, deixando o tecido com aspecto de novo e cheiro agradável.</p>
                     </div>
                 </div>
             </div>
@@ -178,23 +200,43 @@
         <section class="testimonials section" id="testimonials">
             <div class="container">
                 <h2 class="section__title">O Que Nossos Clientes Dizem</h2>
-                <div class="testimonials__grid">
-                    <div class="testimonial__card">
-                        <img src="assets/img/cliente-ana-paula.jpg" alt="Foto de Ana Paula S." class="testimonial__img">
-                        <p class="testimonial__text">"Serviço impecável!!! Meu sofá estava com manchas antigas e a GSLIMP resolveu. Atendimento super rápido e profissional. Recomendo muito!"</p>
-                        <span class="testimonial__author">- Ana Paula S., Arapiraca</span>
-                    </div>
-                    <div class="testimonial__card">
-                         <img src="assets/img/cliente-roberto-m.jpg" alt="Foto de Robert M." class="testimonial__img">
-                        <p class="testimonial__text">"Higienizaram o colchão e o carro. A diferença é incrível, parece novo! Além da limpeza, senti uma melhora na qualidade do ar em casa."</p>
-                        <span class="testimonial__author">- Roberto M., Palmeira dos Índios</span>
-                    </div>
-                    <div class="testimonial__card">
-                         <img src="assets/img/cliente-camila-f.jpg" alt="Foto de Camila F." class="testimonial__img">
-                        <p class="testimonial__text">"A equipe foi muito atenciosa e pontual. O processo de lavagem é transparente e os produtos são cheirosos. Nota 10!"</p>
-                        <span class="testimonial__author">- Camila F., Limoeiro de Anadia</span>
-                    </div>
+                
+                <div class="testimonials__carousel-container">
+                    <div class="testimonials__carousel-track" id="testimonial-track">
+                        
+                        <div class="testimonial__card">
+                            <img src="https://picsum.photos/id/64/80/80" alt="Foto de Ana Paula S." class="testimonial__img">
+                            <p class="testimonial__text">"Serviço impecável! Meu sofá estava com manchas antigas e a GSLIMP resolveu. Atendimento super rápido e profissional. Recomendo muito!"</p>
+                            <span class="testimonial__author">- Ana Paula S., Arapiraca</span>
+                        </div>
+                        
+                        <div class="testimonial__card">
+                            <img src="https://picsum.photos/id/83/80/80" alt="Foto de Robert M." class="testimonial__img">
+                            <p class="testimonial__text">"Higienizaram o colchão e o carro. A diferença é incrível, parece novo! Além da limpeza, senti uma melhora na qualidade do ar em casa."</p>
+                            <span class="testimonial__author">- Roberto M., Palmeira dos Índios</span>
+                        </div>
+                        
+                        <div class="testimonial__card">
+                            <img src="https://picsum.photos/id/90/80/80" alt="Foto de Camila F." class="testimonial__img">
+                            <p class="testimonial__text">"A equipe foi muito atenciosa e pontual. O processo de lavagem é transparente e os produtos são cheirosos. Nota 10!"</p>
+                            <span class="testimonial__author">- Camila F., Limoeiro de Anadia</span>
+                        </div>
+
+                        <div class="testimonial__card">
+                            <img src="https://picsum.photos/id/77/80/80" alt="Foto de Mário J." class="testimonial__img">
+                            <p class="testimonial__text">"Excelente trabalho! O cheiro de mofo do sofá do meu escritório sumiu completamente. Profissionais de alto nível e muito educados."</p>
+                            <span class="testimonial__author">- Mário J., Campo Grande</span>
+                        </div>
+
+                        <div class="testimonial__card">
+                            <img src="https://picsum.photos/id/98/80/80" alt="Foto de Patrícia L." class="testimonial__img">
+                            <p class="testimonial__text">"Fiz a impermeabilização e adorei o resultado! A GSLIMP é sinônimo de confiança e qualidade. Indico de olhos fechados a todos."</p>
+                            <span class="testimonial__author">- Patrícia L., Penedo</span>
+                        </div>
+                        
+                        </div>
                 </div>
+                
                 <a href="URL_DO_SEU_INSTAGRAM" target="_blank" class="button button--link button--large-cta">🔍 VEJA MAIS RESULTADOS E ANTES/DEPOIS NO INSTAGRAM</a>
             </div>
         </section>
@@ -215,10 +257,10 @@
             
             <div class="footer__social-area">
                 <p>Fique Conectado</p>
-                <a href="URL_INSTAGRAM" target="_blank" class="social__icon-link">
+                <a href="https://www.instagram.com/gslimp" target="_blank" class="social__icon-link">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="URL_FACEBOOK" target="_blank" class="social__icon-link">
+                <a href="https://www.facebook.com/gslimp" target="_blank" class="social__icon-link">
                     <i class="fab fa-facebook-f"></i>
                 </a>
             </div>
@@ -230,7 +272,7 @@
         </div>
     </footer>
 
-    <a href="https://api.whatsapp.com/send?phone=SEU_NUMERO_WHATSAPP&text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20higieniza%C3%A7%C3%A3o." target="_blank" class="whatsapp__float">
+    <a href="https://api.whatsapp.com/send?phone=SEU_NUMERO_WHATSAPP&text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20higieniza%C3%A7%C3%A3o." target="_blank" class="whatsapp__float" aria-label="Fale Conosco pelo WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -240,7 +282,7 @@
                 🍪 **Este site utiliza cookies.**
                 Para garantir a melhor experiência de navegação e desempenho do site, utilizamos cookies. Ao continuar navegando, você concorda com o uso de cookies e com nossa
                 <a href="#" style="color: var(--accent-color); text-decoration: underline;">Política de Privacidade</a>.
-                O site GSLIMP trabalha com a divulgação de informações pessoais **apenas para fins estritamente relacionados à prestação de nossos serviços (higienização) e comunicação direta.**
+                O site GSLIMP trabalha com a divulgação de informações pessoais apenas para fins estritamente relacionados à prestação de nossos serviços (higienização) e comunicação direta.
             </p>
             <button class="button cookie-consent__button" id="cookie-accept-btn">Aceitar</button>
         </div>
