@@ -18,6 +18,7 @@
     --shadow-light: 0 5px 25px rgba(0, 0, 0, 0.08); /* Sombra mais leve para os cards */
     --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.15); /* Sombra mais forte para o hover */
     --border-radius: 8px;
+    --carrossel-speed: 25s; /* Velocidade do carrossel */
 }
 
 body {
@@ -100,10 +101,10 @@ body {
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease-in-out;
-    padding: 0.8rem 0; /* CORREÇÃO: Barra mais compacta */
+    padding: 0.5rem 0; /* Barra compacta */
 }
 .header.scrolled {
-    padding: 0.8rem 0; 
+    padding: 0.5rem 0; 
     background-color: rgba(255, 255, 255, 0.95); 
     box-shadow: 0 3px 15px rgba(0, 0, 0, 0.15);
 }
@@ -112,7 +113,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 3.5rem; /* CORREÇÃO: Altura fixa para barra compacta */
+    height: 3rem; /* Altura fixa para barra compacta */
 }
 
 .nav__logo {
@@ -147,8 +148,8 @@ body {
 .nav__link:hover {
     color: var(--secondary-color);
 }
-.nav__button--mobile { display: none; } 
-.nav__toggle { display: none; } /* Esconde o toggle no desktop */
+.nav__link--mobile-cta { display: none; } 
+.nav__toggle { display: none; } 
 
 
 /* --- Buttons --- */
@@ -193,7 +194,7 @@ body {
 
 /* --- Home Section --- */
 .home {
-    background-image: linear-gradient(rgba(0, 53, 84, 0.85), rgba(0, 53, 84, 0.85)), url('assets/img/background-home-placeholder.jpg'); 
+    background-image: linear-gradient(rgba(0, 53, 84, 0.85), rgba(0, 53, 84, 0.85)), url('https://picsum.photos/id/405/1920/1080'); /* Imagem de fundo */
     background-size: cover;
     background-position: center;
     padding-top: 8rem; 
@@ -238,7 +239,7 @@ body {
 .benefit__item {
     padding: 2rem 1.5rem; 
     background-color: var(--background-color);
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius); /* Arredondado */
     box-shadow: var(--shadow-light);
     transition: transform 0.3s, box-shadow 0.3s;
     text-align: center;
@@ -301,7 +302,7 @@ body {
 .differential__item {
     background-color: var(--background-color);
     padding: 1.5rem;
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius); /* Arredondado */
     box-shadow: var(--shadow-light); 
     transition: transform 0.3s, box-shadow 0.3s;
     text-align: center;
@@ -320,22 +321,38 @@ body {
 .fa-bolt { color: #ffc107; } 
 .fa-check-circle { color: #17a2b8; } 
 
-/* --- Services Section --- */
-.services__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+/* --- Services Section (Carrossel) --- */
+
+/* Contêiner que define a área visível */
+.services__carousel-container {
+    overflow: hidden;
+    padding: 2rem 0;
+    margin-top: 1rem;
+    position: relative;
+}
+
+/* Faixa que contém todos os itens - Flexbox e Animação */
+.services__carousel-track {
+    display: flex;
+    width: fit-content; /* Permite que o conteúdo interno determine a largura */
+    animation: carrossel-move var(--carrossel-speed) linear infinite;
     gap: 1.5rem;
-    margin-top: 2rem;
+    padding-bottom: 10px; /* Espaço para a sombra */
+}
+.services__carousel-track:hover {
+    animation-play-state: paused; /* Pausa ao passar o mouse */
 }
 
 .service__item {
+    min-width: 320px; /* Largura mínima para cada card no carrossel */
     background-color: var(--background-color);
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius); /* Arredondado */
     overflow: hidden;
     text-align: left;
     box-shadow: var(--shadow-light); 
     border-left: 5px solid var(--secondary-color); 
     transition: transform 0.3s, box-shadow 0.3s;
+    flex-shrink: 0; /* Impede o encolhimento */
 }
 
 .service__item:hover {
@@ -345,13 +362,20 @@ body {
 
 .service__img {
     width: 100%;
-    height: 180px; 
+    height: 200px; 
     object-fit: cover;
     display: block;
 }
 .service__content {
     padding: 1.5rem; 
 }
+
+/* Animação de Carrossel */
+@keyframes carrossel-move {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Move a metade do conteúdo para a repetição */
+}
+
 
 /* --- Process Section --- */
 .process {
@@ -365,12 +389,12 @@ body {
 }
 .process__step {
     background-color: rgba(255, 255, 255, 0.1);
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius); /* Arredondado */
     padding: 1.5rem; 
     text-align: left;
     color: #fff;
     transition: background-color 0.3s, transform 0.3s;
-    border-left: 4px solid var(--secondary-color); /* Destaque lateral */
+    border-left: 4px solid var(--secondary-color); 
 }
 .process__step:hover {
     background-color: rgba(255, 255, 255, 0.2);
@@ -401,23 +425,32 @@ body {
 }
 
 
-/* --- Testimonials Section --- */
-.testimonials {
-    background-color: var(--light-gray-bg);
+/* --- Testimonials Section (Carrossel) --- */
+
+.testimonials__carousel-container {
+    overflow: hidden;
+    padding: 2rem 0;
+    margin-top: 1rem;
+    position: relative;
 }
-.testimonials__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
+/* Faixa que contém todos os depoimentos - Flexbox e Animação */
+.testimonials__carousel-track {
+    display: flex;
+    width: fit-content;
+    animation: carrossel-move-fast calc(var(--carrossel-speed) * 1.5) linear infinite;
+    gap: 2rem;
+    padding-bottom: 10px; /* Espaço para a sombra */
+}
+.testimonials__carousel-track:hover {
+    animation-play-state: paused;
 }
 
 .testimonial__card {
+    min-width: 350px; /* Largura mínima para cada card no carrossel */
     background-color: var(--background-color); 
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius); /* Arredondado */
     padding: 2rem; 
     text-align: center; 
-    min-height: 250px; 
     box-shadow: var(--shadow-light); 
     border-left: 5px solid var(--secondary-color); 
     transition: transform 0.3s, box-shadow 0.3s;
@@ -425,6 +458,7 @@ body {
     flex-direction: column; 
     align-items: center; 
     justify-content: center; 
+    flex-shrink: 0;
 }
 
 .testimonial__card:hover {
@@ -452,6 +486,12 @@ body {
     display: block;
     font-size: 0.9rem; 
     color: var(--secondary-color);
+}
+
+/* Animação de Carrossel (mais rápida para depoimentos) */
+@keyframes carrossel-move-fast {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } 
 }
 
 
@@ -507,6 +547,7 @@ body {
 .footer__social-area p {
     font-weight: 600;
     font-size: 0.9rem;
+    color: #fff;
 }
 .social__icon-link {
     color: #fff; 
@@ -519,6 +560,8 @@ body {
     align-items: center;
     justify-content: center;
     transition: background-color 0.3s;
+    text-decoration: none; /* CORREÇÃO: Remove o sublinhado */
+    border: none; /* CORREÇÃO: Garante que não há borda/sublinhado */
 }
 .social__icon-link:hover {
     background-color: var(--secondary-color); 
@@ -543,6 +586,7 @@ body {
     align-items: center;
     justify-content: center;
     transition: transform 0.3s;
+    text-decoration: none; /* Importante para o link flutuante */
 }
 
 .whatsapp__float:hover {
@@ -561,7 +605,7 @@ body {
     z-index: 10000; 
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
     display: none; 
-    opacity: 1; /* Para o JS controlar o fade-out */
+    opacity: 1;
 }
 
 .cookie-consent.show {
@@ -588,6 +632,7 @@ body {
     font-size: 0.9rem;
     text-transform: none; 
     background-color: var(--accent-color); 
+    border-radius: var(--border-radius); /* Arredondado */
 }
 .cookie-consent__button:hover {
     background-color: #fff;
@@ -634,7 +679,7 @@ body {
         display: none; 
     }
 
-    /* --- Menu Hamburguer (Três Traços - CORREÇÃO) --- */
+    /* --- Menu Hamburguer (Três Traços - CORREÇÃO DE BUG) --- */
     
     .nav__toggle {
         display: flex; 
@@ -650,7 +695,6 @@ body {
         border: none;
     }
 
-    /* Os traços do hambúrguer (::before e ::after para o de cima e de baixo) */
     .nav__toggle::before,
     .nav__toggle::after {
         content: '';
@@ -662,7 +706,6 @@ body {
         transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     }
 
-    /* O traço do meio (o span interno) */
     .nav__toggle span { 
         display: block;
         width: 100%;
@@ -676,7 +719,7 @@ body {
         transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     }
 
-    /* Estado 'X' quando o menu está ativo (is-active é adicionada pelo JS) */
+    /* Estado 'X' quando o menu está ativo */
     .nav__toggle.is-active::before {
         transform: translateY(10.5px) rotate(45deg); 
     }
@@ -732,13 +775,27 @@ body {
     .nav__link:last-child {
         border-bottom: none;
     }
-    
-    .nav__button--mobile { 
-        display: inline-block; 
-        margin-top: 2rem;
-        width: 100%;
+
+    .nav__link--mobile-cta { /* Botão Orçamento Rápido no menu mobile */
+        display: block; 
+        background-color: var(--secondary-color);
+        color: #fff;
         text-align: center;
+        margin-top: 1.5rem;
+        border-radius: 50px;
         padding: 0.8rem;
+    }
+    
+    /* Serviços e Depoimentos: Ajuste para rolagem lateral (Scroll) */
+    .services__carousel-container, .testimonials__carousel-container {
+        overflow-x: scroll; /* Permite rolar horizontalmente */
+        -webkit-overflow-scrolling: touch; /* Melhora a rolagem em iOS */
+    }
+    
+    /* Remove a animação de carrossel no mobile para melhor experiência */
+    .services__carousel-track, .testimonials__carousel-track {
+        animation: none;
+        justify-content: flex-start;
     }
 
     /* Estilos do Cookie para Mobile */
@@ -763,7 +820,7 @@ body {
     .section__title {
         font-size: 1.8rem;
     }
-    .benefits__grid, .differentials__grid, .services__grid, .testimonials__grid {
+    .benefits__grid, .differentials__grid {
         grid-template-columns: 1fr;
     }
     .process__grid {
@@ -777,5 +834,12 @@ body {
     }
     .whatsapp__float .fab {
         font-size: 25px;
+    }
+    
+    .testimonial__card {
+        min-width: 280px;
+    }
+    .service__item {
+        min-width: 280px;
     }
 }
