@@ -6,10 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav__link');
 
     if (navToggle) {
-        // CORREÇÃO: A classe 'is-active' será adicionada/removida no toggle para a transição CSS
         navToggle.addEventListener('click', () => {
             navMenu.classList.toggle('show-menu');
             navToggle.classList.toggle('is-active'); 
+            // Controla a rolagem do corpo quando o menu está aberto
+            document.body.classList.toggle('no-scroll');
         });
     }
 
@@ -17,8 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.forEach(link => link.addEventListener('click', () => {
         navMenu.classList.remove('show-menu');
         if (navToggle) {
-            navToggle.classList.remove('is-active'); // Garante que o ícone volte para o hambúrguer
+            navToggle.classList.remove('is-active'); 
         }
+        document.body.classList.remove('no-scroll');
     }));
 
     // ==================== EFEITO DO HEADER AO ROLAR (Scroll Header) ====================
@@ -68,4 +70,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Executa a verificação ao carregar a página
     checkCookieConsent();
+
+
+    // ==================== CARROSSEL INFINITO (Adiciona Duplicação para o loop CSS) ====================
+    
+    function setupInfiniteCarousel(containerSelector) {
+        const track = document.querySelector(containerSelector);
+        if (!track) return;
+
+        // Clona os primeiros N itens (todos neste caso)
+        const items = Array.from(track.children);
+        
+        // Clona todos os itens e adiciona ao final
+        items.forEach(item => {
+            const clone = item.cloneNode(true);
+            track.appendChild(clone);
+        });
+
+        // NOTA: A animação de rolagem é feita via CSS (@keyframes)
+    }
+
+    // Aplica a lógica de duplicação para os dois carrosséis
+    setupInfiniteCarousel('.services__carousel-track');
+    setupInfiniteCarousel('.testimonials__carousel-track');
+
 });
