@@ -1,3 +1,4 @@
+// --- Conteúdo do arquivo script.js ---
 document.addEventListener('DOMContentLoaded', () => {
     
     // ==================== FUNCIONALIDADE DO MENU HAMBURGUER (MOBILE) ====================
@@ -34,32 +35,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // ==================== FUNCIONALIDADE LGPD/COOKIES ====================
+    // ==================== FUNCIONALIDADE LGPD/COOKIES (Aparece toda vez) ====================
     const cookieConsent = document.getElementById('cookie-consent');
     const cookieAcceptBtn = document.getElementById('cookie-accept-btn');
-    const cookieName = 'gslimp_cookies_accepted'; 
+    // A regra de aparecer toda vez implica em IGNORAR o localStorage.
 
-    /**
-     * Verifica se o usuário já aceitou os cookies
-     */
     function checkCookieConsent() {
-        if (!localStorage.getItem(cookieName)) {
-            // Mostra a barra após um pequeno atraso
-            setTimeout(() => {
-                cookieConsent.classList.add('show');
-            }, 1000); 
-        }
+        // Garante que o banner apareça.
+        cookieConsent.style.display = 'block';
+        cookieConsent.style.opacity = 1;
+
+        // Adiciona a classe 'show' após um breve momento.
+        setTimeout(() => {
+            cookieConsent.classList.add('show');
+        }, 100); 
     }
 
-    /**
-     * Salva a aceitação do usuário e esconde a barra
-     */
     if (cookieAcceptBtn) {
         cookieAcceptBtn.addEventListener('click', () => {
-            // 1. Salva a aceitação
-            localStorage.setItem(cookieName, 'true');
-            
-            // 2. Esconde a barra com efeito
+            // Esconde a barra com efeito
             cookieConsent.classList.remove('show');
             cookieConsent.style.opacity = 0;
             setTimeout(() => {
@@ -74,20 +68,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ==================== CARROSSEL INFINITO (Adiciona Duplicação para o loop CSS) ====================
     
-    function setupInfiniteCarousel(containerSelector) {
-        const track = document.querySelector(containerSelector);
+    function setupInfiniteCarousel(trackSelector) {
+        const track = document.querySelector(trackSelector);
         if (!track) return;
 
-        // Clona os primeiros N itens (todos neste caso)
+        // Clona e adiciona os 5 itens para o efeito infinito (compatível com o CSS)
         const items = Array.from(track.children);
         
-        // Clona todos os itens e adiciona ao final
         items.forEach(item => {
             const clone = item.cloneNode(true);
             track.appendChild(clone);
         });
-
-        // NOTA: A animação de rolagem é feita via CSS (@keyframes)
     }
 
     // Aplica a lógica de duplicação para os dois carrosséis
