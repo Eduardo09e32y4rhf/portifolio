@@ -1,4 +1,172 @@
-/* --- Botão Hamburguer (Correção, Caixa Quadrada, Borda Arredondada) --- */
+/* --- Conteúdo do arquivo style.css --- */
+/* --- CSS Reset e Configurações Base --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Paleta de Cores Atualizada para Modernidade */
+    --primary-color: #003554;      /* Azul Marinho Escuro (Títulos, Fundo Contato) */
+    --secondary-color: #0582CA;    /* Azul Vibrante (Botões CTA, Destaques) */
+    --accent-color: #00A6FB;       /* Azul Claro (Hover) */
+    --text-color: #1a1a1a;         /* Texto Escuro Forte */
+    --text-light: #555;            /* Texto Secundário */
+    --background-color: #FFFFFF;
+    --light-gray-bg: #f5f8fb;      /* Fundo suave para contraste */
+    --dark-teal-bg: #005f73;       /* Fundo do Processo */
+    --shadow-light: 0 5px 25px rgba(0, 0, 0, 0.08); 
+    --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.15); 
+    --border-radius: 12px; /* CORREÇÃO 6: Borda mais arredondada */
+    --carrossel-speed: 20s; 
+}
+
+body {
+    /* CORREÇÃO 5: Montserrat para corpo */
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    scroll-behavior: smooth;
+    line-height: 1.6;
+}
+/* Adicionado para correção de bug do hambúrguer no mobile */
+.no-scroll { 
+    overflow: hidden; 
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.section {
+    padding: 5rem 0; 
+    text-align: center;
+}
+
+/* CORREÇÃO 5: Fontes dos Títulos */
+.section__title, .service__content h3, .benefit__item h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+}
+.process h2 {
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: 700;
+    font-style: italic; 
+}
+/* Fim da correção das Fontes */
+
+
+.section__title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 2rem; 
+    color: var(--primary-color);
+    position: relative;
+    display: inline-block;
+}
+
+.section__title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+}
+
+.section__title--large {
+    font-size: clamp(2.5rem, 5vw, 3.5rem); 
+    margin-bottom: 1.5rem; 
+}
+.section__title--white {
+    color: #fff;
+}
+.section__title--white::after {
+    background-color: #fff;
+}
+
+.section__subtitle {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.5rem;
+}
+
+
+/* CORREÇÃO 6: Imagens e Elementos Quadrados/Arredondados */
+.img-responsive, .benefit__item, .differential__item, .service__item, .process__step, .testimonial__card {
+    border-radius: var(--border-radius);
+}
+.img-responsive {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+
+/* --- Header & Navigation --- */
+.header {
+    background-color: var(--background-color);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease-in-out;
+    padding: 0.5rem 0;
+}
+.header.scrolled {
+    padding: 0.5rem 0; 
+    background-color: rgba(255, 255, 255, 0.98); 
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.15);
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3rem; 
+}
+
+.nav__logo {
+    color: var(--primary-color);
+    font-weight: 800;
+    font-size: 1.8rem;
+    text-decoration: none;
+    z-index: 1000; 
+}
+.nav__menu {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+.nav__list {
+    list-style: none;
+    display: flex;
+    gap: 2rem; 
+    align-items: center;
+}
+.nav__link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+    position: relative;
+    white-space: nowrap;
+}
+.nav__link:hover {
+    color: var(--secondary-color);
+}
+.nav__link--mobile-cta { display: none; } 
+.nav__button--desktop { display: inline-block; }
+
+
+/* --- CORREÇÃO 1: Botão Hamburguer (Quadrado com Bordas Redondas) --- */
 .nav__toggle {
     display: none; /* Escondido no desktop */
     flex-direction: column;
@@ -9,20 +177,18 @@
     cursor: pointer;
     z-index: 1000;
     
-    /* ESTILIZAÇÃO PEDIDA */
-    background-color: var(--secondary-color); /* Fundo da caixa */
-    border-radius: 8px; /* Borda arredondada (Quadrado com bordas redondas) */
+    background-color: var(--secondary-color); 
+    border-radius: 8px; 
     border: none;
-    padding: 8px; /* Espaço interno para o ícone */
+    padding: 8px; 
     
     transition: background-color 0.3s;
-    position: relative; /* Para posicionar os traços */
+    position: relative; 
 }
 .nav__toggle:hover {
     background-color: var(--accent-color);
 }
 
-/* Os traços são feitos com ::before, span e ::after */
 .nav__toggle::before,
 .nav__toggle::after,
 .nav__toggle span {
@@ -30,14 +196,14 @@
     display: block;
     width: 100%;
     height: 3px; 
-    background-color: #fff; /* Traços brancos */
+    background-color: #fff; 
     border-radius: 2px;
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 .nav__toggle::before {
     position: absolute;
-    top: 8px; /* Posição superior */
+    top: 8px; 
 }
 .nav__toggle span {
     position: absolute;
@@ -46,15 +212,15 @@
 }
 .nav__toggle::after {
     position: absolute;
-    bottom: 8px; /* Posição inferior */
+    bottom: 8px; 
 }
 
 /* Estado 'X' quando o menu está ativo */
 .nav__toggle.is-active::before {
-    transform: translateY(16px) rotate(45deg); /* Move para o centro e gira */
+    transform: translateY(16px) rotate(45deg);
 }
 .nav__toggle.is-active::after {
-    transform: translateY(-16px) rotate(-45deg); /* Move para o centro e gira */
+    transform: translateY(-16px) rotate(-45deg);
 }
 .nav__toggle.is-active span {
     opacity: 0; 
@@ -63,40 +229,218 @@
 /* Fim da correção do Hambúrguer */
 
 
+/* --- Services Section (Carrossel) --- */
+
+.services__carousel-container {
+    overflow: hidden;
+    padding: 2rem 0;
+    margin-top: 1rem;
+    position: relative;
+    max-width: 100%; 
+}
+
+.services__carousel-track {
+    display: flex;
+    width: fit-content; 
+    /* CORREÇÃO 3: Animação automática (Desktop) */
+    animation: carrossel-move var(--carrossel-speed) linear infinite;
+    gap: 1.5rem;
+    padding-bottom: 10px; 
+}
+.services__carousel-track:hover {
+    animation-play-state: paused;
+}
+
+.service__item {
+    min-width: 320px; 
+    background-color: var(--background-color);
+    overflow: hidden;
+    box-shadow: var(--shadow-light); 
+    border-left: 5px solid var(--secondary-color); 
+    flex-shrink: 0; 
+}
+
+@keyframes carrossel-move {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } 
+}
+
+
+/* --- Testimonials Section (Carrossel) --- */
+
+.testimonials__carousel-container {
+    overflow: hidden;
+    padding: 2rem 0;
+    margin-top: 1rem;
+    position: relative;
+    max-width: 100%; 
+}
+.testimonials__carousel-track {
+    display: flex;
+    width: fit-content;
+    /* CORREÇÃO 2: Animação automática (Desktop) */
+    animation: carrossel-move var(--carrossel-speed) linear infinite;
+    gap: 2rem;
+    padding-bottom: 10px; 
+}
+.testimonials__carousel-track:hover {
+    animation-play-state: paused;
+}
+
+.testimonial__card {
+    min-width: 350px; 
+    box-shadow: var(--shadow-light); 
+    border-left: 5px solid var(--secondary-color); 
+    flex-shrink: 0;
+}
+
+/* CORREÇÃO 6: Fotos dos Clientes Redondas e Maior */
+.testimonial__img {
+    width: 100px; 
+    height: 100px;
+    border-radius: 50%; /* Redonda */
+    border: 4px solid var(--secondary-color); 
+}
+
+
+/* --- Aviso de Cookies (LGPD) --- */
+.cookie-consent {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--primary-color); 
+    color: #fff;
+    padding: 1rem 0;
+    z-index: 10000; 
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+    /* Inicia escondido, mas o JS força a aparecer no carregamento */
+    display: none; 
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.cookie-consent.show {
+    display: block;
+    opacity: 1;
+}
+.cookie-consent__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+}
+.cookie-consent__text {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    text-align: left;
+    margin: 0;
+}
+.cookie-consent__button {
+    flex-shrink: 0; 
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+    text-transform: none; 
+    background-color: var(--accent-color); 
+    border-radius: var(--border-radius); 
+}
+
+
 /* --- RESPONSIVIDADE (MOBILE) --- */
 @media (max-width: 992px) {
-    /* ... (MANTENHA O RESTANTE DO SEU CÓDIGO @media (max-width: 992px) ) ... */
     
-    /* Aqui, dentro do media query, garantimos que ele aparece no mobile */
-    .nav__toggle {
-        display: flex; 
+    .nav__toggle { 
+        display: flex; /* Mostra o toggle no mobile */
+    } 
+    .nav__button--desktop { 
+        display: none; 
     }
-    
-    /* *IMPORTANTE*: Corrija o bloco .nav__toggle dentro do @media (max-width: 992px) 
-       para remover a implementação duplicada e conflituosa que estava lá.
-       A regra acima já deve funcionar, mas garanta que não há regras conflitantes
-       no seu media query para o .nav__toggle.
-    */
-    
-    /* Remova este bloco duplicado se existir no seu CSS */
-    /*
-    .nav__toggle {
-        display: flex; 
+
+    /* Menu Hamburger no Mobile */
+    .nav__menu {
+        position: fixed;
+        top: 0;
+        right: -100%; 
+        width: 75%;
+        max-width: 300px;
+        height: 100vh;
+        padding: 4rem 1.5rem;
+        background-color: var(--background-color);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.15);
+        transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1); 
+        z-index: 999;
         flex-direction: column;
-        justify-content: space-around; 
-        width: 30px; 
-        height: 24px; 
-        cursor: pointer;
-        z-index: 1000;
-        position: relative;
-        padding: 0; 
-        background: transparent;
-        border: none;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 0;
     }
-    .nav__toggle::before, .nav__toggle::after { ... }
-    .nav__toggle span { ... }
-    .nav__toggle.is-active::before { ... }
-    .nav__toggle.is-active::after { ... }
-    .nav__toggle.is-active span { ... }
-    */
+
+    .nav__menu.show-menu {
+        right: 0; 
+    }
+    .nav__list {
+        display: block; 
+        text-align: left;
+        margin-top: 3rem;
+        flex-direction: column;
+        gap: 0; 
+        width: 100%; 
+    }
+    .nav__link {
+        display: block;
+        padding: 0.8rem 1rem;
+        font-size: 1.1rem;
+        color: var(--primary-color);
+        font-weight: 700;
+        border-bottom: 1px solid #eee;
+    }
+    .nav__link--mobile-cta { 
+        display: block; 
+        background-color: var(--secondary-color);
+        color: #fff;
+        text-align: center;
+        margin-top: 1.5rem;
+        border-radius: 50px;
+        padding: 0.8rem;
+    }
+    
+    /* CORREÇÃO 2/3: Carrossel no Mobile (Scroll manual) */
+    .services__carousel-container, .testimonials__carousel-container {
+        overflow-x: scroll; 
+        -webkit-overflow-scrolling: touch; 
+    }
+    
+    .services__carousel-track, .testimonials__carousel-track {
+        animation: none; /* Desativa a animação infinita */
+        justify-content: flex-start;
+    }
+
+    .testimonial__card, .service__item {
+        min-width: 80vw; /* Ocupa 80% da tela para ter rolagem lateral suave */
+    }
+    
+    /* Oculta os itens duplicados que o JS criou (apenas no mobile) */
+    .testimonials__carousel-track > .testimonial__card:nth-child(n+6),
+    .services__carousel-track > .service__item:nth-child(n+6) {
+        display: none;
+    }
+    
+    /* Estilos do Cookie para Mobile */
+    .cookie-consent__content {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+    .cookie-consent__text {
+        font-size: 0.85rem;
+        margin-bottom: 0.5rem;
+        text-align: center;
+    }
+    .cookie-consent__button {
+        width: 100%;
+        margin-top: 0.5rem;
+    }
 }
+
+/* --- O restante do seu CSS... --- */
+
