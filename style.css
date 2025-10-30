@@ -1,412 +1,102 @@
-/* --- Conteúdo do arquivo style.css --- */
-/* --- CSS Reset e Configurações Base --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    /* Paleta de Cores Atualizada para Modernidade */
-    --primary-color: #003554;      /* Azul Marinho Escuro (Títulos, Fundo Contato) */
-    --secondary-color: #0582CA;    /* Azul Vibrante (Botões CTA, Destaques) */
-    --accent-color: #00A6FB;       /* Azul Claro (Hover) */
-    --text-color: #1a1a1a;         /* Texto Escuro Forte */
-    --text-light: #555;            /* Texto Secundário */
-    --background-color: #FFFFFF;
-    --light-gray-bg: #f5f8fb;      /* Fundo suave para contraste */
-    --dark-teal-bg: #005f73;       /* Fundo do Processo */
-    --shadow-light: 0 5px 25px rgba(0, 0, 0, 0.08); 
-    --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.15); 
-    --border-radius: 12px; /* AUMENTADO para bordas mais arredondadas */
-    --carrossel-speed: 20s; /* Velocidade do carrossel levemente mais rápida */
-}
-
-body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    scroll-behavior: smooth;
-    line-height: 1.6;
-}
-/* Adicionado para correção de bug do hambúrguer no mobile */
-.no-scroll { 
-    overflow: hidden; 
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-}
-
-.section {
-    padding: 5rem 0; 
-    text-align: center;
-}
-
-.section__title {
-    font-family: 'Poppins', sans-serif;
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 800;
-    margin-bottom: 2rem; 
-    color: var(--primary-color);
-    position: relative;
-    display: inline-block;
-}
-
-.section__title::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 4px;
-    background-color: var(--secondary-color);
-    border-radius: 2px;
-}
-
-.section__title--large {
-    font-size: clamp(2.5rem, 5vw, 3.5rem); 
-    margin-bottom: 1.5rem; 
-}
-.section__title--white {
-    color: #fff;
-}
-.section__title--white::after {
-    background-color: #fff;
-}
-
-.section__subtitle {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: var(--accent-color);
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 0.5rem;
-}
-
-/* Estilização para replicar a fonte dos títulos do processo/serviços no print */
-.process h2 {
-    font-family: 'Montserrat', sans-serif; 
-    font-weight: 700;
-    font-style: italic; 
-}
-.service__content h3, .benefit__item h3 {
-    font-family: 'Poppins', sans-serif;
-}
-
-
-.img-responsive {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    border-radius: var(--border-radius); /* Borda Arredondada */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-
-/* --- Header & Navigation --- */
-.header {
-    background-color: var(--background-color);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease-in-out;
-    padding: 0.5rem 0; /* Barra compacta */
-}
-.header.scrolled {
-    padding: 0.5rem 0; 
-    background-color: rgba(255, 255, 255, 0.98); 
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.15);
-}
-
-.nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 3rem; 
-}
-
-.nav__logo {
-    color: var(--primary-color);
-    font-weight: 800;
-    font-size: 1.8rem;
-    text-decoration: none;
-    z-index: 1000; 
-}
-
-/* Menu Desktop */
-.nav__menu {
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-}
-.nav__list {
-    list-style: none;
-    display: flex;
-    gap: 2rem; 
-    align-items: center;
-}
-
-.nav__link {
-    color: var(--text-color);
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s;
-    position: relative;
-    white-space: nowrap;
-}
-.nav__link:hover {
-    color: var(--secondary-color);
-}
-.nav__link--mobile-cta { display: none; } 
-.nav__button--desktop { display: inline-block; }
-
-
-/* --- Botão Hamburguer (Correção de Bug e Estilização em Caixa Quadrada) --- */
+/* --- Botão Hamburguer (Correção, Caixa Quadrada, Borda Arredondada) --- */
 .nav__toggle {
-    display: none; 
+    display: none; /* Escondido no desktop */
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around; 
     align-items: center;
     width: 40px; 
     height: 40px; 
     cursor: pointer;
     z-index: 1000;
-    background-color: var(--secondary-color); 
-    border-radius: 8px; /* Borda arredondada */
+    
+    /* ESTILIZAÇÃO PEDIDA */
+    background-color: var(--secondary-color); /* Fundo da caixa */
+    border-radius: 8px; /* Borda arredondada (Quadrado com bordas redondas) */
     border: none;
+    padding: 8px; /* Espaço interno para o ícone */
+    
     transition: background-color 0.3s;
+    position: relative; /* Para posicionar os traços */
 }
 .nav__toggle:hover {
     background-color: var(--accent-color);
 }
-.hamburger-box {
-    width: 25px; 
-    height: 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    position: relative;
-}
-.hamburger-box span { 
+
+/* Os traços são feitos com ::before, span e ::after */
+.nav__toggle::before,
+.nav__toggle::after,
+.nav__toggle span {
+    content: '';
     display: block;
     width: 100%;
     height: 3px; 
-    background-color: #fff; 
+    background-color: #fff; /* Traços brancos */
     border-radius: 2px;
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.nav__toggle::before {
+    position: absolute;
+    top: 8px; /* Posição superior */
+}
+.nav__toggle span {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
 }
-.hamburger-box::before, .hamburger-box::after {
-    content: '';
+.nav__toggle::after {
     position: absolute;
-    width: 100%;
-    height: 3px;
-    background-color: #fff;
-    border-radius: 2px;
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    bottom: 8px; /* Posição inferior */
 }
-.hamburger-box::before { top: 0; }
-.hamburger-box::after { bottom: 0; }
 
 /* Estado 'X' quando o menu está ativo */
-.nav__toggle.is-active .hamburger-box::before {
-    transform: translateY(11px) rotate(45deg); 
+.nav__toggle.is-active::before {
+    transform: translateY(16px) rotate(45deg); /* Move para o centro e gira */
 }
-.nav__toggle.is-active .hamburger-box::after {
-    transform: translateY(-11px) rotate(-45deg); 
+.nav__toggle.is-active::after {
+    transform: translateY(-16px) rotate(-45deg); /* Move para o centro e gira */
 }
-.nav__toggle.is-active .hamburger-box span {
+.nav__toggle.is-active span {
     opacity: 0; 
     transform: translateX(-30px); 
 }
-
-
-/* --- Benefits Section --- */
-.benefit__item {
-    border-radius: var(--border-radius); 
-}
-
-/* --- Differentials Section --- */
-.differential__item {
-    border-radius: var(--border-radius); 
-}
-
-
-/* --- Services Section (Carrossel) --- */
-
-.services__carousel-container {
-    overflow: hidden;
-    padding: 2rem 0;
-    margin-top: 1rem;
-    position: relative;
-    max-width: 100%; 
-}
-
-.services__carousel-track {
-    display: flex;
-    width: fit-content; 
-    animation: carrossel-move var(--carrossel-speed) linear infinite;
-    gap: 1.5rem;
-    padding-bottom: 10px; 
-}
-.services__carousel-track:hover {
-    animation-play-state: paused;
-}
-
-.service__item {
-    min-width: 300px; 
-    max-width: 350px;
-    background-color: var(--background-color);
-    border-radius: var(--border-radius); /* Borda Arredondada */
-    overflow: hidden;
-    box-shadow: var(--shadow-light); 
-    border-left: 5px solid var(--secondary-color); 
-    flex-shrink: 0; 
-}
-
-.service__img {
-    border-top-left-radius: var(--border-radius);
-    border-top-right-radius: var(--border-radius);
-    height: 220px; 
-    object-fit: cover;
-}
-.service__content {
-    padding: 1.5rem; 
-}
-
-/* Animação de Carrossel */
-@keyframes carrossel-move {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); } 
-}
-
-
-/* --- Process Section --- */
-.process__step {
-    border-radius: var(--border-radius); /* Borda Arredondada */
-}
-
-
-/* --- Testimonials Section (Carrossel) --- */
-
-.testimonials__carousel-container {
-    overflow: hidden;
-    padding: 2rem 0;
-    margin-top: 1rem;
-    position: relative;
-    max-width: 100%; 
-}
-.testimonials__carousel-track {
-    display: flex;
-    width: fit-content;
-    animation: carrossel-move-fast var(--carrossel-speed) linear infinite;
-    gap: 2rem;
-    padding-bottom: 10px; 
-}
-.testimonials__carousel-track:hover {
-    animation-play-state: paused;
-}
-
-.testimonial__card {
-    min-width: 350px; 
-    max-width: 400px; 
-    border-radius: var(--border-radius); /* Borda Arredondada */
-    padding: 2rem; 
-    box-shadow: var(--shadow-light); 
-    border-left: 5px solid var(--secondary-color); 
-    flex-shrink: 0;
-}
-
-.testimonial__img {
-    width: 100px; /* Aumentado o tamanho da foto */
-    height: 100px;
-    border-radius: 50%; /* Mantido redondo */
-    border: 4px solid var(--secondary-color); 
-}
-
-/* Animação de Carrossel (mais rápida para depoimentos) */
-@keyframes carrossel-move-fast {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); } 
-}
-
-
-/* --- Footer e Redes Sociais --- */
-.social__icon-link {
-    text-decoration: none; /* CORREÇÃO: Remove o sublinhado */
-}
+/* Fim da correção do Hambúrguer */
 
 
 /* --- RESPONSIVIDADE (MOBILE) --- */
 @media (max-width: 992px) {
+    /* ... (MANTENHA O RESTANTE DO SEU CÓDIGO @media (max-width: 992px) ) ... */
     
-    .nav__toggle { display: flex; } /* Mostra o toggle no mobile */
-    .nav__button--desktop { display: none; } /* Esconde o botão grande no mobile */
-
-    /* Menu Hamburger no Mobile */
-    .nav__menu {
-        right: -100%; 
-    }
-    .nav__menu.show-menu {
-        right: 0; 
-    }
-    .nav__list {
-        display: block; 
-    }
-    .nav__link {
-        display: block;
-    }
-    .nav__link--mobile-cta { 
-        display: block; 
-        margin-top: 1.5rem;
-        background-color: var(--secondary-color);
-        color: #fff;
-        text-align: center;
-        border-radius: 50px;
-        padding: 0.8rem;
-    }
-
-    /* Carrossel no Mobile (Scroll manual) */
-    .services__carousel-container, .testimonials__carousel-container {
-        overflow-x: scroll; 
-        -webkit-overflow-scrolling: touch; 
+    /* Aqui, dentro do media query, garantimos que ele aparece no mobile */
+    .nav__toggle {
+        display: flex; 
     }
     
-    .services__carousel-track, .testimonials__carousel-track {
-        animation: none; /* Desativa a animação infinita */
-        justify-content: flex-start;
-    }
-
-    .testimonial__card, .service__item {
-        min-width: 80vw; /* Ocupa 80% da tela para ter rolagem lateral suave */
-    }
+    /* *IMPORTANTE*: Corrija o bloco .nav__toggle dentro do @media (max-width: 992px) 
+       para remover a implementação duplicada e conflituosa que estava lá.
+       A regra acima já deve funcionar, mas garanta que não há regras conflitantes
+       no seu media query para o .nav__toggle.
+    */
     
-    /* Oculta os itens duplicados que o JS criou para a animação (apenas no mobile) */
-    .testimonials__carousel-track > .testimonial__card:nth-child(n+6),
-    .services__carousel-track > .service__item:nth-child(n+6) {
-        display: none;
+    /* Remova este bloco duplicado se existir no seu CSS */
+    /*
+    .nav__toggle {
+        display: flex; 
+        flex-direction: column;
+        justify-content: space-around; 
+        width: 30px; 
+        height: 24px; 
+        cursor: pointer;
+        z-index: 1000;
+        position: relative;
+        padding: 0; 
+        background: transparent;
+        border: none;
     }
-}
-
-@media (min-width: 993px) {
-    /* Ativa a rolagem infinita no desktop */
-    .services__carousel-track {
-        animation: carrossel-move var(--carrossel-speed) linear infinite;
-    }
-    .testimonials__carousel-track {
-        animation: carrossel-move-fast var(--carrossel-speed) linear infinite;
-    }
-    /* Exibe os itens duplicados no desktop (para o loop) */
-    .testimonials__carousel-track > .testimonial__card:nth-child(n+6),
-    .services__carousel-track > .service__item:nth-child(n+6) {
-        display: flex; /* Garante que os clones apareçam */
-    }
+    .nav__toggle::before, .nav__toggle::after { ... }
+    .nav__toggle span { ... }
+    .nav__toggle.is-active::before { ... }
+    .nav__toggle.is-active::after { ... }
+    .nav__toggle.is-active span { ... }
+    */
 }
