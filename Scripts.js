@@ -1,3 +1,4 @@
+
 // --- Conteúdo do arquivo script.js ---
 document.addEventListener('DOMContentLoaded', () => {
     
@@ -7,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav__link');
 
     if (navToggle) {
-        // CORREÇÃO 1: Menu Hambúrguer
+        // Correção 2: Garante o funcionamento do hambúrguer
         navToggle.addEventListener('click', () => {
             navMenu.classList.toggle('show-menu');
             navToggle.classList.toggle('is-active'); 
@@ -16,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Fecha o menu ao clicar em qualquer link (para navegação suave)
+    // Fecha o menu ao clicar em qualquer link
     navLinks.forEach(link => link.addEventListener('click', () => {
         navMenu.classList.remove('show-menu');
         if (navToggle) {
@@ -36,33 +37,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // ==================== FUNCIONALIDADE LGPD/COOKIES (CORREÇÃO PARA APARECER SEMPRE) ====================
+    // ==================== FUNCIONALIDADE LGPD/COOKIES (Aparece toda vez) ====================
     const cookieConsent = document.getElementById('cookie-consent');
     const cookieAcceptBtn = document.getElementById('cookie-accept-btn');
-    // REMOVIDA: A lógica de 'localStorage' para que apareça em TODA atualização (Regra 4).
     
-    /**
-     * Mostra a barra de cookies SEMPRE.
-     */
     function checkCookieConsent() {
-        // Garante que o display seja 'block' (definido como 'none' no CSS para controle inicial)
+        // Item 4: O cookie deve aparecer sempre (ignora localStorage)
         cookieConsent.style.display = 'block';
-
-        // Adiciona a classe 'show' após um pequeno atraso para iniciar a transição
         setTimeout(() => {
             cookieConsent.classList.add('show');
         }, 100); 
     }
 
-    /**
-     * Esconde a barra após o clique, mas NÃO salva no localStorage
-     */
     if (cookieAcceptBtn) {
         cookieAcceptBtn.addEventListener('click', () => {
-            
-            // Esconde a barra com efeito
             cookieConsent.classList.remove('show');
-            cookieConsent.style.opacity = 0;
             setTimeout(() => {
                  cookieConsent.style.display = 'none';
             }, 300);
@@ -73,24 +62,25 @@ document.addEventListener('DOMContentLoaded', () => {
     checkCookieConsent();
 
 
-    // ==================== CARROSSEL INFINITO (Duplicação para o loop CSS) ====================
+    // ==================== CARROSSEL INFINITO (Itens 3 e 5: Adiciona Duplicação para o loop CSS) ====================
     
     function setupInfiniteCarousel(trackSelector) {
         const track = document.querySelector(trackSelector);
         if (!track) return;
 
-        // Clona e adiciona os 5 primeiros itens para o efeito infinito
-        const itemsToClone = Array.from(track.children).slice(0, 5); 
+        // Clona os primeiros 5 itens (ou o número de itens visíveis + 1 ou 2) para criar o loop
+        const items = Array.from(track.children);
         
-        itemsToClone.forEach(item => {
+        // Clona e adiciona os itens no final. Usaremos 5 clones por segurança.
+        items.slice(0, 5).forEach(item => {
             const clone = item.cloneNode(true);
             track.appendChild(clone);
         });
         
-        // A animação de rolagem é feita via CSS (@keyframes)
+        // NOTA: A animação de rolagem (automática) é feita via CSS (@keyframes)
     }
 
-    // Aplica a lógica de duplicação para os dois carrosséis (Correção 2 e 3)
+    // Aplica a lógica de duplicação para os dois carrosséis
     setupInfiniteCarousel('.services__carousel-track');
     setupInfiniteCarousel('.testimonials__carousel-track');
 
