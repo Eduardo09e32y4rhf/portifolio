@@ -1,4 +1,5 @@
 /* --- Conteúdo do arquivo style.css --- */
+/* --- CSS Reset e Configurações Base --- */
 * {
     margin: 0;
     padding: 0;
@@ -6,19 +7,19 @@
 }
 
 :root {
-    --primary-color: #003554;      
-    --secondary-color: #0582CA;    
-    --accent-color: #00A6FB;       
-    --text-color: #1a1a1a;         
+    /* Paleta de Cores Atualizada para Modernidade */
+    --primary-color: #003554;      /* Azul Marinho Escuro */
+    --secondary-color: #0582CA;    /* Azul Vibrante (Botões CTA, Destaques) */
+    --accent-color: #00A6FB;       /* Azul Claro (Hover) */
+    --text-color: #1a1a1a;         /* Texto Escuro Forte */
     --background-color: #FFFFFF;
     --light-gray-bg: #f5f8fb;      
-    --dark-teal-bg: #005f73;       
     --shadow-light: 0 5px 25px rgba(0, 0, 0, 0.08); 
     --border-radius: 12px; 
     --carrossel-speed: 20s; 
 }
 
-/* Força as fontes corretas em todos os lugares */
+/* 1. CORREÇÃO DE FONTES BUGADAS e BASE */
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: var(--background-color);
@@ -29,50 +30,25 @@ body {
 .no-scroll { 
     overflow: hidden; 
 }
-
 .section__title, .section__title--large {
+    /* Garante que títulos usem Poppins para evitar fontes "script" */
     font-family: 'Poppins', sans-serif !important; 
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
-    margin-bottom: 2rem; 
     color: var(--primary-color);
-    position: relative;
-    display: inline-block;
 }
 .section__title--white {
     font-family: 'Poppins', sans-serif !important;
-    font-weight: 800;
 }
-.process h2 {
+/* Força a correção nos títulos do Processo e demais itens menores */
+.process h2, .process__step h3, .benefit__item h3, .differential__item h3 {
     font-family: 'Poppins', sans-serif !important;
-    font-weight: 800;
-    font-style: normal; 
-}
-.process__step h3 {
-    font-family: 'Montserrat', sans-serif !important; 
     font-weight: 700;
+    font-style: normal;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-}
 
-.section {
-    padding: 5rem 0; 
-    text-align: center;
-}
-
-.img-responsive {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    border-radius: var(--border-radius);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-/* --- Header & Navigation (Corrige o alinhamento e funcionamento do hambúrguer) --- */
+/* --- Header & Navigation (Correção do Hambúrguer) --- */
 .header {
     background-color: var(--background-color);
     position: fixed;
@@ -82,17 +58,14 @@ body {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     padding: 0.5rem 0; 
 }
-.nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 3rem; 
-}
+.nav { height: 3rem; display: flex; justify-content: space-between; align-items: center; }
 .nav__logo { z-index: 1001; }
 .nav__button--desktop { display: inline-block; }
 
+
+/* 2. CORREÇÃO: Botão Hamburguer (Aparece e Funciona) */
 .nav__toggle {
-    display: none; 
+    display: none; /* Escondido no desktop */
     flex-direction: column;
     justify-content: space-around; 
     align-items: center;
@@ -100,6 +73,7 @@ body {
     height: 40px; 
     cursor: pointer;
     z-index: 1001;
+    
     background-color: var(--secondary-color); 
     border-radius: 8px; 
     border: none;
@@ -107,6 +81,7 @@ body {
     position: relative;
 }
 .nav__toggle:hover { background-color: var(--accent-color); }
+
 .nav__toggle::before, .nav__toggle::after, .nav__toggle span {
     content: '';
     display: block;
@@ -118,21 +93,70 @@ body {
     left: 8px; 
     width: 24px;
 }
+.nav__toggle::before { top: 8px; }
+.nav__toggle span { top: 50%; transform: translateY(-50%); }
+.nav__toggle::after { bottom: 8px; }
+
 .nav__toggle.is-active::before { transform: translateY(16px) rotate(45deg); }
 .nav__toggle.is-active::after { transform: translateY(-16px) rotate(-45deg); }
 .nav__toggle.is-active span { opacity: 0; transform: translateX(-30px); }
 
-/* --- SEÇÃO DIFERENCIAIS (IMAGEM DE FUNDO SOLICITADA) --- */
+/* Menu mobile fixo */
+.nav__menu {
+    position: fixed;
+    top: 0;
+    right: -100%; 
+    width: 75%;
+    max-width: 300px;
+    height: 100vh;
+    padding: 4rem 1.5rem;
+    background-color: var(--background-color);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.15);
+    transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1); 
+    z-index: 999;
+}
+.nav__menu.show-menu { right: 0; }
+.nav__link--mobile-cta { display: block !important; margin-top: 2rem; }
+
+
+/* 4. CORREÇÃO: Alinhamento e Caixas Arredondadas */
+.img-responsive {
+    border-radius: var(--border-radius); 
+}
+.benefit__item, .differential__item, .process__step, .testimonial__card, .service__item {
+    border-radius: var(--border-radius);
+}
+.testimonial__img {
+    width: 100px; 
+    height: 100px;
+    border-radius: 50%;
+}
+.service__img {
+    border-radius: var(--border-radius) var(--border-radius) 0 0; /* Arredonda só em cima */
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.service__content {
+    padding: 1.5rem;
+    text-align: left;
+}
+.about__content {
+    align-items: flex-start; /* Alinha no topo */
+}
+.about__list {
+    text-align: left;
+}
+
+/* --- SEÇÃO DIFERENCIAIS (COM NOVO FUNDO - Placeholder) --- */
 .differentials {
     position: relative;
-    /* ! ATENÇÃO !: SUBSTITUA ESTE CAMINHO PELA URL DA SUA IMAGEM */
+    /* ! ATENÇÃO !: SUBSTITUA ESTE CAMINHO PELA URL DA SUA IMAGEM (Ex: url('./img/fundo-limpeza.jpg')) */
     background-image: url('CAMINHO_PARA_SUA_IMAGEM_DE_FUNDO_LIMPEZA'); 
-    background-color: var(--light-gray-bg);
     background-size: cover;
     background-position: center;
     background-repeat: repeat; 
 }
-/* Overlay para legibilidade */
 .differentials::before {
     content: '';
     position: absolute;
@@ -140,22 +164,17 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.85); 
+    background-color: rgba(255, 255, 255, 0.85); /* Overlay branco/claro */
     z-index: 1;
 }
-.differentials .container > * {
-    position: relative;
-    z-index: 2; 
-}
-.differential__item {
-    border-radius: var(--border-radius); 
-    position: relative; /* Garante que o item fique acima do overlay */
-}
+.differentials .container > * { position: relative; z-index: 2; }
 
-/* --- Serviços e Depoimentos (Corrige corte e garante loop) --- */
+
+/* 5. CORREÇÃO: Carrossel Automático e Responsivo */
 .services__carousel-container, .testimonials__carousel-container {
     overflow: hidden;
     padding: 2rem 0;
+    margin-top: 1rem;
     position: relative;
 }
 .services__carousel-track, .testimonials__carousel-track {
@@ -170,30 +189,33 @@ body {
     gap: 2rem;
 }
 .services__carousel-track:hover, .testimonials__carousel-track:hover { animation-play-state: paused; }
+.service__item, .testimonial__card { min-width: 320px; flex-shrink: 0; }
 
-.service__item, .testimonial__card {
-    min-width: 320px; 
-    border-radius: var(--border-radius); 
-    box-shadow: var(--shadow-light); 
-    border-left: 5px solid var(--secondary-color); 
-    flex-shrink: 0; 
-}
-.service__img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    display: block;
-    border-radius: var(--border-radius) var(--border-radius) 0 0; 
-}
-.service__content { padding: 1.5rem; text-align: left; }
-.testimonial__img {
-    width: 100px; height: 100px; border-radius: 50%; 
-    border: 4px solid var(--secondary-color); 
-}
-
-/* Animações */
 @keyframes carrossel-move { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 @keyframes carrossel-move-fast { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+/* --- Aviso de Cookies (Visibilidade e Layout Correto) --- */
+.cookie-consent {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--primary-color); 
+    color: #fff;
+    padding: 1rem 0;
+    z-index: 10000; 
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+    display: none; 
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+.cookie-consent.show { display: block; opacity: 1; }
+.cookie-consent__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
 
 
 /* --- RESPONSIVIDADE (MOBILE) --- */
@@ -202,35 +224,44 @@ body {
     .nav__toggle { display: flex; } 
     .nav__button--desktop { display: none; }
     
-    .nav__menu {
-        position: fixed; top: 0; right: -100%; width: 75%; max-width: 300px; height: 100vh; z-index: 999;
-    }
+    .nav__menu { padding: 4rem 1.5rem; }
     
+    /* Corrige o corte do carrossel no mobile (Scroll Manual) */
     .services__carousel-container, .testimonials__carousel-container {
-        padding: 2rem 0; /* Remove padding lateral do container para scroll */
+        padding: 2rem 0; /* Remove padding lateral do container */
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: none; scrollbar-width: none;
     }
+    .services__carousel-container::-webkit-scrollbar,
+    .testimonials__carousel-container::-webkit-scrollbar { display: none; }
+
     .services__carousel-track, .testimonials__carousel-track {
-        animation: none !important; /* Desativa o loop */
-        padding-left: 1.5rem; /* Adiciona padding lateral à faixa */
+        animation: none !important; /* Desativa loop */
+        padding-left: 1.5rem; /* Adiciona padding para o primeiro item */
         padding-right: 1.5rem;
-        scroll-snap-type: x mandatory; /* Ajuda no scroll manual */
+        scroll-snap-type: x mandatory; 
     }
     .service__item, .testimonial__card {
         min-width: 85vw; 
         scroll-snap-align: start; 
     }
-    
     .testimonials__carousel-track > .testimonial__card:nth-child(n+6),
     .services__carousel-track > .service__item:nth-child(n+6) {
-        display: none; /* Oculta clones no mobile */
+        display: none; 
     }
-    
+
+    /* Corrige layout About e Processo no mobile */
     .about__content { flex-direction: column; text-align: center; }
+    .about__text-side { order: 1; }
+    .about__image-side { order: 0; }
+    .about__list { text-align: center; margin: 1rem auto; max-width: 300px; }
     .process__grid { grid-template-columns: 1fr; }
     .process__step, .process__step p { text-align: left; }
-    
-    /* Footer no mobile */
-    .footer__container { align-items: center; text-align: center; }
+
+    /* Corrige layout do Cookie no mobile */
+    .cookie-consent__content { flex-direction: column; align-items: stretch; text-align: center; }
+    .cookie-consent__button { width: 100%; margin-top: 0.5rem; }
 }
 
 /* Ativa o loop no desktop */
