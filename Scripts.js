@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav__link');
 
     if (navToggle) {
+        // CORREÇÃO: Garante o funcionamento do hambúrguer e a classe 'is-active'
         navToggle.addEventListener('click', () => {
             navMenu.classList.toggle('show-menu');
             navToggle.classList.toggle('is-active'); 
-            // Controla a rolagem do corpo quando o menu está aberto
             document.body.classList.toggle('no-scroll');
         });
     }
