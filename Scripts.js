@@ -1,4 +1,3 @@
-// --- Conteúdo do arquivo script.js ---
 document.addEventListener('DOMContentLoaded', () => {
     
     // ==================== FUNCIONALIDADE DO MENU HAMBURGUER (MOBILE) ====================
@@ -7,62 +6,66 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav__link');
 
     if (navToggle) {
+        // CORREÇÃO: A classe 'is-active' será adicionada/removida no toggle para a transição CSS
         navToggle.addEventListener('click', () => {
             navMenu.classList.toggle('show-menu');
             navToggle.classList.toggle('is-active'); 
-            document.body.classList.toggle('no-scroll');
         });
     }
 
-    // Fecha o menu ao clicar em qualquer link
+    // Fecha o menu ao clicar em qualquer link (para navegação suave)
     navLinks.forEach(link => link.addEventListener('click', () => {
         navMenu.classList.remove('show-menu');
         if (navToggle) {
-            navToggle.classList.remove('is-active'); 
+            navToggle.classList.remove('is-active'); // Garante que o ícone volte para o hambúrguer
         }
-        document.body.classList.remove('no-scroll');
     }));
+
+    // ==================== EFEITO DO HEADER AO ROLAR (Scroll Header) ====================
+    const header = document.getElementById('header');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY >= 50) { 
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
 
     // ==================== FUNCIONALIDADE LGPD/COOKIES ====================
     const cookieConsent = document.getElementById('cookie-consent');
     const cookieAcceptBtn = document.getElementById('cookie-accept-btn');
-    
+    const cookieName = 'gslimp_cookies_accepted'; 
+
+    /**
+     * Verifica se o usuário já aceitou os cookies
+     */
     function checkCookieConsent() {
-        // Lógica para sempre mostrar o cookie no início
-        cookieConsent.style.display = 'block';
-        setTimeout(() => {
-            cookieConsent.classList.add('show');
-        }, 100); 
+        if (!localStorage.getItem(cookieName)) {
+            // Mostra a barra após um pequeno atraso
+            setTimeout(() => {
+                cookieConsent.classList.add('show');
+            }, 1000); 
+        }
     }
 
+    /**
+     * Salva a aceitação do usuário e esconde a barra
+     */
     if (cookieAcceptBtn) {
         cookieAcceptBtn.addEventListener('click', () => {
+            // 1. Salva a aceitação
+            localStorage.setItem(cookieName, 'true');
+            
+            // 2. Esconde a barra com efeito
             cookieConsent.classList.remove('show');
+            cookieConsent.style.opacity = 0;
             setTimeout(() => {
                  cookieConsent.style.display = 'none';
             }, 300);
         });
     }
 
+    // Executa a verificação ao carregar a página
     checkCookieConsent();
-
-
-    // ==================== CARROSSEL INFINITO (Duplicação para o loop CSS) ====================
-    
-    function setupInfiniteCarousel(trackSelector) {
-        const track = document.querySelector(trackSelector);
-        if (!track) return;
-
-        // Clona os primeiros 5 itens para garantir o loop visual no desktop
-        const items = Array.from(track.children);
-        
-        items.slice(0, 5).forEach(item => {
-            const clone = item.cloneNode(true);
-            track.appendChild(clone);
-        });
-    }
-
-    setupInfiniteCarousel('.services__carousel-track');
-    setupInfiniteCarousel('.testimonials__carousel-track');
-
 });
