@@ -3,118 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GSLIMP - Sua Especialista em Higienização Profissional</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Gslimp - Lavagem a Seco Profissional em Arapiraca e Região</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
-    <header class="header" id="header">
-        <nav class="nav container">
-            <a href="#home" class="nav__logo">GSLIMP</a>
-            
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li><a href="#about" class="nav__link">Quem Somos</a></li>
-                    <li><a href="#services" class="nav__link">Serviços</a></li>
-                    <li><a href="#process" class="nav__link">Como Fazemos</a></li>
-                    <li><a href="#testimonials" class="nav__link">Clientes</a></li>
-                    <li><a href="#contact" class="nav__link">Contato</a></li> 
-                </ul>
-                 <a href="#contact" class="button nav__button nav__button--mobile">Orçamento Rápido</a> 
-            </div>
-            
-            <a href="#contact" class="button nav__button nav__button--desktop">Orçamento Rápido</a>
-            
-            <div class="nav__toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
-                <span></span>
-            </div>
+    <header class="header">
+        <div class="logo">GSlimp</div>
+        <nav class="nav-menu" id="navMenu">
+            <a href="#inicio">Início</a>
+            <a href="#sobre">Sobre Nós</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#processo">Processo</a>
+            <a href="#clientes">Clientes</a>
+            <a href="#contato" class="cta-nav">Orçamento Rápido</a>
         </nav>
+        <button class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </button>
     </header>
 
-    <main class="main">
-        <section class="home section" id="home">
-            <div class="container home__container">
-                <div class="home__content">
-                    <p class="section__subtitle">HIGIENIZAÇÃO QUE CUIDA DA SUA SAÚDE</p>
-                    <h1 class="section__title section__title--large section__title--white">Elimine Ácaros e Devolva a Vida ao Seu Estofado.</h1>
-                    <p class="home__description">Cansado de manchas, mau odor e alergias? A **GSLIMP** traz o poder da higienização profunda para estofados, colchões e veículos. **Experimente a sensação de ter tudo "Novo de Novo".**</p>
-                    
-                    <a href="#contact" class="button home__button">QUERO MEU ORÇAMENTO GRÁTIS</a>
-                    <p class="home__cta-subtitle">Atendimento em Arapiraca e Região. Agende pelo WhatsApp!</p>
-                </div>
-                </div>
-        </section>
-
-        <section class="benefits section" id="benefits">
-            </section>
-
-        <section class="about section" id="about">
-            </section>
-
-        <section class="differentials section" id="differentials">
-            </section>
-
-        <section class="services section" id="services">
-            </section>
-
-        <section class="process section" id="process">
-            <div class="container">
-                <h2 class="section__title section__title--white">O Segredo da Limpeza Profunda GSLIMP (4 Passos)</h2>
-                <div class="process__grid">
-                    <div class="process__step">
-                        <span class="step__number">1</span>
-                        <h3>Preparo e Aspiração de Alto Poder</h3>
-                        <p>Remoção de partículas secas, poeira e detritos com aspirador de alta potência, **garantindo a base para a limpeza real.**</p>
-                    </div>
-                    </div>
-            </div>
-        </section>
-
-        <section class="testimonials section" id="testimonials">
-            <div class="container">
-                <h2 class="section__title">O Que Nossos Clientes Dizem</h2>
-                <div class="testimonials__grid">
-                    </div>
-                <a href="URL_DO_SEU_INSTAGRAM" target="_blank" class="button button--link button--large-cta">🔍 VEJA MAIS RESULTADOS E ANTES/DEPOIS NO INSTAGRAM</a>
-            </div>
-        </section>
-
-        <section class="contact section" id="contact">
-            <div class="container contact__content">
-                <h2 class="section__title section__title--white section__title--large">Pronto para Transformar seu Ambiente?</h2>
-                <p class="contact__text">Fale diretamente com nossa equipe de especialistas. O orçamento é rápido, gratuito e sem compromisso.</p>
-                <a href="https://api.whatsapp.com/send?phone=SEU_NUMERO_WHATSAPP&text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20higieniza%C3%A7%C3%A3o." target="_blank" class="button contact__button">Receber Orçamento Gratuito Agora</a>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="footer">
-        <div class="container footer__container">
-            <a href="#home" class="footer__logo">GSLIMP</a>
-            
-            <div class="footer__social-area">
-                <p>Fique Conectado</p>
-                </div>
-            
-            <p class="footer__copy">
-                </p>
+    <section id="inicio" class="hero section-padding">
+        <div class="hero-content">
+            <h1>Sua Casa Livre de Ácaros e Renovada: Lavagem a Seco Profissional Gslimp.</h1>
+            <p>Vamos além da limpeza! Higienizamos e devolvemos a vida ao seu sofá, colchão e estofados. Saúde, conforto e aparência de novo garantidos.</p>
+            <a href="https://wa.me/5582991522179" target="_blank" class="btn btn-primary cta-whatsapp">Agende sua Renovação - Chame no WhatsApp!</a>
+            <p class="area-atuacao-hero">Atendimento Rápido em Arapiraca, Craíbas, São Sebastião, Igaci e Palmeira dos Índios.</p>
         </div>
-    </footer>
+        <div class="hero-image">
+            <img src="placeholder_hero.jpg" alt="Sofá limpo e renovado - Gslimp"> 
+        </div>
+    </section>
 
-    <a href="https://api.whatsapp.com/send?phone=SEU_NUMERO_WHATSAPP&text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20higieniza%C3%A7%C3%A3o." target="_blank" class="whatsapp__float">
+    <section id="sobre" class="sobre section-padding">
+        <div class="container">
+            <h2>GSlimp: Qualidade, Saúde e Confiança em Cada Fibra.</h2>
+            <div class="sobre-content">
+                <p>A Gslimp nasceu em Arapiraca com uma missão clara: <strong>transformar o seu lar em um ambiente mais saudável e acolhedor.</strong> Nossa Lavagem a Seco não é apenas sobre *limpar*, é sobre higienizar profundamente, **eliminando 99,9% dos ácaros, fungos e bactérias** que causam alergias. Nós ajudamos você a renovar o seu sofá e colchão!</p>
+                
+                <div class="video-placeholder rounded-box">
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/placeholder_video_instagram" frameborder="0" allowfullscreen></iframe>
+                    <small>Assista ao nosso processo de renovação em ação!</small>
+                </div>
+
+                <div class="valores">
+                    <h3>Nossos Valores:</h3>
+                    <ul>
+                        <li><i class="fas fa-tools"></i> Profissionalismo e Equipe Treinada.</li>
+                        <li><i class="fas fa-flask"></i> Tecnologia de Ponta e Produtos Biodegradáveis.</li>
+                        <li><i class="fas fa-handshake"></i> Transparência e Confiança.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicos" class="servicos section-padding bg-light">
+        <div class="container">
+            <h2>O Que a Gslimp Pode Renovar Hoje?</h2>
+            
+            <div class="servicos-grid">
+                <div class="servico-card rounded-box">
+                    <img src="placeholder_sofa.jpg" alt="Limpeza de Sofás e Poltronas">
+                    <h3>Sofás e Poltronas</h3>
+                    <p><strong>Conforto Renovado:</strong> Elimine manchas, odores e a sujeira acumulada.</p>
+                </div>
+                <div class="servico-card rounded-box">
+                    <img src="placeholder_colchao.jpg" alt="Higienização de Colchões">
+                    <h3>Colchões</h3>
+                    <p><strong>Durma Melhor:</strong> Higienização profunda contra ácaros. Invista na sua saúde.</p>
+                </div>
+                <div class="servico-card rounded-box">
+                    <img src="placeholder_cadeira.jpg" alt="Limpeza de Cadeiras">
+                    <h3>Cadeiras</h3>
+                    <p><strong>Detalhes que Contam:</strong> Limpeza ideal para cadeiras de uso diário e escritório.</p>
+                </div>
+                <div class="servico-card rounded-box">
+                    <img src="placeholder_tapete.jpg" alt="Lavagem de Tapetes">
+                    <h3>Tapetes e Carpetes</h3>
+                    <p><strong>Pisada Suave:</strong> Retirada da poeira e sujidade, revitalizando cores e toque.</p>
+                </div>
+                <div class="servico-card rounded-box">
+                    <img src="placeholder_carro.jpg" alt="Estofados de Carros">
+                    <h3>Estofados de Carros</h3>
+                    <p><strong>Seu Veículo Merece:</strong> Limpeza interna completa de bancos, teto e carpete.</p>
+                </div>
+            </div>
+
+            <a href="https://wa.me/5582991522179" target="_blank" class="btn btn-secondary mt-3">Ver Todos os Serviços e Preços</a>
+        </div>
+    </section>
+
+    <section id="processo" class="processo section-padding">
+        <div class="container">
+            <h2>Não é Mágica, é Tecnologia: Entenda a Lavagem a Seco da Gslimp.</h2>
+            <div class="processo-detalhes">
+                <div class="problema rounded-box">
+                    <h3>🛑 O Problema Oculto</h3>
+                    <p>Seu estofado guarda mais que sujeira. Ácaros, poeira e fungos invisíveis proliferam, comprometendo a saúde da sua família e causando alergias.</p>
+                </div>
+                <div class="solucao rounded-box">
+                    <h3>✅ A Solução Gslimp</h3>
+                    <p>Usamos um sistema de **extração por sucção e produtos bactericidas/fungicidas** que penetram profundamente. A sujeira é desprendida, os micro-organismos são eliminados, e tudo é extraído por máquinas potentes. Seu estofado fica **limpo de verdade e quase seco!**</p>
+                </div>
+            </div>
+            <h4 class="destaque-saude">O Verdadeiro 'Antes e Depois' está na sua Saúde!</h4>
+        </div>
+    </section>
+
+    <section id="clientes" class="clientes section-padding bg-light">
+        <div class="container">
+            <h2>Quem Confia na Gslimp Renova o Conforto.</h2>
+            <div class="clientes-grid">
+                <div class="depoimento-card rounded-box">
+                    <img src="placeholder_cliente1.jpg" alt="Foto de Cliente Maria P.">
+                    <p>"O sofá ficou impecável! Achei que não tinha mais jeito, mas a Gslimp fez um milagre. Zero cheiro e secou super rápido."</p>
+                    <strong>Maria P. - Arapiraca</strong>
+                </div>
+                <div class="depoimento-card rounded-box">
+                    <img src="placeholder_cliente2.jpg" alt="Foto de Cliente João S.">
+                    <p>"Excelente serviço de higienização do colchão. Senti uma enorme diferença na qualidade do meu sono já na primeira noite. Profissionais educados."</p>
+                    <strong>João S. - São Sebastião</strong>
+                </div>
+                <div class="depoimento-card rounded-box">
+                    <img src="placeholder_cliente3.jpg" alt="Foto de Cliente Ana L.">
+                    <p>"Atendimento pontual e preço justo. A limpeza interna do meu carro ficou perfeita. A atenção aos detalhes faz toda a diferença!"</p>
+                    <strong>Ana L. - Craíbas</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="contato section-padding">
+        <div class="container">
+            <h2>Fale com a Gslimp e Agende sua Limpeza!</h2>
+            <p>Entre em contato conosco hoje e solicite seu orçamento rápido e sem compromisso.</p>
+            
+            <form class="contact-form rounded-box">
+                <input type="text" placeholder="Seu Nome" required>
+                <input type="tel" placeholder="Seu WhatsApp/Telefone" required>
+                <textarea placeholder="Como podemos te ajudar? (Ex: Limpeza de um Sofá 3 lugares)" required></textarea>
+                <button type="submit" class="btn btn-primary">Solicitar Orçamento</button>
+            </form>
+
+            <div class="social-links">
+                <a href="https://wa.me/5582991522179" target="_blank" class="social-icon whatsapp-icon"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://instagram.com/gslimp_al" target="_blank" class="social-icon"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="#" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i> Facebook</a>
+            </div>
+            
+        </div>
+    </section>
+
+    <a href="https://wa.me/5582991522179" target="_blank" class="whatsapp-float">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <div class="cookie-consent" id="cookie-consent">
-        <div class="container cookie-consent__content">
-            </div>
-    </div>
-
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Efetuar pela Gslimp - Limpeza e Higienização Profissional.</p>
+            <p class="area-atuacao-footer">Atendemos em: **Arapiraca, Craíbas, São Sebastião, Igaci e Palmeira dos Índios.**</p>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
-
 </body>
 </html>
