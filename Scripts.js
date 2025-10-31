@@ -1,60 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
 
-  // ===================================
-  // I. MENU HAMBURGUER
-  // ===================================
-  const navToggle = document.getElementById('nav-toggle');
-  const navMenu = document.getElementById('nav-menu');
-  // Injeta o botão 'nav-close' no DOM se ainda não existir
-  let navClose = document.getElementById('nav-close');
-  if (!navClose && navMenu) {
-      navClose = document.createElement('button');
-      navClose.id = 'nav-close';
-      navClose.className = 'nav__close';
-      navClose.innerHTML = '✕';
-      navClose.setAttribute('aria-label', 'Fechar menu');
-      navMenu.prepend(navClose);
-  }
+    // Funcionalidade do Botão Hambúrguer
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        // Alterna o ícone do hambúrguer para um 'X' se desejar
+        // const icon = hamburger.querySelector('i');
+        // if (navMenu.classList.contains('active')) {
+        //     icon.classList.remove('fa-bars');
+        //     icon.classList.add('fa-times');
+        // } else {
+        //     icon.classList.remove('fa-times');
+        //     icon.classList.add('fa-bars');
+        // }
+    });
 
-  const openMenu = ()=> {
-    navMenu.classList.add('show-menu');
-    navToggle.classList.add('is-active');
-    navToggle.setAttribute('aria-expanded','true');
-  }
-  const closeMenu = ()=> {
-    navMenu.classList.remove('show-menu');
-    navToggle.classList.remove('is-active');
-    navToggle.setAttribute('aria-expanded','false');
-  }
+    // Fechar o menu ao clicar em um link (útil para navegação mobile)
+    const navLinks = navMenu.querySelectorAll('a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+            }
+        });
+    });
 
-  // Event Listeners
-  if(navToggle && navMenu) {
-      navToggle.addEventListener('click', ()=> navMenu.classList.contains('show-menu') ? closeMenu() : openMenu());
-  }
-  if(navClose) navClose.addEventListener('click', closeMenu);
-  // Fecha o menu ao clicar em qualquer link de navegação
-  document.querySelectorAll('.nav__link').forEach(link=> link.addEventListener('click', closeMenu));
-  // Adiciona listener para fechar o menu ao clicar fora dele (boa prática)
-  document.addEventListener('click', (e) => {
-    if (navMenu && navMenu.classList.contains('show-menu') && 
-        !navMenu.contains(e.target) && 
-        !navToggle.contains(e.target)) {
-      closeMenu();
-    }
-  });
-
-
-  // ===================================
-  // II. COOKIES
-  // ===================================
-  const cookieConsent = document.getElementById('cookie-consent');
-  const cookieAcceptBtn = document.getElementById('cookie-accept-btn');
-  const cookieName = 'gslimp_cookies_accepted';
-
-  if(!localStorage.getItem(cookieName)) setTimeout(()=> cookieConsent.classList.add('show'), 900);
-  if(cookieAcceptBtn) cookieAcceptBtn.addEventListener('click', ()=>{
-    localStorage.setItem(cookieName,'true');
-    cookieConsent.classList.remove('show');
-  });
-
+    // Observação: Para carrosséis de imagens automáticos, seria necessário 
+    // adicionar uma biblioteca JS como Slick.js ou Swiper.js, ou escrever 
+    // código adicional aqui para a funcionalidade de deslizamento ('slider').
 });
