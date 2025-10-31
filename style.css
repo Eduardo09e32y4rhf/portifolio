@@ -1,110 +1,153 @@
 /* Paleta de Cores */
 :root {
     --azul-marinho: #004d99; /* Cor principal Gslimp: Profissionalismo */
-    --azul-claro: #4dc3ff;   /* Cor secundária: Frescor */
+    --azul-claro: #4dc3ff;   /* Cor secundária: Frescor (usado em bordas e detalhes) */
     --branco: #ffffff;
-    --off-white: #f7f7f7;
+    --off-white: #f0f0f0; /* Um branco que não agride tanto */
     --verde-whatsapp: #25d366;
     --borda-radius: 12px;
 }
-/* ... (Restante do CSS Base e Tipografia - MANTÉM) ... */
 
-/* ------------------------------------- */
-/* Botões e Elementos Arredondados */
-/* ------------------------------------- */
-
-/* ... (Botões btn, btn-primary, cta-whatsapp - MANTÉM) ... */
-
-/* Botão de envio do formulário AGORA É VERDE (WhatsApp) */
-.cta-whatsapp-form {
-    background-color: var(--verde-whatsapp);
-    color: var(--branco);
-    border: 2px solid var(--verde-whatsapp);
-    width: 100%; /* Ocupa a largura total do formulário */
+/* Base e Tipografia (NOVO) */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.cta-whatsapp-form:hover {
-    background-color: #20b05b;
+body {
+    /* Fonte limpa e legível para o corpo do texto */
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: var(--branco);
 }
 
-/* ------------------------------------- */
-/* HEADER e Navegação */
-/* ------------------------------------- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
-/* Ajuste sutil na Logo (para dar a sensação da cor principal) */
+/* Títulos com a fonte de impacto (Montserrat) */
+h1, h2, h3, .logo {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--azul-marinho);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 { 
+    font-size: 3em; 
+    font-weight: 900; /* Extra bold para impacto */
+}
+h2 { 
+    font-size: 2.5em; 
+    font-weight: 700;
+}
+
+/* HEADER e LOGO (NOVO) */
+.header {
+    /* Fundo Branco, máximo destaque */
+    background-color: var(--branco); 
+    padding: 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+}
+
 .logo {
-    font-size: 1.8em;
-    font-weight: bold;
-    color: var(--azul-marinho); 
-    /* Poderia ser usado um background-image com a logo, mas mantendo o texto por enquanto */
+    font-size: 2em;
+    font-weight: 900;
+    color: var(--azul-marinho); /* Azul no nome Gslimp */
 }
-/* ... (Restante do HEADER - MANTÉM) ... */
 
-/* ------------------------------------- */
-/* SEÇÃO CONTATO (Ajuste Social Links) */
-/* ------------------------------------- */
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto 30px auto;
+/* Botões e CTAs (Cores Invertidas para mais destaque Branco/Azul) */
+.btn-primary {
+    /* Fundo Azul Forte */
+    background-color: var(--azul-marinho);
+    color: var(--branco);
+    border: 2px solid var(--azul-marinho);
+}
+
+.btn-primary:hover {
+    /* Hover no Azul Claro */
+    background-color: var(--azul-claro);
+    color: var(--azul-marinho);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    /* Fundo Branco para contraste com a seção bg-light */
+    background-color: var(--branco); 
+    color: var(--azul-marinho);
+    border: 2px solid var(--azul-marinho);
+}
+
+.btn-secondary:hover {
+    /* Inverte a cor no hover */
+    background-color: var(--azul-marinho);
+    color: var(--branco);
+}
+
+/* 1. HERO SECTION (Fundo Branco Dominante) */
+.hero {
+    /* Fundo Branco */
+    background-color: var(--branco); 
+    display: flex;
+    align-items: center;
+    text-align: left;
+    gap: 40px;
+    min-height: 70vh;
+    padding: 100px 20px 80px 20px;
+}
+
+.hero-content h1 {
+    text-align: left;
+    font-size: 3.5em; /* Título AINDA maior */
+}
+
+/* 2. SOBRE NÓS (Valores em Blocos) */
+.sobre {
+    /* Fundo Branco */
+    background-color: var(--branco);
+}
+
+.valor-card {
+    /* Fundo Off-White e borda Azul Clara */
     background-color: var(--off-white);
     border: 1px solid var(--azul-claro);
-    padding: 30px; /* Mais padding para ficar mais espaçado */
 }
 
-.contact-form input, .contact-form textarea {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1em;
+/* 4. SERVIÇOS */
+.bg-light {
+    /* Fundo Off-White para que os cards brancos se destaquem */
+    background-color: var(--off-white);
 }
 
-/* Estilização Moderna dos Ícones Sociais */
-.social-links {
-    text-align: center;
-    margin-top: 20px;
+.servico-card {
+    /* Cards de serviço com Fundo Branco */
+    background-color: var(--branco);
 }
 
-.social-icon {
-    display: inline-flex; /* Para alinhar o ícone e o texto */
-    align-items: center;
-    margin: 0 15px;
-    text-decoration: none;
-    font-size: 1.1em;
-    font-weight: bold;
-    transition: color 0.3s, transform 0.2s;
+/* 5. PROCESSO (Destaque para o Alerta e a Solução) */
+.problema { 
+    border: 2px solid #e74c3c; /* Vermelho Alerta */
+    background-color: #ffe8e8; /* Fundo vermelho bem suave */
 }
 
-.social-icon i {
-    font-size: 1.5em;
-    margin-right: 8px;
+.solucao { 
+    border: 2px solid var(--azul-marinho); 
+    background-color: #e6f7ff;
 }
 
-/* Cores específicas das redes sociais para um visual profissional e moderno */
-.whatsapp-icon {
-    color: var(--verde-whatsapp);
+/* Rodapé (Mantido no Azul Marinho para contraste e separação) */
+.footer {
+    background-color: var(--azul-marinho);
+    color: var(--branco);
+    /* ... (restante do footer) ... */
 }
-.whatsapp-icon:hover {
-    transform: translateY(-2px);
-    color: #20b05b;
-}
-
-.instagram-icon {
-    /* Gradiente sutil do Instagram */
-    color: #E1306C; 
-}
-.instagram-icon:hover {
-    transform: translateY(-2px);
-    color: #C135BB;
-}
-
-.facebook-icon {
-    color: #4267B2;
-}
-.facebook-icon:hover {
-    transform: translateY(-2px);
-    color: #3b5998;
-}
-
-/* ... (Restante do CSS - MANTÉM) ... */
