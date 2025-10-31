@@ -5,15 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Funcionalidade do Botão Hambúrguer
     hamburger.addEventListener('click', () => {
         navMenu.classList.toggle('active');
-        // Alterna o ícone do hambúrguer para um 'X' se desejar
-        // const icon = hamburger.querySelector('i');
-        // if (navMenu.classList.contains('active')) {
-        //     icon.classList.remove('fa-bars');
-        //     icon.classList.add('fa-times');
-        // } else {
-        //     icon.classList.remove('fa-times');
-        //     icon.classList.add('fa-bars');
-        // }
     });
 
     // Fechar o menu ao clicar em um link (útil para navegação mobile)
@@ -25,8 +16,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
-    // Observação: Para carrosséis de imagens automáticos, seria necessário 
-    // adicionar uma biblioteca JS como Slick.js ou Swiper.js, ou escrever 
-    // código adicional aqui para a funcionalidade de deslizamento ('slider').
 });
