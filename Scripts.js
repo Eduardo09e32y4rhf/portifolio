@@ -5,13 +5,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // ===================================
   const navToggle = document.getElementById('nav-toggle');
   const navMenu = document.getElementById('nav-menu');
-  // Você não tinha o navClose no HTML original, mas é bom tê-lo para fechar
-  const navClose = document.createElement('button');
-  navClose.id = 'nav-close';
-  navClose.className = 'nav__close';
-  navClose.innerHTML = '✕';
-  navClose.setAttribute('aria-label', 'Fechar menu');
-  if(navMenu) navMenu.prepend(navClose); // Adiciona o botão de fechar ao menu
+  // Injeta o botão 'nav-close' no DOM se ainda não existir
+  let navClose = document.getElementById('nav-close');
+  if (!navClose && navMenu) {
+      navClose = document.createElement('button');
+      navClose.id = 'nav-close';
+      navClose.className = 'nav__close';
+      navClose.innerHTML = '✕';
+      navClose.setAttribute('aria-label', 'Fechar menu');
+      navMenu.prepend(navClose);
+  }
 
   const openMenu = ()=> {
     navMenu.classList.add('show-menu');
@@ -31,9 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if(navClose) navClose.addEventListener('click', closeMenu);
   // Fecha o menu ao clicar em qualquer link de navegação
   document.querySelectorAll('.nav__link').forEach(link=> link.addEventListener('click', closeMenu));
-  // Adiciona listener para fechar o menu ao clicar fora dele (apenas para mobile)
+  // Adiciona listener para fechar o menu ao clicar fora dele (boa prática)
   document.addEventListener('click', (e) => {
-    if (navMenu.classList.contains('show-menu') && 
+    if (navMenu && navMenu.classList.contains('show-menu') && 
         !navMenu.contains(e.target) && 
         !navToggle.contains(e.target)) {
       closeMenu();
