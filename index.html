@@ -1,172 +1,239 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gslimp - Lavagem a Seco Profissional em Arapiraca e Região</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GSLIMP — Especialista em Higienização Profissional</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="GSLIMP - Limpeza profissional de estofados, colchões, sofás, cadeiras e automóveis. Atendimento residencial e empresarial.">
+  <!-- favicon simples -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧼</text></svg>">
 </head>
 <body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#">GSLIMP</a>
+      <nav class="main-nav" id="mainNav">
+        <a href="#home">Home</a>
+        <a href="#services">Serviços</a>
+        <a href="#about">Sobre</a>
+        <a href="#prices">Preços</a>
+        <a href="#contact">Contato</a>
+      </nav>
 
-    <header class="header">
-        <div class="logo">GSlimp</div>
-        <nav class="nav-menu" id="navMenu">
-            <a href="#inicio">Início</a>
-            <a href="#sobre">Sobre Nós</a>
-            <a href="#servicos">Serviços</a>
-            <a href="#processo">Tecnologia</a>
-            <a href="#clientes">Resultados</a>
-            <a href="#contato" class="cta-nav">Orçamento Rápido</a>
-        </nav>
-        <button class="hamburger" id="hamburger">
-            <i class="fas fa-bars"></i>
-        </button>
-    </header>
+      <button id="hamburger" aria-label="Abrir menu" class="hamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
 
-    <section id="inicio" class="hero section-padding">
-        <div class="hero-content">
-            <h1>Seu Sofá Livre de Ácaros e Renovado. Higienização Profissional com Tecnologia Gslimp.</h1>
-            <p>Mais que limpeza, entregamos saúde, conforto e a aparência de novo para seus estofados. Eliminamos 99,9% dos microrganismos. Seu lar merece essa transformação!</p>
-            <a href="https://wa.me/5582991522179" target="_blank" class="btn btn-primary cta-whatsapp">Quero Meu Orçamento Rápido via WhatsApp!</a>
-            <p class="area-atuacao-hero">Atendimento Premium em Arapiraca, Craíbas, São Sebastião, Igaci e Palmeira dos Índios.</p>
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-left">
+        <h1>Limpeza Profissional de Estofados</h1>
+        <p>Remoção de manchas, higienização profunda e secagem rápida — para sofás, colchões, cadeiras e interiores de automóveis.</p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#contact">Solicitar Orçamento</a>
+          <a class="btn ghost" href="#services">Ver Serviços</a>
         </div>
-        <div class="hero-image">
-            <img src="placeholder_hero.jpg" alt="Sofá limpo e renovado - Gslimp"> 
+
+        <ul class="features">
+          <li>Atendimento rápido</li>
+          <li>Produtos ecológicos</li>
+          <li>Profissionais certificados</li>
+        </ul>
+      </div>
+
+      <div class="hero-right">
+        <div class="card-hero">
+          <img alt="Limpeza de sofá" src="https://images.unsplash.com/photo-1578894381030-29f7b4b8f6d3?auto=format&fit=crop&w=900&q=60">
+          <div class="card-hero-info">
+            <strong>Promoção</strong>
+            <span>Descontos para pacotes mensais</span>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section id="sobre" class="sobre section-padding">
-        <div class="container">
-            <h2>Nossa Missão: Transformar Limpeza em Qualidade de Vida.</h2>
-            <div class="sobre-content">
-                <p>A Gslimp nasceu em Arapiraca com uma missão clara: <strong>transformar o seu lar em um ambiente mais saudável e acolhedor.</strong> Nossa Lavagem a Seco não é apenas sobre *limpar*, é sobre higienizar profundamente, **eliminando 99,9% dos ácaros, fungos e bactérias** que causam alergias. Nós ajudamos você a renovar o seu sofá e colchão!</p>
-                
-                <div class="video-placeholder rounded-box">
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/placeholder_video_instagram" frameborder="0" allowfullscreen></iframe>
-                    <small>Veja a prova da transformação!</small>
-                </div>
+  <!-- Services -->
+  <section id="services" class="section services">
+    <div class="container">
+      <h2 class="section-title">Nossos Serviços</h2>
+      <p class="section-sub">Soluções para residência, comércio e veículos.</p>
 
-                <div class="valores-grid">
-                    <div class="valor-card rounded-box">
-                        <i class="fas fa-tools"></i>
-                        <h3>Profissionalismo e Foco no Resultado</h3>
-                        <p>Nossos especialistas são treinados nas melhores técnicas para garantir um serviço impecável e pontual.</p>
-                    </div>
-                    <div class="valor-card rounded-box">
-                        <i class="fas fa-flask"></i>
-                        <h3>Tecnologia de Ponta e Produtos Seguros</h3>
-                        <p>Usamos equipamentos de alta performance e produtos biodegradáveis, seguros para sua família e pets.</p>
-                    </div>
-                    <div class="valor-card rounded-box">
-                        <i class="fas fa-handshake"></i>
-                        <h3>Compromisso e Transparência Total</h3>
-                        <p>Orçamento claro, sem surpresas e resultados que você pode ver e sentir. A Gslimp é parceira do seu bem-estar.</p>
-                    </div>
-                </div>
-            </div>
+      <div class="services-grid" id="servicesGrid">
+        <article class="service-card">
+          <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800&q=60" alt="Sofá">
+          <h3>Limpeza de Sofás</h3>
+          <p>Higienização profunda, extração de sujeira e eliminação de odores.</p>
+          <div class="price">A partir de <strong>R$ 80</strong></div>
+        </article>
+
+        <article class="service-card">
+          <img src="https://images.unsplash.com/photo-1616628188410-0eaa3dc2004a?auto=format&fit=crop&w=800&q=60" alt="Colchão">
+          <h3>Higienização de Colchões</h3>
+          <p>Eliminação de ácaros, fungos e manchas com secagem rápida.</p>
+          <div class="price">A partir de <strong>R$ 70</strong></div>
+        </article>
+
+        <article class="service-card">
+          <img src="https://images.unsplash.com/photo-1581578735878-1f95b0d9c66a?auto=format&fit=crop&w=800&q=60" alt="Interior Carro">
+          <h3>Limpeza Interna de Veículos</h3>
+          <p>Tratamento de estofados, carpetes e painéis.</p>
+          <div class="price">A partir de <strong>R$ 60</strong></div>
+        </article>
+
+        <article class="service-card">
+          <img src="https://images.unsplash.com/photo-1556228720-6f02aa5e7b3c?auto=format&fit=crop&w=800&q=60" alt="Cadeiras">
+          <h3>Limpeza de Cadeiras e Revestimentos</h3>
+          <p>Ideal para escritórios e ambientes comerciais.</p>
+          <div class="price">A partir de <strong>R$ 25</strong></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section steps">
+    <div class="container">
+      <h2 class="section-title">Como funciona</h2>
+      <div class="steps-grid">
+        <div class="step">
+          <strong>1</strong>
+          <h4>Solicite orçamento</h4>
+          <p>Rápido pelo WhatsApp ou formulário.</p>
         </div>
-    </section>
-
-    <section id="servicos" class="servicos section-padding bg-light">
-        <div class="container">
-            <h2>O Serviço Certo Para Sua Necessidade.</h2>
-            
-            <div class="slider-container services-slider-container">
-                <div class="servicos-grid slider-track" id="servicesSliderTrack">
-                    <div class="servico-card rounded-box">
-                        <img src="placeholder_sofa.jpg" alt="Limpeza de Sofás e Poltronas" class="service-image-square">
-                        <h3>Sofás e Poltronas</h3>
-                        <p>Transforme sua sala! **Elimine manchas, odores e a sujeira acumulada.** Conforto e visual renovado.</p>
-                    </div>
-                    <div class="servico-card rounded-box">
-                        <img src="placeholder_colchao.jpg" alt="Higienização de Colchões" class="service-image-square">
-                        <h3>Colchões (Saúde do Sono)</h3>
-                        <p>**Durma melhor e livre de alergias!** Higienização profunda contra ácaros, fungos e bactérias.</p>
-                    </div>
-                    <div class="servico-card rounded-box">
-                        <img src="placeholder_cadeira.jpg" alt="Limpeza de Cadeiras" class="service-image-square">
-                        <h3>Cadeiras de Jantar/Escritório</h3>
-                        <p>Os detalhes que importam. Limpeza ideal para estofados de uso frequente em casa e no trabalho.</p>
-                    </div>
-                    <div class="servico-card rounded-box">
-                        <img src="placeholder_tapete.jpg" alt="Lavagem de Tapetes" class="service-image-square">
-                        <h3>Tapetes e Carpetes</h3>
-                        <p>Revitalize as cores e a maciez. Remoção completa da poeira e sujidade pesada.</p>
-                    </div>
-                    <div class="servico-card rounded-box">
-                        <img src="placeholder_carro.jpg" alt="Estofados de Carros" class="service-image-square">
-                        <h3>Estofados de Carros</h3>
-                        <p>Ambiente interno novo. Limpeza e higienização de bancos, teto e carpete do seu veículo.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <a href="https://wa.me/5582991522179" target="_blank" class="btn btn-secondary mt-3">Fale Conosco e Descubra o Serviço Ideal</a>
+        <div class="step">
+          <strong>2</strong>
+          <h4>Agendamento</h4>
+          <p>Marcação no dia e horário que preferir.</p>
         </div>
-    </section>
-
-    <section id="processo" class="processo section-padding">
-        <div class="container">
-            <h2>A Tecnologia que Entrega Saúde: Nosso Diferencial.</h2>
-            
-            <div class="processo-detalhes-grid">
-                <div class="processo-card problema rounded-box">
-                    <h3>🛑 O Perigo que Você Não Vê</h3>
-                    <p>Seu estofado é um criadouro para milhões de ácaros, fungos e bactérias. Eles são a principal causa de alergias e problemas respiratórios. Não ignore o perigo oculto na sua sala!</p>
-                </div>
-                <div class="processo-card solucao rounded-box">
-                    <h3>✅ A Solução Gslimp (Extração Profunda)</h3>
-                    <p>Usamos um sistema de **extração por sucção industrial e produtos bacteriostáticos** que agem na raiz do problema. A sujeira é desprendida, os microrganismos eliminados, e **tudo é extraído**, garantindo um estofado **limpo de verdade e quase seco!**</p>
-                </div>
-            </div>
-            <h4 class="destaque-saude">O Verdadeiro 'Antes e Depois' está na Saúde da sua Família!</h4>
+        <div class="step">
+          <strong>3</strong>
+          <h4>Serviço</h4>
+          <p>Técnicos qualificados no local com equipamentos profissionais.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section id="clientes" class="clientes section-padding bg-light">
-        <div class="container">
-            <h2>Resultados Reais: O Que Nossos Clientes Dizem.</h2>
-            <div class="slider-container">
-                <div class="clientes-grid slider-track" id="sliderTrack">
-                    </div>
-            </div>
+  <!-- About -->
+  <section id="about" class="section about">
+    <div class="container about-grid">
+      <div>
+        <h2>Sobre a GSLIMP</h2>
+        <p>Empresa local com foco em qualidade, sustentabilidade e atendimento especializado. Trabalhamos com produtos biodegradáveis e técnicas que preservam os tecidos.</p>
+        <ul>
+          <li>Técnicos treinados</li>
+          <li>Garantia de satisfação</li>
+          <li>Atendimento para condomínios</li>
+        </ul>
+      </div>
+
+      <div class="about-card">
+        <img alt="Equipe" src="https://images.unsplash.com/photo-1590698935295-b3b1b7b6a6c1?auto=format&fit=crop&w=900&q=60">
+      </div>
+    </div>
+  </section>
+
+  <!-- Prices simple -->
+  <section id="prices" class="section prices">
+    <div class="container">
+      <h2 class="section-title">Pacotes e Preços</h2>
+
+      <div class="prices-grid">
+        <div class="price-card">
+          <h3>Pacote Básico</h3>
+          <p>1 sofá ou 1 colchão - limpeza padrão</p>
+          <div class="price-big">R$ 80</div>
         </div>
-    </section>
-
-    <section id="contato" class="contato section-padding">
-        <div class="container">
-            <h2>Pronto Para a Transformação? Agende Sua Limpeza!</h2>
-            <p>Fale diretamente com nossa equipe e solicite seu orçamento rápido, sem compromisso e sem burocracia.</p>
-            
-            <form class="contact-form rounded-box" action="https://wa.me/5582991522179" target="_blank">
-                <input type="text" placeholder="Seu Nome Completo" required>
-                <input type="tel" placeholder="Seu WhatsApp/Telefone" required>
-                <textarea placeholder="Qual serviço você precisa? (Ex: Limpeza de Sofá 3 lugares)" required></textarea>
-                <button type="submit" class="btn btn-primary cta-whatsapp-form">Solicitar Orçamento no WhatsApp!</button>
-            </form>
-
-            <div class="social-links">
-                <a href="https://wa.me/5582991522179" target="_blank" class="social-icon whatsapp-icon"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                <a href="https://instagram.com/gslimp_al" target="_blank" class="social-icon instagram-icon"><i class="fab fa-instagram"></i> Instagram</a>
-                <a href="#" target="_blank" class="social-icon facebook-icon"><i class="fab fa-facebook-f"></i> Facebook</a>
-            </div>
+        <div class="price-card">
+          <h3>Pacote Família</h3>
+          <p>2 sofás ou 1 sofá + 1 colchão</p>
+          <div class="price-big">R$ 150</div>
         </div>
-    </section>
-
-    <a href="https://wa.me/5582991522179" target="_blank" class="whatsapp-float">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Efetuar pela Gslimp - Limpeza e Higienização Profissional.</p>
-            <p class="area-atuacao-footer">Atendemos em: **Arapiraca, Craíbas, São Sebastião, Igaci e Palmeira dos Índios.**</p>
+        <div class="price-card">
+          <h3>Empresas</h3>
+          <p>Orçamento personalizado para condomínios/empresas</p>
+          <div class="price-big">Sob consulta</div>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
+  <!-- Contact -->
+  <section id="contact" class="section contact">
+    <div class="container contact-grid">
+      <div class="contact-form">
+        <h2>Peça um orçamento</h2>
+        <p>Nos informe seu serviço e endereço — retornamos em até 24h.</p>
+
+        <form id="contactForm">
+          <label>Nome
+            <input type="text" name="name" required>
+          </label>
+
+          <label>Telefone (WhatsApp)
+            <input type="tel" name="phone" required placeholder="(11) 9XXXX-XXXX">
+          </label>
+
+          <label>Serviço
+            <select name="service" required>
+              <option>Limpeza de Sofá</option>
+              <option>Higienização de Colchão</option>
+              <option>Limpeza Interna de Veículo</option>
+              <option>Outros</option>
+            </select>
+          </label>
+
+          <label>Mensagem
+            <textarea name="message" rows="4" placeholder="Detalhes, endereço..." ></textarea>
+          </label>
+
+          <div class="form-actions">
+            <button class="btn primary" type="submit">Enviar</button>
+            <button class="btn ghost" type="reset">Limpar</button>
+          </div>
+          <p id="formMsg" class="form-msg" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <aside class="contact-aside">
+        <h3>Contato rápido</h3>
+        <p><strong>WhatsApp:</strong> <a href="https://wa.me/5511999999999" target="_blank" rel="noopener">+55 (11) 99999-9999</a></p>
+        <p><strong>Email:</strong> contato@gslimp.com.br</p>
+        <h4>Funcionamento</h4>
+        <p>Seg — Sex: 08:00 — 18:00</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="#">GSLIMP</a>
+        <p>© <span id="year"></span> GSLIMP • Todos os direitos reservados</p>
+      </div>
+
+      <div class="socials">
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="Facebook">Facebook</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating -->
+  <a id="whatsappFloat" class="whatsapp-float" href="https://wa.me/5511999999999" target="_blank" rel="noopener" aria-label="Abrir WhatsApp">
+    <svg width="22" height="22" viewBox="0 0 24 24"><path fill="white" d="M12 2C6.48 2 2 6.48 2 12c0 1.99.52 3.86 1.42 5.49L2 22l4.66-1.22C8.12 21.49 10 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zM16.6 15.3l-1.06 1.06c-.2.2-.5.28-.76.22-.61-.16-1.19-.37-1.76-.62-.49-.2-.95-.47-1.38-.78-1.1-.85-1.85-2.07-2.07-3.44-.07-.44.1-.88.48-1.16L8.9 8.5c.15-.11.2-.33.12-.5-.44-1.02-.2-2.19.66-2.97.38-.34.9-.51 1.4-.48 1.24.07 2.31.6 3.14 1.46 1.07 1.09 1.66 2.56 1.63 4.08-.03 1.12-.45 2.2-1.18 3.19-.06.09-.15.16-.26.19z"/></svg>
+  </a>
+
+  <script src="script.js"></script>
 </body>
 </html>
