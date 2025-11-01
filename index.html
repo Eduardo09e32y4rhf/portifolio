@@ -6,312 +6,137 @@
     <title>Gslimp - Limpeza de Estofados</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    
-    <style>
-        /* Variáveis CSS */
-        :root {
-            --cor-fundo-principal: #0F1A3A; /* Azul Escuro */
-            --cor-fundo-card-dark: #1E2858; /* Azul Escuro dos Cards */
-            --cor-fundo-card-light: #FFFFFF; /* Branco dos Cards de Serviço/Depoimento */
-            --cor-texto-principal: #E0E7FF;
-            --cor-texto-dark: #2A2A2A;
-            --cor-gradiente-start-cta: #4ECDC4; /* Ciano */
-            --cor-gradiente-end-cta: #5A5ACF; /* Roxo/Azul */
-            --cor-detalhe-vermelho: #F95D51;
-            --cor-avaliacao-amarela: #FFC107;
-            --cor-icone-contato: #A0C4FF;
-        }
-
-        /* Estilos Globais e Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--cor-fundo-principal);
-            color: var(--cor-texto-principal);
-            line-height: 1.6;
-        }
-
-        h1, h2, h3, .poppins {
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .header-section {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .header-section h2 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-
-        .tag {
-            display: inline-block;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: var(--cor-fundo-principal);
-            background-color: #E0E7FF; /* Botão claro */
-        }
-
-        /* --- Estilo do Botão Principal (CTA) --- */
-        .btn-cta {
-            /* ... (Estilo mantido do código anterior) ... */
-            display: inline-block;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            color: white;
-            font-weight: 700;
-            background-image: linear-gradient(90deg, var(--cor-gradiente-start-cta) 0%, var(--cor-gradiente-end-cta) 100%);
-            transition: transform 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-        }
-
-        .btn-cta:hover {
-            transform: translateY(-2px);
-        }
-
-        /* --- Seção de Depoimentos (1000874621.jpg, 1000874622.jpg) --- */
-        #depoimentos {
-            padding: 80px 0;
-            background-color: #F8F8F8; /* Fundo branco/muito claro */
-            color: var(--cor-texto-dark);
-        }
-        
-        #depoimentos .header-section h2 {
-            color: var(--cor-texto-dark);
-        }
-
-        .depoimentos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
-
-        .depoimento-card {
-            background-color: var(--cor-fundo-card-light);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .depoimento-card .perfil {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .depoimento-card .perfil img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 15px;
-            object-fit: cover;
-        }
-
-        .depoimento-card .info strong {
-            display: block;
-            font-size: 1.1em;
-            color: var(--cor-texto-dark);
-        }
-
-        .depoimento-card .estrelas {
-            color: var(--cor-avaliacao-amarela);
-            font-size: 1.2em;
-            margin-bottom: 15px;
-        }
-
-        .depoimento-card blockquote {
-            font-style: italic;
-            color: #444;
-            border-left: 3px solid #ccc;
-            padding-left: 15px;
-        }
-        
-        /* --- Seção Contato (1000874623.jpg, 1000874624.jpg) --- */
-        #solicite-orcamento {
-            padding: 80px 0;
-            background-color: var(--cor-fundo-principal);
-            text-align: center;
-        }
-
-        #solicite-orcamento h2 {
-            font-size: 2.8em;
-            margin-bottom: 10px;
-        }
-        
-        #solicite-orcamento .tag-contato {
-            display: inline-block;
-            padding: 10px 25px;
-            border-radius: 50px;
-            font-weight: 600;
-            margin-bottom: 40px;
-            color: white;
-            background-color: var(--cor-fundo-card-dark);
-            border: 1px solid var(--cor-gradiente-start-cta);
-        }
-
-        .contato-wrapper {
-            max-width: 900px;
-            margin: 0 auto;
-            background-color: var(--cor-fundo-card-dark);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-        }
-
-        .contato-info-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            text-align: left;
-            margin-top: 30px;
-            margin-bottom: 40px;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .info-item .icon-box {
-            width: 45px;
-            height: 45px;
-            border-radius: 10px;
-            margin-right: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--cor-icone-contato); /* Azul claro */
-        }
-        
-        .info-item i {
-            font-size: 20px;
-            color: white;
-        }
-
-        .info-item .details span {
-            display: block;
-            font-weight: 600;
-            font-size: 0.9em;
-            color: #A0C4FF;
-        }
-
-        .info-item .details p {
-            margin: 0;
-            font-size: 1em;
-        }
-
-        /* Formulário */
-        .form-contato input[type="text"], 
-        .form-contato input[type="email"], 
-        .form-contato textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border-radius: 8px;
-            border: none;
-            background-color: #2A3C6B; /* Fundo mais escuro para inputs */
-            color: white;
-            font-size: 1em;
-        }
-
-        .form-contato button {
-            /* Estilo semelhante ao CTA principal, mas como botão */
-            width: 100%;
-            border: none;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 10px;
-        }
-
-        /* --- Rodapé (Footer) (1000874625.jpg) --- */
-        footer {
-            background-color: #0A1430; /* Azul ainda mais escuro para o rodapé */
-            padding: 60px 0 20px 0;
-            color: #C0C8E0;
-            font-size: 0.9em;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-about h3 {
-            font-size: 1.5em;
-            color: white;
-            margin-bottom: 10px;
-        }
-
-        .footer-social a {
-            color: white;
-            font-size: 20px;
-            margin-right: 15px;
-            transition: color 0.3s;
-        }
-
-        .footer-social a:hover {
-            color: var(--cor-gradiente-start-cta);
-        }
-
-        .footer-links h4, .footer-contact h4 {
-            color: white;
-            font-size: 1.1em;
-            margin-bottom: 15px;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links ul li a {
-            color: #C0C8E0;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 8px;
-            transition: color 0.3s;
-        }
-
-        .footer-links ul li a:hover {
-            color: var(--cor-gradiente-start-cta);
-        }
-
-        .copyright {
-            text-align: center;
-            border-top: 1px solid #1E2858;
-            padding-top: 20px;
-            margin-top: 20px;
-            font-size: 0.8em;
-        }
-
-
-        /* Media Queries para Responsividade */
-        @media (max-width: 768px) {
-            .contato-info-grid, .footer-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <section id="hero" class="container">
+        <span class="tag" style="background: linear-gradient(90deg, #4ECDC4 0%, #5A5ACF 100%); color: white;">Profissionais em Limpeza</span>
+        <h1 class="poppins">Gslimp<br>Limpeza de Estofados</h1>
+        <p>Renovamos seus estofados, sofás, colchões e tapetes com tecnologia avançada e produtos de alta qualidade.</p>
+        <a href="#solicite-orcamento" class="btn-cta"><i class="fas fa-phone"></i> Solicite um Orçamento</a>
+        <a href="#servicos" class="tag" style="background-color: #A0C4FF; color: var(--cor-fundo-principal); margin-left: 15px;">Nossos Serviços</a>
+    </section>
+    
+    <section id="stats" class="container">
+        <div class="stats-card">
+            <h3 class="poppins">100%</h3>
+            <p>Satisfação</p>
+        </div>
+        <div class="stats-card">
+            <h3 class="poppins">500+</h3>
+            <p>Clientes Atendidos</p>
+        </div>
+        <div class="stats-card" style="margin-bottom: 0;">
+            <h3 class="poppins">10+</h3>
+            <p>Anos de Experiência</p>
+        </div>
+    </section>
+
+    <section id="servicos">
+        <div class="container">
+            <div class="header-section">
+                <span class="tag" style="background-color: #D0D0FF;">Nossos Serviços</span>
+                <h2 class="poppins">Soluções Completas em Limpeza</h2>
+                <p>Utilizamos equipamentos de última geração e produtos ecológicos para garantir os melhores resultados</p>
+            </div>
+            
+            <div class="servicos-grid">
+                <div class="servico-card">
+                    <div class="icon-wrapper"><i class="fas fa-couch"></i></div>
+                    <h3 class="poppins">Limpeza de Sofás</h3>
+                    <p>Remoção profunda de manchas, ácaros e odores do seu sofá, devolvendo a beleza original.</p>
+                </div>
+                <div class="servico-card">
+                    <div class="icon-wrapper"><i class="fas fa-bed"></i></div>
+                    <h3 class="poppins">Higienização de Colchões</h3>
+                    <p>Eliminação de ácaros, bactérias e alérgenos para um sono mais saudável e tranquilo.</p>
+                </div>
+                <div class="servico-card">
+                    <div class="icon-wrapper"><i class="fas fa-chair"></i></div>
+                    <h3 class="poppins">Limpeza de Poltronas</h3>
+                    <p>Tratamento especializado para poltronas e cadeiras estofadas de todos os tipos.</p>
+                </div>
+                <div class="servico-card">
+                    <div class="icon-wrapper"><i class="fas fa-grip-lines"></i></div>
+                    <h3 class="poppins">Tapetes e Carpetes</h3>
+                    <p>Limpeza profunda que remove sujeira acumulada e revitaliza as fibras do tecido.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="diferenciais">
+        <div class="container">
+            <div class="header-section">
+                <span class="tag">Diferenciais</span>
+                <h2 class="poppins">Por Que Escolher a Gslimp?</h2>
+                <p>Compromisso com a excelência em cada serviço prestado</p>
+            </div>
+            
+            <div class="diferenciais-grid">
+                <div class="card-dark">
+                    <div class="icon-wrapper"><i class="fas fa-shield-alt"></i></div>
+                    <h3 class="poppins">Garantia de Qualidade</h3>
+                    <p>Satisfação garantida ou seu dinheiro de volta.</p>
+                </div>
+                <div class="card-dark">
+                    <div class="icon-wrapper"><i class="far fa-clock"></i></div>
+                    <h3 class="poppins">Atendimento Rápido</h3>
+                    <p>Agendamento flexível e pontualidade garantida.</p>
+                </div>
+                <div class="card-dark">
+                    <div class="icon-wrapper"><i class="fas fa-magic"></i></div>
+                    <h3 class="poppins">Tecnologia Avançada</h3>
+                    <p>Equipamentos de última geração para melhores resultados.</p>
+                </div>
+                <div class="card-dark">
+                    <div class="icon-wrapper"><i class="fas fa-user-tie"></i></div>
+                    <h3 class="poppins">Profissionais Certificados</h3>
+                    <p>Equipe treinada e experiente para um serviço de excelência.</p>
+                </div>
+                <div class="card-dark">
+                    <div class="icon-wrapper"><i class="fas fa-leaf"></i></div>
+                    <h3 class="poppins">Produtos Ecológicos</h3>
+                    <p>Soluções biodegradáveis e seguras para sua família e o meio ambiente.</p>
+                </div>
+                <div class="card-dark">
+                    <div class="icon-wrapper"><i class="fas fa-thumbs-up"></i></div>
+                    <h3 class="poppins">Melhor Custo-Benefício</h3>
+                    <p>Preços justos e serviços de alta qualidade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="galeria">
+        <div class="container">
+            <div class="header-section">
+                <span class="tag" style="background-color: #D0D0FF;">Galeria</span>
+                <h2 class="poppins">Antes e Depois</h2>
+                <p>Veja a transformação que nossos serviços proporcionam</p>
+                <p style="color: #444; font-size: 1em; margin-top: 15px;">Passe o mouse sobre as imagens para ver o resultado (exemplo de instrução do site)</p>
+            </div>
+
+            <div class="galeria-grid">
+                <div class="foto-card">
+                    <img src="https://br.pinterest.com/leydianaoliver/reforma-de-sof%C3%A1/" alt="Sofá 3 Lugares Antes">
+                    <div class="label-antes">ANTES</div>
+                    <div class="titulo-foto">Sofá 3 Lugares</div>
+                </div>
+                <div class="foto-card">
+                    <img src="https://www.gettyimages.pt/fotos/colch%C3%A3o" alt="Colchão Box Antes">
+                    <div class="label-antes">ANTES</div>
+                    <div class="titulo-foto">Colchão Box</div>
+                </div>
+                <div class="foto-card">
+                    <img src="https://www.youtube.com/watch?v=ESz1H23D830" alt="Poltrona Reclinável Antes">
+                    <div class="label-antes">ANTES</div>
+                    <div class="titulo-foto">Poltrona Reclinável</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section id="depoimentos">
         <div class="container">
@@ -319,7 +144,6 @@
                 <span class="tag" style="background-color: #FFEBCC;">Depoimentos</span>
                 <h2 class="poppins">O Que Nossos Clientes Dizem</h2>
                 <p style="color: #666;">Satisfação comprovada em cada serviço realizado</p>
-                <p style="color: #444; font-size: 1em; margin-top: 15px;">Passe o mouse sobre as imagens para ver o resultado (exemplo de instrução do site)</p>
             </div>
             
             <div class="depoimentos-grid">
@@ -338,7 +162,6 @@
                         "Fiquei impressionada com o resultado! Meu sofá ficou como novo. Equipe muito profissional e atenciosa."
                     </blockquote>
                 </div>
-                
                 <div class="depoimento-card">
                     <div class="perfil">
                         <img src="https://www.instagram.com/joaosantosfotografia/" alt="João Santos">
@@ -354,7 +177,6 @@
                         "Contratamos a Gslimp para limpar todos os colchões do hotel. Serviço excelente, rápido e eficiente!"
                     </blockquote>
                 </div>
-                
                 <div class="depoimento-card">
                     <div class="perfil">
                         <img src="https://www.instagram.com/anneycosta/?hl=en" alt="Ana Costa">
@@ -370,7 +192,6 @@
                         "Serviço impecável para a entrega de imóveis. A limpeza dos estofados faz toda a diferença para os clientes."
                     </blockquote>
                 </div>
-
             </div>
         </div>
     </section>
@@ -395,14 +216,6 @@
                     </div>
                     
                     <div class="info-item">
-                        <div class="icon-box"><i class="fas fa-envelope"></i></div>
-                        <div class="details">
-                            <span>E-mail</span>
-                            <p>contato@gslimp.com.br</p>
-                        </div>
-                    </div>
-
-                    <div class="info-item">
                         <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
                         <div class="details">
                             <span>Localização</span>
@@ -411,7 +224,7 @@
                         </div>
                     </div>
 
-                    <div class="info-item">
+                    <div class="info-item" style="grid-column: span 2;">
                         <div class="icon-box"><i class="far fa-clock"></i></div>
                         <div class="details">
                             <span>Horário de Atendimento</span>
@@ -457,7 +270,6 @@
             <div class="footer-contact">
                 <h4 class="poppins">Contato</h4>
                 <p><i class="fas fa-phone-alt" style="margin-right: 10px;"></i>(11) 9 8765-4321</p>
-                <p style="margin-top: 5px;"><i class="fas fa-envelope" style="margin-right: 10px;"></i>contato@gslimp.com.br</p>
             </div>
         </div>
 
@@ -466,20 +278,6 @@
         </div>
     </footer>
     
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId && targetId !== '#') {
-                    document.querySelector(targetId).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
-
+    <script src="script.js"></script>
 </body>
 </html>
-
