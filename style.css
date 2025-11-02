@@ -1,4 +1,3 @@
-
 /* Variáveis CSS */
 :root {
     --cor-fundo-principal: #0F1A3A; /* Azul Escuro */
@@ -107,6 +106,11 @@ h1, h2, h3, .poppins {
 #hero {
     text-align: center;
     padding: 100px 0;
+    /* 1 - Adicionado para Fundo de Imagem e Overlay Escuro */
+    background-image: linear-gradient(rgba(15, 26, 58, 0.85), rgba(15, 26, 58, 0.85)), url('sua-foto-de-fundo-aqui.jpg'); /* Substitua pelo URL da sua foto */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Opcional: Efeito paralaxe */
 }
 
 #hero h1 {
@@ -573,12 +577,12 @@ footer {
         margin-top: 10px;
     }
     
-    /* Ajuste para telas menores do WhatsApp Flutuante */
+    /* 3 - Ajuste para telas menores do WhatsApp Flutuante */
     .whatsapp-float {
         width: 50px;
         height: 50px;
-        bottom: 20px;
-        right: 20px; /* Movido mais para a direita */
+        bottom: 10px; /* Era 20px */
+        right: 10px;  /* Era 20px */
         font-size: 25px;
         line-height: 50px;
     }
@@ -589,8 +593,8 @@ footer {
     position: fixed;
     width: 60px;
     height: 60px;
-    bottom: 40px;
-    right: 40px; /* Este valor controla o afastamento da direita */
+    bottom: 20px; /* Era 40px */
+    right: 20px;  /* Era 40px */
     background-color: #25D366; /* Cor do WhatsApp */
     color: #FFF;
     border-radius: 50px;
