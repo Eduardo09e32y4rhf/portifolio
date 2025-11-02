@@ -60,7 +60,6 @@ h1, h2, h3, .poppins {
 .btn-cta {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
     padding: 15px 30px;
     border-radius: 50px;
     text-decoration: none;
@@ -74,6 +73,33 @@ h1, h2, h3, .poppins {
 .btn-cta:hover {
     transform: translateY(-2px);
 }
+
+/* NOVO ESTILO PARA O BOTÃO CTA NA SEÇÃO HERO (WPP) */
+.btn-wpp-style {
+    /* Ajusta a margem entre o ícone e o texto */
+    padding: 8px 30px 8px 8px; /* Ajusta o padding para o novo design */
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+.icon-wpp-wrapper {
+    /* Estilo do ícone flutuante/destacado (semelhante à imagem) */
+    width: 45px; 
+    height: 45px; 
+    background-color: white; 
+    border-radius: 50%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px; /* Espaçamento entre o ícone e o texto */
+}
+
+.icon-wpp-wrapper i {
+    /* Cor do ícone (o verde do WhatsApp) */
+    color: #25D366; 
+    font-size: 20px;
+}
+
 
 /* --- Seção Hero/Introdução --- */
 #hero {
@@ -431,7 +457,7 @@ h1, h2, h3, .poppins {
     font-size: 1em;
 }
 
-/* Formulário */
+/* Formulário (mantido, embora não visível no HTML atual) */
 .form-contato input[type="text"], 
 .form-contato input[type="email"], 
 .form-contato textarea {
@@ -542,9 +568,18 @@ footer {
     .info-item .details span {
         margin-top: 10px;
     }
+    
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 25px;
+        line-height: 50px;
+    }
 }
 
-/* --- WhatsApp Flutuante ADICIONADO --- */
+/* --- WhatsApp Flutuante --- */
 .whatsapp-float {
     position: fixed;
     width: 60px;
@@ -565,16 +600,4 @@ footer {
 .whatsapp-float:hover {
     background-color: #128C7E;
     transform: scale(1.05);
-}
-
-/* Ajuste para telas menores */
-@media (max-width: 768px) {
-    .whatsapp-float {
-        width: 50px;
-        height: 50px;
-        bottom: 20px;
-        right: 20px;
-        font-size: 25px;
-        line-height: 50px;
-    }
 }
