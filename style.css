@@ -543,3 +543,25 @@ footer {
         margin-top: 10px;
     }
 }
+
+/* ... (mantenha o restante do seu CSS inalterado) ... */
+
+.contato-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Isso garante que Localização e Horário fiquem lado a lado */
+    gap: 20px;
+    text-align: left;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+/* ... (mantenha o restante do seu CSS inalterado) ... */
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+    /* ... */
+    .contato-info-grid, .footer-grid {
+        grid-template-columns: 1fr; /* Isso garante que no celular eles voltem a empilhar */
+    }
+    /* ... */
+}
