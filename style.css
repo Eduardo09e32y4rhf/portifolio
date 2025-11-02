@@ -610,3 +610,120 @@ footer {
     background-color: #128C7E;
     transform: scale(1.05);
 }
+
+/* ... seu CSS anterior ... */
+
+/* --- Seção Galeria Antes e Depois --- */
+#galeria {
+    padding: 80px 0;
+    background-color: white;
+    color: var(--cor-fundo-principal);
+}
+
+#galeria .header-section h2 {
+    color: var(--cor-fundo-principal);
+}
+
+#galeria .header-section p {
+    color: #666;
+    font-size: 1.1em;
+}
+
+.galeria-grid {
+    display: grid;
+    /* Ajustado para 2 colunas, para 'antes' e 'depois' ficarem lado a lado */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Cada card terá 2 imagens */
+    gap: 30px;
+}
+
+.foto-card {
+    position: relative;
+    background-color: var(--cor-fundo-card-light);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex; /* Para as imagens ficarem lado a lado */
+    flex-direction: column; /* Colocar 'antes' e 'depois' um abaixo do outro */
+}
+
+.foto-card .image-wrapper {
+    display: flex; /* Para as imagens de 'antes' e 'depois' ficarem lado a lado */
+    width: 100%;
+    position: relative; /* Para posicionar os labels 'antes'/'depois' dentro dele */
+}
+
+
+.foto-card img {
+    width: 50%; /* Cada imagem ocupa metade do espaço */
+    height: auto;
+    display: block;
+    object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+}
+
+/* Estilo para os labels ANTES e DEPOIS */
+.label-antes,
+.label-depois {
+    position: absolute;
+    top: 15px; /* Posição do topo para ambos os labels */
+    padding: 5px 15px;
+    color: white;
+    font-weight: 700;
+    font-size: 0.8em;
+    border-radius: 5px; /* Arredondar todas as bordas */
+    z-index: 10; /* Para ficar acima da imagem */
+}
+
+.label-antes {
+    left: 15px; /* Posição à esquerda para o label ANTES */
+    background-color: var(--cor-detalhe-vermelho); /* Cor vermelha */
+}
+
+.label-depois {
+    left: 50%; /* Começa na metade para o label DEPOIS */
+    margin-left: 15px; /* Espaço da borda interna da segunda imagem */
+    background-color: var(--cor-gradiente-start-cta); /* Cor ciano */
+}
+
+
+.titulo-foto {
+    width: 100%;
+    padding: 15px; /* Aumentado o padding para o título */
+    background: rgba(0, 0, 0, 0.7); /* Cor de fundo mais escura para o título */
+    color: white;
+    font-weight: 600;
+    font-size: 1.1em;
+    text-align: center; /* Centraliza o título */
+    margin-top: auto; /* Empurra o título para o final do card */
+}
+
+/* ... seu CSS anterior ... */
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+    /* ... seu media query anterior ... */
+
+    .galeria-grid {
+        grid-template-columns: 1fr; /* Em telas menores, 1 card por linha */
+    }
+
+    .foto-card .image-wrapper {
+        flex-direction: column; /* Em telas menores, imagens 'antes' e 'depois' empilhadas */
+    }
+
+    .foto-card img {
+        width: 100%; /* Cada imagem ocupa 100% da largura do card */
+    }
+
+    .label-antes,
+    .label-depois {
+        position: relative; /* Ajusta o posicionamento para empilhamento */
+        top: auto;
+        left: auto;
+        margin: 10px auto 0; /* Centraliza e adiciona margem */
+        width: fit-content; /* Largura se ajusta ao conteúdo */
+    }
+    
+    .label-depois {
+        margin-left: auto; /* Centraliza o label depois também */
+    }
+}
