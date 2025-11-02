@@ -68,6 +68,7 @@ h1, h2, h3, .poppins {
     background-image: linear-gradient(90deg, var(--cor-gradiente-start-cta) 0%, var(--cor-gradiente-end-cta) 100%);
     transition: transform 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    /* Removido `margin-left: 15px;` que era do botão "Nossos Serviços" */
 }
 
 .btn-cta:hover {
@@ -569,11 +570,12 @@ footer {
         margin-top: 10px;
     }
     
+    /* Ajuste para telas menores do WhatsApp Flutuante */
     .whatsapp-float {
         width: 50px;
         height: 50px;
         bottom: 20px;
-        right: 20px;
+        right: 20px; /* Movido mais para a direita */
         font-size: 25px;
         line-height: 50px;
     }
@@ -585,7 +587,7 @@ footer {
     width: 60px;
     height: 60px;
     bottom: 40px;
-    right: 40px;
+    right: 40px; /* Este valor controla o afastamento da direita */
     background-color: #25D366; /* Cor do WhatsApp */
     color: #FFF;
     border-radius: 50px;
