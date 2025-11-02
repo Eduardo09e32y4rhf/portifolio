@@ -544,24 +544,37 @@ footer {
     }
 }
 
-/* ... (mantenha o restante do seu CSS inalterado) ... */
-
-.contato-info-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Isso garante que Localização e Horário fiquem lado a lado */
-    gap: 20px;
-    text-align: left;
-    margin-top: 30px;
-    margin-bottom: 40px;
+/* --- WhatsApp Flutuante ADICIONADO --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25D366; /* Cor do WhatsApp */
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    line-height: 60px;
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-/* ... (mantenha o restante do seu CSS inalterado) ... */
+.whatsapp-float:hover {
+    background-color: #128C7E;
+    transform: scale(1.05);
+}
 
-/* Media Queries para Responsividade */
+/* Ajuste para telas menores */
 @media (max-width: 768px) {
-    /* ... */
-    .contato-info-grid, .footer-grid {
-        grid-template-columns: 1fr; /* Isso garante que no celular eles voltem a empilhar */
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 25px;
+        line-height: 50px;
     }
-    /* ... */
 }
