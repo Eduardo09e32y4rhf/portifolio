@@ -97,7 +97,7 @@ a {
 }
 
 .btn-wpp-style {
-    padding: 0; /* O padding é movido para o icon-wpp-wrapper */
+    padding: 0; 
     background: none;
     box-shadow: none;
 }
@@ -231,7 +231,7 @@ a {
     color: #94A3B8;
 }
 
-/* --- Seção Galeria Antes e Depois (Revisada) --- */
+/* --- Seção Galeria Antes e Depois (Versão Anterior: 4 cards com imagens lado a lado) --- */
 #galeria {
     padding: 80px 0;
     background-color: white;
@@ -249,8 +249,8 @@ a {
 
 .galeria-grid {
     display: grid;
-    /* 2 colunas para o layout Antes/Depois/Antes/Depois */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Ajustado para 2 colunas, para 'antes' e 'depois' ficarem lado a lado dentro do card */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
     gap: 30px;
 }
 
@@ -260,49 +260,59 @@ a {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex; /* Para o título ficar na parte inferior */
+    flex-direction: column; 
 }
 
-.foto-card img {
+.foto-card .image-wrapper {
+    display: flex; /* Para as imagens de 'antes' e 'depois' ficarem lado a lado */
     width: 100%;
-    height: 250px; /* Altura fixa para todos os cards */
+    position: relative; 
+}
+
+
+.foto-card img {
+    width: 50%; /* Cada imagem ocupa metade do espaço */
+    height: auto;
     display: block;
-    object-fit: cover;
+    object-fit: cover; 
 }
 
 /* Estilo para os labels ANTES e DEPOIS */
 .label-antes,
 .label-depois {
     position: absolute;
-    bottom: 0; /* Coloca o label no rodapé da imagem */
-    left: 0;
-    padding: 10px 15px;
+    top: 15px; 
+    padding: 5px 15px;
     color: white;
     font-weight: 700;
-    font-size: 1.1em;
-    border-top-right-radius: 10px; /* Para dar um corte suave */
-    z-index: 10;
+    font-size: 0.8em;
+    border-radius: 5px; 
+    z-index: 10; 
 }
 
 .label-antes {
-    background-color: var(--cor-detalhe-vermelho); /* Cor vermelha para ANTES */
+    left: 15px; 
+    background-color: var(--cor-detalhe-vermelho); /* Cor vermelha */
 }
 
 .label-depois {
-    background-color: var(--cor-gradiente-end-cta); /* Azul mais forte para DEPOIS */
+    left: 50%; /* Começa na metade para o label DEPOIS */
+    margin-left: 15px; 
+    background-color: var(--cor-gradiente-start-cta); /* Cor ciano */
 }
 
 
 .titulo-foto {
     width: 100%;
-    padding: 15px;
-    background: white; /* Fundo branco para o título */
-    color: var(--cor-fundo-principal);
+    padding: 15px; 
+    background: rgba(0, 0, 0, 0.7); 
+    color: white;
     font-weight: 600;
     font-size: 1.1em;
-    text-align: center;
-    border-top: 1px solid #eee;
+    text-align: center; 
+    margin-top: auto; 
 }
-
 
 /* --- Seção Depoimentos --- */
 #depoimentos {
@@ -472,6 +482,10 @@ footer {
     color: white;
 }
 
+.footer-contact {
+    /* Manter o estilo do footer contact */
+}
+
 .copyright {
     text-align: center;
     padding-top: 20px;
@@ -540,8 +554,34 @@ footer {
     .stats-card:last-child {
         border-bottom: none;
     }
+    
+    .galeria-grid {
+        grid-template-columns: 1fr; 
+    }
 
-    .galeria-grid, .depoimentos-grid {
+    .foto-card .image-wrapper {
+        flex-direction: column; /* Em telas menores, imagens 'antes' e 'depois' empilhadas */
+    }
+
+    .foto-card img {
+        width: 100%; /* Cada imagem ocupa 100% da largura do card */
+    }
+
+    .label-antes,
+    .label-depois {
+        position: relative; /* Ajusta o posicionamento para empilhamento */
+        top: auto;
+        left: auto;
+        margin: 10px auto 0; /* Centraliza e adiciona margem */
+        width: fit-content; /* Largura se ajusta ao conteúdo */
+    }
+    
+    .label-depois {
+        margin-left: auto; /* Centraliza o label depois também */
+    }
+
+
+    .depoimentos-grid {
         grid-template-columns: 1fr;
     }
 
