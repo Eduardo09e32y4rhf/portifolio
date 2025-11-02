@@ -1,3 +1,4 @@
+
 /* Variáveis CSS */
 :root {
     --cor-fundo-principal: #0F1A3A; /* Azul Escuro */
@@ -76,6 +77,13 @@ h1, h2, h3, .poppins {
 }
 
 /* NOVO ESTILO PARA O BOTÃO CTA NA SEÇÃO HERO (WPP) */
+.btn-wpp-style {
+    /* Ajusta a margem entre o ícone e o texto */
+    padding: 8px 30px 8px 8px; /* Ajusta o padding para o novo design */
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
 .icon-wpp-wrapper {
     /* Estilo do ícone flutuante/destacado (semelhante à imagem) */
     width: 45px; 
@@ -124,7 +132,6 @@ h1, h2, h3, .poppins {
     gap: 20px;
 }
 
-/* ALTERAÇÃO: Todos os cards em #stats terão fundo branco e texto escuro */
 .stats-card {
     background-color: var(--cor-fundo-card-light); /* Fundo branco */
     padding: 40px 20px;
@@ -412,7 +419,8 @@ h1, h2, h3, .poppins {
 
 .contato-info-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    /* ALTERAÇÃO AQUI: Para que os itens fiquem um abaixo do outro */
+    grid-template-columns: 1fr; /* Uma única coluna */
     gap: 20px;
     text-align: left;
     margin-top: 30px;
@@ -480,4 +488,121 @@ h1, h2, h3, .poppins {
 footer {
     background-color: #0A1430;
     padding: 60px 0 20px 0;
-    color:
+    color: #C0C8E0;
+    font-size: 0.9em;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-about h3 {
+    font-size: 1.5em;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.footer-social a {
+    color: white;
+    font-size: 20px;
+    margin-right: 15px;
+    transition: color 0.3s;
+}
+
+.footer-social a:hover {
+    color: var(--cor-gradiente-start-cta);
+}
+
+.footer-links h4, .footer-contact h4 {
+    color: white;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links ul li a {
+    color: #C0C8E0;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+    transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+    color: var(--cor-gradiente-start-cta);
+}
+
+.copyright {
+    text-align: center;
+    border-top: 1px solid #1E2858;
+    padding-top: 20px;
+    margin-top: 20px;
+    font-size: 0.8em;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+    #hero h1 {
+        font-size: 2.2em;
+    }
+    .stats-card h3, .header-section h2 {
+        font-size: 2em;
+    }
+    .contato-info-grid, .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    .info-item {
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+    }
+    .info-item .icon-box {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .info-item .details p {
+        margin-bottom: 5px;
+    }
+    .info-item .details span {
+        margin-top: 10px;
+    }
+    
+    /* Ajuste para telas menores do WhatsApp Flutuante */
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px; /* Movido mais para a direita */
+        font-size: 25px;
+        line-height: 50px;
+    }
+}
+
+/* --- WhatsApp Flutuante --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px; /* Este valor controla o afastamento da direita */
+    background-color: #25D366; /* Cor do WhatsApp */
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    line-height: 60px;
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E;
+    transform: scale(1.05);
+}
