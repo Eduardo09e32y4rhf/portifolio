@@ -1,3 +1,4 @@
+
 /* Variáveis CSS */
 :root {
     --cor-fundo-principal: #0F1A3A; /* Azul Escuro */
@@ -132,7 +133,8 @@ h1, h2, h3, .poppins {
 }
 
 .stats-card {
-    background-color: var(--cor-fundo-card-dark);
+    /* ALTERAÇÃO: Cor do quadrado = Branco */
+    background-color: var(--cor-fundo-card-light);
     padding: 40px 20px;
     border-radius: 15px;
     text-align: center;
@@ -143,11 +145,26 @@ h1, h2, h3, .poppins {
     font-size: 3em;
     font-weight: 800;
     margin-bottom: 5px;
-    color: white;
+    /* ALTERAÇÃO: Letras/número = preto */
+    color: var(--cor-texto-dark);
 }
 
 .stats-card p {
     font-size: 1.1em;
+    /* ALTERAÇÃO: Ajustado para um cinza mais escuro para melhor contraste no fundo branco */
+    color: #666;
+}
+
+/* ALTERAÇÃO: Último fundo = cor atual (aplica as cores originais ao último card) */
+#stats .stats-card:last-child {
+    background-color: var(--cor-fundo-card-dark);
+}
+
+#stats .stats-card:last-child h3 {
+    color: white;
+}
+
+#stats .stats-card:last-child p {
     color: #C0C8E0;
 }
 
