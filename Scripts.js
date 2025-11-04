@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // --- Lógica 2: Botão Curtir (Coração Vermelho + Animação) ---
+    // CORRIGIDO: Esta lógica garante o coração vermelho e a animação
     const likeButtons = document.querySelectorAll('.btn-curtir');
 
     likeButtons.forEach(button => {
@@ -74,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- BLOQUEIO 4: Bloqueia a cópia pelo teclado (Ctrl/Cmd + C) ---
+    // --- BLOQUEIO: Bloqueia a cópia pelo teclado (Ctrl/Cmd + C) ---
     document.addEventListener('keydown', (e) => {
         if (e.ctrlKey || e.metaKey) { // Ctrl ou Cmd
             if (e.key === 'c' || e.key === 'C' || e.key === 'u' || e.key === 'U' || e.key === 'i' || e.key === 'I' || e.key === 'j' || e.key === 'J' || e.key === 's' || e.key === 'S') {
@@ -88,14 +89,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // Função para gerar o link do WhatsApp (Visível globalmente para o onclick)
+// CORRIGIDO: Esta função garante o redirecionamento com a opção do cliente
 function gerarLinkZap() {
     const select = document.getElementById('tipoEstofado');
     const opcaoSelecionada = select.options[select.selectedIndex].text; 
 
-    // O link agora está correto
+    // Mensagem de orçamento
     const mensagemPadrao = `Olá, quero fazer o orçamento de: ${opcaoSelecionada}`;
     
-    // ATENÇÃO: Confirme que este é o número exato, incluindo o código do país (55) e o DDD (82)
+    // Seu número de telefone (Código do País 55 + DDD 82 + Número)
     const numeroTelefone = '5582991522179'; 
     const encodedMessage = encodeURIComponent(mensagemPadrao);
     const linkZap = `https://wa.me/${numeroTelefone}?text=${encodedMessage}`;
