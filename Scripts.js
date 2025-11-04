@@ -1,104 +1,47 @@
-document.addEventListener('DOMContentLoaded', () => {
+// --- ORÇAMENTO VIA WHATSAPP ---
+const btn = document.getElementById("btnOrcamento");
+if (btn) {
+  btn.addEventListener("click", () => {
+    const tipo = document.getElementById("tipoEstofado").value;
+    const telefone = "5599999999999"; // Substitua pelo seu número
+    const mensagem = `Olá! Gostaria de solicitar um orçamento para ${tipo}.`;
+    const link = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
+    window.open(link, "_blank");
+  });
+}
 
-    // --- Lógica 1: Pausa de Carrossel Animado em Interação ---
-    const carousels = document.querySelectorAll('.carousel-container');
+// --- SISTEMA DE CURTIDAS (COM PERSISTÊNCIA LOCAL) ---
+const hearts = document.querySelectorAll(".heart");
 
-    carousels.forEach(container => {
-        const track = container.querySelector('.carousel-track');
-        
-        const pauseAnimation = () => {
-            if (track) track.style.animationPlayState = 'paused';
-        };
-        const resumeAnimation = () => {
-            if (track) track.style.animationPlayState = 'running';
-        };
-        
-        // Desktop e Mobile
-        container.addEventListener('mouseenter', pauseAnimation);
-        container.addEventListener('mouseleave', resumeAnimation);
-        container.addEventListener('touchstart', pauseAnimation);
-        container.addEventListener('touchend', () => {
-            setTimeout(resumeAnimation, 1000); 
-        });
-    });
+hearts.forEach((heart) => {
+  const index = heart.dataset.index;
+  if (localStorage.getItem(`liked-${index}`) === "true") {
+    heart.classList.add("liked");
+  }
 
-
-    // --- Lógica 2: Botão Curtir (Coração Vermelho + Animação) ---
-    const likeButtons = document.querySelectorAll('.btn-curtir');
-
-    likeButtons.forEach(button => {
-        const itemId = button.getAttribute('data-id');
-        const likesSpan = document.getElementById(`likes-${itemId}`);
-        const heartAnimationDiv = document.querySelector(`.heart-animation[data-id="${itemId}"]`);
-        
-        let currentLikes = parseInt(localStorage.getItem(`likes-${itemId}`)) || parseInt(likesSpan.textContent);
-        likesSpan.textContent = currentLikes;
-        
-        let isLiked = localStorage.getItem(`liked-${itemId}`) === 'true';
-
-        // Estado inicial
-        if (isLiked) {
-            button.classList.add('curtido');
-            button.querySelector('i').classList.replace('far', 'fas');
-        }
-
-        button.addEventListener('click', (event) => {
-            event.stopPropagation();
-
-            if (isLiked) {
-                // Descurtir
-                currentLikes -= 1;
-                button.classList.remove('curtido');
-                button.querySelector('i').classList.replace('fas', 'far');
-                isLiked = false;
-            } else {
-                // Curtir
-                currentLikes += 1;
-                button.classList.add('curtido');
-                button.querySelector('i').classList.replace('far', 'fas');
-                isLiked = true;
-
-                // Animação do coração no centro da imagem
-                if (heartAnimationDiv) {
-                    heartAnimationDiv.innerHTML = '<i class="fas fa-heart"></i>'; 
-                    heartAnimationDiv.classList.remove('animate'); 
-                    void heartAnimationDiv.offsetWidth; 
-                    heartAnimationDiv.classList.add('animate'); 
-                }
-            }
-            
-            // Salva o estado e atualiza o display
-            localStorage.setItem(`liked-${itemId}`, isLiked);
-            localStorage.setItem(`likes-${itemId}`, currentLikes);
-            likesSpan.textContent = currentLikes;
-        });
-    });
-
-    // --- BLOQUEIO 4: Bloqueia a cópia pelo teclado (Ctrl/Cmd + C) ---
-    document.addEventListener('keydown', (e) => {
-        if (e.ctrlKey || e.metaKey) { // Ctrl ou Cmd
-            if (e.key === 'c' || e.key === 'C' || e.key === 'u' || e.key === 'U' || e.key === 'i' || e.key === 'I' || e.key === 'j' || e.key === 'J' || e.key === 's' || e.key === 'S') {
-                e.preventDefault();
-                return false;
-            }
-        }
-    });
-
+  heart.addEventListener("click", (e) => {
+    e.preventDefault(); // evita selecionar a imagem
+    e.stopPropagation();
+    heart.classList.toggle("liked");
+    const liked = heart.classList.contains("liked");
+    localStorage.setItem(`liked-${index}`, liked);
+  });
 });
 
+// --- NEXT.JS BASE EXEMPLO (API INTERNA) ---
+/*
+Se migrar para Next.js, crie este arquivo:
+📁 /pages/api/like.js
 
-// Função para gerar o link do WhatsApp (Visível globalmente para o onclick)
-function gerarLinkZap() {
-    const select = document.getElementById('tipoEstofado');
-    const opcaoSelecionada = select.options[select.selectedIndex].text; 
-
-    // O link agora está correto
-    const mensagemPadrao = `Olá, quero fazer o orçamento de: ${opcaoSelecionada}`;
-    
-    // ATENÇÃO: Confirme que este é o número exato, incluindo o código do país (55) e o DDD (82)
-    const numeroTelefone = '5582991522179'; 
-    const encodedMessage = encodeURIComponent(mensagemPadrao);
-    const linkZap = `https://wa.me/${numeroTelefone}?text=${encodedMessage}`;
-
-    window.open(linkZap, '_blank');
+export default function handler(req, res) {
+  if (req.method === "POST") {
+    // Aqui você pode salvar curtidas em banco de dados
+    const { id, liked } = req.body;
+    return res.status(200).json({ success: true, id, liked });
+  } else {
+    res.status(405).end();
+  }
 }
+*/
+
+// Esse script funciona tanto em site HTML puro quanto em Next.js.
