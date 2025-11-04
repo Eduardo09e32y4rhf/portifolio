@@ -23,13 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // --- Lógica 2: Botão Curtir (Com Coração Vermelho e Animação no Centro) ---
+    // --- Lógica 2: Botão Curtir (Coração Vermelho + Animação) ---
     const likeButtons = document.querySelectorAll('.btn-curtir');
 
     likeButtons.forEach(button => {
         const itemId = button.getAttribute('data-id');
         const likesSpan = document.getElementById(`likes-${itemId}`);
-        const heartAnimationDiv = document.querySelector(`.heart-animation[data-id="${itemId}"]`); // Pega o div de animação
+        const heartAnimationDiv = document.querySelector(`.heart-animation[data-id="${itemId}"]`);
         
         let currentLikes = parseInt(localStorage.getItem(`likes-${itemId}`)) || parseInt(likesSpan.textContent);
         likesSpan.textContent = currentLikes;
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         button.addEventListener('click', (event) => {
-            event.stopPropagation(); // Impede que o clique no botão se propague para o card (se houver)
+            event.stopPropagation();
 
             if (isLiked) {
                 // Descurtir
@@ -60,10 +60,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Animação do coração no centro da imagem
                 if (heartAnimationDiv) {
-                    heartAnimationDiv.innerHTML = '<i class="fas fa-heart"></i>'; // Adiciona o ícone
-                    heartAnimationDiv.classList.remove('animate'); // Reseta a animação
-                    void heartAnimationDiv.offsetWidth; // Força o reflow para reiniciar
-                    heartAnimationDiv.classList.add('animate'); // Inicia a animação
+                    heartAnimationDiv.innerHTML = '<i class="fas fa-heart"></i>'; 
+                    heartAnimationDiv.classList.remove('animate'); 
+                    void heartAnimationDiv.offsetWidth; 
+                    heartAnimationDiv.classList.add('animate'); 
                 }
             }
             
@@ -74,6 +74,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // --- BLOQUEIO 4: Bloqueia a cópia pelo teclado (Ctrl/Cmd + C) ---
+    document.addEventListener('keydown', (e) => {
+        if (e.ctrlKey || e.metaKey) { // Ctrl ou Cmd
+            if (e.key === 'c' || e.key === 'C' || e.key === 'u' || e.key === 'U' || e.key === 'i' || e.key === 'I' || e.key === 'j' || e.key === 'J' || e.key === 's' || e.key === 'S') {
+                e.preventDefault();
+                return false;
+            }
+        }
+    });
+
 });
 
 
@@ -82,9 +92,10 @@ function gerarLinkZap() {
     const select = document.getElementById('tipoEstofado');
     const opcaoSelecionada = select.options[select.selectedIndex].text; 
 
-    // Mensagem de orçamento corrigida
+    // O link agora está correto
     const mensagemPadrao = `Olá, quero fazer o orçamento de: ${opcaoSelecionada}`;
     
+    // ATENÇÃO: Confirme que este é o número exato, incluindo o código do país (55) e o DDD (82)
     const numeroTelefone = '5582991522179'; 
     const encodedMessage = encodeURIComponent(mensagemPadrao);
     const linkZap = `https://wa.me/${numeroTelefone}?text=${encodedMessage}`;
