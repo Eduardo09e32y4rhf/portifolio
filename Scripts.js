@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // --- Lógica 2: Botão Curtir (Coração Vermelho + Animação) ---
-    // CORRIGIDO: Esta lógica garante o coração vermelho e a animação
     const likeButtons = document.querySelectorAll('.btn-curtir');
 
     likeButtons.forEach(button => {
@@ -89,7 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // Função para gerar o link do WhatsApp (Visível globalmente para o onclick)
-// CORRIGIDO: Esta função garante o redirecionamento com a opção do cliente
 function gerarLinkZap() {
     const select = document.getElementById('tipoEstofado');
     const opcaoSelecionada = select.options[select.selectedIndex].text; 
