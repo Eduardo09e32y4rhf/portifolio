@@ -13,36 +13,35 @@ document.addEventListener('DOMContentLoaded', () => {
             if (track) track.style.animationPlayState = 'running';
         };
         
-        // Para desktop
+        // Desktop
         container.addEventListener('mouseenter', pauseAnimation);
         container.addEventListener('mouseleave', resumeAnimation);
         
-        // Para mobile
+        // Mobile
         container.addEventListener('touchstart', pauseAnimation);
         container.addEventListener('touchend', () => {
-            // Resume a animação após um breve atraso
             setTimeout(resumeAnimation, 1000); 
         });
     });
 
 
-    // --- Lógica 2: Botão Curtir ---
+    // --- Lógica 2: Botão Curtir (Persistência com LocalStorage) ---
     const likeButtons = document.querySelectorAll('.btn-curtir');
 
     likeButtons.forEach(button => {
         const itemId = button.getAttribute('data-id');
         const likesSpan = document.getElementById(`likes-${itemId}`);
         
-        // Inicializa o contador (se não estiver no localStorage, usa o valor do HTML)
+        // Puxa o contador do localStorage ou usa o valor inicial do HTML
         let currentLikes = parseInt(localStorage.getItem(`likes-${itemId}`)) || parseInt(likesSpan.textContent);
         likesSpan.textContent = currentLikes;
         
         let isLiked = localStorage.getItem(`liked-${itemId}`) === 'true';
 
-        // Atualiza o estado visual inicial do botão
+        // Estado inicial
         if (isLiked) {
             button.classList.add('curtido');
-            button.querySelector('i').classList.replace('far', 'fas'); // Ícone preenchido
+            button.querySelector('i').classList.replace('far', 'fas');
         }
 
         button.addEventListener('click', () => {
@@ -60,52 +59,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 isLiked = true;
             }
             
-            // Salva e atualiza o contador na tela
+            // Salva o estado
             localStorage.setItem(`liked-${itemId}`, isLiked);
             localStorage.setItem(`likes-${itemId}`, currentLikes);
             likesSpan.textContent = currentLikes;
         });
     });
 
+    // --- Lógica 3: Calculadora de Orçamento Rápido (Função Global para o Botão) ---
 
-    // --- Lógica 3: Calculadora de Orçamento Rápido ---
-    const selectEstofado = document.getElementById('tipoEstofado');
-    const valorEstimadoSpan = document.getElementById('valorEstimado');
-
-    const PRECO_BASE = 0;
-    const SIMBOLO_MOEDA = 'R$ ';
-
-    function calcularOrcamento() {
-        // Pega o valor (que representa o preço) do option selecionado
-        const precoUnitario = parseFloat(selectEstofado.value) || PRECO_BASE;
-        
-        // Formata e exibe o preço
-        const valorFormatado = precoUnitario.toFixed(2).replace('.', ',');
-        valorEstimadoSpan.textContent = SIMBOLO_MOEDA + valorFormatado;
-    }
-
-    // Evento para recalcular o orçamento ao mudar a seleção
-    selectEstofado.addEventListener('change', calcularOrcamento);
-
-    // Garante que o valor inicial seja exibido
-    calcularOrcamento();
 });
 
 
-// Função para gerar o link do WhatsApp (DEVE SER GLOBAL)
+// Função para gerar o link do WhatsApp (Visível globalmente para o onclick no HTML)
 function gerarLinkZap() {
     const select = document.getElementById('tipoEstofado');
-    const estofado = select.options[select.selectedIndex].text;
-    const valorEstimado = document.getElementById('valorEstimado').textContent;
-    const precoSelecionado = parseFloat(select.value);
+    // Pega o TEXTO visível da opção selecionada
+    const opcaoSelecionada = select.options[select.selectedIndex].text; 
 
-    let mensagemPadrao = `Olá Gslimp! Gostaria de um orçamento final para ${estofado}.`;
-    
-    if (precoSelecionado > 0) {
-         mensagemPadrao += ` (Vi a estimativa de ${valorEstimado} no site).`;
-    } else {
-        mensagemPadrao = `Olá Gslimp! Gostaria de um orçamento para limpeza de estofado.`;
-    }
+    // Mensagem de orçamento corrigida
+    const mensagemPadrao = `Olá, quero fazer um orçamento para a seguinte opção: ${opcaoSelecionada}`;
     
     // Seu número de WhatsApp (82) 99152-2179
     const numeroTelefone = '5582991522179'; 
