@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Lógica 1: Pausa de Carrossel Animado em Interação (EXISTENTE) ---
+    // --- Lógica 1: Pausa de Carrossel Animado em Interação ---
     const carousels = document.querySelectorAll('.carousel-container');
 
     carousels.forEach(container => {
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // --- Lógica 2: Botão Curtir (NOVO) ---
+    // --- Lógica 2: Botão Curtir ---
     const likeButtons = document.querySelectorAll('.btn-curtir');
 
     likeButtons.forEach(button => {
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // --- Lógica 3: Calculadora de Orçamento Rápido (NOVO) ---
+    // --- Lógica 3: Calculadora de Orçamento Rápido ---
     const selectEstofado = document.getElementById('tipoEstofado');
     const valorEstimadoSpan = document.getElementById('valorEstimado');
 
@@ -107,7 +107,8 @@ function gerarLinkZap() {
         mensagemPadrao = `Olá Gslimp! Gostaria de um orçamento para limpeza de estofado.`;
     }
     
-    const numeroTelefone = '5582991522179'; // Use o número do seu CTA (82991522179)
+    // Seu número de WhatsApp (82) 99152-2179
+    const numeroTelefone = '5582991522179'; 
     const encodedMessage = encodeURIComponent(mensagemPadrao);
     const linkZap = `https://wa.me/${numeroTelefone}?text=${encodedMessage}`;
 
