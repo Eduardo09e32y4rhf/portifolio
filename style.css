@@ -3,10 +3,10 @@
     --cor-fundo-principal: #0F1A3A; /* Azul Escuro */
     --cor-fundo-card-dark: #1E2858; /* Azul Escuro dos Cards */
     --cor-fundo-card-light: #FFFFFF; /* Branco dos Cards de Serviço/Depoimento */
-    --cor-texto-principal: #E0E7FF;
-    --cor-texto-dark: #2A2A2A;
-    --cor-gradiente-start-cta: #4ECDC4; /* Ciano */
-    --cor-gradiente-end-cta: #5A5ACF; /* Roxo/Azul */
+    --cor-texto-principal: #E0E7FF; /* Texto claro */
+    --cor-texto-dark: #2A2A2A; /* Texto escuro */
+    --cor-gradiente-start-cta: #4ECDC4; 
+    --cor-gradiente-end-cta: #5A5ACF; 
     --cor-detalhe-vermelho: #F95D51;
     --cor-avaliacao-amarela: #FFC107;
     --cor-icone-contato: #A0C4FF;
@@ -74,7 +74,6 @@ h1, h2, h3, .poppins {
     transform: translateY(-2px);
 }
 
-/* NOVO ESTILO PARA O BOTÃO CTA NA SEÇÃO HERO (WPP) */
 .btn-wpp-style {
     padding: 8px 30px 8px 8px;
     text-decoration: none;
@@ -102,15 +101,13 @@ h1, h2, h3, .poppins {
 #hero {
     text-align: center;
     padding: 100px 0;
-    /* FUNDO COM IMAGEM */
-    background-image: url('https://source.unsplash.com/random/1600x900?cleaning-couch'); /* SUBSTITUA PELA SUA IMAGEM */
+    background-image: url('https://source.unsplash.com/random/1600x900?cleaning-couch');
     background-size: cover;
     background-position: center;
     color: white;
     position: relative;
 }
 
-/* Overlay para escurecer a imagem de fundo e melhorar o contraste do texto */
 #hero::before {
     content: "";
     position: absolute;
@@ -145,10 +142,8 @@ h1, h2, h3, .poppins {
 /* --- Seção de Estatísticas (100%, 500+, 10+) --- */
 #stats {
     padding: 50px 0;
-    /* Centraliza o bloco de cards no PC */
     max-width: 960px;
     margin: 0 auto; 
-    
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
@@ -221,7 +216,6 @@ h1, h2, h3, .poppins {
     justify-content: center;
 }
 
-/* Cores dos ícones de serviço (6 itens) */
 .servico-card:nth-child(3n+1) .icon-wrapper { background-color: #4C72D6; } 
 .servico-card:nth-child(3n+2) .icon-wrapper { background-color: var(--cor-gradiente-start-cta); } 
 .servico-card:nth-child(3n+3) .icon-wrapper { background-color: #34D399; } 
@@ -242,7 +236,7 @@ h1, h2, h3, .poppins {
     color: #666;
 }
 
-/* --- Seção de Diferenciais (Fundo Branco, Texto Escuro) --- */
+/* --- Seção de Diferenciais --- */
 #diferenciais {
     padding: 80px 0;
 }
@@ -254,7 +248,7 @@ h1, h2, h3, .poppins {
 }
 
 .card-dark {
-    background-color: var(--cor-fundo-card-light); /* Fundo branco */
+    background-color: var(--cor-fundo-card-light); 
     padding: 40px;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -280,7 +274,7 @@ h1, h2, h3, .poppins {
     font-size: 1.4em;
     margin-bottom: 10px;
     font-weight: 600;
-    color: var(--cor-texto-dark); /* Texto preto */
+    color: var(--cor-texto-dark); 
 }
 
 .card-dark p {
@@ -289,15 +283,15 @@ h1, h2, h3, .poppins {
 }
 
 
-/* --- Seção Galeria Antes e Depois --- */
+/* --- Seção Galeria Antes e Depois (Corrigida) --- */
 #galeria {
     padding: 80px 0;
     background-color: white; 
-    color: var(--cor-fundo-principal); 
+    color: var(--cor-texto-dark); 
 }
 
 #galeria .header-section h2 {
-    color: var(--cor-fundo-principal);
+    color: var(--cor-texto-dark);
 }
 
 #galeria .header-section p {
@@ -310,20 +304,95 @@ h1, h2, h3, .poppins {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
-/* ... (Estilos internos da Galeria mantidos) ... */
+
+.foto-card {
+    position: relative;
+    overflow: hidden; 
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #f0f0f0; 
+    min-height: 250px; 
+}
+
+.foto-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+}
+
+/* Esconde as labels que estavam visíveis incorretamente */
+.label-antes, .label-depois, .titulo-foto {
+    display: none; 
+}
 
 
-/* --- Seção de Depoimentos --- */
+/* --- Seção de Depoimentos (Corrigida - 4 cards, fundo claro) --- */
 #depoimentos {
     padding: 80px 0;
-    background-color: #F8F8F8; 
-    color: var(--cor-texto-dark); 
+    background-color: #F8F8F8; /* Fundo levemente claro */
+    color: var(--cor-texto-dark); /* Texto escuro */
 }
 
 #depoimentos .header-section h2 {
+    color: var(--cor-texto-dark); /* Título escuro */
+}
+
+#depoimentos .header-section p {
+    color: #666; 
+}
+
+.depoimentos-grid {
+    display: grid;
+    /* 2 colunas no PC, que é o layout da imagem final */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.depoimento-card {
+    background-color: var(--cor-fundo-card-light); /* Fundo branco para os cards */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    color: var(--cor-texto-dark); 
+}
+
+.depoimento-card .perfil {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.depoimento-card .perfil img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 2px solid var(--cor-gradiente-start-cta);
+}
+
+.depoimento-card .perfil .info strong {
+    display: block;
+    font-weight: 700;
+    font-size: 1.1em;
     color: var(--cor-texto-dark);
 }
-/* ... (Estilos internos dos Depoimentos mantidos) ... */
+
+.depoimento-card .perfil .info span {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.depoimento-card .estrelas {
+    color: var(--cor-avaliacao-amarela); 
+    margin-bottom: 15px;
+}
+
+.depoimento-card blockquote {
+    font-style: italic;
+    color: #444; 
+}
 
 
 /* --- Seção Contato (Solicite Orçamento) --- */
@@ -331,8 +400,21 @@ h1, h2, h3, .poppins {
     padding: 80px 0;
     background-color: var(--cor-fundo-principal);
     text-align: center;
+    color: var(--cor-texto-principal); 
 }
-/* ... (h2 e tags mantidos) ... */
+
+#solicite-orcamento .tag-contato {
+    background-color: #E0E7FF;
+    color: var(--cor-fundo-principal);
+}
+
+#solicite-orcamento h2 {
+    color: var(--cor-texto-principal);
+}
+
+#solicite-orcamento p {
+    color: #A0C4FF;
+}
 
 .contato-wrapper {
     max-width: 900px;
@@ -343,56 +425,127 @@ h1, h2, h3, .poppins {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
+.contato-wrapper h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--cor-texto-principal);
+}
+
 .contato-info-grid {
     display: grid;
-    /* REVERTIDO para que os itens fiquem lado a lado no PC e no Mobile (como na sua imagem) */
+    /* Mantido 2 colunas para PC, como na imagem final */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
     gap: 20px;
-    text-align: center; 
     margin-top: 30px;
     margin-bottom: 40px;
-    /* Removido justify-items: center para voltar ao estado anterior */
+    justify-content: center; 
+    align-items: start;
 }
 
 .info-item {
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
-    /* Removido max-width: 350px; para voltar ao estado anterior */
+    margin-bottom: 0; 
+    text-align: left; 
+}
+
+.info-item .icon-box {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--cor-icone-contato);
+}
+
+.info-item i {
+    font-size: 20px;
+    color: white;
 }
 
 .info-item .details {
-    text-align: left; /* Garante que o texto fique alinhado à esquerda dentro do bloco */
+    flex-grow: 1; 
 }
 
-/* ... (Rodapé - Mantido) ... */
+.info-item .details span {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9em;
+    color: #A0C4FF;
+}
 
+.info-item .details p {
+    margin: 0;
+    font-size: 1em;
+    color: var(--cor-texto-principal);
+}
 
-/* Media Queries para Responsividade */
-@media (max-width: 768px) {
-    /* ... (outros estilos mantidos) ... */
-    
-    /* Voltando ao padrão anterior para reproduzir a imagem do usuário */
-    .contato-info-grid {
-        justify-items: flex-start; 
-    }
-    .info-item {
-        justify-content: flex-start;
-        text-align: left;
-        flex-direction: row;
-        width: 100%;
-        max-width: none;
-    }
-    
-    /* Ajuste para telas menores do WhatsApp Flutuante */
-    .whatsapp-float {
-        width: 50px;
-        height: 50px;
-        bottom: 20px;
-        right: 15px;
-        font-size: 25px;
-        line-height: 50px;
-    }
+/* --- Rodapé --- */
+footer {
+    background-color: var(--cor-fundo-card-dark);
+    color: var(--cor-texto-principal);
+    padding: 50px 0 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-about h3 {
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+
+.footer-about p {
+    font-size: 0.9em;
+    color: #A0C4FF;
+}
+
+.footer-social a {
+    color: var(--cor-texto-principal);
+    font-size: 1.5em;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: var(--cor-gradiente-start-cta);
+}
+
+.footer-links h4, .footer-contact h4 {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+    color: #A0C4FF;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: var(--cor-gradiente-start-cta);
+}
+
+.copyright {
+    text-align: center;
+    font-size: 0.8em;
+    padding-top: 20px;
+    border-top: 1px solid #2A3B6A;
+    color: #A0C4FF;
 }
 
 /* --- WhatsApp Flutuante --- */
@@ -401,7 +554,7 @@ h1, h2, h3, .poppins {
     width: 60px;
     height: 60px;
     bottom: 40px;
-    right: 30px; /* Ajustado para ficar mais à direita */
+    right: 30px; 
     background-color: #25D366; 
     color: #FFF;
     border-radius: 50px;
@@ -416,4 +569,64 @@ h1, h2, h3, .poppins {
 .whatsapp-float:hover {
     background-color: #128C7E;
     transform: scale(1.05);
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+    #hero h1 {
+        font-size: 2.5em;
+    }
+
+    #hero p {
+        font-size: 1em;
+    }
+
+    .header-section h2 {
+        font-size: 2em;
+    }
+
+    .stats-card h3 {
+        font-size: 2.5em;
+    }
+
+    .servicos-grid, .diferenciais-grid, .galeria-grid, .depoimentos-grid {
+        grid-template-columns: 1fr; 
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-about, .footer-links, .footer-contact {
+        margin-bottom: 30px;
+    }
+
+    .footer-social {
+        justify-content: center;
+        display: flex; 
+    }
+    
+    .contato-info-grid {
+        grid-template-columns: 1fr; 
+        justify-items: center; 
+    }
+    .info-item {
+        justify-content: flex-start; 
+        width: 100%;
+        max-width: 350px; 
+        margin-bottom: 15px;
+    }
+    .info-item .details {
+        text-align: left;
+    }
+    
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 15px; 
+        font-size: 25px;
+        line-height: 50px;
+    }
 }
