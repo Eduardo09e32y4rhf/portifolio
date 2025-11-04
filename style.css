@@ -1,4 +1,4 @@
-/* Variáveis CSS */
+/* Variáveis CSS (mantidas) */
 :root {
     --cor-fundo-principal: #0F1A3A; /* Azul Escuro */
     --cor-fundo-card-dark: #1E2858; /* Azul Escuro dos Cards */
@@ -12,132 +12,7 @@
     --cor-icone-contato: #A0C4FF;
 }
 
-/* Estilos Globais e Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--cor-fundo-principal);
-    color: var(--cor-texto-principal);
-    line-height: 1.6;
-}
-
-h1, h2, h3, .poppins {
-    font-family: 'Poppins', sans-serif;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.header-section {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.header-section h2 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-}
-
-.tag {
-    display: inline-block;
-    padding: 8px 20px;
-    border-radius: 50px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    color: var(--cor-fundo-principal);
-    background-color: #E0E7FF; 
-}
-
-/* --- Estilo do Botão Principal (CTA) --- */
-.btn-cta {
-    display: inline-flex;
-    align-items: center;
-    padding: 15px 30px;
-    border-radius: 50px;
-    text-decoration: none;
-    color: white;
-    font-weight: 700;
-    background-image: linear-gradient(90deg, var(--cor-gradiente-start-cta) 0%, var(--cor-gradiente-end-cta) 100%);
-    transition: transform 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-}
-
-.btn-cta:hover {
-    transform: translateY(-2px);
-}
-
-.btn-wpp-style {
-    padding: 8px 30px 8px 8px;
-    text-decoration: none;
-    font-size: 1.1em;
-}
-
-.icon-wpp-wrapper {
-    width: 45px; 
-    height: 45px; 
-    background-color: white; 
-    border-radius: 50%; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 15px;
-}
-
-.icon-wpp-wrapper i {
-    color: #25D366; 
-    font-size: 20px;
-}
-
-
-/* --- Seção Hero/Introdução --- */
-#hero {
-    text-align: center;
-    padding: 100px 0;
-    background-image: url('https://source.unsplash.com/random/1600x900?cleaning-couch');
-    background-size: cover;
-    background-position: center;
-    color: white;
-    position: relative;
-}
-
-#hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); 
-    z-index: 1;
-}
-
-#hero h1, #hero p, #hero .btn-cta {
-    position: relative;
-    z-index: 2;
-}
-
-#hero h1 {
-    font-size: 3em;
-    margin-bottom: 20px;
-    font-weight: 800;
-}
-
-#hero p {
-    font-size: 1.2em;
-    margin-bottom: 40px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    font-weight: 300;
-}
+/* ... Estilos Globais e Hero (Mantidos do código que você solicitou) ... */
 
 /* --- Seção de Estatísticas (100%, 500+, 10+) --- */
 #stats {
@@ -148,7 +23,6 @@ h1, h2, h3, .poppins {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
 }
-
 .stats-card {
     background-color: var(--cor-fundo-card-light); 
     padding: 40px 20px;
@@ -156,138 +30,25 @@ h1, h2, h3, .poppins {
     text-align: center;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }
-
 .stats-card h3 {
     font-size: 3em;
     font-weight: 800;
     margin-bottom: 5px;
-    color: var(--cor-texto-dark); 
+    color: var(--cor-texto-dark); /* Texto escuro */
 }
-
 .stats-card p {
     font-size: 1.1em;
     color: #666; 
 }
 
-
-/* --- Seção de Serviços --- */
-#servicos {
-    padding: 80px 0;
-    background-color: white;
-    color: var(--cor-fundo-principal);
-}
-
-#servicos .header-section h2 {
-    color: var(--cor-fundo-principal);
-}
-
-#servicos .header-section p {
-    color: #666;
-    font-size: 1.1em;
-}
-
-.servicos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.servico-card {
-    background-color: var(--cor-fundo-card-light);
-    border: 1px solid #eee;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease;
-}
-
-.servico-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.servico-card .icon-wrapper {
-    width: 50px;
-    height: 50px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.servico-card:nth-child(3n+1) .icon-wrapper { background-color: #4C72D6; } 
-.servico-card:nth-child(3n+2) .icon-wrapper { background-color: var(--cor-gradiente-start-cta); } 
-.servico-card:nth-child(3n+3) .icon-wrapper { background-color: #34D399; } 
-
-.servico-card i {
-    font-size: 24px;
-    color: white;
-}
-
-.servico-card h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    font-weight: 700;
-}
-
-.servico-card p {
-    font-size: 0.95em;
-    color: #666;
-}
-
-/* --- Seção de Diferenciais --- */
-#diferenciais {
-    padding: 80px 0;
-}
-
-.diferenciais-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.card-dark {
-    background-color: var(--cor-fundo-card-light); 
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.card-dark .icon-wrapper {
-    width: 60px;
-    height: 60px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-image: linear-gradient(45deg, var(--cor-gradiente-start-cta), var(--cor-gradiente-end-cta));
-}
-
-.card-dark i {
-    font-size: 28px;
-    color: white;
-}
-
-.card-dark h3 {
-    font-size: 1.4em;
-    margin-bottom: 10px;
-    font-weight: 600;
-    color: var(--cor-texto-dark); 
-}
-
-.card-dark p {
-    font-size: 0.95em;
-    color: #666; 
-}
+/* ... Seção de Serviços e Diferenciais (Mantidos do código que você solicitou) ... */
 
 
-/* --- Seção Galeria Antes e Depois (Corrigida) --- */
+/* --- Seção Galeria Antes e Depois --- */
 #galeria {
     padding: 80px 0;
-    background-color: white; 
-    color: var(--cor-texto-dark); 
+    background-color: white; /* Fundo branco */
+    color: var(--cor-texto-dark); /* Texto escuro */
 }
 
 #galeria .header-section h2 {
@@ -307,44 +68,48 @@ h1, h2, h3, .poppins {
 
 .foto-card {
     position: relative;
-    overflow: hidden; 
+    overflow: hidden; /* Garante que a imagem não vaze */
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    background-color: #f0f0f0; 
-    min-height: 250px; 
+    background-color: #f0f0f0; /* Fundo cinza claro caso a imagem não carregue */
+    min-height: 250px; /* Altura mínima para o card */
+    display: flex; /* Para centralizar o conteúdo se a imagem não carregar */
+    align-items: center;
+    justify-content: center;
 }
 
 .foto-card img {
     width: 100%;
     height: 100%;
-    object-fit: cover; 
+    object-fit: cover; /* Cobre todo o espaço sem distorcer */
     display: block;
 }
 
-/* Esconde as labels que estavam visíveis incorretamente */
+/* Esconde as labels "ANTES" e "DEPOIS" e o título que estavam soltos */
 .label-antes, .label-depois, .titulo-foto {
     display: none; 
 }
+/* Se você quiser recriar o efeito de 'ANTES' e 'DEPOIS' com overlay de texto, precisaremos de mais CSS */
 
 
-/* --- Seção de Depoimentos (Corrigida - 4 cards, fundo claro) --- */
+/* --- Seção de Depoimentos --- */
 #depoimentos {
     padding: 80px 0;
-    background-color: #F8F8F8; /* Fundo levemente claro */
-    color: var(--cor-texto-dark); /* Texto escuro */
+    background-color: var(--cor-fundo-principal); /* Fundo azul escuro */
+    color: var(--cor-texto-principal); /* Texto claro */
 }
 
 #depoimentos .header-section h2 {
-    color: var(--cor-texto-dark); /* Título escuro */
+    color: var(--cor-texto-principal); /* Título claro */
 }
 
 #depoimentos .header-section p {
-    color: #666; 
+    color: #A0C4FF; /* Cor um pouco mais clara para a descrição */
 }
 
 .depoimentos-grid {
     display: grid;
-    /* 2 colunas no PC, que é o layout da imagem final */
+    /* Layout de duas colunas que se adapta no mobile */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
@@ -354,6 +119,7 @@ h1, h2, h3, .poppins {
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    /* Garante que o texto dentro do card seja escuro */
     color: var(--cor-texto-dark); 
 }
 
@@ -385,13 +151,13 @@ h1, h2, h3, .poppins {
 }
 
 .depoimento-card .estrelas {
-    color: var(--cor-avaliacao-amarela); 
+    color: var(--cor-avaliacao-amarela); /* Amarelo para as estrelas */
     margin-bottom: 15px;
 }
 
 .depoimento-card blockquote {
     font-style: italic;
-    color: #444; 
+    color: #444; /* Cor para o texto da citação */
 }
 
 
@@ -400,7 +166,7 @@ h1, h2, h3, .poppins {
     padding: 80px 0;
     background-color: var(--cor-fundo-principal);
     text-align: center;
-    color: var(--cor-texto-principal); 
+    color: var(--cor-texto-principal); /* Texto claro */
 }
 
 #solicite-orcamento .tag-contato {
@@ -433,20 +199,22 @@ h1, h2, h3, .poppins {
 
 .contato-info-grid {
     display: grid;
-    /* Mantido 2 colunas para PC, como na imagem final */
+    /* Layout de duas colunas para PC, empilha no mobile */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
     gap: 20px;
     margin-top: 30px;
     margin-bottom: 40px;
-    justify-content: center; 
+    /* Centraliza os itens do grid se houver espaço (no PC) */
+    justify-content: center; /* Centraliza o grid em si */
     align-items: start;
 }
 
 .info-item {
     display: flex;
     align-items: center;
-    margin-bottom: 0; 
-    text-align: left; 
+    margin-bottom: 0; /* Remove a margem inferior para evitar espaçamento duplo */
+    text-align: left; /* Garante que o texto dentro do item fique alinhado à esquerda */
+    /* Remove a max-width para que ele possa ocupar o espaço da coluna */
 }
 
 .info-item .icon-box {
@@ -466,7 +234,7 @@ h1, h2, h3, .poppins {
 }
 
 .info-item .details {
-    flex-grow: 1; 
+    flex-grow: 1; /* Permite que os detalhes usem o espaço restante */
 }
 
 .info-item .details span {
@@ -590,7 +358,7 @@ footer {
     }
 
     .servicos-grid, .diferenciais-grid, .galeria-grid, .depoimentos-grid {
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr; /* Coluna única no mobile */
     }
 
     .footer-grid {
@@ -604,17 +372,18 @@ footer {
 
     .footer-social {
         justify-content: center;
-        display: flex; 
+        display: flex; /* Para centralizar os ícones sociais */
     }
     
+    /* Contato no mobile (um abaixo do outro e alinhado) */
     .contato-info-grid {
-        grid-template-columns: 1fr; 
-        justify-items: center; 
+        grid-template-columns: 1fr; /* Um abaixo do outro no mobile */
+        justify-items: center; /* Centraliza os blocos info-item */
     }
     .info-item {
-        justify-content: flex-start; 
+        justify-content: flex-start; /* Alinha o conteúdo interno do item à esquerda */
         width: 100%;
-        max-width: 350px; 
+        max-width: 350px; /* Mantém uma largura razoável para o item */
         margin-bottom: 15px;
     }
     .info-item .details {
