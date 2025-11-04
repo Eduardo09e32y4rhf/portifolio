@@ -1,20 +1,16 @@
-/* --- CSS (style.css) - CÓDIGO INOVADOR E CORRIGIDO (Dark Blue Claro) --- */
+/* --- CSS (style.css) - DESIGN CLEAN & PREMIUM (BRANCO E AZUL) --- */
 
 /* --- CONFIGURAÇÕES GLOBAIS E VARIÁVEIS --- */
 :root {
-    --cor-fundo-principal: #1F2937; /* Dark Blue Claro (Um cinza azulado moderno) */
-    --cor-fundo-card-dark: #374151; /* Cards mais claros que o fundo */
-    --cor-fundo-claro: #F8FAFC; 
+    --cor-principal: #FFFFFF; /* Branco como cor principal */
+    --cor-secundaria: #F8F9FA; /* Branco OFF-WHITE para alternar seções */
+    --cor-detalhe-azul: #007BFF; /* Azul Vibrante e Profissional */
+    --cor-detalhe-azul-claro: #E6F0FF; /* Azul muito suave para BG de destaque */
+    --cor-texto-escuro: #212529; /* Preto/Azul Escuro para Texto */
+    --cor-texto-suave: #6C757D; /* Cinza suave */
 
-    --cor-gradiente-start-cta: #00BFFF; /* DeepSkyBlue */
-    --cor-gradiente-end-cta: #007FFF; /* Azul vibrante */
-    
-    --cor-wpp-bg: #10B981; /* Verde WhatsApp */
-    --cor-texto-claro: #F1F5F9; 
-    --cor-texto-secundario: #9CA3AF; /* Cinza suave */
-
-    --borda-radius-card: 15px;
-    --borda-radius-video: 20px;
+    --cor-wpp-bg: #25D366; /* Verde WhatsApp Padrão */
+    --borda-radius: 10px;
 }
 
 /* Base e Tipografia */
@@ -22,32 +18,36 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
     font-family: 'Inter', sans-serif;
-    color: var(--cor-texto-claro);
-    background-color: var(--cor-fundo-principal); 
+    color: var(--cor-texto-escuro);
+    background-color: var(--cor-principal); 
     line-height: 1.6;
-    overflow-x: hidden; /* Essencial para o carrossel */
+    overflow-x: hidden;
 }
 
 section {
-    padding: 80px 0;
+    padding: 100px 0; /* Aumenta o espaçamento para parecer mais sofisticado */
 }
 
-.poppins {
-    font-family: 'Poppins', sans-serif;
+.montserrat {
+    font-family: 'Montserrat', sans-serif;
 }
 
 h1, h2, h3 {
-    color: var(--cor-texto-claro); 
-    font-family: 'Poppins', sans-serif;
+    color: var(--cor-texto-escuro); 
+    margin-bottom: 0.5em;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.2;
 }
 
-h1 { font-size: 3.5em; font-weight: 800; }
-h2 { font-size: 2.5em; font-weight: 700; }
-h3 { font-size: 1.6em; font-weight: 600; }
+h1 { font-size: 3.5em; font-weight: 900; }
+h2 { font-size: 2.2em; font-weight: 700; }
+h3 { font-size: 1.4em; font-weight: 700; }
+p { color: var(--cor-texto-suave); }
 
 .container {
     max-width: 1200px;
@@ -55,14 +55,141 @@ h3 { font-size: 1.6em; font-weight: 600; }
     padding: 0 20px;
 }
 
-/* Componentes de Estilo */
+.blue-text {
+    color: var(--cor-detalhe-azul);
+}
+
+/* --- NAV BAR --- */
+#navbar {
+    background-color: var(--cor-principal);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 0;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: 900;
+    color: var(--cor-texto-escuro);
+}
+
+nav a {
+    margin-left: 30px;
+    color: var(--cor-texto-escuro);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--cor-detalhe-azul);
+}
+
+.btn-nav {
+    background-color: var(--cor-detalhe-azul);
+    color: white !important;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+/* --- HERO SECTION --- */
+#hero {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 120px;
+}
+
+#hero p {
+    max-width: 700px;
+    font-size: 1.1em;
+    margin-bottom: 40px;
+    color: var(--cor-texto-escuro);
+}
+
+/* Botão CTA Principal */
+.btn-cta.btn-wpp-style {
+    display: inline-flex;
+    align-items: center;
+    padding: 18px 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: var(--cor-detalhe-azul);
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+    color: white;
+}
+
+.btn-cta.btn-wpp-style:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(0, 123, 255, 0.6);
+}
+
+.btn-cta.btn-wpp-style i {
+    margin-right: 10px;
+    font-size: 1.4em;
+}
+
+/* --- STATS SECTION --- */
+#stats {
+    background-color: var(--cor-detalhe-azul-claro); /* Azul claro de fundo para contraste */
+    padding: 60px 0;
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.stats-card {
+    background-color: var(--cor-principal);
+    padding: 30px;
+    border-radius: var(--borda-radius); 
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    border-top: 5px solid var(--cor-detalhe-azul); /* Detalhe moderno */
+    transition: transform 0.3s ease;
+}
+
+.stats-card:hover {
+    transform: translateY(-5px);
+}
+
+.stats-card .montserrat {
+    font-size: 3.5em;
+    font-weight: 900;
+    color: var(--cor-detalhe-azul);
+    line-height: 1;
+    display: inline-block;
+}
+
+.stats-card p {
+    color: var(--cor-texto-escuro);
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+/* --- SEÇÃO SERVIÇOS --- */
 .tag {
     display: inline-block;
     padding: 6px 15px;
     border-radius: 50px;
     font-weight: 700;
     font-size: 0.9em;
-    color: var(--cor-fundo-principal); 
+    color: white;
+    background-color: var(--cor-detalhe-azul); 
     margin-bottom: 20px;
     text-transform: uppercase;
 }
@@ -73,168 +200,104 @@ h3 { font-size: 1.6em; font-weight: 600; }
 }
 
 .header-section p {
-    color: var(--cor-texto-secundario);
-    max-width: 700px;
+    max-width: 800px;
     margin: 10px auto 0;
 }
 
-/* Botão CTA Principal (WhatsApp) */
-.btn-wpp-style .icon-wpp-wrapper {
-    display: inline-flex; 
-    align-items: center;
-    padding: 18px 40px;
-    font-weight: 700;
-    text-transform: uppercase;
-    background: linear-gradient(90deg, #10B981, #059669); 
-    border-radius: 50px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 6px 25px rgba(16, 185, 129, 0.5);
-    color: white;
-}
-
-.btn-wpp-style .icon-wpp-wrapper:hover {
-    transform: translateY(-2px) scale(1.02);
-}
-
-.btn-wpp-style .icon-wpp-wrapper i {
-    margin-right: 12px;
-    font-size: 1.4em;
-}
-
-/* --- HERO SECTION --- */
-#hero {
-    min-height: 90vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding-top: 120px;
-}
-
-#hero p {
-    max-width: 800px;
-    font-size: 1.2em;
-    margin-bottom: 50px;
-    color: var(--cor-texto-secundario);
-}
-
-/* --- STATS SECTION --- */
-#stats {
-    padding: 40px 0; 
-    margin-bottom: 40px; 
-}
-
-.stats-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.stats-card {
-    background-color: var(--cor-fundo-card-dark);
-    padding: 30px;
-    border-radius: var(--borda-radius-card); 
-    text-align: center;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-    border-bottom: 5px solid var(--cor-gradiente-end-cta); /* Linha futurista */
-    transition: transform 0.3s ease;
-}
-
-.stats-card .poppins {
-    font-size: 3.5em;
-    font-weight: 800;
-    color: var(--cor-gradiente-start-cta);
-    line-height: 1;
-    display: inline-block;
-}
-
-.stats-card p {
-    color: var(--cor-texto-secundario);
-    margin-top: 10px;
-    font-weight: 600;
-}
-
-/* --- CARROSSEL GERAL (Serviços e Depoimentos) --- */
+/* CARROSSEL GERAL (Serviços e Depoimentos) */
 .carousel-container {
     overflow: hidden;
     position: relative;
-    padding-bottom: 20px; /* Espaço para sombra/efeito */
+    padding: 20px 0; 
 }
 
 .carousel-track {
     display: flex;
-    animation: scroll-left 40s linear infinite; /* Animacao padrão */
-    width: fit-content; /* Permite que os itens excedam o container */
+    animation: scroll-left 40s linear infinite; 
+    width: fit-content; 
 }
 
 .carousel-container:hover .carousel-track {
-    animation-play-state: paused; /* Pausa ao passar o mouse */
+    animation-play-state: paused; 
 }
 
 @keyframes scroll-left {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); } /* Move exatamente 50% para um loop perfeito */
+    100% { transform: translateX(-50%); } 
 }
 
 .carousel-item {
-    min-width: 350px; /* Tamanho de cada item */
+    min-width: 320px; 
     margin-right: 30px;
 }
 
-/* --- SEÇÃO SERVIÇOS (Carrossel) --- */
-#servicos {
-    padding: 60px 0;
-}
-
+/* Cards de Serviço (Carrossel) */
 .servico-card {
-    background-color: var(--cor-fundo-card-dark);
+    background-color: var(--cor-secundaria);
     padding: 40px;
-    border-radius: var(--borda-radius-card);
+    border-radius: var(--borda-radius);
     text-align: center;
     height: 100%;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .servico-card:hover {
     transform: translateY(-5px);
-    background-color: #4B5563; /* Efeito hover mais claro */
+    background-color: var(--cor-principal);
 }
 
 .icon-wrapper {
-    width: 70px;
-    height: 70px;
-    background: linear-gradient(135deg, var(--cor-gradiente-start-cta), var(--cor-gradiente-end-cta));
+    width: 60px;
+    height: 60px;
+    background-color: var(--cor-detalhe-azul);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.8em;
+    font-size: 1.5em;
     color: white;
     margin: 0 auto 20px;
 }
 
-.servico-card p {
-    color: var(--cor-texto-secundario);
-    font-size: 0.95em;
+.servico-card h3 {
+    color: var(--cor-detalhe-azul); 
 }
 
-/* --- SEÇÃO VÍDEO --- */
-#video-destaque {
-    padding-top: 0;
+.servico-card p {
+    font-size: 0.95em;
+    color: var(--cor-texto-escuro);
+}
+
+
+/* --- SEÇÃO VÍDEO & TEXTO (Fundo Azul) --- */
+.fundo-azul {
+    background-color: var(--cor-detalhe-azul);
+    padding: 100px 0;
+}
+
+.fundo-azul h2, .fundo-azul p {
+    color: white;
+}
+
+.tag-clara {
+    background-color: white;
+    color: var(--cor-detalhe-azul);
+}
+
+.grid-video-texto {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
 }
 
 .video-container {
-    max-width: 900px;
-    height: 500px; /* Tamanho do quadrado */
-    margin: 0 auto;
-    border-radius: var(--borda-radius-video);
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     position: relative;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    border-radius: var(--borda-radius);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 .video-container iframe {
@@ -245,112 +308,210 @@ h3 { font-size: 1.6em; font-weight: 600; }
     height: 100%;
 }
 
-/* --- SEÇÃO DEPOIMENTOS (Carrossel) --- */
-#depoimentos {
-    background-color: var(--cor-fundo-principal); /* Garante que o fundo seja o Dark Blue principal */
+.texto-video p {
+    margin: 20px 0;
+    font-size: 1.05em;
+    color: #E6F0FF;
 }
 
+.btn-secundario {
+    background-color: white !important;
+    color: var(--cor-detalhe-azul) !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* --- SEÇÃO DEPOIMENTOS --- */
 .depoimento-card {
-    background-color: var(--cor-fundo-card-dark);
-    padding: 30px;
-    border-radius: var(--borda-radius-card);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    height: 220px; /* Altura fixa para alinhar o carrossel */
+    background-color: var(--cor-principal);
+    border: 1px solid #E9ECEF;
+    padding: 25px;
+    border-radius: var(--borda-radius);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    height: 200px; /* Altura fixa para carrossel */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.depoimento-card blockquote {
+.depoimento-card p {
     font-style: italic;
-    margin: 15px 0 0;
-    color: var(--cor-texto-claro);
-    font-size: 1.05em;
-    flex-grow: 1;
+    font-size: 1em;
+    color: var(--cor-texto-escuro);
 }
 
 .perfil {
     display: flex;
     align-items: center;
+    margin-bottom: 15px;
 }
 
 .perfil img {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    margin-right: 15px;
-    object-fit: cover;
+    margin-right: 10px;
 }
 
-/* --- SEÇÃO ORÇAMENTO FUTURISTA (2) --- */
-#solicite-orcamento {
+.perfil strong {
+    color: var(--cor-texto-escuro);
+}
+
+
+/* --- SEÇÃO ORÇAMENTO FUTURISTA (Fundo Azul Claro) --- */
+.fundo-azul-claro {
+    background-color: var(--cor-detalhe-azul-claro);
     padding: 80px 0;
-    background: linear-gradient(45deg, #111827, #1F2937); /* Fundo sutilmente gradiente */
     text-align: center;
-    border-top: 1px solid #374151;
-}
-
-.cta-futurista-wrapper {
-    max-width: 800px;
-    margin: 0 auto;
+    border-top: 1px solid #DEE2E6;
 }
 
 .cta-futurista-wrapper h2 {
+    color: var(--cor-detalhe-azul);
     font-size: 2.5em;
-    color: var(--cor-gradiente-start-cta);
-    margin-bottom: 10px;
 }
 
 .cta-futurista-wrapper p {
+    color: var(--cor-texto-escuro);
     font-size: 1.1em;
-    color: var(--cor-texto-secundario);
     margin-bottom: 40px;
 }
 
 .btn-futurista {
+    /* Mantém o verde vibrante do WhatsApp para contraste máximo */
+    background-color: var(--cor-wpp-bg) !important; 
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
     padding: 20px 50px;
     font-size: 1.1em;
     border-radius: 8px;
-    background: linear-gradient(90deg, #10B981, #059669); 
-    box-shadow: 0 8px 30px rgba(16, 185, 129, 0.7);
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    color: white !important;
 }
 
-.btn-futurista:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 35px rgba(16, 185, 129, 0.9);
+/* --- RODAPÉ SOFISTICADO --- */
+#footer {
+    background-color: #212529; /* Azul Escuro/Quase Preto */
+    color: white;
+    padding: 60px 0 20px;
 }
 
-/* --- RODAPÉ --- */
-footer {
-    background-color: #111827; /* Darkest Dark Blue */
-    padding: 50px 0 10px;
-    color: var(--cor-texto-secundario);
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr;
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #495057;
 }
-/* ... (Resto do Rodapé mantido) ... */
 
-/* --- BOTÃO FLUTUANTE WHATSAPP --- */
+.footer-about h3 {
+    color: white;
+    font-size: 1.8em;
+}
+
+.footer-about p {
+    color: #ADB5BD;
+    margin: 15px 0 20px;
+    font-size: 0.95em;
+}
+
+.footer-social a {
+    font-size: 1.5em;
+    margin-right: 15px;
+    color: #ADB5BD;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: var(--cor-detalhe-azul);
+}
+
+.footer-links h4, .footer-contact h4 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links a {
+    display: block;
+    margin-bottom: 10px;
+    color: #ADB5BD;
+    transition: color 0.3s ease;
+    font-size: 0.9em;
+}
+
+.footer-links a:hover {
+    color: var(--cor-detalhe-azul);
+}
+
+.footer-contact p {
+    margin-bottom: 10px;
+    color: #ADB5BD;
+    font-size: 0.95em;
+}
+
+.footer-contact i {
+    margin-right: 10px;
+    color: var(--cor-detalhe-azul);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 0.8em;
+    color: #6C757D;
+}
+
+/* --- WHATSAPP FLUTUANTE --- */
 .whatsapp-float {
-    /* ... (Mantido) ... */
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--cor-wpp-bg);
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
 }
 
-/* --- Media Queries --- */
-@media (max-width: 768px) {
-    h1 { font-size: 2.5em; }
+/* --- MEDIA QUERIES (Responsividade) --- */
+@media (max-width: 992px) {
+    h1 { font-size: 2.8em; }
+    h2 { font-size: 2em; }
+    
+    #navbar nav { display: none; }
+    .nav-content { justify-content: center; }
+    
+    .grid-video-texto {
+        grid-template-columns: 1fr;
+    }
+    
+    .texto-video {
+        text-align: center;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .footer-links, .footer-contact {
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    h1 { font-size: 2em; }
     h2 { font-size: 1.8em; }
+    
     .stats-container { grid-template-columns: 1fr; }
-    
-    .carousel-item {
-        min-width: 90vw; /* Ocupa a maior parte da tela mobile */
-    }
-    
-    .video-container {
-        height: 300px;
-        border-radius: 10px;
-    }
-    
-    .btn-futurista {
-        padding: 15px 30px;
-        font-size: 1em;
-    }
+    .whatsapp-float { width: 50px; height: 50px; font-size: 25px; }
 }
