@@ -1,6 +1,6 @@
 // --- JAVASCRIPT (script.js) - CÓDIGO COMPLETO ---
 
-// 1. Contador Dinâmico para a Seção Stats (Contagem Infinita)
+// 1. Contador Dinâmico para a Seção Stats (Contagem Infinita ao Visível)
 // -----------------------------------------------------------------------
 
 const counters = document.querySelectorAll('.counter');
@@ -9,34 +9,23 @@ const resetDelay = 5000; // Tempo em milissegundos (5 segundos) antes de reinici
 
 // Função que inicia e executa a contagem
 const updateCounter = (counter) => {
-    // Pega o valor final a partir do atributo data-target no HTML
     const target = +counter.getAttribute('data-target');
-    // Pega o valor atual do texto
     let current = +counter.innerText;
     
-    // Calcula o incremento. Garante que o contador suba rápido
     const increment = Math.ceil(target / speed);
 
     if (current < target) {
-        // Se ainda não alcançou o alvo
         current += increment;
-        
-        // Evita que o número salte o alvo no final da contagem
         if (current > target) {
             current = target;
         }
-        
-        // Atualiza o texto
         counter.innerText = current;
-        
-        // Chama a função novamente após 1ms, criando o efeito rápido
         setTimeout(() => updateCounter(counter), 1);
         
     } else {
-        // Se o valor alcançou o alvo, define o valor final exato
         counter.innerText = target;
         
-        // Configura o reinício (Contagem "infinita")
+        // Reinicia a contagem após 'resetDelay'
         setTimeout(() => {
             counter.innerText = 0; // Reseta o contador para 0
             updateCounter(counter); // Inicia a contagem novamente
@@ -44,11 +33,56 @@ const updateCounter = (counter) => {
     }
 };
 
-// Inicia a contagem para todos os elementos .counter
-counters.forEach(counter => {
-    updateCounter(counter);
-});
+// Intersection Observer para iniciar a contagem quando a seção Stats estiver visível
+const statsSection = document.querySelector('#stats');
+let countersStarted = false; // Flag para garantir que o contador só inicie uma vez por visibilidade
+
+const observerOptions = {
+    root: null, // viewport
+    rootMargin: '0px',
+    threshold: 0.5 // 50% da seção visível
+};
+
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !countersStarted) {
+            // Se a seção está visível e os contadores ainda não foram iniciados
+            counters.forEach(counter => {
+                // Reinicia para 0 antes de iniciar a contagem
+                counter.innerText = 0; 
+                updateCounter(counter);
+            });
+            countersStarted = true; // Define a flag como verdadeira
+        } else if (!entry.isIntersecting) {
+            // Se a seção não está mais visível, reseta a flag para permitir reiniciar na próxima vez
+            countersStarted = false;
+        }
+    });
+}, observerOptions);
+
+if (statsSection) {
+    observer.observe(statsSection);
+}
+
 
 // 2. Outras funcionalidades
 // -----------------------------------------------------------------------------------------
-// Adicione outras funções JS (ex: galeria interativa, menu mobile) aqui
+// Exemplo de JS para o efeito "antes/depois" (se você quiser um slider)
+document.querySelectorAll('.foto-card.before-after-effect').forEach(card => {
+    const afterImage = card.querySelector('.after-image');
+    const labelAntes = card.querySelector('.label-antes');
+    const labelDepois = card.querySelector('.label-depois');
+
+    card.addEventListener('mouseenter', () => {
+        afterImage.style.opacity = '1';
+        labelAntes.style.opacity = '0';
+        labelDepois.style.opacity = '1';
+    });
+
+    card.addEventListener('mouseleave', () => {
+        afterImage.style.opacity = '0';
+        labelAntes.style.opacity = '1';
+        labelDepois.style.opacity = '0';
+    });
+});
+
