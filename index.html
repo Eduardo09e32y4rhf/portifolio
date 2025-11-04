@@ -1,239 +1,83 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gslimp - Higienização e Renovação de Estofados</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Sua Limpeza - Estofados Transformados</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header id="navbar">
-        <div class="container nav-content">
-            <div class="logo">GSLIMP</div>
-            <nav>
-                <a href="#servicos">Serviços</a>
-                <a href="#video-destaque">Galeria</a>
-                <a href="#depoimentos">Clientes</a>
-                <a href="#contato" class="btn-nav">Orçamento</a>
-            </nav>
-        </div>
+    <header>
+        <h1>Limpeza de Estofados: O Efeito Mordendo</h1>
+        <p>Veja a transformação que a sua casa merece.</p>
     </header>
 
-    <section id="hero">
-        <div class="hero-overlay"></div> 
-        <div class="container hero-content">
-            <h1 class="montserrat"><span class="blue-text-hero">Gslimp</span><br>Devolva a Vida e a Saúde aos Seus Estofados</h1>
-            <p>Especialistas em higienização e limpeza profunda, eliminando ácaros, bactérias e manchas. Qualidade que você vê e sente.</p>
-          
-<Br/>  
-            <a href="https://wa.me/82991522179?text=Ol%C3%A1%20Gslimp,%20gostaria%20de%20um%20or%C3%A7amento%20para%20limpeza%20de%20estofado!" class="btn-cta btn-wpp-style" target="_blank">
-                <i class="fab fa-whatsapp"></i> Solicite Orçamento
-            </a>
+    <section class="comparador-section">
+        <h2>✨ Nosso Poder de Transformação</h2>
+        <div class="before-after-slider">
+            <img src="antes.jpg" alt="Estofado Sujo - Antes da Limpeza" class="before-img">
+            <img src="depois.jpg" alt="Estofado Limpo - Depois da Limpeza" class="after-img">
+            <input type="range" min="0" max="100" value="50" class="slider" aria-label="Deslize para ver o Antes e o Depois">
+            <div class="slider-bar"></div>
         </div>
+        <p>Deslize a barra para revelar a limpeza!</p>
     </section>
     
-    <section id="stats">
-        <div class="container stats-container">
-            <div class="stats-card">
-                <span class="montserrat">100%</span>
-                <p>Satisfação Garantida</p>
-            </div>
-            <div class="stats-card">
-                <span class="montserrat">500+</span>
-                <p>Clientes Atendidos</p>
-            </div>
-            <div class="stats-card">
-                <span class="montserrat">10+</span>
-                <p>Anos de Expertise</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="servicos">
-        <div class="container">
-            <div class="header-section">
-                <span class="tag">Nossas Especialidades</span>
-                <h2 class="montserrat">Soluções Completas para um Ambiente Saudável</h2>
-                <p>Nossos serviços utilizam a mais alta tecnologia de extração e produtos biodegradáveis, garantindo uma limpeza segura e profunda.</p>
-            </div>
-            
-            <div class="carousel-container services-carousel">
-                <div class="carousel-track">
-                    <div class="servico-card carousel-item">
-                        <div class="icon-wrapper"><i class="fas fa-couch"></i></div>
-                        <h3 class="montserrat">Sofás & Estofados</h3>
-                        <p>Eliminação de sujeira visível, ácaros e odores. Seu sofá com aspecto de novo.</p>
-                    </div>
-                    <div class="servico-card carousel-item">
-                        <div class="icon-wrapper"><i class="fas fa-bed"></i></div>
-                        <h3 class="montserrat">Colchões</h3>
-                        <p>Higienização profunda para combater alérgenos e garantir um sono mais reparador.</p>
-                    </div>
-                    <div class="servico-card carousel-item">
-                        <div class="icon-wrapper"><i class="fas fa-magic"></i></div>
-                        <h3 class="montserrat">Impermeabilização</h3>
-                        <p>Proteção invisível contra derramamentos de líquidos e manchas acidentais.</p>
-                    </div>
-                    <div class="servico-card carousel-item">
-                        <div class="icon-wrapper"><i class="fas fa-grip-lines"></i></div>
-                        <h3 class="montserrat">Tapetes & Carpetes</h3>
-                        <p>Lavagem especializada que restaura a cor e a textura original do seu tapete.</p>
-                    </div>
-                     <div class="servico-card carousel-item">
-                        <div class="icon-wrapper"><i class="fas fa-couch"></i></div>
-                        <h3 class="montserrat">Sofás & Estofados</h3>
-                        <p>Eliminação de sujeira visível, ácaros e odores. Seu sofá com aspecto de novo.</p>
-                    </div>
-                    <div class="servico-card carousel-item">
-                        <div class="icon-wrapper"><i class="fas fa-bed"></i></div>
-                        <h3 class="montserrat">Colchões</h3>
-                        <p>Higienização profunda para combater alérgenos e garantir um sono mais reparador.</p>
-                    </div>
-                    <div class="servico-card carousel-item">
-                        <div class="icon-wrapper"><i class="fas fa-magic"></i></div>
-                        <h3 class="montserrat">Impermeabilização</h3>
-                        <p>Proteção invisível contra derramamentos de líquidos e manchas acidentais.</p>
-                    </div>
-                    <div class="servico-card carousel-item">
-                        <div class="icon-wrapper"><i class="fas fa-grip-lines"></i></div>
-                        <h3 class="montserrat">Tapetes & Carpetes</h3>
-                        <p>Lavagem especializada que restaura a cor e a textura original do seu tapete.</p>
-                    </div>
+    <section class="galeria">
+        <h2>💖 Nossos Sofás Mais Amados</h2>
+        <div class="resultados-grid">
+            <div class="item-resultado">
+                <div class="zoom-container">
+                    <img src="placeholder-sofa1.jpg" alt="Resultado Limpeza Sofá 1">
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="video-destaque" class="fundo-azul">
-        <div class="container grid-video-texto">
-            <div class="video-container">
-                <iframe 
-                    src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&loop=1&playlist=dQw4w9WgXcQ" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                </iframe>
-            </div>
-            
-            <div class="texto-video">
-                <span class="tag-clara">Resultados que Impressionam</span>
-                <h2 class="montserrat">Veja a Nossa Qualidade em Ação</h2>
-                <p>Nenhuma foto ou texto substitui o resultado real. Assista a uma demonstração de como removemos sujeira profunda, restaurando a cor e a maciez do seu estofado.</p>
-                <a href="#hero" class="btn-cta btn-secundario">
-                    Quero ver meu estofado assim!
-                </a>
-            </div>
-        </div>
-    </section>
-    
-    <section id="depoimentos">
-        <div class="container">
-            <div class="header-section">
-                <span class="tag">Clientes Gslimp</span>
-                <h2 class="montserrat">O Que Nossos Clientes Dizem</h2>
-            </div>
-            
-            <div class="carousel-container depoimentos-carousel">
-                <div class="carousel-track">
-                    <div class="depoimento-card carousel-item">
-                        <div class="perfil">
-                            <img src="https://i.pravatar.cc/150?img=1" alt="Maria Silva"> 
-                            <strong>Maria Silva</strong>
-                        </div>
-                        <p>"Fiquei impressionada! Meu sofá está novo e o cheiro sumiu. Profissionais super atenciosos."</p>
-                    </div>
-                    <div class="depoimento-card carousel-item">
-                        <div class="perfil">
-                             <img src="https://i.pravatar.cc/150?img=2" alt="João Santos">
-                            <strong>João Santos</strong>
-                        </div>
-                        <p>"Serviço rápido e com zero bagunça. A higienização dos meus colchões foi excelente."</p>
-                    </div>
-                    <div class="depoimento-card carousel-item">
-                        <div class="perfil">
-                            <img src="https://i.pravatar.cc/150?img=3" alt="Ana Costa">
-                            <strong>Ana Costa</strong>
-                        </div>
-                        <p>"Contratei para os estofados da empresa. Qualidade impecável e atendimento pontual."</p>
-                    </div>
-                    <div class="depoimento-card carousel-item">
-                        <div class="perfil">
-                             <img src="https://i.pravatar.cc/150?img=4" alt="Carlos Alberto">
-                            <strong>Carlos Alberto</strong>
-                        </div>
-                        <p>"A impermeabilização foi a melhor decisão. Minha poltrona está protegida de verdade."</p>
-                    </div>
-                    <div class="depoimento-card carousel-item">
-                        <div class="perfil">
-                            <img src="https://i.pravatar.cc/150?img=5" alt="Paula F."> 
-                            <strong>Paula F.</strong>
-                        </div>
-                        <p>"Fiquei impressionada! Meu sofá está novo e o cheiro sumiu. Profissionais super atenciosos."</p>
-                    </div>
-                    <div class="depoimento-card carousel-item">
-                        <div class="perfil">
-                             <img src="https://i.pravatar.cc/150?img=6" alt="Rafaela A.">
-                            <strong>Rafaela A.</strong>
-                        </div>
-                        <p>"Serviço rápido e com zero bagunça. A higienização dos meus colchões foi excelente."</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="solicite-orcamento" class="fundo-azul-claro">
-        <div class="container cta-futurista-wrapper" id="contato">
-            <h2 class="montserrat">Transforme Seu Ambiente Hoje Mesmo</h2>
-            <p>Não espere. Receba um orçamento rápido e personalizado sem compromisso. É a sua chance de ter um estofado renovado.</p>
-
-            <a href="https://wa.me/82991522179?text=Ol%C3%A1%20Gslimp,%20gostaria%20de%20um%20or%C3%A7amento%20imediato." class="btn-cta btn-futurista" target="_blank">
-                <i class="fab fa-whatsapp"></i> Receber Cotação
-            </a>
-        </div>
-    </section>
-
-    <footer id="footer">
-        <div class="container footer-grid">
-            <div class="footer-about">
-                <h3 class="montserrat">Gslimp</h3>
-                <p>A referência em higienização e impermeabilização de estofados. Tecnologia e excelência ao seu serviço.</p>
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                <div class="interacao-bar">
+                    <button class="btn-curtir" data-id="sofa1" aria-label="Curtir este resultado">
+                        <i class="far fa-heart"></i> </button>
+                    <span id="likes-sofa1" class="contador-likes">150</span>
                 </div>
             </div>
             
-            <div class="footer-links">
-                <h4 class="montserrat">Navegação</h4>
-                <ul>
-                    <li><a href="#servicos">Nossos Serviços</a></li>
-                    <li><a href="#video-destaque">Galeria de Resultados</a></li>
-                    <li><a href="#depoimentos">Testemunhos</a></li>
-                    <li><a href="#contato">Fale Conosco</a></li>
-                </ul>
+            <div class="item-resultado">
+                <div class="zoom-container">
+                    <img src="placeholder-sofa2.jpg" alt="Resultado Limpeza Sofá 2">
+                </div>
+                <div class="interacao-bar">
+                    <button class="btn-curtir" data-id="sofa2" aria-label="Curtir este resultado">
+                        <i class="far fa-heart"></i>
+                    </button>
+                    <span id="likes-sofa2" class="contador-likes">210</span>
+                </div>
             </div>
-
-            <div class="footer-contact">
-                <h4 class="montserrat">Contato Imediato</h4>
-                <p><i class="fas fa-phone-alt"></i> (11) 99999-9999</p>
-                <p><i class="fas fa-envelope"></i> contato@gslimp.com.br</p>
-                <p class="horario-footer"><i class="far fa-clock"></i> Seg - Sáb, 8h às 18h</p>
+            
             </div>
-        </div>
+    </section>
 
-        <div class="container copyright">
-            &copy; 2025 Gslimp. Todos os direitos reservados.
+    <section class="calculadora-section">
+        <h2>💰 Orçamento Rápido e Sem Compromisso</h2>
+        <div class="calculadora-form">
+            <label for="tipoEstofado">1. Qual o tipo de estofado?</label>
+            <select id="tipoEstofado">
+                <option value="0">Selecione...</option>
+                <option value="150">Sofá de 2 Lugares</option>
+                <option value="250">Sofá de 3 Lugares</option>
+                <option value="80">Poltrona / Cadeira</option>
+                <option value="120">Colchão Queen/King</option>
+            </select>
+
+            <p class="orcamento-display">Estimativa: <span id="valorEstimado">R$ 0,00</span></p>
+
+            <button class="btn-cta-zap" onclick="gerarLinkZap()">
+                Solicitar Orçamento Final por WhatsApp
+            </button>
         </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Sua Marca de Limpeza. Visite nosso Blog de Dicas!</p>
     </footer>
-    
-    <a href="https://wa.me/82991522179?text=Ol%C3%A1%20quero%20fazer%20um%20or%C3%A7amento!" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-    
+
     <script src="script.js"></script>
 </body>
 </html>
