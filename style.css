@@ -292,8 +292,8 @@ h1, h2, h3, .poppins {
 /* --- Seção Galeria Antes e Depois --- */
 #galeria {
     padding: 80px 0;
-    background-color: white; /* Foi alterado para branco para visibilidade do texto */
-    color: var(--cor-fundo-principal); /* Foi alterado para texto escuro */
+    background-color: white; 
+    color: var(--cor-fundo-principal); 
 }
 
 #galeria .header-section h2 {
@@ -316,8 +316,8 @@ h1, h2, h3, .poppins {
 /* --- Seção de Depoimentos --- */
 #depoimentos {
     padding: 80px 0;
-    background-color: #F8F8F8; /* Fundo levemente claro */
-    color: var(--cor-texto-dark); /* Texto escuro */
+    background-color: #F8F8F8; 
+    color: var(--cor-texto-dark); 
 }
 
 #depoimentos .header-section h2 {
@@ -326,7 +326,7 @@ h1, h2, h3, .poppins {
 /* ... (Estilos internos dos Depoimentos mantidos) ... */
 
 
-/* --- Seção Contato --- */
+/* --- Seção Contato (Solicite Orçamento) --- */
 #solicite-orcamento {
     padding: 80px 0;
     background-color: var(--cor-fundo-principal);
@@ -345,19 +345,20 @@ h1, h2, h3, .poppins {
 
 .contato-info-grid {
     display: grid;
-    grid-template-columns: 1fr; /* Um abaixo do outro */
+    /* REVERTIDO para que os itens fiquem lado a lado no PC e no Mobile (como na sua imagem) */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
     gap: 20px;
     text-align: center; 
     margin-top: 30px;
     margin-bottom: 40px;
-    justify-items: center; /* Centraliza o bloco de itens no PC */
+    /* Removido justify-items: center para voltar ao estado anterior */
 }
 
 .info-item {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
-    max-width: 350px; 
+    /* Removido max-width: 350px; para voltar ao estado anterior */
 }
 
 .info-item .details {
@@ -371,6 +372,7 @@ h1, h2, h3, .poppins {
 @media (max-width: 768px) {
     /* ... (outros estilos mantidos) ... */
     
+    /* Voltando ao padrão anterior para reproduzir a imagem do usuário */
     .contato-info-grid {
         justify-items: flex-start; 
     }
