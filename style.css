@@ -1,12 +1,12 @@
 /* Variáveis CSS */
 :root {
-    --cor-fundo-principal: #0F1A3A; /* Azul Escuro (Para Body e seções escuras) */
-    --cor-fundo-card-dark: #1E2858; /* Azul Escuro dos Cards de Contato/Rodapé */
-    --cor-fundo-card-light: #FFFFFF; /* Branco (Para Cards de serviço/diferencial e seções claras) */
-    --cor-texto-principal: #E0E7FF; /* Texto claro (em fundo escuro) */
-    --cor-texto-dark: #2A2A2A; /* Texto escuro (em fundo claro) */
-    --cor-gradiente-start-cta: #4ECDC4;
-    --cor-gradiente-end-cta: #5A5ACF;
+    --cor-fundo-principal: #0F1A3A; /* Azul Escuro */
+    --cor-fundo-card-dark: #1E2858; /* Azul Escuro dos Cards */
+    --cor-fundo-card-light: #FFFFFF; /* Branco dos Cards de Serviço/Depoimento */
+    --cor-texto-principal: #E0E7FF;
+    --cor-texto-dark: #2A2A2A;
+    --cor-gradiente-start-cta: #4ECDC4; /* Ciano */
+    --cor-gradiente-end-cta: #5A5ACF; /* Roxo/Azul */
     --cor-detalhe-vermelho: #F95D51;
     --cor-avaliacao-amarela: #FFC107;
     --cor-icone-contato: #A0C4FF;
@@ -22,23 +22,96 @@
 body {
     font-family: 'Inter', sans-serif;
     background-color: var(--cor-fundo-principal);
-    color: var(--cor-texto-principal); /* Cor padrão do texto é clara (para fundo principal) */
+    color: var(--cor-texto-principal);
     line-height: 1.6;
 }
-/* ... (Headers e Containers mantidos) ... */
 
-/* --- Seção Hero/Introdução (Mantida) --- */
+h1, h2, h3, .poppins {
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header-section {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.header-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--cor-fundo-principal);
+    background-color: #E0E7FF; 
+}
+
+/* --- Estilo do Botão Principal (CTA) --- */
+.btn-cta {
+    display: inline-flex;
+    align-items: center;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    background-image: linear-gradient(90deg, var(--cor-gradiente-start-cta) 0%, var(--cor-gradiente-end-cta) 100%);
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.btn-cta:hover {
+    transform: translateY(-2px);
+}
+
+/* NOVO ESTILO PARA O BOTÃO CTA NA SEÇÃO HERO (WPP) */
+.btn-wpp-style {
+    padding: 8px 30px 8px 8px;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+.icon-wpp-wrapper {
+    width: 45px; 
+    height: 45px; 
+    background-color: white; 
+    border-radius: 50%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+.icon-wpp-wrapper i {
+    color: #25D366; 
+    font-size: 20px;
+}
+
+
+/* --- Seção Hero/Introdução --- */
 #hero {
-    /* ... Estilos de fundo de imagem e overlay ... */
-    background-image: url('https://source.unsplash.com/random/1600x900?cleaning-couch');
+    text-align: center;
+    padding: 100px 0;
+    /* FUNDO COM IMAGEM */
+    background-image: url('https://source.unsplash.com/random/1600x900?cleaning-couch'); /* SUBSTITUA PELA SUA IMAGEM */
     background-size: cover;
     background-position: center;
     color: white;
     position: relative;
-    padding: 100px 0;
-    text-align: center;
 }
-#hero::before { /* Overlay */
+
+/* Overlay para escurecer a imagem de fundo e melhorar o contraste do texto */
+#hero::before {
     content: "";
     position: absolute;
     top: 0;
@@ -48,9 +121,25 @@ body {
     background-color: rgba(0, 0, 0, 0.5); 
     z-index: 1;
 }
+
 #hero h1, #hero p, #hero .btn-cta {
-    position: relative; 
+    position: relative;
     z-index: 2;
+}
+
+#hero h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+#hero p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 300;
 }
 
 /* --- Seção de Estatísticas (100%, 500+, 10+) --- */
@@ -66,7 +155,6 @@ body {
 }
 
 .stats-card {
-    /* CORREÇÃO AQUI: Fundo Branco para o card */
     background-color: var(--cor-fundo-card-light); 
     padding: 40px 20px;
     border-radius: 15px;
@@ -78,7 +166,6 @@ body {
     font-size: 3em;
     font-weight: 800;
     margin-bottom: 5px;
-    /* CORREÇÃO AQUI: Texto Escuro no fundo branco */
     color: var(--cor-texto-dark); 
 }
 
@@ -88,32 +175,125 @@ body {
 }
 
 
-/* --- Seção de Serviços (Fundo Branco, Texto Escuro) --- */
+/* --- Seção de Serviços --- */
 #servicos {
     padding: 80px 0;
-    background-color: white; /* Fundo branco */
+    background-color: white;
     color: var(--cor-fundo-principal);
 }
-#servicos .header-section h2, #servicos .servico-card h3 {
-    color: var(--cor-fundo-principal); /* Texto principal escuro */
-}
-/* ... (Serviço grid e cards mantidos) ... */
 
+#servicos .header-section h2 {
+    color: var(--cor-fundo-principal);
+}
+
+#servicos .header-section p {
+    color: #666;
+    font-size: 1.1em;
+}
+
+.servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.servico-card {
+    background-color: var(--cor-fundo-card-light);
+    border: 1px solid #eee;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.servico-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.servico-card .icon-wrapper {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Cores dos ícones de serviço (6 itens) */
+.servico-card:nth-child(3n+1) .icon-wrapper { background-color: #4C72D6; } 
+.servico-card:nth-child(3n+2) .icon-wrapper { background-color: var(--cor-gradiente-start-cta); } 
+.servico-card:nth-child(3n+3) .icon-wrapper { background-color: #34D399; } 
+
+.servico-card i {
+    font-size: 24px;
+    color: white;
+}
+
+.servico-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.servico-card p {
+    font-size: 0.95em;
+    color: #666;
+}
 
 /* --- Seção de Diferenciais (Fundo Branco, Texto Escuro) --- */
 #diferenciais {
     padding: 80px 0;
-    /* CORREÇÃO AQUI: Mantém o fundo escuro (var(--cor-fundo-principal)) */
 }
-/* ... (Diferenciais grid mantidos) ... */
+
+.diferenciais-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card-dark {
+    background-color: var(--cor-fundo-card-light); /* Fundo branco */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-dark .icon-wrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(45deg, var(--cor-gradiente-start-cta), var(--cor-gradiente-end-cta));
+}
+
+.card-dark i {
+    font-size: 28px;
+    color: white;
+}
+
+.card-dark h3 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--cor-texto-dark); /* Texto preto */
+}
+
+.card-dark p {
+    font-size: 0.95em;
+    color: #666; 
+}
 
 
 /* --- Seção Galeria Antes e Depois --- */
 #galeria {
     padding: 80px 0;
-    /* CORREÇÃO AQUI: Fundo branco, para o texto escuro ser legível */
-    background-color: white; 
-    color: var(--cor-fundo-principal);
+    background-color: white; /* Foi alterado para branco para visibilidade do texto */
+    color: var(--cor-fundo-principal); /* Foi alterado para texto escuro */
 }
 
 #galeria .header-section h2 {
@@ -125,32 +305,33 @@ body {
     font-size: 1.1em;
 }
 
-/* ... (Foto card e labels mantidos) ... */
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+/* ... (Estilos internos da Galeria mantidos) ... */
 
 
-/* --- Seção de Depoimentos (Fundo Claro, Texto Escuro) --- */
+/* --- Seção de Depoimentos --- */
 #depoimentos {
     padding: 80px 0;
     background-color: #F8F8F8; /* Fundo levemente claro */
-    /* CORREÇÃO AQUI: Garante que o texto seja escuro nesta seção */
-    color: var(--cor-texto-dark); 
+    color: var(--cor-texto-dark); /* Texto escuro */
 }
 
 #depoimentos .header-section h2 {
     color: var(--cor-texto-dark);
 }
+/* ... (Estilos internos dos Depoimentos mantidos) ... */
 
-/* ... (Depoimentos grid e cards mantidos) ... */
 
-
-/* --- Seção Contato (Solicite Orçamento) --- */
+/* --- Seção Contato --- */
 #solicite-orcamento {
     padding: 80px 0;
     background-color: var(--cor-fundo-principal);
     text-align: center;
-    color: var(--cor-texto-principal); /* Garante texto claro nesta seção */
 }
-
 /* ... (h2 e tags mantidos) ... */
 
 .contato-wrapper {
@@ -164,39 +345,33 @@ body {
 
 .contato-info-grid {
     display: grid;
-    /* CORREÇÃO AQUI: Garante que os itens fiquem um abaixo do outro */
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr; /* Um abaixo do outro */
     gap: 20px;
     text-align: center; 
     margin-top: 30px;
     margin-bottom: 40px;
-    /* Centraliza o bloco de itens (o item fica no centro do grid) */
-    justify-items: center; 
+    justify-items: center; /* Centraliza o bloco de itens no PC */
 }
 
 .info-item {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
-    /* Limita a largura para centralizar melhor no PC */
     max-width: 350px; 
 }
 
 .info-item .details {
-    /* Garante que o texto dentro do bloco fique alinhado à esquerda */
-    text-align: left; 
+    text-align: left; /* Garante que o texto fique alinhado à esquerda dentro do bloco */
 }
 
-/* ... (Footer mantido) ... */
+/* ... (Rodapé - Mantido) ... */
 
 
 /* Media Queries para Responsividade */
 @media (max-width: 768px) {
     /* ... (outros estilos mantidos) ... */
     
-    /* CORREÇÃO: Alinhamento para mobile */
     .contato-info-grid {
-        /* No mobile, queremos que o bloco comece mais à esquerda */
         justify-items: flex-start; 
     }
     .info-item {
@@ -207,17 +382,36 @@ body {
         max-width: none;
     }
     
-    /* WhatsApp Flutuante (Mantido no canto direito) */
+    /* Ajuste para telas menores do WhatsApp Flutuante */
     .whatsapp-float {
+        width: 50px;
+        height: 50px;
         bottom: 20px;
-        right: 15px; 
+        right: 15px;
+        font-size: 25px;
+        line-height: 50px;
     }
 }
 
-/* --- WhatsApp Flutuante (Mantido no canto direito) --- */
+/* --- WhatsApp Flutuante --- */
 .whatsapp-float {
     position: fixed;
-    /* ... (outros estilos mantidos) ... */
+    width: 60px;
+    height: 60px;
     bottom: 40px;
-    right: 30px; 
+    right: 30px; /* Ajustado para ficar mais à direita */
+    background-color: #25D366; 
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    line-height: 60px;
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E;
+    transform: scale(1.05);
 }
