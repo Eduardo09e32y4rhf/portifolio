@@ -1,10 +1,10 @@
-// --- JAVASCRIPT (script.js) - CÓDIGO COMPLETO ---
+// --- JAVASCRIPT (script.js) - CÓDIGO FINAL CORRIGIDO ---
 
-// 1. Contador Dinâmico para a Seção Stats (Contagem Infinita ao Visível)
+// 1. Contador Dinâmico para a Seção Stats (Contagem Imediata e Infinita)
 // -----------------------------------------------------------------------
 
 const counters = document.querySelectorAll('.counter');
-const speed = 20; // Define o "passo" do incremento (maior = mais lento)
+const speed = 20; // A "velocidade" (maior = mais lento)
 const resetDelay = 5000; // Tempo em milissegundos (5 segundos) antes de reiniciar a contagem
 
 // Função que inicia e executa a contagem
@@ -16,10 +16,14 @@ const updateCounter = (counter) => {
 
     if (current < target) {
         current += increment;
+        
         if (current > target) {
             current = target;
         }
+        
         counter.innerText = current;
+        
+        // Mantém a chamada recursiva rápida
         setTimeout(() => updateCounter(counter), 1);
         
     } else {
@@ -33,56 +37,43 @@ const updateCounter = (counter) => {
     }
 };
 
-// Intersection Observer para iniciar a contagem quando a seção Stats estiver visível
-const statsSection = document.querySelector('#stats');
-let countersStarted = false; // Flag para garantir que o contador só inicie uma vez por visibilidade
-
-const observerOptions = {
-    root: null, // viewport
-    rootMargin: '0px',
-    threshold: 0.5 // 50% da seção visível
-};
-
-const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting && !countersStarted) {
-            // Se a seção está visível e os contadores ainda não foram iniciados
-            counters.forEach(counter => {
-                // Reinicia para 0 antes de iniciar a contagem
-                counter.innerText = 0; 
-                updateCounter(counter);
-            });
-            countersStarted = true; // Define a flag como verdadeira
-        } else if (!entry.isIntersecting) {
-            // Se a seção não está mais visível, reseta a flag para permitir reiniciar na próxima vez
-            countersStarted = false;
-        }
+// **CORREÇÃO: Inicia a contagem imediatamente no carregamento da página**
+// Isso resolve o problema de o contador ficar parado em 0%.
+window.addEventListener('load', () => {
+    counters.forEach(counter => {
+        // Garante que todos comecem em 0
+        counter.innerText = 0; 
+        updateCounter(counter);
     });
-}, observerOptions);
-
-if (statsSection) {
-    observer.observe(statsSection);
-}
+});
 
 
-// 2. Outras funcionalidades
+// 2. Outras funcionalidades (Galeria Antes/Depois)
 // -----------------------------------------------------------------------------------------
-// Exemplo de JS para o efeito "antes/depois" (se você quiser um slider)
+
+// JS para o efeito "antes/depois" ao passar o mouse/tocar (melhoria de UX)
 document.querySelectorAll('.foto-card.before-after-effect').forEach(card => {
     const afterImage = card.querySelector('.after-image');
     const labelAntes = card.querySelector('.label-antes');
     const labelDepois = card.querySelector('.label-depois');
 
-    card.addEventListener('mouseenter', () => {
+    const handleEnter = () => {
         afterImage.style.opacity = '1';
         labelAntes.style.opacity = '0';
         labelDepois.style.opacity = '1';
-    });
+    };
 
-    card.addEventListener('mouseleave', () => {
+    const handleLeave = () => {
         afterImage.style.opacity = '0';
         labelAntes.style.opacity = '1';
         labelDepois.style.opacity = '0';
-    });
-});
+    };
 
+    // Para desktop
+    card.addEventListener('mouseenter', handleEnter);
+    card.addEventListener('mouseleave', handleLeave);
+    
+    // Para mobile (efeito de toque - touchstart/touchend)
+    card.addEventListener('touchstart', handleEnter);
+    card.addEventListener('touchend', handleLeave);
+});
