@@ -1,26 +1,360 @@
-/* --- ESTILOS ADICIONAIS PARA O NOVO LAYOUT DO SCREENSHOT --- */
+/* --- CONFIGURAÇÕES GLOBAIS E VARIÁVEIS --- */
+:root {
+    --cor-principal: #FFFFFF; 
+    --cor-secundaria: #F8F9FA; 
+    --cor-detalhe-azul: #007BFF; 
+    --cor-detalhe-azul-claro: #E6F0FF; 
+    --cor-texto-escuro: #212529; 
+    --cor-texto-suave: #6C757D; 
 
-.fundo-claro-engajamento {
-    background-color: var(--cor-secundaria); /* Fundo cinza/azul claro */
+    --cor-wpp-bg: #25D366; 
+    --borda-radius: 10px;
+}
+
+/* Base e Tipografia */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--cor-texto-escuro);
+    background-color: var(--cor-principal); 
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+section {
+    padding: 100px 0; 
+}
+
+.montserrat {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2, h3 {
+    color: var(--cor-texto-escuro); 
+    margin-bottom: 0.5em;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.2;
+}
+
+h1 { font-size: 3.5em; font-weight: 900; }
+h2 { font-size: 2.2em; font-weight: 700; }
+h3 { font-size: 1.4em; font-weight: 700; }
+p { color: var(--cor-texto-suave); }
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- NAV BAR --- */
+#navbar {
+    background-color: var(--cor-principal);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 0;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    font-size: 1.5em;
+    font-weight: 900;
+    color: var(--cor-texto-escuro);
+}
+nav a {
+    margin-left: 30px;
+    color: var(--cor-texto-escuro);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+nav a:hover {
+    color: var(--cor-detalhe-azul);
+}
+
+.btn-nav {
+    background-color: var(--cor-detalhe-azul);
+    color: white !important;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+/* --- HERO SECTION --- */
+#hero {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding: 0;
+    background: url('https://picsum.photos/1920/1080?random=1') no-repeat center center/cover; /* Placeholder */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding-top: 150px;
+    padding-bottom: 100px;
+}
+
+#hero h1, #hero p {
+    color: var(--cor-principal); 
+}
+
+.blue-text-hero {
+    color: var(--cor-detalhe-azul); 
+}
+
+/* --- BOTÃO CTA PRINCIPAL --- */
+.btn-cta {
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.btn-cta.btn-wpp-style {
+    display: inline-flex;
+    align-items: center;
+    padding: 18px 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: var(--cor-detalhe-azul);
+    border-radius: 50px;
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+    color: white; 
+    margin-top: 30px;
+}
+
+.btn-cta.btn-wpp-style:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 123, 255, 0.6);
+}
+
+.btn-cta.btn-wpp-style i {
+    margin-right: 10px;
+    font-size: 1.4em;
+}
+
+/* --- STATS SECTION --- */
+#stats {
+    background-color: var(--cor-detalhe-azul-claro); 
     padding: 60px 0;
 }
 
-/* Centraliza os wrappers para telas grandes */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.stats-card {
+    background-color: var(--cor-principal);
+    padding: 30px;
+    border-radius: var(--borda-radius); 
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    border-top: 5px solid var(--cor-detalhe-azul); 
+    transition: transform 0.3s ease;
+}
+
+.stats-card:hover {
+    transform: translateY(-5px);
+}
+
+.stats-card .montserrat {
+    font-size: 3.5em;
+    font-weight: 900;
+    color: var(--cor-detalhe-azul);
+    line-height: 1;
+    display: inline-block;
+}
+
+.stats-card p {
+    color: var(--cor-texto-escuro);
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+/* --- SERVIÇOS CAROUSEL --- */
+.tag {
+    display: inline-block;
+    padding: 6px 15px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9em;
+    color: white;
+    background-color: var(--cor-detalhe-azul); 
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.header-section {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.servico-card {
+    background-color: var(--cor-secundaria);
+    padding: 40px;
+    border-radius: var(--borda-radius);
+    text-align: center;
+    height: 100%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.servico-card:hover {
+    transform: translateY(-5px);
+    background-color: var(--cor-principal);
+}
+.icon-wrapper {
+    width: 60px;
+    height: 60px;
+    background-color: var(--cor-detalhe-azul);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    color: white;
+    margin: 0 auto 20px;
+}
+.servico-card h3 {
+    color: var(--cor-detalhe-azul); 
+}
+.servico-card p {
+    font-size: 0.95em;
+    color: var(--cor-texto-escuro);
+}
+
+/* Carrossel de Serviços e Depoimentos */
+.carousel-container {
+    overflow: hidden;
+    position: relative;
+    padding: 20px 0; 
+}
+.carousel-track {
+    display: flex;
+    animation: scroll-left 40s linear infinite; 
+    width: fit-content; 
+}
+.carousel-container:hover .carousel-track {
+    animation-play-state: paused; 
+}
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } 
+}
+.carousel-item {
+    min-width: 320px; 
+    margin-right: 30px;
+}
+
+/* --- SEÇÃO VÍDEO & TEXTO --- */
+.fundo-azul {
+    background-color: var(--cor-detalhe-azul);
+    padding: 100px 0;
+}
+.fundo-azul h2, .fundo-azul p {
+    color: white;
+}
+.tag-clara {
+    background-color: white;
+    color: var(--cor-detalhe-azul);
+    display: inline-block;
+    padding: 6px 15px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+.grid-video-texto {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+.video-container {
+    position: relative;
+    padding-top: 56.25%; 
+    border-radius: var(--borda-radius);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.texto-video p {
+    margin: 20px 0;
+    font-size: 1.05em;
+    color: #E6F0FF;
+}
+
+/* Botão Secundário */
+.btn-secundario {
+    background-color: white !important;
+    color: var(--cor-detalhe-azul) !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 15px 30px; 
+    border-radius: 5px; 
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.btn-secundario:hover {
+    transform: scale(1.05);
+}
+
+/* --- SEÇÃO GALERIA & ORÇAMENTO (Layout do Screenshot) --- */
+.fundo-claro-engajamento {
+    background-color: var(--cor-detalhe-azul-claro); /* Fundo azul claro para a seção */
+    padding: 60px 0;
+}
+
 #galeria-e-orcamento .container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px; /* Espaço entre a Galeria e a Calculadora */
+    gap: 40px; 
 }
 
 .secao-engajamento-wrapper, .secao-calculadora-wrapper {
     width: 100%;
-    max-width: 500px; /* Limita a largura para visualização mobile/cartão */
+    max-width: 500px; 
 }
 
-/* 2. Galeria com Botão de Curtir (Layout Exato do Screenshot) */
+/* Galeria com Botão de Curtir */
 .titulo-amado {
-    font-family: 'Montserrat', cursive, sans-serif; /* Mantenha 'Montserrat' para harmonizar */
+    font-family: 'Montserrat', cursive, sans-serif;
     font-weight: 700;
     color: var(--cor-texto-escuro);
     font-size: 1.8em;
@@ -30,7 +364,7 @@
 
 .resultados-grid {
     display: flex;
-    flex-direction: column; /* Coloca os itens em coluna */
+    flex-direction: column; 
     gap: 10px;
 }
 
@@ -48,7 +382,6 @@
 }
 
 .item-resultado.item-simples img {
-    /* Oculta a imagem (Placeholder) para obter o layout de lista do print */
     width: 0px; 
     height: 0px; 
     visibility: hidden;
@@ -57,8 +390,8 @@
 .info-curtir {
     display: flex;
     align-items: center;
-    order: 3; /* Move a curtida para o final do item */
-    margin-left: auto; /* Empurra para a direita */
+    order: 3; 
+    margin-left: auto; 
 }
 
 .resultado-nome {
@@ -66,18 +399,21 @@
     text-align: left;
     color: var(--cor-texto-escuro);
     font-weight: 400;
-    order: 2; /* Posição central */
+    order: 2; 
+    padding-left: 10px;
 }
 
-/* Ícone de Curtir (Ajusta o padding e cor para o design clean) */
 .btn-curtir {
     font-size: 20px;
-    color: #999; /* Cor mais suave */
+    color: #999; 
     transition: color 0.2s ease;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 .btn-curtir.curtido {
-    color: #FF4D4D; /* Cor rosa/vermelha */
+    color: #FF4D4D; 
 }
 
 .contador-likes {
@@ -87,9 +423,9 @@
     margin-left: 5px;
 }
 
-/* 3. Calculadora de Orçamento (Layout Exato do Screenshot) */
+/* Calculadora de Orçamento */
 .secao-calculadora-wrapper {
-    padding-top: 20px; /* Separa visualmente */
+    padding-top: 20px; 
 }
 
 .titulo-orcamento {
@@ -113,6 +449,7 @@
     font-weight: 600;
     color: var(--cor-texto-escuro);
     margin-bottom: 10px;
+    display: block;
 }
 
 .calculadora-form select {
@@ -121,9 +458,10 @@
     border-radius: 6px;
     margin-bottom: 25px;
     font-size: 1em;
+    width: 100%;
 }
 
-/* Estilo do DESTAQUE "Estimativa" (Exato do Screenshot) */
+/* Estilo do DESTAQUE "Estimativa" */
 .orcamento-display-final {
     text-align: center;
     font-size: 1.3em;
@@ -148,4 +486,157 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-weight: 700;
+}
+
+/* --- DEPOIMENTOS --- */
+.depoimento-card {
+    background-color: var(--cor-principal);
+    border: 1px solid #E9ECEF;
+    padding: 25px;
+    border-radius: var(--borda-radius);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.depoimento-card p {
+    font-style: italic;
+    font-size: 1em;
+    color: var(--cor-texto-escuro);
+}
+.perfil {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.perfil img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.perfil strong {
+    color: var(--cor-texto-escuro);
+}
+
+/* --- CTA FINAL --- */
+.fundo-azul-claro {
+    background-color: var(--cor-detalhe-azul-claro);
+    padding: 80px 0;
+    text-align: center;
+    border-top: 1px solid #DEE2E6;
+}
+
+.cta-futurista-wrapper h2 {
+    color: var(--cor-detalhe-azul);
+    font-size: 2.5em;
+}
+
+.cta-futurista-wrapper p {
+    color: var(--cor-texto-escuro);
+    font-size: 1.1em;
+    margin-bottom: 40px;
+}
+
+.btn-futurista {
+    background-color: var(--cor-wpp-bg) !important; 
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+    padding: 20px 50px;
+    font-size: 1.1em;
+    border-radius: 8px;
+    color: white !important;
+}
+.btn-futurista i { margin-right: 10px; }
+
+
+/* --- RODAPÉ --- */
+#footer {
+    background-color: #212529; 
+    color: white;
+    padding: 60px 0 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr;
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #495057;
+}
+
+.footer-about h3 { color: white; font-size: 1.8em; }
+.footer-about p { color: #ADB5BD; margin: 15px 0 20px; font-size: 0.95em; }
+
+.footer-social a {
+    font-size: 1.5em;
+    margin-right: 15px;
+    color: #ADB5BD;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover { color: var(--cor-detalhe-azul); }
+.footer-links h4, .footer-contact h4 { color: white; margin-bottom: 20px; }
+.footer-links ul { list-style: none; }
+.footer-links a {
+    display: block;
+    margin-bottom: 10px;
+    color: #ADB5BD;
+    transition: color 0.3s ease;
+    font-size: 0.9em;
+}
+
+.footer-links a:hover { color: var(--cor-detalhe-azul); }
+.footer-contact p { margin-bottom: 10px; color: #ADB5BD; font-size: 0.95em; }
+
+.footer-contact i { margin-right: 10px; color: var(--cor-detalhe-azul); }
+.copyright { text-align: center; padding-top: 20px; font-size: 0.8em; color: #6C757D; }
+
+/* --- WHATSAPP FLUTUANTE --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--cor-wpp-bg);
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+
+/* --- MEDIA QUERIES (Responsividade) --- */
+@media (max-width: 992px) {
+    h1 { font-size: 2.8em; }
+    h2 { font-size: 2em; }
+    
+    #navbar nav { display: none; }
+    .nav-content { justify-content: center; }
+    
+    .grid-video-texto { grid-template-columns: 1fr; }
+    
+    .texto-video { text-align: center; }
+    
+    .footer-grid { grid-template-columns: 1fr; text-align: center; }
+    
+    .footer-links, .footer-contact { text-align: center; }
+}
+
+@media (max-width: 600px) {
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.8em; }
+    
+    .stats-container { grid-template-columns: 1fr; }
+    .whatsapp-float { width: 50px; height: 50px; font-size: 25px; }
+
+    /* Ajuste de espaçamento em mobile para o layout do print */
+    .item-resultado.item-simples { padding: 12px; }
+    .orcamento-display-final { font-size: 1.1em; }
 }
