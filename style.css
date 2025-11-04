@@ -1,17 +1,20 @@
-/* --- CSS (style.css) - CÓDIGO COMPLETO E OTIMIZADO --- */
+/* --- CSS (style.css) - CÓDIGO INOVADOR E CORRIGIDO (Dark Blue Claro) --- */
 
-/* --- CONFIGURAÇÕES GLOBAIS E VARIÁVEIS (Dark Blue Aplicado) --- */
+/* --- CONFIGURAÇÕES GLOBAIS E VARIÁVEIS --- */
 :root {
-    --cor-fundo-principal: #1A202C; /* Dark Blue mais profundo */
-    --cor-fundo-card-dark: #2D3748; /* Azul escuro mais claro para cards */
-    --cor-fundo-card-light: #F8FAFC; /* Branco muito suave */
-    --cor-detalhe-vermelho: #EF4444; /* Vermelho para destaque de antes */
-    --cor-texto-claro: #F1F5F9; /* Texto claro */
-    --cor-texto-escuro: #334155; /* Texto escuro */
-    --cor-gradiente-start-cta: #00C6FF; /* Ciano */
-    --cor-gradiente-end-cta: #0072FF; /* Azul mais forte */
+    --cor-fundo-principal: #1F2937; /* Dark Blue Claro (Um cinza azulado moderno) */
+    --cor-fundo-card-dark: #374151; /* Cards mais claros que o fundo */
+    --cor-fundo-claro: #F8FAFC; 
+
+    --cor-gradiente-start-cta: #00BFFF; /* DeepSkyBlue */
+    --cor-gradiente-end-cta: #007FFF; /* Azul vibrante */
+    
     --cor-wpp-bg: #10B981; /* Verde WhatsApp */
+    --cor-texto-claro: #F1F5F9; 
+    --cor-texto-secundario: #9CA3AF; /* Cinza suave */
+
     --borda-radius-card: 15px;
+    --borda-radius-video: 20px;
 }
 
 /* Base e Tipografia */
@@ -26,6 +29,7 @@ body {
     color: var(--cor-texto-claro);
     background-color: var(--cor-fundo-principal); 
     line-height: 1.6;
+    overflow-x: hidden; /* Essencial para o carrossel */
 }
 
 section {
@@ -36,43 +40,56 @@ section {
     font-family: 'Poppins', sans-serif;
 }
 
-/* ... Títulos e links (mantidos) ... */
-
-/* Componentes Comuns */
-/* ... Tags e Header Section (mantidos) ... */
-
-.icon-wrapper {
-    /* ... Wrapper de ícone para Serviços e Diferenciais (mantido) ... */
-    background: linear-gradient(135deg, var(--cor-gradiente-start-cta), var(--cor-gradiente-end-cta));
+h1, h2, h3 {
+    color: var(--cor-texto-claro); 
+    font-family: 'Poppins', sans-serif;
 }
 
-.btn-cta {
-    /* ... Estilos base do CTA (mantidos) ... */
+h1 { font-size: 3.5em; font-weight: 800; }
+h2 { font-size: 2.5em; font-weight: 700; }
+h3 { font-size: 1.6em; font-weight: 600; }
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* Estilo do Botão WhatsApp no Hero (CORRIGIDO E PERSONALIZADO) */
-.btn-wpp-style {
-    background: none;
-    box-shadow: none;
-    padding: 0;
-    color: white; 
-    /* Remove o estilo "btn-cta" e aplica o estilo ao wrapper interno */
+/* Componentes de Estilo */
+.tag {
+    display: inline-block;
+    padding: 6px 15px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9em;
+    color: var(--cor-fundo-principal); 
+    margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
+.header-section {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.header-section p {
+    color: var(--cor-texto-secundario);
+    max-width: 700px;
+    margin: 10px auto 0;
+}
+
+/* Botão CTA Principal (WhatsApp) */
 .btn-wpp-style .icon-wpp-wrapper {
-    /* Aplicando o estilo de botão moderno aqui */
     display: inline-flex; 
     align-items: center;
-    justify-content: center;
-    padding: 15px 35px; /* Mais padding horizontal */
+    padding: 18px 40px;
     font-weight: 700;
     text-transform: uppercase;
-    
-    /* Fundo WhatsApp */
-    background: linear-gradient(90deg, #16A34A, var(--cor-wpp-bg)); 
-    border-radius: 50px; /* Mais arredondado */
+    background: linear-gradient(90deg, #10B981, #059669); 
+    border-radius: 50px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.6); /* Sombra mais forte */
+    box-shadow: 0 6px 25px rgba(16, 185, 129, 0.5);
+    color: white;
 }
 
 .btn-wpp-style .icon-wpp-wrapper:hover {
@@ -81,19 +98,31 @@ section {
 
 .btn-wpp-style .icon-wpp-wrapper i {
     margin-right: 12px;
-    font-size: 1.4em; /* Ícone um pouco maior */
+    font-size: 1.4em;
 }
-/* FIM DA CORREÇÃO DO BOTÃO WHATSAPP */
 
+/* --- HERO SECTION --- */
+#hero {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 120px;
+}
 
-/* --- Seção Hero --- */
-/* ... (Mantida) ... */
+#hero p {
+    max-width: 800px;
+    font-size: 1.2em;
+    margin-bottom: 50px;
+    color: var(--cor-texto-secundario);
+}
 
-/* --- Seção Stats (Grid e Cards Arredondados) --- */
+/* --- STATS SECTION --- */
 #stats {
     padding: 40px 0; 
     margin-bottom: 40px; 
-    background-color: var(--cor-fundo-principal);
 }
 
 .stats-container {
@@ -109,16 +138,13 @@ section {
     padding: 30px;
     border-radius: var(--borda-radius-card); 
     text-align: center;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    border-bottom: 5px solid var(--cor-gradiente-end-cta); /* Linha futurista */
     transition: transform 0.3s ease;
 }
 
-.stats-card:hover {
-    transform: translateY(-5px);
-}
-
 .stats-card .poppins {
-    font-size: 3em;
+    font-size: 3.5em;
     font-weight: 800;
     color: var(--cor-gradiente-start-cta);
     line-height: 1;
@@ -126,54 +152,205 @@ section {
 }
 
 .stats-card p {
-    font-size: 1.1em;
-    color: var(--cor-texto-claro);
-    margin: 0;
+    color: var(--cor-texto-secundario);
+    margin-top: 10px;
+    font-weight: 600;
 }
 
-/* --- Seção Serviços --- */
+/* --- CARROSSEL GERAL (Serviços e Depoimentos) --- */
+.carousel-container {
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 20px; /* Espaço para sombra/efeito */
+}
+
+.carousel-track {
+    display: flex;
+    animation: scroll-left 40s linear infinite; /* Animacao padrão */
+    width: fit-content; /* Permite que os itens excedam o container */
+}
+
+.carousel-container:hover .carousel-track {
+    animation-play-state: paused; /* Pausa ao passar o mouse */
+}
+
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Move exatamente 50% para um loop perfeito */
+}
+
+.carousel-item {
+    min-width: 350px; /* Tamanho de cada item */
+    margin-right: 30px;
+}
+
+/* --- SEÇÃO SERVIÇOS (Carrossel) --- */
 #servicos {
-    background-color: var(--cor-fundo-principal);
+    padding: 60px 0;
 }
 
 .servico-card {
-    /* Corrigido para Dark Card */
     background-color: var(--cor-fundo-card-dark);
-    padding: 30px;
+    padding: 40px;
     border-radius: var(--borda-radius-card);
     text-align: center;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); 
-}
-
-/* ... O restante do CSS (Diferenciais, Galeria, Depoimentos, etc.) é mantido e está correto ... */
-
-
-/* --- Botão Flutuante WhatsApp (Mantido apenas ícone para não competir com o CTA do Hero) --- */
-.whatsapp-float {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 20px;
-    right: 20px;
-    background-color: #25d366;
-    color: #FFF;
-    border-radius: 50px;
-    text-align: center;
-    font-size: 30px;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    height: 100%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
 }
 
-.whatsapp-float:hover {
-    transform: scale(1.1);
+.servico-card:hover {
+    transform: translateY(-5px);
+    background-color: #4B5563; /* Efeito hover mais claro */
 }
 
-/* --- Media Queries (Responsividade mantida) --- */
+.icon-wrapper {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--cor-gradiente-start-cta), var(--cor-gradiente-end-cta));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8em;
+    color: white;
+    margin: 0 auto 20px;
+}
+
+.servico-card p {
+    color: var(--cor-texto-secundario);
+    font-size: 0.95em;
+}
+
+/* --- SEÇÃO VÍDEO --- */
+#video-destaque {
+    padding-top: 0;
+}
+
+.video-container {
+    max-width: 900px;
+    height: 500px; /* Tamanho do quadrado */
+    margin: 0 auto;
+    border-radius: var(--borda-radius-video);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- SEÇÃO DEPOIMENTOS (Carrossel) --- */
+#depoimentos {
+    background-color: var(--cor-fundo-principal); /* Garante que o fundo seja o Dark Blue principal */
+}
+
+.depoimento-card {
+    background-color: var(--cor-fundo-card-dark);
+    padding: 30px;
+    border-radius: var(--borda-radius-card);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    height: 220px; /* Altura fixa para alinhar o carrossel */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.depoimento-card blockquote {
+    font-style: italic;
+    margin: 15px 0 0;
+    color: var(--cor-texto-claro);
+    font-size: 1.05em;
+    flex-grow: 1;
+}
+
+.perfil {
+    display: flex;
+    align-items: center;
+}
+
+.perfil img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+/* --- SEÇÃO ORÇAMENTO FUTURISTA (2) --- */
+#solicite-orcamento {
+    padding: 80px 0;
+    background: linear-gradient(45deg, #111827, #1F2937); /* Fundo sutilmente gradiente */
+    text-align: center;
+    border-top: 1px solid #374151;
+}
+
+.cta-futurista-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-futurista-wrapper h2 {
+    font-size: 2.5em;
+    color: var(--cor-gradiente-start-cta);
+    margin-bottom: 10px;
+}
+
+.cta-futurista-wrapper p {
+    font-size: 1.1em;
+    color: var(--cor-texto-secundario);
+    margin-bottom: 40px;
+}
+
+.btn-futurista {
+    padding: 20px 50px;
+    font-size: 1.1em;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #10B981, #059669); 
+    box-shadow: 0 8px 30px rgba(16, 185, 129, 0.7);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.btn-futurista:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 35px rgba(16, 185, 129, 0.9);
+}
+
+/* --- RODAPÉ --- */
+footer {
+    background-color: #111827; /* Darkest Dark Blue */
+    padding: 50px 0 10px;
+    color: var(--cor-texto-secundario);
+}
+/* ... (Resto do Rodapé mantido) ... */
+
+/* --- BOTÃO FLUTUANTE WHATSAPP --- */
+.whatsapp-float {
+    /* ... (Mantido) ... */
+}
+
+/* --- Media Queries --- */
 @media (max-width: 768px) {
-    /* ... (Mantida) ... */
+    h1 { font-size: 2.5em; }
+    h2 { font-size: 1.8em; }
+    .stats-container { grid-template-columns: 1fr; }
+    
+    .carousel-item {
+        min-width: 90vw; /* Ocupa a maior parte da tela mobile */
+    }
+    
+    .video-container {
+        height: 300px;
+        border-radius: 10px;
+    }
+    
+    .btn-futurista {
+        padding: 15px 30px;
+        font-size: 1em;
+    }
 }
