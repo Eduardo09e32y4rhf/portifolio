@@ -8,7 +8,7 @@
     --cor-texto-suave: #6C757D; 
 
     --cor-wpp-bg: #25D366; 
-    --cor-curtir-vermelho: #FF4D4D; /* Cor de destaque do coração */
+    --cor-curtir-vermelho: #FF4D4D; 
     --borda-radius: 10px;
 }
 
@@ -355,7 +355,7 @@ nav a:hover {
 
 /* Galeria de Fotos (Ajustada) */
 .titulo-amado {
-    font-family: 'Montserrat', sans-serif; /* Coração removido, estilo mantido */
+    font-family: 'Montserrat', sans-serif; 
     font-weight: 700;
     color: var(--cor-texto-escuro);
     font-size: 1.8em;
@@ -379,18 +379,19 @@ nav a:hover {
     background-color: var(--cor-principal);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     position: relative; 
+    cursor: pointer; /* Indica que o card é clicável */
 }
 
 .item-resultado.item-foto img {
     width: 100%;
-    height: 180px; /* Aumento da altura para dar mais destaque */
+    height: 220px; /* Aumento significativo da altura */
     object-fit: cover;
     visibility: visible;
     border-bottom: 1px solid #e0e0e0;
     transition: transform 0.3s ease;
 }
 .item-resultado.item-foto:hover img {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 .item-foto .info-curtir {
@@ -403,6 +404,7 @@ nav a:hover {
     display: flex;
     align-items: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 2; /* Garante que o botão fique acima da animação */
 }
 
 .item-foto .resultado-nome {
@@ -423,7 +425,6 @@ nav a:hover {
     padding: 0;
 }
 
-/* Cor Vermelha ao Curtir (conforme solicitado) */
 .btn-curtir.curtido {
     color: var(--cor-curtir-vermelho); 
     transform: scale(1.1);
@@ -435,6 +436,30 @@ nav a:hover {
     color: var(--cor-texto-escuro);
     margin-left: 5px;
 }
+
+/* Animação de Coração Grande */
+.heart-animation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    font-size: 80px; /* Tamanho do coração grande */
+    color: var(--cor-curtir-vermelho);
+    opacity: 0;
+    pointer-events: none; /* Não interfere com cliques */
+    z-index: 1; /* Abaixo do botão de curtir */
+}
+
+.heart-animation.animate {
+    animation: popHeart 0.6s ease-out forwards;
+}
+
+@keyframes popHeart {
+    0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+}
+
 
 /* Calculadora de Orçamento */
 .secao-calculadora-wrapper {
@@ -465,12 +490,11 @@ nav a:hover {
     display: block;
 }
 
-/* Estilização Moderna para o SELECT (Sem aparência de lista antiga) */
+/* Estilização Moderna para o SELECT (Sem aparência de lista antiga, mais sofisticado) */
 .calculadora-form select {
     appearance: none; 
     -webkit-appearance: none;
     -moz-appearance: none;
-    /* Adiciona uma seta moderna para indicar que é um dropdown */
     background: white url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23007BFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") no-repeat right 15px center;
     background-size: 20px;
     
@@ -478,9 +502,9 @@ nav a:hover {
     color: var(--cor-texto-escuro);
     font-weight: 500;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    padding: 14px 15px; /* Padding um pouco maior */
-    border-radius: 8px; /* Borda mais arredondada */
-    margin-bottom: 30px; /* Mais espaço após a seleção */
+    padding: 14px 15px; 
+    border-radius: 8px; 
+    margin-bottom: 30px; 
     font-size: 1em;
     width: 100%;
     cursor: pointer;
@@ -488,7 +512,7 @@ nav a:hover {
 
 .calculadora-form select:focus {
     border-color: #0056b3;
-    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.3); /* Destaque azul mais forte */
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.3); 
     outline: none;
 }
 
