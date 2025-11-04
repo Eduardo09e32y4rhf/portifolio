@@ -1,15 +1,15 @@
-/* --- CSS (style.css) - DESIGN CLEAN & PREMIUM (BRANCO E AZUL) --- */
+/* --- CSS (style.css) - AJUSTES RÁPIDOS E CORREÇÕES FINAIS --- */
 
 /* --- CONFIGURAÇÕES GLOBAIS E VARIÁVEIS --- */
 :root {
-    --cor-principal: #FFFFFF; /* Branco como cor principal */
-    --cor-secundaria: #F8F9FA; /* Branco OFF-WHITE para alternar seções */
-    --cor-detalhe-azul: #007BFF; /* Azul Vibrante e Profissional */
-    --cor-detalhe-azul-claro: #E6F0FF; /* Azul muito suave para BG de destaque */
-    --cor-texto-escuro: #212529; /* Preto/Azul Escuro para Texto */
-    --cor-texto-suave: #6C757D; /* Cinza suave */
+    --cor-principal: #FFFFFF; 
+    --cor-secundaria: #F8F9FA; 
+    --cor-detalhe-azul: #007BFF; 
+    --cor-detalhe-azul-claro: #E6F0FF; 
+    --cor-texto-escuro: #212529; 
+    --cor-texto-suave: #6C757D; 
 
-    --cor-wpp-bg: #25D366; /* Verde WhatsApp Padrão */
+    --cor-wpp-bg: #25D366; 
     --borda-radius: 10px;
 }
 
@@ -19,6 +19,7 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    text-decoration: none; /* Garante que links não tenham sublinhado */
 }
 
 body {
@@ -30,7 +31,7 @@ body {
 }
 
 section {
-    padding: 100px 0; /* Aumenta o espaçamento para parecer mais sofisticado */
+    padding: 100px 0; 
 }
 
 .montserrat {
@@ -55,69 +56,56 @@ p { color: var(--cor-texto-suave); }
     padding: 0 20px;
 }
 
-.blue-text {
-    color: var(--cor-detalhe-azul);
-}
-
-/* --- NAV BAR --- */
-#navbar {
-    background-color: var(--cor-principal);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    padding: 15px 0;
-}
-
-.nav-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 1.5em;
-    font-weight: 900;
-    color: var(--cor-texto-escuro);
-}
-
-nav a {
-    margin-left: 30px;
-    color: var(--cor-texto-escuro);
-    font-weight: 600;
-    transition: color 0.3s ease;
-}
-
-nav a:hover {
-    color: var(--cor-detalhe-azul);
-}
-
-.btn-nav {
-    background-color: var(--cor-detalhe-azul);
-    color: white !important;
-    padding: 8px 15px;
-    border-radius: 5px;
-}
-
-/* --- HERO SECTION --- */
+/* --- HERO SECTION - FOTO DE FUNDO E TEXTO CLARO --- */
 #hero {
-    min-height: 80vh;
+    min-height: 90vh; /* Aumenta o tamanho da seção */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding-top: 120px;
+    position: relative;
+    padding: 0;
+    
+    /* SIMULAÇÃO DA FOTO DE FUNDO */
+    background: url('https://picsum.photos/1920/1080?random=1') no-repeat center center/cover;
 }
 
-#hero p {
-    max-width: 700px;
-    font-size: 1.1em;
-    margin-bottom: 40px;
-    color: var(--cor-texto-escuro);
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Escurece a imagem para o texto ser legível */
+    z-index: 1;
 }
 
-/* Botão CTA Principal */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding-top: 150px;
+    padding-bottom: 100px;
+}
+
+#hero h1, #hero p {
+    color: var(--cor-principal); /* Texto branco sobre a foto escura */
+}
+
+.blue-text-hero {
+    color: var(--cor-detalhe-azul); /* Cor de detalhe para a palavra Gslimp */
+}
+
+/* --- BOTÃO CTA PRINCIPAL (CORRIGIDO) --- */
+.btn-cta {
+    /* Reset básico */
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
 .btn-cta.btn-wpp-style {
     display: inline-flex;
     align-items: center;
@@ -126,13 +114,12 @@ nav a:hover {
     text-transform: uppercase;
     background-color: var(--cor-detalhe-azul);
     border-radius: 50px;
-    transition: all 0.3s ease;
     box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
-    color: white;
+    color: white; /* Garante que o texto seja branco */
 }
 
 .btn-cta.btn-wpp-style:hover {
-    transform: translateY(-3px) scale(1.02);
+    transform: translateY(-3px);
     box-shadow: 0 10px 30px rgba(0, 123, 255, 0.6);
 }
 
@@ -141,9 +128,9 @@ nav a:hover {
     font-size: 1.4em;
 }
 
-/* --- STATS SECTION --- */
+/* --- STATS SECTION - NÚMEROS ESTÁTICOS --- */
 #stats {
-    background-color: var(--cor-detalhe-azul-claro); /* Azul claro de fundo para contraste */
+    background-color: var(--cor-detalhe-azul-claro); 
     padding: 60px 0;
 }
 
@@ -159,7 +146,7 @@ nav a:hover {
     border-radius: var(--borda-radius); 
     text-align: center;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    border-top: 5px solid var(--cor-detalhe-azul); /* Detalhe moderno */
+    border-top: 5px solid var(--cor-detalhe-azul); 
     transition: transform 0.3s ease;
 }
 
@@ -181,125 +168,31 @@ nav a:hover {
     font-weight: 600;
 }
 
-/* --- SEÇÃO SERVIÇOS --- */
-.tag {
-    display: inline-block;
-    padding: 6px 15px;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 0.9em;
-    color: white;
-    background-color: var(--cor-detalhe-azul); 
-    margin-bottom: 20px;
-    text-transform: uppercase;
-}
-
-.header-section {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.header-section p {
-    max-width: 800px;
-    margin: 10px auto 0;
-}
-
-/* CARROSSEL GERAL (Serviços e Depoimentos) */
-.carousel-container {
-    overflow: hidden;
-    position: relative;
-    padding: 20px 0; 
-}
-
-.carousel-track {
-    display: flex;
-    animation: scroll-left 40s linear infinite; 
-    width: fit-content; 
-}
-
-.carousel-container:hover .carousel-track {
-    animation-play-state: paused; 
-}
-
-@keyframes scroll-left {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); } 
-}
-
-.carousel-item {
-    min-width: 320px; 
-    margin-right: 30px;
-}
-
-/* Cards de Serviço (Carrossel) */
-.servico-card {
-    background-color: var(--cor-secundaria);
-    padding: 40px;
-    border-radius: var(--borda-radius);
-    text-align: center;
-    height: 100%;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.servico-card:hover {
-    transform: translateY(-5px);
-    background-color: var(--cor-principal);
-}
-
-.icon-wrapper {
-    width: 60px;
-    height: 60px;
-    background-color: var(--cor-detalhe-azul);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5em;
-    color: white;
-    margin: 0 auto 20px;
-}
-
-.servico-card h3 {
-    color: var(--cor-detalhe-azul); 
-}
-
-.servico-card p {
-    font-size: 0.95em;
-    color: var(--cor-texto-escuro);
-}
-
-
-/* --- SEÇÃO VÍDEO & TEXTO (Fundo Azul) --- */
+/* --- SEÇÃO VÍDEO & TEXTO (Botão Secundário Corrigido) --- */
 .fundo-azul {
     background-color: var(--cor-detalhe-azul);
     padding: 100px 0;
 }
-
 .fundo-azul h2, .fundo-azul p {
     color: white;
 }
-
 .tag-clara {
     background-color: white;
     color: var(--cor-detalhe-azul);
 }
-
 .grid-video-texto {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 50px;
     align-items: center;
 }
-
 .video-container {
     position: relative;
-    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    padding-top: 56.25%; 
     border-radius: var(--borda-radius);
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
-
 .video-container iframe {
     position: absolute;
     top: 0;
@@ -307,57 +200,27 @@ nav a:hover {
     width: 100%;
     height: 100%;
 }
-
 .texto-video p {
     margin: 20px 0;
     font-size: 1.05em;
     color: #E6F0FF;
 }
 
+/* Botão Secundário - Corrigido */
 .btn-secundario {
     background-color: white !important;
     color: var(--cor-detalhe-azul) !important;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 15px 30px; /* Padding ajustado */
+    border-radius: 5px; /* Borda mais discreta */
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.btn-secundario:hover {
+    transform: scale(1.05);
 }
 
-/* --- SEÇÃO DEPOIMENTOS --- */
-.depoimento-card {
-    background-color: var(--cor-principal);
-    border: 1px solid #E9ECEF;
-    padding: 25px;
-    border-radius: var(--borda-radius);
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-    height: 200px; /* Altura fixa para carrossel */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.depoimento-card p {
-    font-style: italic;
-    font-size: 1em;
-    color: var(--cor-texto-escuro);
-}
-
-.perfil {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.perfil img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
-.perfil strong {
-    color: var(--cor-texto-escuro);
-}
-
-
-/* --- SEÇÃO ORÇAMENTO FUTURISTA (Fundo Azul Claro) --- */
+/* --- SEÇÃO ORÇAMENTO FUTURISTA (Botão Futurista Corrigido) --- */
 .fundo-azul-claro {
     background-color: var(--cor-detalhe-azul-claro);
     padding: 80px 0;
@@ -376,8 +239,8 @@ nav a:hover {
     margin-bottom: 40px;
 }
 
+/* Botão Futurista - Corrigido */
 .btn-futurista {
-    /* Mantém o verde vibrante do WhatsApp para contraste máximo */
     background-color: var(--cor-wpp-bg) !important; 
     box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
     padding: 20px 50px;
@@ -386,7 +249,150 @@ nav a:hover {
     color: white !important;
 }
 
-/* --- RODAPÉ SOFISTICADO --- */
+/* --- Demais Estilos (NAV BAR, CARDS, RODAPÉ) - Mantidos e Corrigidos --- */
+#navbar {
+    background-color: var(--cor-principal);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 0;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    font-size: 1.5em;
+    font-weight: 900;
+    color: var(--cor-texto-escuro);
+}
+nav a {
+    margin-left: 30px;
+    color: var(--cor-texto-escuro);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+nav a:hover {
+    color: var(--cor-detalhe-azul);
+}
+
+.btn-nav {
+    background-color: var(--cor-detalhe-azul);
+    color: white !important;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 6px 15px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9em;
+    color: white;
+    background-color: var(--cor-detalhe-azul); 
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.header-section {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.servico-card {
+    background-color: var(--cor-secundaria);
+    padding: 40px;
+    border-radius: var(--borda-radius);
+    text-align: center;
+    height: 100%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.servico-card:hover {
+    transform: translateY(-5px);
+    background-color: var(--cor-principal);
+}
+.icon-wrapper {
+    width: 60px;
+    height: 60px;
+    background-color: var(--cor-detalhe-azul);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    color: white;
+    margin: 0 auto 20px;
+}
+.servico-card h3 {
+    color: var(--cor-detalhe-azul); 
+}
+.servico-card p {
+    font-size: 0.95em;
+    color: var(--cor-texto-escuro);
+}
+
+/* Carrossel */
+.carousel-container {
+    overflow: hidden;
+    position: relative;
+    padding: 20px 0; 
+}
+.carousel-track {
+    display: flex;
+    animation: scroll-left 40s linear infinite; 
+    width: fit-content; 
+}
+.carousel-container:hover .carousel-track {
+    animation-play-state: paused; 
+}
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } 
+}
+.carousel-item {
+    min-width: 320px; 
+    margin-right: 30px;
+}
+
+
+/* Depoimentos */
+.depoimento-card {
+    background-color: var(--cor-principal);
+    border: 1px solid #E9ECEF;
+    padding: 25px;
+    border-radius: var(--borda-radius);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.depoimento-card p {
+    font-style: italic;
+    font-size: 1em;
+    color: var(--cor-texto-escuro);
+}
+.perfil {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.perfil img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.perfil strong {
+    color: var(--cor-texto-escuro);
+}
+
+/* RODAPÉ SOFISTICADO */
 #footer {
     background-color: #212529; /* Azul Escuro/Quase Preto */
     color: white;
