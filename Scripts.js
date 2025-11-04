@@ -13,11 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (track) track.style.animationPlayState = 'running';
         };
         
-        // Desktop
+        // Desktop e Mobile
         container.addEventListener('mouseenter', pauseAnimation);
         container.addEventListener('mouseleave', resumeAnimation);
-        
-        // Mobile
         container.addEventListener('touchstart', pauseAnimation);
         container.addEventListener('touchend', () => {
             setTimeout(resumeAnimation, 1000); 
@@ -25,14 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // --- Lógica 2: Botão Curtir (Persistência com LocalStorage) ---
+    // --- Lógica 2: Botão Curtir (Com Coração Vermelho) ---
     const likeButtons = document.querySelectorAll('.btn-curtir');
 
     likeButtons.forEach(button => {
         const itemId = button.getAttribute('data-id');
         const likesSpan = document.getElementById(`likes-${itemId}`);
         
-        // Puxa o contador do localStorage ou usa o valor inicial do HTML
         let currentLikes = parseInt(localStorage.getItem(`likes-${itemId}`)) || parseInt(likesSpan.textContent);
         likesSpan.textContent = currentLikes;
         
@@ -59,28 +56,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 isLiked = true;
             }
             
-            // Salva o estado
+            // Salva o estado e atualiza o display
             localStorage.setItem(`liked-${itemId}`, isLiked);
             localStorage.setItem(`likes-${itemId}`, currentLikes);
             likesSpan.textContent = currentLikes;
         });
     });
 
-    // --- Lógica 3: Calculadora de Orçamento Rápido (Função Global para o Botão) ---
-
 });
 
 
-// Função para gerar o link do WhatsApp (Visível globalmente para o onclick no HTML)
+// Função para gerar o link do WhatsApp (Visível globalmente para o onclick)
 function gerarLinkZap() {
     const select = document.getElementById('tipoEstofado');
-    // Pega o TEXTO visível da opção selecionada
     const opcaoSelecionada = select.options[select.selectedIndex].text; 
 
     // Mensagem de orçamento corrigida
-    const mensagemPadrao = `Olá, quero fazer um orçamento para a seguinte opção: ${opcaoSelecionada}`;
+    const mensagemPadrao = `Olá, quero fazer o orçamento de: ${opcaoSelecionada}`;
     
-    // Seu número de WhatsApp (82) 99152-2179
     const numeroTelefone = '5582991522179'; 
     const encodedMessage = encodeURIComponent(mensagemPadrao);
     const linkZap = `https://wa.me/${numeroTelefone}?text=${encodedMessage}`;
