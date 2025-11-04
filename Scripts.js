@@ -23,12 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // --- Lógica 2: Botão Curtir (Com Coração Vermelho) ---
+    // --- Lógica 2: Botão Curtir (Com Coração Vermelho e Animação no Centro) ---
     const likeButtons = document.querySelectorAll('.btn-curtir');
 
     likeButtons.forEach(button => {
         const itemId = button.getAttribute('data-id');
         const likesSpan = document.getElementById(`likes-${itemId}`);
+        const heartAnimationDiv = document.querySelector(`.heart-animation[data-id="${itemId}"]`); // Pega o div de animação
         
         let currentLikes = parseInt(localStorage.getItem(`likes-${itemId}`)) || parseInt(likesSpan.textContent);
         likesSpan.textContent = currentLikes;
@@ -41,7 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
             button.querySelector('i').classList.replace('far', 'fas');
         }
 
-        button.addEventListener('click', () => {
+        button.addEventListener('click', (event) => {
+            event.stopPropagation(); // Impede que o clique no botão se propague para o card (se houver)
+
             if (isLiked) {
                 // Descurtir
                 currentLikes -= 1;
@@ -54,6 +57,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 button.classList.add('curtido');
                 button.querySelector('i').classList.replace('far', 'fas');
                 isLiked = true;
+
+                // Animação do coração no centro da imagem
+                if (heartAnimationDiv) {
+                    heartAnimationDiv.innerHTML = '<i class="fas fa-heart"></i>'; // Adiciona o ícone
+                    heartAnimationDiv.classList.remove('animate'); // Reseta a animação
+                    void heartAnimationDiv.offsetWidth; // Força o reflow para reiniciar
+                    heartAnimationDiv.classList.add('animate'); // Inicia a animação
+                }
             }
             
             // Salva o estado e atualiza o display
