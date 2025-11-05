@@ -1,47 +1,72 @@
-// --- ORÇAMENTO VIA WHATSAPP ---
-const btn = document.getElementById("btnOrcamento");
-if (btn) {
-  btn.addEventListener("click", () => {
-    const tipo = document.getElementById("tipoEstofado").value;
-    const telefone = "5599999999999"; // Substitua pelo seu número
-    const mensagem = `Olá! Gostaria de solicitar um orçamento para ${tipo}.`;
-    const link = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
-    window.open(link, "_blank");
+document.addEventListener('DOMContentLoaded', () => {
+
+  // --- Pausa do carrossel ---
+  const carousels = document.querySelectorAll('.carousel-container');
+  carousels.forEach(container => {
+    const track = container.querySelector('.carousel-track');
+    const pauseAnimation = () => { if (track) track.style.animationPlayState = 'paused'; };
+    const resumeAnimation = () => { if (track) track.style.animationPlayState = 'running'; };
+    container.addEventListener('mouseenter', pauseAnimation);
+    container.addEventListener('mouseleave', resumeAnimation);
+    container.addEventListener('touchstart', pauseAnimation);
+    container.addEventListener('touchend', () => setTimeout(resumeAnimation, 1000));
   });
-}
 
-// --- SISTEMA DE CURTIDAS (COM PERSISTÊNCIA LOCAL) ---
-const hearts = document.querySelectorAll(".heart");
+  // --- Botão Curtir ---
+  const likeButtons = document.querySelectorAll('.btn-curtir');
+  likeButtons.forEach(button => {
+    const itemId = button.getAttribute('data-id');
+    const likesSpan = document.getElementById(`likes-${itemId}`);
+    const heartAnimationDiv = document.querySelector(`.heart-animation[data-id="${itemId}"]`);
+    let currentLikes = parseInt(localStorage.getItem(`likes-${itemId}`)) || parseInt(likesSpan.textContent);
+    likesSpan.textContent = currentLikes;
+    let isLiked = localStorage.getItem(`liked-${itemId}`) === 'true';
+    if (isLiked) {
+      button.classList.add('curtido');
+      button.querySelector('i').classList.replace('far', 'fas');
+    }
+    button.addEventListener('click', (event) => {
+      event.stopPropagation();
+      if (isLiked) {
+        currentLikes -= 1;
+        button.classList.remove('curtido');
+        button.querySelector('i').classList.replace('fas', 'far');
+        isLiked = false;
+      } else {
+        currentLikes += 1;
+        button.classList.add('curtido');
+        button.querySelector('i').classList.replace('far', 'fas');
+        isLiked = true;
+        if (heartAnimationDiv) {
+          heartAnimationDiv.innerHTML = '<i class="fas fa-heart"></i>';
+          heartAnimationDiv.classList.remove('animate');
+          void heartAnimationDiv.offsetWidth;
+          heartAnimationDiv.classList.add('animate');
+        }
+      }
+      localStorage.setItem(`liked-${itemId}`, isLiked);
+      localStorage.setItem(`likes-${itemId}`, currentLikes);
+      likesSpan.textContent = currentLikes;
+    });
+  });
 
-hearts.forEach((heart) => {
-  const index = heart.dataset.index;
-  if (localStorage.getItem(`liked-${index}`) === "true") {
-    heart.classList.add("liked");
-  }
-
-  heart.addEventListener("click", (e) => {
-    e.preventDefault(); // evita selecionar a imagem
-    e.stopPropagation();
-    heart.classList.toggle("liked");
-    const liked = heart.classList.contains("liked");
-    localStorage.setItem(`liked-${index}`, liked);
+  // --- Bloqueio de copiar ---
+  document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey || e.metaKey) {
+      if (['c','u','i','j','s','C','U','I','J','S'].includes(e.key)) {
+        e.preventDefault();
+        return false;
+      }
+    }
   });
 });
 
-// --- NEXT.JS BASE EXEMPLO (API INTERNA) ---
-/*
-Se migrar para Next.js, crie este arquivo:
-📁 /pages/api/like.js
-
-export default function handler(req, res) {
-  if (req.method === "POST") {
-    // Aqui você pode salvar curtidas em banco de dados
-    const { id, liked } = req.body;
-    return res.status(200).json({ success: true, id, liked });
-  } else {
-    res.status(405).end();
-  }
+// --- Função WhatsApp ---
+function gerarLinkZap() {
+  const select = document.getElementById('tipoEstofado');
+  const opcaoSelecionada = select ? select.options[select.selectedIndex].text : 'Serviço';
+  const mensagem = `Olá, quero fazer o orçamento de: ${opcaoSelecionada}`;
+  const numeroTelefone = '5582991522179';
+  const link = `https://wa.me/${numeroTelefone}?text=${encodeURIComponent(mensagem)}`;
+  window.open(link, '_blank');
 }
-*/
-
-// Esse script funciona tanto em site HTML puro quanto em Next.js.
