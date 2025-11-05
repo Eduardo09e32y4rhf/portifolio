@@ -1,199 +1,227 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GSLIMP - Sua Especialista em Higienização Profissional</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://kit.fontawesome.com/a2e0c66c1a.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sua Empresa de Estofados - Moderno e Interativo</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <style>
+        /* Cole o Código CSS COMPLETO aqui se for um único arquivo HTML,
+           ou remova e use <link rel="stylesheet" href="style.css"> */
+    </style>
 </head>
 <body>
-
-  <!-- NAVBAR -->
-  <header id="navbar">
-    <div class="container nav-content">
-      <div class="logo">GSLIMP</div>
-      <nav>
-        <a href="#hero">Início</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#galeria-e-orcamento">Orçamento</a>
-        <a href="#footer">Contato</a>
-      </nav>
-      <a href="#orcamento" class="btn-nav">Solicitar Orçamento</a>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1>Higienização Profissional de <span class="blue-text-hero">Estofados</span></h1>
-      <p>Limpeza profunda de sofás, colchões, automóveis e mais.</p>
-      <button class="btn-cta btn-wpp-style" onclick="gerarLinkZap()">
-        <i class="fab fa-whatsapp"></i> Solicitar Orçamento
-      </button>
-    </div>
-  </section>
-
-  <!-- ESTATÍSTICAS -->
-  <section id="stats">
-    <div class="container stats-container">
-      <div class="stats-card">
-        <span class="montserrat">+500</span>
-        <p>Clientes Atendidos</p>
-      </div>
-      <div class="stats-card">
-        <span class="montserrat">+1000</span>
-        <p>Estofados Higienizados</p>
-      </div>
-      <div class="stats-card">
-        <span class="montserrat">+8</span>
-        <p>Anos de Experiência</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVIÇOS -->
-  <section id="servicos">
-    <div class="container">
-      <div class="header-section">
-        <span class="tag">Serviços</span>
-        <h2>Nossos Serviços</h2>
-        <p>Profissionais e equipamentos de alta performance para o melhor resultado.</p>
-      </div>
-
-      <div class="carousel-container">
-        <div class="carousel-track">
-          <div class="carousel-item servico-card">
-            <div class="icon-wrapper"><i class="fas fa-couch"></i></div>
-            <h3>Limpeza de Sofás</h3>
-            <p>Remoção completa de ácaros e sujeiras.</p>
-          </div>
-          <div class="carousel-item servico-card">
-            <div class="icon-wrapper"><i class="fas fa-bed"></i></div>
-            <h3>Higienização de Colchões</h3>
-            <p>Elimine fungos e odores do seu colchão.</p>
-          </div>
-          <div class="carousel-item servico-card">
-            <div class="icon-wrapper"><i class="fas fa-car"></i></div>
-            <h3>Limpeza Automotiva</h3>
-            <p>Higienização interna completa de veículos.</p>
-          </div>
+    
+    <header id="navbar">
+        <div class="container nav-content">
+            <a href="#" class="logo montserrat">Seu Logo</a>
+            <nav>
+                <a href="#hero">Início</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#galeria-e-orcamento">Galeria</a>
+                <a href="#contato" class="btn-nav">Contato</a>
+            </nav>
         </div>
-      </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- VÍDEO -->
-  <section class="fundo-azul">
-    <div class="container grid-video-texto">
-      <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/2Vv-BfVoq4g" frameborder="0" allowfullscreen></iframe>
-      </div>
-      <div class="texto-video">
-        <span class="tag-clara">Sobre Nós</span>
-        <h2>Conheça Nosso Trabalho</h2>
-        <p>Com anos de experiência, garantimos a melhor limpeza de estofados do mercado.</p>
-        <button class="btn-secundario" onclick="gerarLinkZap()">Solicitar Agora</button>
-      </div>
-    </div>
-  </section>
+    <section id="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1 class="montserrat">A <span class="blue-text-hero">Melhor</span> Restauração de Estofados.</h1>
+            <p>Especialistas em renovar seus móveis com a mais alta qualidade e carinho.</p>
+            <button class="btn-cta btn-wpp-style" onclick="window.open('https://wa.me/5582991522179?text=Olá,%20gostaria%20de%20um%20orçamento!', '_blank');">
+                <i class="fab fa-whatsapp"></i> Orçamento Instantâneo
+            </button>
+        </div>
+    </section>
 
-  <!-- GALERIA + ORÇAMENTO -->
-  <section id="galeria-e-orcamento" class="fundo-claro-engajamento">
-    <div class="container">
-
-      <div class="secao-engajamento-wrapper">
-        <h3 class="titulo-amado">Alguns de Nossos Trabalhos</h3>
-        <div class="resultados-grid grid-fotos">
-          <div class="item-resultado item-foto" data-id="1">
-            <div class="info-curtir">
-              <button class="btn-curtir" data-id="1"><i class="far fa-heart"></i></button>
-              <span class="contador-likes" id="likes-1">10</span>
+    <section id="stats">
+        <div class="container stats-container">
+            <div class="stats-card">
+                <span class="montserrat">15+</span>
+                <p>Anos de Experiência</p>
             </div>
-            <img src="https://picsum.photos/500/300?random=1" alt="Sofá limpo">
-            <div class="heart-animation" data-id="1"></div>
-            <div class="resultado-nome">Sofá 3 Lugares</div>
-          </div>
-
-          <div class="item-resultado item-foto" data-id="2">
-            <div class="info-curtir">
-              <button class="btn-curtir" data-id="2"><i class="far fa-heart"></i></button>
-              <span class="contador-likes" id="likes-2">7</span>
+            <div class="stats-card">
+                <span class="montserrat">500+</span>
+                <p>Projetos Concluídos</p>
             </div>
-            <img src="https://picsum.photos/500/300?random=2" alt="Cama limpa">
-            <div class="heart-animation" data-id="2"></div>
-            <div class="resultado-nome">Colchão King</div>
-          </div>
+            <div class="stats-card">
+                <span class="montserrat">99%</span>
+                <p>Satisfação do Cliente</p>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <div class="secao-calculadora-wrapper">
-        <h3 class="titulo-orcamento">Solicite Seu Orçamento</h3>
-        <form class="calculadora-form">
-          <label for="tipoEstofado">Selecione o tipo de serviço:</label>
-          <select id="tipoEstofado">
-            <option value="sofa">Sofá</option>
-            <option value="colchao">Colchão</option>
-            <option value="carro">Higienização Automotiva</option>
-          </select>
+    <section id="servicos">
+        <div class="container">
+            <div class="header-section">
+                <span class="tag">Nossos Serviços</span>
+                <h2>O que fazemos de <span class="blue-text-hero">melhor</span></h2>
+            </div>
 
-          <button type="button" class="btn-cta-zap btn-cta-azul" onclick="gerarLinkZap()">
-            <i class="fab fa-whatsapp"></i> Enviar Solicitação
-          </button>
-        </form>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CTA FINAL -->
-  <section class="fundo-azul-claro">
-    <div class="container cta-futurista-wrapper">
-      <h2>Quer seu estofado como novo?</h2>
-      <p>Fale conosco no WhatsApp e tenha o melhor serviço da região!</p>
-      <button class="btn-futurista" onclick="gerarLinkZap()">
-        <i class="fab fa-whatsapp"></i> Solicitar Agora
-      </button>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer id="footer">
-    <div class="container footer-grid">
-      <div class="footer-about">
-        <h3>GSLIMP</h3>
-        <p>Especialista em higienização de estofados, colchões e veículos.</p>
-        <div class="footer-social">
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-facebook"></i></a>
-          <a href="#"><i class="fab fa-tiktok"></i></a>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="carousel-item">
+                        <div class="servico-card">
+                            <div class="icon-wrapper"><i class="fas fa-couch"></i></div>
+                            <h3 class="montserrat">Restauração de Sofás</h3>
+                            <p>Tornamos seu sofá antigo como novo com tecidos premium.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">...</div>
+                    <div class="carousel-item">...</div>
+                    <div class="carousel-item">...</div>
+                    <div class="carousel-item">...</div>
+                </div>
+            </div>
+            <div class="carousel-container" style="margin-top: 50px;">
+                 <div class="header-section" style="margin-bottom: 30px;">
+                    <h3>O que dizem os Clientes</h3>
+                </div>
+                <div class="carousel-track">
+                    <div class="carousel-item">
+                        <div class="depoimento-card">
+                            <div class="perfil">
+                                <img src="https://i.pravatar.cc/150?img=1" alt="Cliente">
+                                <strong>Maria Silva</strong>
+                            </div>
+                            <p>"Serviço impecável! Meu sofá está mais bonito do que quando o comprei."</p>
+                        </div>
+                    </div>
+                     <div class="carousel-item">...</div>
+                    <div class="carousel-item">...</div>
+                    <div class="carousel-item">...</div>
+                    <div class="carousel-item">...</div>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <div class="footer-links">
-        <h4>Links Úteis</h4>
-        <ul>
-          <li><a href="#hero">Início</a></li>
-          <li><a href="#servicos">Serviços</a></li>
-          <li><a href="#galeria-e-orcamento">Orçamento</a></li>
-        </ul>
-      </div>
+    <section class="fundo-azul">
+        <div class="container grid-video-texto">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+            <div class="texto-video">
+                <span class="tag-clara">Qualidade Máxima</span>
+                <h2 class="montserrat">Conheça o nosso processo de restauração</h2>
+                <p>Assista ao vídeo e veja a dedicação e os detalhes técnicos que aplicamos em cada projeto. Nosso objetivo é superar suas expectativas.</p>
+                <a href="#footer" class="btn-cta btn-secundario">Entre em Contato</a>
+            </div>
+        </div>
+    </section>
 
-      <div class="footer-contact">
-        <h4>Contato</h4>
-        <p><i class="fas fa-phone-alt"></i> (82) 99152-2179</p>
-        <p><i class="fas fa-envelope"></i> contato@gslimp.com</p>
-      </div>
-    </div>
-    <div class="copyright">© 2025 GSLIMP - Todos os direitos reservados.</div>
-  </footer>
+    <section id="galeria-e-orcamento" class="fundo-claro-engajamento">
+        <div class="container">
+            <div class="secao-engajamento-wrapper">
+                <h2 class="titulo-amado">Galeria de Projetos Amados ❤️</h2>
+                <div class="resultados-grid grid-fotos">
+                    <div class="item-resultado item-foto">
+                        <img src="https://picsum.photos/500/300?random=10" alt="Estofado Restaurado 1">
+                        <div class="heart-animation" data-id="projeto1"></div> 
+                        <div class="info-curtir">
+                            <button class="btn-curtir" data-id="projeto1">
+                                <i class="far fa-heart"></i> 
+                            </button>
+                            <span class="contador-likes" id="likes-projeto1">15</span>
+                        </div>
+                        <span class="resultado-nome">Poltrona Clássica</span>
+                    </div>
 
-  <!-- WHATSAPP FLUTUANTE -->
-  <a href="https://wa.me/5582991522179" target="_blank" class="whatsapp-float">
-    <i class="fab fa-whatsapp"></i>
-  </a>
+                    <div class="item-resultado item-foto">
+                        <img src="https://picsum.photos/500/300?random=11" alt="Estofado Restaurado 2">
+                        <div class="heart-animation" data-id="projeto2"></div> 
+                        <div class="info-curtir">
+                            <button class="btn-curtir" data-id="projeto2">
+                                <i class="far fa-heart"></i> 
+                            </button>
+                            <span class="contador-likes" id="likes-projeto2">22</span>
+                        </div>
+                        <span class="resultado-nome">Sofá em Couro</span>
+                    </div>
 
-  <script src="script.js"></script>
+                    </div>
+            </div>
+
+            <div class="secao-calculadora-wrapper">
+                <h2 class="titulo-orcamento">Orçamento Rápido de Restauração</h2>
+                <div class="calculadora-form">
+                    <label for="tipoEstofado">Selecione o Item para Orçamento:</label>
+                    <select id="tipoEstofado">
+                        <option value="sofa3lugares">Sofá de 3 lugares</option>
+                        <option value="poltrona">Poltrona</option>
+                        <option value="cadeira">Cadeira (unidade)</option>
+                        <option value="diva">Divã</option>
+                    </select>
+                    
+                    <button class="btn-cta-zap btn-cta-azul" onclick="gerarLinkZap()">
+                        <i class="fab fa-whatsapp"></i> Receber Orçamento no WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="fundo-azul-claro">
+        <div class="container cta-futurista-wrapper">
+            <h2 class="montserrat">Pronto para dar uma nova vida aos seus móveis?</h2>
+            <p>Fale conosco agora e inicie seu projeto de restauração!</p>
+            <a href="https://wa.me/5582991522179?text=Olá,%20gostaria%20de%20um%20orçamento%20completo!" target="_blank" class="btn-cta btn-futurista">
+                <i class="fab fa-whatsapp"></i> CHAT NO WHATSAPP
+            </a>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3 class="montserrat">Seu Logo</h3>
+                    <p>Renovando estofados e restaurando memórias em [Sua Cidade/Estado]. Qualidade, confiança e paixão em cada detalhe.</p>
+                    <div class="footer-social">
+                        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#hero">Início</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#galeria-e-orcamento">Galeria</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Fale Conosco</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Rua Exemplo, 123 - Bairro</p>
+                    <p><i class="fas fa-phone"></i> (82) 99152-2179</p>
+                    <p><i class="fas fa-envelope"></i> contato@seusite.com.br</p>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; <span id="currentYear"></span> Seu Site. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5582991522179?text=Olá,%20gostaria%20de%20falar%20sobre%20orçamento." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <script>
+        // Cole o Código JavaScript COMPLETO aqui se for um único arquivo HTML,
+        // ou remova e use <script src="script.js"></script>
+    </script>
+    
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+
 </body>
 </html>
