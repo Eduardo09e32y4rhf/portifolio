@@ -1,63 +1,199 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GSLIMP - Higienização Profissional</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSLIMP - Sua Especialista em Higienização Profissional</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/a2e0c66c1a.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <header>
-    <h1>GSLIMP</h1>
+
+  <!-- NAVBAR -->
+  <header id="navbar">
+    <div class="container nav-content">
+      <div class="logo">GSLIMP</div>
+      <nav>
+        <a href="#hero">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#galeria-e-orcamento">Orçamento</a>
+        <a href="#footer">Contato</a>
+      </nav>
+      <a href="#orcamento" class="btn-nav">Solicitar Orçamento</a>
+    </div>
   </header>
 
-  <section class="orcamento">
-    <h2>💰 Orçamento Rápido e Sem Compromisso</h2>
-    <label for="tipoEstofado">Qual o tipo de estofado?</label>
-    <select id="tipoEstofado">
-      <option value="Sofá 2 Lugares">Sofá 2 Lugares</option>
-      <option value="Sofá 3 Lugares">Sofá 3 Lugares</option>
-      <option value="Colchão Queen/King">Colchão Queen/King</option>
-      <option value="Banco Automotivo">Banco Automotivo</option>
-    </select>
-
-    <button id="btnOrcamento" class="whatsapp-btn">
-      <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento por WhatsApp
-    </button>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Higienização Profissional de <span class="blue-text-hero">Estofados</span></h1>
+      <p>Limpeza profunda de sofás, colchões, automóveis e mais.</p>
+      <button class="btn-cta btn-wpp-style" onclick="gerarLinkZap()">
+        <i class="fab fa-whatsapp"></i> Solicitar Orçamento
+      </button>
+    </div>
   </section>
 
-  <section class="galeria">
-    <h2>Nossos Sofás Mais Amados</h2>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4" alt="Sofá 1">
-      <div class="card-info">
-        <span class="titulo">Resultado Limpeza Sofá 1</span>
-        <i class="fa-solid fa-heart heart" data-index="1"></i>
+  <!-- ESTATÍSTICAS -->
+  <section id="stats">
+    <div class="container stats-container">
+      <div class="stats-card">
+        <span class="montserrat">+500</span>
+        <p>Clientes Atendidos</p>
       </div>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511" alt="Sofá 2">
-      <div class="card-info">
-        <span class="titulo">Resultado Limpeza Sofá 2</span>
-        <i class="fa-solid fa-heart heart" data-index="2"></i>
+      <div class="stats-card">
+        <span class="montserrat">+1000</span>
+        <p>Estofados Higienizados</p>
       </div>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36" alt="Sofá 3">
-      <div class="card-info">
-        <span class="titulo">Resultado Limpeza Sofá 3</span>
-        <i class="fa-solid fa-heart heart" data-index="3"></i>
+      <div class="stats-card">
+        <span class="montserrat">+8</span>
+        <p>Anos de Experiência</p>
       </div>
     </div>
   </section>
 
-  <footer>
-    <p>© 2025 GSLIMP - Higienização Profissional</p>
+  <!-- SERVIÇOS -->
+  <section id="servicos">
+    <div class="container">
+      <div class="header-section">
+        <span class="tag">Serviços</span>
+        <h2>Nossos Serviços</h2>
+        <p>Profissionais e equipamentos de alta performance para o melhor resultado.</p>
+      </div>
+
+      <div class="carousel-container">
+        <div class="carousel-track">
+          <div class="carousel-item servico-card">
+            <div class="icon-wrapper"><i class="fas fa-couch"></i></div>
+            <h3>Limpeza de Sofás</h3>
+            <p>Remoção completa de ácaros e sujeiras.</p>
+          </div>
+          <div class="carousel-item servico-card">
+            <div class="icon-wrapper"><i class="fas fa-bed"></i></div>
+            <h3>Higienização de Colchões</h3>
+            <p>Elimine fungos e odores do seu colchão.</p>
+          </div>
+          <div class="carousel-item servico-card">
+            <div class="icon-wrapper"><i class="fas fa-car"></i></div>
+            <h3>Limpeza Automotiva</h3>
+            <p>Higienização interna completa de veículos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VÍDEO -->
+  <section class="fundo-azul">
+    <div class="container grid-video-texto">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/2Vv-BfVoq4g" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="texto-video">
+        <span class="tag-clara">Sobre Nós</span>
+        <h2>Conheça Nosso Trabalho</h2>
+        <p>Com anos de experiência, garantimos a melhor limpeza de estofados do mercado.</p>
+        <button class="btn-secundario" onclick="gerarLinkZap()">Solicitar Agora</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIA + ORÇAMENTO -->
+  <section id="galeria-e-orcamento" class="fundo-claro-engajamento">
+    <div class="container">
+
+      <div class="secao-engajamento-wrapper">
+        <h3 class="titulo-amado">Alguns de Nossos Trabalhos</h3>
+        <div class="resultados-grid grid-fotos">
+          <div class="item-resultado item-foto" data-id="1">
+            <div class="info-curtir">
+              <button class="btn-curtir" data-id="1"><i class="far fa-heart"></i></button>
+              <span class="contador-likes" id="likes-1">10</span>
+            </div>
+            <img src="https://picsum.photos/500/300?random=1" alt="Sofá limpo">
+            <div class="heart-animation" data-id="1"></div>
+            <div class="resultado-nome">Sofá 3 Lugares</div>
+          </div>
+
+          <div class="item-resultado item-foto" data-id="2">
+            <div class="info-curtir">
+              <button class="btn-curtir" data-id="2"><i class="far fa-heart"></i></button>
+              <span class="contador-likes" id="likes-2">7</span>
+            </div>
+            <img src="https://picsum.photos/500/300?random=2" alt="Cama limpa">
+            <div class="heart-animation" data-id="2"></div>
+            <div class="resultado-nome">Colchão King</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="secao-calculadora-wrapper">
+        <h3 class="titulo-orcamento">Solicite Seu Orçamento</h3>
+        <form class="calculadora-form">
+          <label for="tipoEstofado">Selecione o tipo de serviço:</label>
+          <select id="tipoEstofado">
+            <option value="sofa">Sofá</option>
+            <option value="colchao">Colchão</option>
+            <option value="carro">Higienização Automotiva</option>
+          </select>
+
+          <button type="button" class="btn-cta-zap btn-cta-azul" onclick="gerarLinkZap()">
+            <i class="fab fa-whatsapp"></i> Enviar Solicitação
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="fundo-azul-claro">
+    <div class="container cta-futurista-wrapper">
+      <h2>Quer seu estofado como novo?</h2>
+      <p>Fale conosco no WhatsApp e tenha o melhor serviço da região!</p>
+      <button class="btn-futurista" onclick="gerarLinkZap()">
+        <i class="fab fa-whatsapp"></i> Solicitar Agora
+      </button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container footer-grid">
+      <div class="footer-about">
+        <h3>GSLIMP</h3>
+        <p>Especialista em higienização de estofados, colchões e veículos.</p>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <h4>Links Úteis</h4>
+        <ul>
+          <li><a href="#hero">Início</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#galeria-e-orcamento">Orçamento</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contato</h4>
+        <p><i class="fas fa-phone-alt"></i> (82) 99152-2179</p>
+        <p><i class="fas fa-envelope"></i> contato@gslimp.com</p>
+      </div>
+    </div>
+    <div class="copyright">© 2025 GSLIMP - Todos os direitos reservados.</div>
   </footer>
+
+  <!-- WHATSAPP FLUTUANTE -->
+  <a href="https://wa.me/5582991522179" target="_blank" class="whatsapp-float">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script src="script.js"></script>
 </body>
 </html>
