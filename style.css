@@ -553,9 +553,6 @@ nav a:hover {
     text-align: center;
     font-size: 30px;
     z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease;
 }
@@ -594,31 +591,45 @@ nav a:hover {
 }
 
 /* ------------------------------------------- */
-/* AJUSTES PARA MOBILE (Max 600px) */
+/* AJUSTES PARA MOBILE (Max 600px) - CORREÇÃO AGRESSIVA */
 /* ------------------------------------------- */
 @media (max-width: 600px) {
-    /* Redução de Padding nas seções */
+    /* **CORREÇÃO DE ESPAÇAMENTO** */
     section {
-        padding: 40px 0; /* Diminui ainda mais o espaçamento vertical */
+        padding: 40px 0; /* Espaçamento menor no celular */
     }
     
-    /* Redução de Fontes */
-    h1 { font-size: 2.2em; } /* Título principal */
-    h2 { font-size: 1.6em; } /* Títulos de seção */
+    /* **CORREÇÃO DE FONTES** */
+    h1 { 
+        font-size: 2em; /* Redução mais agressiva (era 2.2em) */
+        margin-bottom: 0.5em;
+    } 
+    h2 { 
+        font-size: 1.6em; /* Redução mais agressiva (era 1.8em) */
+        margin-bottom: 0.5em;
+    } 
     h3 { font-size: 1.2em; }
-    .stats-card .montserrat { font-size: 2.5em; } /* Tamanho das estatísticas */
+    
+    /* Reduzindo o texto abaixo dos títulos principais */
+    p {
+        font-size: 0.9em;
+        line-height: 1.4;
+    }
+    
+    .stats-card .montserrat { font-size: 2.5em; } 
     .cta-futurista-wrapper h2 { font-size: 1.8em; }
     
     /* Outros Ajustes */
     .stats-container { grid-template-columns: 1fr; }
     .whatsapp-float { width: 50px; height: 50px; font-size: 25px; }
     
-    /* Carrossel - MOBILE: Já é o padrão de 1 item (100% - margem) */
+    /* Carrossel e Cards */
     .servico-card {
-        padding: 30px; /* Reduz o padding do card de serviço */
+        padding: 25px; /* Reduz o padding do card de serviço (era 30px) */
     }
     .depoimento-card {
-        height: auto; /* Deixa a altura do depoimento ser automática para caber o texto */
+        height: auto; /* Garante que o texto inteiro caiba */
+        padding: 20px; /* Reduz o padding do card de depoimento (era 25px) */
     }
 }
 
