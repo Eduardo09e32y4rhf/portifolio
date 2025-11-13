@@ -8,7 +8,7 @@
     --cor-texto-suave: #6C757D; 
 
     --cor-wpp-bg: #25D366; 
-    --cor-curtir-vermelho: #FF4D4D; 
+    --cor-curtir-vermelho: #FF4D4D; /* Mantido caso queira usar em outro contexto */
     --borda-radius: 10px;
 }
 
@@ -269,10 +269,9 @@ nav a:hover {
     animation: scroll-left 40s linear infinite; 
     width: fit-content; 
 }
-/* A regra abaixo será substituída pela lógica JavaScript, mas é mantida por segurança/alternativa */
-/* .carousel-container:hover .carousel-track {
+.carousel-container:hover .carousel-track {
     animation-play-state: paused; 
-} */
+}
 @keyframes scroll-left {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); } 
@@ -390,7 +389,7 @@ nav a:hover {
 
 .item-resultado.item-foto img {
     width: 100%;
-    height: 220px; /* GARANTIDO: Altura aumentada */
+    height: 220px; 
     object-fit: cover;
     visibility: visible;
     border-bottom: 1px solid #e0e0e0;
@@ -410,20 +409,6 @@ nav a:hover {
     user-drag: none;
 }
 
-
-.item-foto .info-curtir {
-    position: absolute; 
-    top: 10px;
-    right: 10px;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 50px;
-    padding: 5px 12px;
-    display: flex;
-    align-items: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 2; 
-}
-
 .item-foto .resultado-nome {
     padding: 10px 15px;
     width: 100%;
@@ -431,52 +416,6 @@ nav a:hover {
     font-size: 0.95em;
     color: var(--cor-detalhe-azul);
 }
-
-.btn-curtir {
-    font-size: 18px;
-    color: #999; 
-    transition: color 0.2s ease, transform 0.1s ease;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-}
-
-.btn-curtir.curtido {
-    color: var(--cor-curtir-vermelho); 
-    transform: scale(1.1);
-}
-
-.contador-likes {
-    font-weight: 400;
-    font-size: 0.9em;
-    color: var(--cor-texto-escuro);
-    margin-left: 5px;
-}
-
-/* Animação de Coração Grande */
-.heart-animation {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    font-size: 80px; 
-    color: var(--cor-curtir-vermelho);
-    opacity: 0;
-    pointer-events: none; 
-    z-index: 1; 
-}
-
-.heart-animation.animate {
-    animation: popHeart 0.6s ease-out forwards;
-}
-
-@keyframes popHeart {
-    0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
-    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
-    100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
-}
-
 
 /* Calculadora de Orçamento */
 .secao-calculadora-wrapper {
@@ -507,7 +446,7 @@ nav a:hover {
     display: block;
 }
 
-/* Estilização Moderna para o SELECT (Estilização mantida) */
+/* Estilização Moderna para o SELECT */
 .calculadora-form select {
     appearance: none; 
     -webkit-appearance: none;
@@ -533,7 +472,7 @@ nav a:hover {
     outline: none;
 }
 
-/* Botão CTA Azul (mantido) */
+/* Botão CTA Azul */
 .btn-cta-zap {
     padding: 18px 20px;
     border: none;
@@ -560,7 +499,7 @@ nav a:hover {
     margin-right: 8px;
 }
 
-/* --- DEPOIMENTOS, CTA FINAL e RODAPÉ (mantidos) --- */
+/* --- DEPOIMENTOS, CTA FINAL e RODAPÉ --- */
 .depoimento-card {
     background-color: var(--cor-principal);
     border: 1px solid #E9ECEF;
@@ -680,9 +619,6 @@ nav a:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease;
 }
-.whatsapp-float:hover {
-    transform: scale(1.05);
-}
 
 /* --- MEDIA QUERIES (Responsividade) --- */
 @media (max-width: 992px) {
@@ -694,7 +630,6 @@ nav a:hover {
     .texto-video { text-align: center; }
     .footer-grid { grid-template-columns: 1fr; text-align: center; }
     .footer-links, .footer-contact { text-align: center; }
-    .footer-social { margin-top: 20px; }
 }
 
 @media (max-width: 600px) {
@@ -702,4 +637,11 @@ nav a:hover {
     h2 { font-size: 1.8em; }
     .stats-container { grid-template-columns: 1fr; }
     .whatsapp-float { width: 50px; height: 50px; font-size: 25px; }
+    .secao-engajamento-wrapper, .secao-calculadora-wrapper { max-width: 100%; }
+}
+
+@media (min-width: 600px) {
+    .resultados-grid.grid-fotos {
+        grid-template-columns: 1fr 1fr; 
+    }
 }
