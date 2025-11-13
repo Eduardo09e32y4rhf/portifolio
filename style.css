@@ -31,13 +31,13 @@ body {
     color: var(--cor-texto-escuro);
     background-color: var(--cor-principal); 
     line-height: 1.6;
-    /* GARANTIA DE CORREÇÃO: Overflow-x mantido */
     overflow-x: hidden; 
 }
 
 /* Espaçamento Padrão */
 section {
     padding: 80px 0; /* Reduzido de 100px para melhor visualização em mobile */
+    text-align: center; /* NOVO: Centraliza conteúdo de seção por padrão */
 }
 
 .montserrat {
@@ -49,6 +49,7 @@ h1, h2, h3 {
     margin-bottom: 0.5em;
     font-family: 'Montserrat', sans-serif;
     line-height: 1.2;
+    text-align: center; /* NOVO: Centraliza títulos por padrão */
 }
 
 /* Tamanhos de Fonte Padrão (Desktop) */
@@ -61,11 +62,10 @@ p { color: var(--cor-texto-suave); }
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    /* Usar 15px em vez de 20px para melhor ajuste mobile */
     padding: 0 15px; 
 }
 
-/* --- NAV BAR --- */
+/* --- NAV BAR (CORRIGIDO) --- */
 #navbar {
     background-color: var(--cor-principal);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
@@ -79,17 +79,32 @@ p { color: var(--cor-texto-suave); }
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap; /* Permite que os itens quebrem linha no mobile */
+    text-align: center;
 }
 .logo {
     font-size: 1.5em;
     font-weight: 900;
     color: var(--cor-texto-escuro);
+    flex-grow: 1; /* NOVO: Ocupa o espaço disponível no mobile */
+    text-align: left; /* Mantém o logo à esquerda */
+    padding-left: 15px; /* Alinha com o container */
+}
+nav {
+    display: flex; /* Para controlar o alinhamento dos links */
+    justify-content: center; /* Centraliza os links quando visíveis */
+    flex-grow: 1;
+    margin-top: 10px; /* Espaço entre logo e links no mobile */
+    order: 2; /* Move a navegação para baixo no mobile */
+    width: 100%; /* Ocupa a largura total para centralizar */
+    display: none; /* NOVO: Oculta a nav por padrão no mobile, será mostrada via JS ou hamburger */
 }
 nav a {
-    margin-left: 20px; /* Reduzido o margin para telas menores */
+    margin: 0 10px; /* Espaçamento uniforme entre links */
     color: var(--cor-texto-escuro);
     font-weight: 600;
     transition: color 0.3s ease;
+    white-space: nowrap; /* Evita quebra de linha nos links */
 }
 nav a:hover {
     color: var(--cor-detalhe-azul);
@@ -100,9 +115,12 @@ nav a:hover {
     color: white !important;
     padding: 8px 15px;
     border-radius: 5px;
+    margin-left: auto; /* Empurra o botão para a direita no mobile */
+    order: 1; /* Mantém o botão ao lado do logo */
+    margin-right: 15px; /* Alinha com o container */
 }
 
-/* --- HERO SECTION --- */
+/* --- HERO SECTION (CORRIGIDO) --- */
 #hero {
     min-height: 90vh;
     display: flex;
@@ -128,11 +146,17 @@ nav a:hover {
 .hero-content {
     position: relative;
     z-index: 2;
-    padding: 100px 15px; /* Padding interno otimizado */
+    padding: 100px 15px; 
+    max-width: 800px; /* Limita a largura para melhor leitura */
+    margin: 0 auto; /* Centraliza o conteúdo */
 }
 
 #hero h1, #hero p {
     color: var(--cor-principal); 
+}
+
+#hero h1 { /* NOVO: Ajuste para o título da hero section */
+    font-size: 2.8em; /* Ajuste para mobile */
 }
 
 .blue-text-hero {
@@ -151,7 +175,7 @@ nav a:hover {
 .btn-cta.btn-wpp-style {
     display: inline-flex;
     align-items: center;
-    padding: 18px 30px; /* Padding ajustado */
+    padding: 18px 30px; 
     font-weight: 700;
     text-transform: uppercase;
     background-color: var(--cor-detalhe-azul);
@@ -159,9 +183,12 @@ nav a:hover {
     box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
     color: white; 
     margin-top: 30px;
-    font-size: 0.9em; /* Ajustado para melhor fit mobile */
+    font-size: 0.9em; 
     text-align: center;
     justify-content: center;
+    max-width: 300px; /* Limita a largura do botão para não quebrar */
+    margin-left: auto;
+    margin-right: auto; /* Centraliza o botão */
 }
 
 .btn-cta.btn-wpp-style:hover {
@@ -182,7 +209,6 @@ nav a:hover {
 
 .stats-container {
     display: grid;
-    /* Mudar para 1 coluna no mobile via Media Query */
     grid-template-columns: repeat(3, 1fr); 
     gap: 30px;
 }
@@ -226,12 +252,21 @@ nav a:hover {
     background-color: var(--cor-detalhe-azul); 
     margin-bottom: 20px;
     text-transform: uppercase;
+    margin-left: auto;
+    margin-right: auto; /* NOVO: Centraliza a tag */
 }
 
 .header-section {
     text-align: center;
     margin-bottom: 40px;
 }
+
+.intro-text-wrapper {
+    max-width: 600px; 
+    margin: 0 auto 40px auto; 
+    text-align: center; /* NOVO: Garante o texto centralizado */
+}
+
 
 .servico-card {
     background-color: var(--cor-secundaria);
@@ -260,10 +295,12 @@ nav a:hover {
 }
 .servico-card h3 {
     color: var(--cor-detalhe-azul); 
+    text-align: center; /* NOVO: Centraliza o título do serviço */
 }
 .servico-card p {
     font-size: 0.95em;
     color: var(--cor-texto-escuro);
+    text-align: center; /* NOVO: Centraliza o parágrafo do serviço */
 }
 
 /* CARROSSEL FIX: Usar largura total para evitar overflow no container */
@@ -271,18 +308,19 @@ nav a:hover {
     overflow: hidden;
     position: relative;
     padding: 20px 0; 
+    width: 100%; /* NOVO: Garante que o container ocupe 100% da largura disponível */
 }
 
 .carousel-track {
     display: flex;
     animation: scroll-left 40s linear infinite; 
     width: fit-content; 
-    /* Permite rolagem manual no mobile, mas a animação é o foco */
     overflow-x: auto; 
     scroll-snap-type: x mandatory; 
     -webkit-overflow-scrolling: touch; 
     scrollbar-width: none;
     -ms-overflow-style: none;
+    padding: 0 15px; /* NOVO: Adiciona padding para os itens nas laterais */
 }
 
 .carousel-track::-webkit-scrollbar {
@@ -296,11 +334,19 @@ nav a:hover {
 
 /* ITEM CARROSSEL: Largura e Margin ajustadas para responsividade */
 .carousel-item {
-    min-width: 80vw; /* NOVO: Garante que o item ocupe a maior parte da tela em mobile */
-    margin-right: 20px; /* Ajustado para menor espaçamento */
+    min-width: 85vw; /* NOVO: Garante que o item ocupe a maior parte da tela em mobile */
+    max-width: 350px; /* Limite máximo para o card não ficar gigante */
+    margin-right: 20px; 
     flex-shrink: 0;
-    scroll-snap-align: start;
+    scroll-snap-align: center; /* NOVO: Centraliza o item ao rolar */
+    margin-left: auto;
+    margin-right: auto;
 }
+/* O último item não precisa de margem à direita para não empurrar muito */
+.carousel-track > .carousel-item:last-child {
+    margin-right: 0;
+}
+
 
 /* --- SEÇÃO VÍDEO & TEXTO --- */
 .fundo-azul {
@@ -323,7 +369,6 @@ nav a:hover {
 }
 .grid-video-texto {
     display: grid;
-    /* NOVO: Usar 1 coluna por padrão e 2 apenas no desktop */
     grid-template-columns: 1fr; 
     gap: 40px;
     align-items: center;
@@ -334,6 +379,8 @@ nav a:hover {
     border-radius: var(--borda-radius);
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    max-width: 700px; /* Limita a largura do vídeo */
+    margin: 0 auto; /* Centraliza o vídeo */
 }
 .video-container iframe {
     position: absolute;
@@ -343,9 +390,10 @@ nav a:hover {
     height: 100%;
 }
 .texto-video p {
-    margin: 20px 0;
+    margin: 20px auto; /* Centraliza o parágrafo */
     font-size: 1.05em;
     color: #E6F0FF;
+    max-width: 600px; /* Limita a largura do texto */
 }
 
 /* Botão Secundário */
@@ -357,6 +405,8 @@ nav a:hover {
     border-radius: 5px; 
     font-weight: 600;
     text-transform: uppercase;
+    margin-left: auto;
+    margin-right: auto; /* NOVO: Centraliza o botão */
 }
 .btn-secundario:hover {
     transform: scale(1.05);
@@ -370,14 +420,15 @@ nav a:hover {
 
 #galeria-e-orcamento .container {
     display: flex;
-    flex-direction: column; /* Padrão Mobile: Coluna */
+    flex-direction: column; 
     align-items: center;
     gap: 40px; 
 }
 
 .secao-engajamento-wrapper, .secao-calculadora-wrapper {
     width: 100%;
-    max-width: 500px; /* Limite de largura para o box do orçamento */
+    max-width: 500px; 
+    margin: 0 auto; /* NOVO: Garante centralização */
 }
 
 /* Galeria de Fotos */
@@ -392,7 +443,7 @@ nav a:hover {
 
 .resultados-grid.grid-fotos {
     display: grid; 
-    grid-template-columns: 1fr; /* Padrão Mobile: 1 coluna */
+    grid-template-columns: 1fr; 
     gap: 15px;
 }
 
@@ -448,6 +499,7 @@ nav a:hover {
     font-weight: 600;
     font-size: 0.95em;
     color: var(--cor-detalhe-azul);
+    text-align: left; /* Mantém o nome do resultado alinhado à esquerda */
 }
 
 .btn-curtir {
@@ -569,7 +621,7 @@ nav a:hover {
     margin-right: 8px;
 }
 
-/* --- DEPOIMENTOS, CTA FINAL e RODAPÉ --- */
+/* --- DEPOIMENTOS, CTA FINAL e RODAPÉ (CORRIGIDO) --- */
 .depoimento-card {
     background-color: var(--cor-principal);
     border: 1px solid #E9ECEF;
@@ -580,16 +632,20 @@ nav a:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    max-width: 400px; /* NOVO: Limita largura para centralizar no mobile */
+    margin: 0 auto; /* NOVO: Centraliza o card de depoimento */
 }
 .depoimento-card p {
     font-style: italic;
     font-size: 1em;
     color: var(--cor-texto-escuro);
+    text-align: left; /* Mantém o texto do depoimento alinhado à esquerda */
 }
 .perfil {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
+    justify-content: flex-start; /* NOVO: Alinha o perfil à esquerda */
 }
 .perfil img {
     width: 40px;
@@ -611,12 +667,16 @@ nav a:hover {
 .cta-futurista-wrapper h2 {
     color: var(--cor-detalhe-azul);
     font-size: 2.5em;
+    margin-bottom: 20px; /* Ajusta espaçamento */
 }
 
 .cta-futurista-wrapper p {
     color: var(--cor-texto-escuro);
     font-size: 1.1em;
     margin-bottom: 40px;
+    max-width: 700px; /* Limita largura do texto para melhor leitura */
+    margin-left: auto;
+    margin-right: auto; /* Centraliza o parágrafo */
 }
 
 .btn-futurista {
@@ -626,6 +686,9 @@ nav a:hover {
     font-size: 1.1em;
     border-radius: 8px;
     color: white !important;
+    max-width: 350px; /* Limita a largura do botão */
+    margin-left: auto;
+    margin-right: auto; /* Centraliza o botão */
 }
 .btn-futurista i { margin-right: 10px; }
 
@@ -637,7 +700,6 @@ nav a:hover {
 
 .footer-grid {
     display: grid;
-    /* NOVO: Padrão Mobile: 1 coluna */
     grid-template-columns: 1fr; 
     gap: 40px;
     padding-bottom: 40px;
@@ -651,7 +713,7 @@ nav a:hover {
 
 .footer-social a {
     font-size: 1.5em;
-    margin: 0 7px; /* Ajustado */
+    margin: 0 7px; 
     color: #ADB5BD;
     transition: color 0.3s ease;
 }
@@ -701,84 +763,5 @@ nav a:hover {
 */
 
 /* --- 01. Mobile Pequeno (< 600px) --- */
-@media (max-width: 600px) {
-    /* Diminui o tamanho das fontes no mobile */
-    h1 { font-size: 2.2em; }
-    h2 { font-size: 1.8em; }
-    
-    /* Stats em 1 coluna */
-    .stats-container { grid-template-columns: 1fr; }
-    .stats-card { padding: 20px; }
-    
-    /* Botões CTA ajustados */
-    .btn-cta.btn-wpp-style { width: 100%; font-size: 0.8em; padding: 15px 20px; }
-    
-    /* WhatsApp flutuante menor */
-    .whatsapp-float { width: 50px; height: 50px; font-size: 25px; }
-    
-    /* Footer em colunas e alinhado ao centro */
-    .footer-links ul { padding: 0; }
-}
+@media (max-width: 60
 
-/* --- 02. Tablet / Mobile Grande (601px a 991px) --- */
-@media (min-width: 601px) and (max-width: 991px) {
-    /* Carrossel: 2 itens por vez */
-    .carousel-item {
-        min-width: calc(50% - 15px); /* 2 itens na tela com espaçamento */
-    }
-    
-    /* Galeria: 2 colunas */
-    .resultados-grid.grid-fotos {
-        grid-template-columns: 1fr 1fr; 
-    }
-    
-    /* Stats em 2 colunas */
-    .stats-container { 
-        grid-template-columns: 1fr 1fr; 
-        max-width: 600px;
-        margin: 0 auto;
-    }
-    
-    /* Garante que o orçamento/galeria fiquem centralizados */
-    .secao-engajamento-wrapper, .secao-calculadora-wrapper {
-        max-width: 90%;
-    }
-    
-    /* Footer em 2 colunas */
-    .footer-grid {
-        grid-template-columns: 2fr 1.5fr;
-        text-align: left;
-    }
-    .footer-about { grid-column: span 2; }
-}
-
-/* --- 03. Desktop Padrão (> 992px) --- */
-@media (min-width: 992px) {
-    h1 { font-size: 3.5em; }
-    h2 { font-size: 2.2em; }
-    
-    #navbar nav { display: block; } /* Garante que o menu navegação seja visível */
-    .nav-content { justify-content: space-between; }
-    
-    /* Carrossel: 3 itens por vez */
-    .carousel-item {
-        min-width: calc(33.333% - 13.333px); /* 3 itens na tela com 20px de espaçamento */
-    }
-    
-    /* Vídeo e Texto: Lado a lado */
-    .grid-video-texto { grid-template-columns: 1fr 1fr; }
-    .texto-video { text-align: left; }
-    
-    /* Galeria e Orçamento: Lado a lado */
-    #galeria-e-orcamento .container {
-        flex-direction: row;
-        justify-content: center;
-        gap: 60px;
-    }
-    
-    /* Footer: 3 colunas */
-    .footer-grid { 
-        grid-template-columns: 2fr 1fr 1.5fr; 
-        text-align: left;
-    }
-}
