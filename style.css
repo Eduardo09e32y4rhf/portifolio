@@ -33,6 +33,7 @@ body {
     overflow-x: hidden;
 }
 
+/* PADRÃO DESKTOP: Espaçamento Padrão */
 section {
     padding: 100px 0; 
 }
@@ -48,6 +49,7 @@ h1, h2, h3 {
     line-height: 1.2;
 }
 
+/* PADRÃO DESKTOP: Tamanhos de Fonte */
 h1 { font-size: 3.5em; font-weight: 900; }
 h2 { font-size: 2.2em; font-weight: 700; }
 h3 { font-size: 1.4em; font-weight: 700; }
@@ -559,10 +561,21 @@ nav a:hover {
 }
 
 /* --- MEDIA QUERIES (Responsividade) --- */
+
+/* ------------------------------------------- */
+/* AJUSTES PARA TABLET (Max 992px) */
+/* ------------------------------------------- */
 @media (max-width: 992px) {
-    /* Regras Gerais para Tablet e Mobile */
+    /* Redução de Padding nas seções */
+    section {
+        padding: 60px 0; /* Diminui o espaçamento vertical */
+    }
+    
+    /* Redução de Fontes */
     h1 { font-size: 2.8em; }
     h2 { font-size: 2em; }
+    
+    /* Layout */
     #navbar nav { display: none; }
     .nav-content { justify-content: center; }
     .grid-video-texto { grid-template-columns: 1fr; }
@@ -571,7 +584,7 @@ nav a:hover {
     .footer-links, .footer-contact { text-align: center; }
     .secao-engajamento-wrapper { max-width: 100% !important; }
     
-    /* TABLET (A PARTIR DE 600PX E ABAIXO DE 992PX): Mostrar 2 itens */
+    /* CARROSSEL - TABLET (600px a 992px): Mostrar 2 itens */
     @media (min-width: 600px) {
         .carousel-item {
             /* 50% da largura, menos metade da margem (para 2 itens) */
@@ -580,18 +593,41 @@ nav a:hover {
     }
 }
 
-
+/* ------------------------------------------- */
+/* AJUSTES PARA MOBILE (Max 600px) */
+/* ------------------------------------------- */
 @media (max-width: 600px) {
-    /* Regras Gerais para Mobile */
-    h1 { font-size: 2em; }
-    h2 { font-size: 1.8em; }
+    /* Redução de Padding nas seções */
+    section {
+        padding: 40px 0; /* Diminui ainda mais o espaçamento vertical */
+    }
+    
+    /* Redução de Fontes */
+    h1 { font-size: 2.2em; } /* Título principal */
+    h2 { font-size: 1.6em; } /* Títulos de seção */
+    h3 { font-size: 1.2em; }
+    .stats-card .montserrat { font-size: 2.5em; } /* Tamanho das estatísticas */
+    .cta-futurista-wrapper h2 { font-size: 1.8em; }
+    
+    /* Outros Ajustes */
     .stats-container { grid-template-columns: 1fr; }
     .whatsapp-float { width: 50px; height: 50px; font-size: 25px; }
+    
+    /* Carrossel - MOBILE: Já é o padrão de 1 item (100% - margem) */
+    .servico-card {
+        padding: 30px; /* Reduz o padding do card de serviço */
+    }
+    .depoimento-card {
+        height: auto; /* Deixa a altura do depoimento ser automática para caber o texto */
+    }
 }
 
 
+/* ------------------------------------------- */
+/* AJUSTES PARA DESKTOP (Min 992px) */
+/* ------------------------------------------- */
 @media (min-width: 992px) {
-    /* DESKTOP (A PARTIR DE 992PX): Mostrar 3 itens */
+    /* CARROSSEL - DESKTOP PADRÃO: Mostrar 3 itens */
     .carousel-item {
         /* 33.333% da largura, menos 2/3 da margem (para 3 itens) */
         min-width: calc(33.333% - 20px); 
@@ -599,7 +635,7 @@ nav a:hover {
 }
 
 @media (min-width: 1200px) {
-    /* DESKTOP GRANDE (A PARTIR DE 1200PX): Mostrar 4 itens */
+    /* CARROSSEL - DESKTOP GRANDE: Mostrar 4 itens */
     .carousel-item {
         /* 25% da largura, menos 3/4 da margem (para 4 itens) */
         min-width: calc(25% - 22.5px); 
