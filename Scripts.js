@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- Lógica 1: Pausa de Carrossel Animado em Interação ---
@@ -6,11 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
     carousels.forEach(container => {
         const track = container.querySelector('.carousel-track');
         
+        // Verifica se o track existe (para evitar erros caso o HTML esteja incompleto)
+        if (!track) return; 
+        
         const pauseAnimation = () => {
-            if (track) track.style.animationPlayState = 'paused';
+            track.style.animationPlayState = 'paused';
         };
         const resumeAnimation = () => {
-            if (track) track.style.animationPlayState = 'running';
+            track.style.animationPlayState = 'running';
         };
         
         // Desktop e Mobile
@@ -18,70 +22,20 @@ document.addEventListener('DOMContentLoaded', () => {
         container.addEventListener('mouseleave', resumeAnimation);
         container.addEventListener('touchstart', pauseAnimation);
         container.addEventListener('touchend', () => {
+            // Retorna a animação após um breve atraso de 1 segundo
             setTimeout(resumeAnimation, 1000); 
         });
     });
 
 
-    // --- Lógica 2: Botão Curtir (Coração Vermelho + Animação) ---
-    const likeButtons = document.querySelectorAll('.btn-curtir');
-
-    likeButtons.forEach(button => {
-        const itemId = button.getAttribute('data-id');
-        const likesSpan = document.getElementById(`likes-${itemId}`);
-        const heartAnimationDiv = document.querySelector(`.heart-animation[data-id="${itemId}"]`);
-        
-        let currentLikes = parseInt(localStorage.getItem(`likes-${itemId}`)) || parseInt(likesSpan.textContent);
-        likesSpan.textContent = currentLikes;
-        
-        let isLiked = localStorage.getItem(`liked-${itemId}`) === 'true';
-
-        // Estado inicial
-        if (isLiked) {
-            button.classList.add('curtido');
-            // Assume-se que 'i' é um ícone Font Awesome
-            button.querySelector('i').classList.replace('far', 'fas'); 
-        }
-
-        button.addEventListener('click', (event) => {
-            event.stopPropagation();
-
-            if (isLiked) {
-                // Descurtir
-                currentLikes -= 1;
-                button.classList.remove('curtido');
-                button.querySelector('i').classList.replace('fas', 'far');
-                isLiked = false;
-            } else {
-                // Curtir
-                currentLikes += 1;
-                button.classList.add('curtido');
-                button.querySelector('i').classList.replace('far', 'fas');
-                isLiked = true;
-
-                // Animação do coração no centro da imagem
-                if (heartAnimationDiv) {
-                    heartAnimationDiv.innerHTML = '<i class="fas fa-heart"></i>'; 
-                    heartAnimationDiv.classList.remove('animate'); 
-                    void heartAnimationDiv.offsetWidth; // Gatilho de reflow para reiniciar a animação
-                    heartAnimationDiv.classList.add('animate'); 
-                }
-            }
-            
-            // Salva o estado e atualiza o display
-            localStorage.setItem(`liked-${itemId}`, isLiked);
-            localStorage.setItem(`likes-${itemId}`, currentLikes);
-            likesSpan.textContent = currentLikes;
-        });
-    });
-
-    // --- BLOQUEIO 4: Bloqueia a cópia pelo teclado (Ctrl/Cmd + C) e Dev Tools ---
+    // --- BLOQUEIO: Bloqueia a cópia e ferramentas de desenvolvedor pelo teclado (Ctrl/Cmd + C, U, I, J, S) ---
     document.addEventListener('keydown', (e) => {
-        if (e.ctrlKey || e.metaKey) { // Ctrl ou Cmd
-            // Bloqueia C (copiar), U (ver código), I/J (inspecionar/devtools), S (salvar)
-            if (e.key === 'c' || e.key === 'C' || e.key === 'u' || e.key === 'U' || e.key === 'i' || e.key === 'I' || e.key === 'j' || e.key === 'J' || e.key === 's' || e.key === 'S') {
+        // e.ctrlKey é para Windows/Linux, e.metaKey é para Mac (Cmd)
+        if (e.ctrlKey || e.metaKey) { 
+            const key = e.key.toLowerCase();
+            // Bloqueia C, U, I, J, S
+            if (key === 'c' || key === 'u' || key === 'i' || key === 'j' || key === 's') {
                 e.preventDefault();
-                return false;
             }
         }
     });
@@ -92,15 +46,24 @@ document.addEventListener('DOMContentLoaded', () => {
 // Função para gerar o link do WhatsApp (Visível globalmente para o onclick)
 function gerarLinkZap() {
     const select = document.getElementById('tipoEstofado');
+    
+    // Verifica se o elemento existe e se uma opção foi selecionada
+    if (!select || select.selectedIndex === -1) {
+        alert("Por favor, selecione um tipo de estofado.");
+        return;
+    }
+    
     const opcaoSelecionada = select.options[select.selectedIndex].text; 
 
-    // O link agora está correto
-    const mensagemPadrao = `Olá, quero fazer o orçamento de: ${opcaoSelecionada}`;
+    // Mensagem a ser enviada
+    const mensagemPadrao = `Olá, Gslimp! Quero fazer o orçamento de: ${opcaoSelecionada}`;
     
-    // ATENÇÃO: Confirme que este é o número exato, incluindo o código do país (55) e o DDD (82)
+    // Número do WhatsApp (55=Código do País, 82=DDD, 991522179=Número)
     const numeroTelefone = '5582991522179'; 
+    
     const encodedMessage = encodeURIComponent(mensagemPadrao);
     const linkZap = `https://wa.me/${numeroTelefone}?text=${encodedMessage}`;
 
+    // Abre o link em uma nova aba
     window.open(linkZap, '_blank');
 }
