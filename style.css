@@ -8,17 +8,18 @@
     --cor-texto-suave: #6C757D; 
 
     --cor-wpp-bg: #25D366; 
-    --cor-curtir-vermelho: #FF4D4D; /* Adicionado do código original completo */
+    --cor-curtir-vermelho: #FF4D4D; 
     --borda-radius: 10px;
 }
 
-/* Base e Tipografia */
+/* Base e Tipografia (Otimizado) */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
     text-decoration: none;
+    /* Bloqueios mantidos para proteção de conteúdo */
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -30,12 +31,13 @@ body {
     color: var(--cor-texto-escuro);
     background-color: var(--cor-principal); 
     line-height: 1.6;
+    /* GARANTIA DE CORREÇÃO: Overflow-x mantido */
     overflow-x: hidden; 
 }
 
-/* PADRÃO DESKTOP: Espaçamento Padrão */
+/* Espaçamento Padrão */
 section {
-    padding: 100px 0; 
+    padding: 80px 0; /* Reduzido de 100px para melhor visualização em mobile */
 }
 
 .montserrat {
@@ -49,17 +51,18 @@ h1, h2, h3 {
     line-height: 1.2;
 }
 
-/* PADRÃO DESKTOP: Tamanhos de Fonte */
+/* Tamanhos de Fonte Padrão (Desktop) */
 h1 { font-size: 3.5em; font-weight: 900; }
 h2 { font-size: 2.2em; font-weight: 700; }
 h3 { font-size: 1.4em; font-weight: 700; }
 p { color: var(--cor-texto-suave); }
 
-/* Padding do Contêiner padrão para desktop e tablet */
+/* Contêiner (Otimizado) */
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px; 
+    /* Usar 15px em vez de 20px para melhor ajuste mobile */
+    padding: 0 15px; 
 }
 
 /* --- NAV BAR --- */
@@ -83,7 +86,7 @@ p { color: var(--cor-texto-suave); }
     color: var(--cor-texto-escuro);
 }
 nav a {
-    margin-left: 30px;
+    margin-left: 20px; /* Reduzido o margin para telas menores */
     color: var(--cor-texto-escuro);
     font-weight: 600;
     transition: color 0.3s ease;
@@ -125,8 +128,7 @@ nav a:hover {
 .hero-content {
     position: relative;
     z-index: 2;
-    padding-top: 150px;
-    padding-bottom: 100px;
+    padding: 100px 15px; /* Padding interno otimizado */
 }
 
 #hero h1, #hero p {
@@ -149,7 +151,7 @@ nav a:hover {
 .btn-cta.btn-wpp-style {
     display: inline-flex;
     align-items: center;
-    padding: 18px 40px;
+    padding: 18px 30px; /* Padding ajustado */
     font-weight: 700;
     text-transform: uppercase;
     background-color: var(--cor-detalhe-azul);
@@ -157,6 +159,9 @@ nav a:hover {
     box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
     color: white; 
     margin-top: 30px;
+    font-size: 0.9em; /* Ajustado para melhor fit mobile */
+    text-align: center;
+    justify-content: center;
 }
 
 .btn-cta.btn-wpp-style:hover {
@@ -177,7 +182,8 @@ nav a:hover {
 
 .stats-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    /* Mudar para 1 coluna no mobile via Media Query */
+    grid-template-columns: repeat(3, 1fr); 
     gap: 30px;
 }
 
@@ -209,7 +215,7 @@ nav a:hover {
     font-weight: 600;
 }
 
-/* --- SERVIÇOS CAROUSEL --- */
+/* --- SERVIÇOS CAROUSEL (Corrigido e Otimizado) --- */
 .tag {
     display: inline-block;
     padding: 6px 15px;
@@ -224,18 +230,12 @@ nav a:hover {
 
 .header-section {
     text-align: center;
-    margin-bottom: 60px;
-}
-
-/* Limita a largura do texto introdutório no centro */
-.intro-text-wrapper {
-    max-width: 600px; 
-    margin: 0 auto 40px auto; 
+    margin-bottom: 40px;
 }
 
 .servico-card {
     background-color: var(--cor-secundaria);
-    padding: 40px; 
+    padding: 40px;
     border-radius: var(--borda-radius);
     text-align: center;
     height: 100%;
@@ -266,20 +266,20 @@ nav a:hover {
     color: var(--cor-texto-escuro);
 }
 
-/* Carrossel de Serviços e Depoimentos */
+/* CARROSSEL FIX: Usar largura total para evitar overflow no container */
 .carousel-container {
     overflow: hidden;
     position: relative;
     padding: 20px 0; 
 }
+
 .carousel-track {
     display: flex;
     animation: scroll-left 40s linear infinite; 
     width: fit-content; 
-    
-    /* Manual Scroll */
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
+    /* Permite rolagem manual no mobile, mas a animação é o foco */
+    overflow-x: auto; 
+    scroll-snap-type: x mandatory; 
     -webkit-overflow-scrolling: touch; 
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -294,22 +294,18 @@ nav a:hover {
     100% { transform: translateX(-50%); } 
 }
 
-.carousel-track.paused {
-    animation-play-state: paused !important;
-}
-
-/* TAMANHO BASE (CELULAR): 1 item por vez */
+/* ITEM CARROSSEL: Largura e Margin ajustadas para responsividade */
 .carousel-item {
-    min-width: 320px; /* Garante que o item tenha uma largura mínima, como no código original completo */
-    margin-right: 30px;
-    scroll-snap-align: start;
+    min-width: 80vw; /* NOVO: Garante que o item ocupe a maior parte da tela em mobile */
+    margin-right: 20px; /* Ajustado para menor espaçamento */
     flex-shrink: 0;
+    scroll-snap-align: start;
 }
 
 /* --- SEÇÃO VÍDEO & TEXTO --- */
 .fundo-azul {
     background-color: var(--cor-detalhe-azul);
-    padding: 100px 0;
+    padding: 80px 0;
 }
 .fundo-azul h2, .fundo-azul p {
     color: white;
@@ -327,8 +323,9 @@ nav a:hover {
 }
 .grid-video-texto {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
+    /* NOVO: Usar 1 coluna por padrão e 2 apenas no desktop */
+    grid-template-columns: 1fr; 
+    gap: 40px;
     align-items: center;
 }
 .video-container {
@@ -365,7 +362,7 @@ nav a:hover {
     transform: scale(1.05);
 }
 
-/* --- SEÇÃO GALERIA & ORÇAMENTO --- */
+/* --- SEÇÃO GALERIA & ORÇAMENTO (Otimizado para Layout Flexível) --- */
 .fundo-claro-engajamento {
     background-color: var(--cor-detalhe-azul-claro); 
     padding: 60px 0;
@@ -373,18 +370,18 @@ nav a:hover {
 
 #galeria-e-orcamento .container {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Padrão Mobile: Coluna */
     align-items: center;
     gap: 40px; 
 }
 
-.secao-engajamento-wrapper, .secao-calculadora-wrapper { /* Adicionado secao-calculadora-wrapper do código original completo */
+.secao-engajamento-wrapper, .secao-calculadora-wrapper {
     width: 100%;
-    max-width: 500px; /* Restaurado para 500px para alinhar com o orçamento no mobile/tablet */
+    max-width: 500px; /* Limite de largura para o box do orçamento */
 }
 
-/* Galeria de Fotos (Ajustada) */
-.titulo-amado {
+/* Galeria de Fotos */
+.titulo-amado, .titulo-orcamento {
     font-family: 'Montserrat', sans-serif; 
     font-weight: 700;
     color: var(--cor-texto-escuro);
@@ -395,7 +392,7 @@ nav a:hover {
 
 .resultados-grid.grid-fotos {
     display: grid; 
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr; /* Padrão Mobile: 1 coluna */
     gap: 15px;
 }
 
@@ -502,15 +499,6 @@ nav a:hover {
 /* Calculadora de Orçamento */
 .secao-calculadora-wrapper {
     padding-top: 20px; 
-}
-
-.titulo-orcamento {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    color: var(--cor-texto-escuro);
-    font-size: 1.8em;
-    text-align: center;
-    margin-bottom: 25px;
 }
 
 .calculadora-form {
@@ -649,25 +637,28 @@ nav a:hover {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1.5fr;
+    /* NOVO: Padrão Mobile: 1 coluna */
+    grid-template-columns: 1fr; 
     gap: 40px;
     padding-bottom: 40px;
     border-bottom: 1px solid #495057;
+    text-align: center;
 }
 
 .footer-about h3 { color: white; font-size: 1.8em; }
-.footer-about p { color: #ADB5BD; margin: 15px 0 20px; font-size: 0.95em; }
+.footer-about p { color: #ADB5BD; margin: 15px auto 20px; font-size: 0.95em; max-width: 400px; }
+.footer-social { margin-top: 15px; }
 
 .footer-social a {
     font-size: 1.5em;
-    margin-right: 15px;
+    margin: 0 7px; /* Ajustado */
     color: #ADB5BD;
     transition: color 0.3s ease;
 }
 
 .footer-social a:hover { color: var(--cor-detalhe-azul); }
 .footer-links h4, .footer-contact h4 { color: white; margin-bottom: 20px; }
-.footer-links ul { list-style: none; }
+.footer-links ul { list-style: none; padding-left: 0; }
 .footer-links a {
     display: block;
     margin-bottom: 10px;
@@ -702,55 +693,92 @@ nav a:hover {
     transition: transform 0.3s ease;
 }
 
-/* --- MEDIA QUERIES (Responsividade) --- */
-@media (max-width: 992px) {
-    h1 { font-size: 2.8em; }
-    h2 { font-size: 2em; }
-    #navbar nav { display: none; }
-    .nav-content { justify-content: center; }
-    .grid-video-texto { grid-template-columns: 1fr; }
-    .texto-video { text-align: center; }
-    .footer-grid { grid-template-columns: 1fr; text-align: center; }
-    .footer-links, .footer-contact { text-align: center; }
-}
 
+/*
+=================================================
+  MEDIA QUERIES (OTIMIZAÇÃO DE RESPONSIVIDADE)
+=================================================
+*/
+
+/* --- 01. Mobile Pequeno (< 600px) --- */
 @media (max-width: 600px) {
-    h1 { font-size: 2em; }
+    /* Diminui o tamanho das fontes no mobile */
+    h1 { font-size: 2.2em; }
     h2 { font-size: 1.8em; }
+    
+    /* Stats em 1 coluna */
     .stats-container { grid-template-columns: 1fr; }
+    .stats-card { padding: 20px; }
+    
+    /* Botões CTA ajustados */
+    .btn-cta.btn-wpp-style { width: 100%; font-size: 0.8em; padding: 15px 20px; }
+    
+    /* WhatsApp flutuante menor */
     .whatsapp-float { width: 50px; height: 50px; font-size: 25px; }
     
-    /* Na visualização em coluna, forçar o espaçamento inferior no orçamento e galeria */
-    #galeria-e-orcamento .container > div {
-        margin-bottom: 40px;
-    }
+    /* Footer em colunas e alinhado ao centro */
+    .footer-links ul { padding: 0; }
 }
 
-@media (min-width: 600px) {
+/* --- 02. Tablet / Mobile Grande (601px a 991px) --- */
+@media (min-width: 601px) and (max-width: 991px) {
+    /* Carrossel: 2 itens por vez */
+    .carousel-item {
+        min-width: calc(50% - 15px); /* 2 itens na tela com espaçamento */
+    }
+    
+    /* Galeria: 2 colunas */
     .resultados-grid.grid-fotos {
         grid-template-columns: 1fr 1fr; 
     }
     
-    .secao-engajamento-wrapper {
-        max-width: 700px; /* Aumenta a largura da galeria em tablets */
-    }
-}
-
-@media (min-width: 992px) {
-    #galeria-e-orcamento .container {
-        flex-direction: row; /* Volta para lado a lado em telas maiores */
-        justify-content: center;
+    /* Stats em 2 colunas */
+    .stats-container { 
+        grid-template-columns: 1fr 1fr; 
+        max-width: 600px;
+        margin: 0 auto;
     }
     
-    .secao-engajamento-wrapper {
-        max-width: 500px; /* Largura igual para alinhar com o orçamento */
+    /* Garante que o orçamento/galeria fiquem centralizados */
+    .secao-engajamento-wrapper, .secao-calculadora-wrapper {
+        max-width: 90%;
     }
+    
+    /* Footer em 2 colunas */
+    .footer-grid {
+        grid-template-columns: 2fr 1.5fr;
+        text-align: left;
+    }
+    .footer-about { grid-column: span 2; }
 }
 
-/* Regras de Carrossel para Desktop */
-@media (min-width: 768px) {
-    /* Mostra 3 itens do carrossel no desktop/tablet */
+/* --- 03. Desktop Padrão (> 992px) --- */
+@media (min-width: 992px) {
+    h1 { font-size: 3.5em; }
+    h2 { font-size: 2.2em; }
+    
+    #navbar nav { display: block; } /* Garante que o menu navegação seja visível */
+    .nav-content { justify-content: space-between; }
+    
+    /* Carrossel: 3 itens por vez */
     .carousel-item {
-        min-width: calc(33.333% - 20px); /* 3 itens com 30px de margin-right */
+        min-width: calc(33.333% - 13.333px); /* 3 itens na tela com 20px de espaçamento */
+    }
+    
+    /* Vídeo e Texto: Lado a lado */
+    .grid-video-texto { grid-template-columns: 1fr 1fr; }
+    .texto-video { text-align: left; }
+    
+    /* Galeria e Orçamento: Lado a lado */
+    #galeria-e-orcamento .container {
+        flex-direction: row;
+        justify-content: center;
+        gap: 60px;
+    }
+    
+    /* Footer: 3 colunas */
+    .footer-grid { 
+        grid-template-columns: 2fr 1fr 1.5fr; 
+        text-align: left;
     }
 }
