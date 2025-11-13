@@ -1,3 +1,4 @@
+
 /* --- CONFIGURAÇÕES GLOBAIS E VARIÁVEIS --- */
 :root {
     --cor-principal: #FFFFFF; 
@@ -29,7 +30,7 @@ body {
     color: var(--cor-texto-escuro);
     background-color: var(--cor-principal); 
     line-height: 1.6;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Mantém a barra de rolagem horizontal invisível */
 }
 
 /* PADRÃO DESKTOP: Espaçamento Padrão */
@@ -54,13 +55,14 @@ h2 { font-size: 2.2em; font-weight: 700; }
 h3 { font-size: 1.4em; font-weight: 700; }
 p { color: var(--cor-texto-suave); }
 
+/* PADRÃO DESKTOP: Padding do Contêiner (Mantenha 20px) */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* --- NAV BAR --- */
+/* --- NAV BAR (mantido) --- */
 #navbar {
     background-color: var(--cor-principal);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
@@ -97,7 +99,7 @@ nav a:hover {
     border-radius: 5px;
 }
 
-/* --- HERO SECTION --- */
+/* --- HERO SECTION (mantido) --- */
 #hero {
     min-height: 90vh;
     display: flex;
@@ -135,7 +137,7 @@ nav a:hover {
     color: var(--cor-detalhe-azul); 
 }
 
-/* --- BOTÃO CTA PRINCIPAL --- */
+/* --- BOTÃO CTA PRINCIPAL (mantido) --- */
 .btn-cta {
     text-decoration: none;
     cursor: pointer;
@@ -167,7 +169,7 @@ nav a:hover {
     font-size: 1.4em;
 }
 
-/* --- STATS SECTION --- */
+/* --- STATS SECTION (mantido) --- */
 #stats {
     background-color: var(--cor-detalhe-azul-claro); 
     padding: 60px 0;
@@ -225,10 +227,10 @@ nav a:hover {
     margin-bottom: 60px;
 }
 
-/* NOVO BLOCO: Para limitar a largura do texto introdutório no centro */
+/* Limita a largura do texto introdutório no centro */
 .intro-text-wrapper {
-    max-width: 600px; /* Limita a largura do parágrafo */
-    margin: 0 auto 40px auto; /* Centraliza e adiciona margem inferior */
+    max-width: 600px; 
+    margin: 0 auto 40px auto; 
 }
 
 .servico-card {
@@ -304,7 +306,7 @@ nav a:hover {
     flex-shrink: 0;
 }
 
-/* --- SEÇÃO VÍDEO & TEXTO --- */
+/* --- SEÇÃO VÍDEO & TEXTO (mantido) --- */
 .fundo-azul {
     background-color: var(--cor-detalhe-azul);
     padding: 100px 0;
@@ -363,7 +365,7 @@ nav a:hover {
     transform: scale(1.05);
 }
 
-/* --- SEÇÃO GALERIA --- */
+/* --- SEÇÃO GALERIA (mantido) --- */
 .fundo-claro-engajamento {
     background-color: var(--cor-detalhe-azul-claro); 
     padding: 60px 0;
@@ -438,7 +440,7 @@ nav a:hover {
     color: var(--cor-detalhe-azul);
 }
 
-/* --- DEPOIMENTOS, CTA FINAL e RODAPÉ --- */
+/* --- DEPOIMENTOS, CTA FINAL e RODAPÉ (mantido) --- */
 .depoimento-card {
     background-color: var(--cor-principal);
     border: 1px solid #E9ECEF;
@@ -539,7 +541,7 @@ nav a:hover {
 .footer-contact i { margin-right: 10px; color: var(--cor-detalhe-azul); }
 .copyright { text-align: center; padding-top: 20px; font-size: 0.8em; color: #6C757D; }
 
-/* --- WHATSAPP FLUTUANTE --- */
+/* --- WHATSAPP FLUTUANTE (mantido) --- */
 .whatsapp-float {
     position: fixed;
     width: 60px;
@@ -587,9 +589,14 @@ nav a:hover {
 }
 
 /* ------------------------------------------- */
-/* AJUSTES PARA MOBILE (Max 600px) - CORREÇÃO FINAL DE PROPORÇÃO */
+/* AJUSTES PARA MOBILE (Max 600px) - CORREÇÃO FINAL DE LARGURA */
 /* ------------------------------------------- */
 @media (max-width: 600px) {
+    /* **CORREÇÃO DE LARGURA DO CONTAINER** */
+    .container {
+        padding: 0 10px; /* Reduz o padding lateral do contêiner para 10px (era 20px) */
+    }
+    
     /* **CORREÇÃO DE ESPAÇAMENTO** */
     section {
         padding: 40px 0;
@@ -614,7 +621,7 @@ nav a:hover {
 
     /* AJUSTE FINAL DE PROPORÇÃO DO TEXTO INTRODUTÓRIO */
     .intro-text-wrapper {
-        max-width: 90%; /* Limita a largura do bloco no celular para centralizar melhor */
+        max-width: 90%; 
         margin: 0 auto 30px auto;
     }
     
@@ -625,13 +632,20 @@ nav a:hover {
     .stats-container { grid-template-columns: 1fr; }
     .whatsapp-float { width: 50px; height: 50px; font-size: 25px; }
     
+    /* **CORREÇÃO DE LARGURA DO ITEM DO CARROSSEL** */
+    .carousel-item {
+        /* A largura do item é 100% da área do carrossel (que agora tem um padding menor)
+        menos o margin-right de 30px */
+        min-width: calc(100% - 30px);
+    }
+    
     /* Carrossel e Cards */
     .servico-card {
-        padding: 25px;
+        padding: 25px; /* Ajusta o texto no quadro */
     }
     .depoimento-card {
         height: auto;
-        padding: 20px;
+        padding: 20px; /* Ajusta o texto no quadro */
     }
 }
 
@@ -642,7 +656,6 @@ nav a:hover {
 @media (min-width: 992px) {
     /* CARROSSEL - DESKTOP PADRÃO: Mostrar 3 itens */
     .carousel-item {
-        /* 33.333% da largura, menos 2/3 da margem (para 3 itens) */
         min-width: calc(33.333% - 20px); 
     }
 }
@@ -650,7 +663,6 @@ nav a:hover {
 @media (min-width: 1200px) {
     /* CARROSSEL - DESKTOP GRANDE: Mostrar 4 itens */
     .carousel-item {
-        /* 25% da largura, menos 3/4 da margem (para 4 itens) */
         min-width: calc(25% - 22.5px); 
     }
 }
