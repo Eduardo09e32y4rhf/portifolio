@@ -113,7 +113,7 @@ nav a:hover {
     border-radius: 5px;
     margin-left: auto; 
     order: 1; 
-    margin-right: 15px; /* CORREÇÃO DO TRECHO FALTANTE: Alinha o botão à direita */
+    margin-right: 15px; 
 }
 
 /* --- HERO SECTION --- */
@@ -197,7 +197,7 @@ nav a:hover {
     font-size: 1.4em;
 }
 
-/* --- STATS SECTION (CORRIGIDO PARA COLUNA NO MOBILE) --- */
+/* --- STATS SECTION --- */
 #stats {
     background-color: var(--cor-detalhe-azul-claro); 
     padding: 60px 0;
@@ -205,7 +205,6 @@ nav a:hover {
 
 .stats-container {
     display: grid;
-    /* NOVO: Força 1 coluna no mobile (corrigido) */
     grid-template-columns: 1fr; 
     gap: 20px; 
     max-width: 400px; 
@@ -231,7 +230,7 @@ nav a:hover {
     font-weight: 900;
     color: var(--cor-detalhe-azul);
     line-height: 1;
-    display: block; /* ESSENCIAL: Garante que o número ocupe a linha inteira */
+    display: block; 
     margin-bottom: 10px; 
 }
 
@@ -241,7 +240,7 @@ nav a:hover {
     font-weight: 600;
 }
 
-/* --- SERVIÇOS CAROUSEL --- */
+/* --- SERVIÇOS CAROUSEL (CORRIGIDO PARA ESPAÇAMENTO E SCROLL MANUAL/AUTO) --- */
 .tag {
     display: inline-block;
     padding: 6px 15px;
@@ -302,6 +301,7 @@ nav a:hover {
     text-align: center; 
 }
 
+/* CARROSSEL DE SERVIÇOS - MELHORIAS DE ESPAÇAMENTO E SCROLL */
 .carousel-container {
     overflow: hidden;
     position: relative;
@@ -311,38 +311,36 @@ nav a:hover {
 
 .carousel-track {
     display: flex;
-    animation: scroll-left 40s linear infinite; 
+    /* Remover animation para habilitar scroll manual mais suave */
+    /* animation: scroll-left 40s linear infinite; */ 
     width: fit-content; 
-    overflow-x: auto; 
-    scroll-snap-type: x mandatory; 
+    overflow-x: scroll; /* Habilita scroll manual */
+    scroll-snap-type: x mandatory; /* Para "grudar" nos cards ao rolar */
     -webkit-overflow-scrolling: touch; 
     scrollbar-width: none;
     -ms-overflow-style: none;
     padding: 0 15px; 
+    /* Adicionar um pequeno padding na direita para o último item ter um respiro */
+    padding-right: 35px; 
 }
 
 .carousel-track::-webkit-scrollbar {
     display: none;
 }
 
-@keyframes scroll-left {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); } 
-}
+/* Removido @keyframes scroll-left para desativar auto-scroll (manter apenas scroll manual) */
+/* Se quiser auto-scroll com manual, precisa de JS */
 
+
+/* ITEM CARROSSEL: Largura e Margin ajustadas para responsividade e espaçamento */
 .carousel-item {
-    min-width: 85vw; 
-    max-width: 350px; 
-    margin-right: 20px; 
+    min-width: 85vw; /* Garante que o item ocupe a maior parte da tela em mobile */
+    max-width: 380px; /* Limite máximo para o card não ficar gigante */
+    margin-right: 25px; /* MAIOR ESPAÇO ENTRE OS CARDS (CORREÇÃO 2) */
     flex-shrink: 0;
-    scroll-snap-align: center; 
-    margin-left: auto;
-    margin-right: auto;
+    scroll-snap-align: center; /* Centraliza o item ao rolar */
+    /* Removido margin-left/right auto aqui para o scroll-snap funcionar melhor */
 }
-.carousel-track > .carousel-item:last-child {
-    margin-right: 0;
-}
-
 
 /* --- SEÇÃO VÍDEO & TEXTO (CORRIGIDO) --- */
 .fundo-azul {
@@ -371,7 +369,6 @@ nav a:hover {
 }
 .video-container {
     position: relative;
-    /* ESSENCIAL: Define a proporção de 16:9 para o vídeo */
     padding-top: 56.25%; 
     border-radius: var(--borda-radius);
     overflow: hidden;
@@ -386,9 +383,9 @@ nav a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    /* CORREÇÃO DO VÍDEO: Garante que o iframe apareça e preencha o container */
     border: none; 
     display: block; 
+    visibility: visible; /* Garante que o iframe esteja visível */
 }
 .texto-video {
     text-align: center; 
@@ -622,41 +619,77 @@ nav a:hover {
     margin-right: 8px;
 }
 
-/* --- DEPOIMENTOS, CTA FINAL e RODAPÉ --- */
-.depoimento-card {
+/* --- DEPOIMENTOS (CORRIGIDO PARA ESPAÇAMENTO E LAYOUT) --- */
+#depoimentos { /* Adicionado ID para a seção de depoimentos, se existir no HTML */
+    padding: 80px 0;
+    background-color: var(--cor-secundaria);
+}
+
+/* CARROSSEL DE DEPOIMENTOS - CLASSE REUTILIZADA, MAS COM AJUSTES */
+.depoimento-carousel-track { /* Nova classe para o track de depoimentos */
+    display: flex;
+    width: fit-content; 
+    overflow-x: scroll; 
+    scroll-snap-type: x mandatory; 
+    -webkit-overflow-scrolling: touch; 
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 0 15px; 
+    padding-right: 35px; /* Adiciona padding para o último item ter respiro */
+}
+
+.depoimento-carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.depoimento-item { /* Nova classe para o item de depoimento */
+    min-width: 85vw; /* Ocupa a maior parte da tela em mobile */
+    max-width: 400px; /* Limite máximo para o card não ficar gigante */
+    margin-right: 25px; /* MAIOR ESPAÇO ENTRE OS CARDS (CORREÇÃO 3) */
+    flex-shrink: 0;
+    scroll-snap-align: center; 
+    height: auto; /* Permite que a altura se ajuste ao conteúdo */
     background-color: var(--cor-principal);
     border: 1px solid #E9ECEF;
     padding: 25px;
     border-radius: var(--borda-radius);
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-    height: 200px;
-    display: flex;
-    flex-direction: column;
+    display: flex; /* Para flexbox interno */
+    flex-direction: column; /* Conteúdo em coluna */
     justify-content: space-between;
-    max-width: 400px; 
-    margin: 0 auto; 
 }
-.depoimento-card p {
+
+.depoimento-item .perfil {
+    display: flex; /* Para avatar e nome/cargo */
+    flex-direction: column; /* AVATAR EM CIMA DO NOME (CORREÇÃO 3) */
+    align-items: center; /* CENTRALIZA AVATAR E NOME (CORREÇÃO 3) */
+    margin-bottom: 15px;
+    text-align: center; /* Centraliza o texto do perfil */
+}
+.depoimento-item .perfil img {
+    width: 60px; /* Aumenta um pouco o avatar */
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 0; /* Remove margem lateral */
+    margin-bottom: 10px; /* Espaço entre avatar e nome */
+}
+.depoimento-item .perfil strong {
+    color: var(--cor-texto-escuro);
+    display: block; /* Garante que o nome ocupe a linha toda */
+    font-size: 1.1em;
+}
+
+.depoimento-item p {
     font-style: italic;
     font-size: 1em;
     color: var(--cor-texto-escuro);
-    text-align: left; 
+    text-align: center; /* Centraliza o texto do depoimento (CORREÇÃO 3) */
+    flex-grow: 1; /* Permite que o texto ocupe o espaço restante */
+    display: flex; /* Para ajudar a centralizar verticalmente se necessário */
+    align-items: center; /* Centraliza verticalmente o texto */
+    justify-content: center; /* Centraliza horizontalmente o texto */
 }
-.perfil {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-    justify-content: flex-start; 
-}
-.perfil img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-.perfil strong {
-    color: var(--cor-texto-escuro);
-}
+
 
 .fundo-azul-claro {
     background-color: var(--cor-detalhe-azul-claro);
@@ -749,109 +782,4 @@ nav a:hover {
     text-align: center;
     font-size: 30px;
     z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease;
-}
 
-
-/*
-=================================================
-  MEDIA QUERIES (OTIMIZAÇÃO DE RESPONSIVIDADE)
-=================================================
-*/
-
-/* --- 01. Mobile Pequeno (< 600px) --- */
-@media (max-width: 600px) {
-    h1 { font-size: 2.2em; }
-    h2 { font-size: 1.8em; }
-    
-    /* Stats em 1 coluna (Corrigido para forçar a quebra) */
-    .stats-container { 
-        grid-template-columns: 1fr; 
-        gap: 20px;
-    }
-    .stats-card { padding: 20px; }
-    
-    /* Botões CTA ajustados */
-    .btn-cta.btn-wpp-style { width: 100%; font-size: 0.8em; padding: 15px 20px; }
-    
-    /* WhatsApp flutuante menor */
-    .whatsapp-float { width: 50px; height: 50px; font-size: 25px; }
-    
-    /* Footer em colunas e alinhado ao centro */
-    .footer-links ul { padding: 0; }
-}
-
-/* --- 02. Tablet / Mobile Grande (601px a 991px) --- */
-@media (min-width: 601px) and (max-width: 991px) {
-    /* Navbar: Exibe a navegação em linha */
-    #navbar nav {
-        display: flex;
-        order: 0; 
-        width: auto;
-        margin-top: 0;
-    }
-    .logo {
-        flex-grow: 0;
-        padding-left: 0;
-    }
-    /* Stats em 3 colunas, mas com limite de largura para evitar quebra no desktop */
-    .stats-container { 
-        grid-template-columns: 1fr 1fr 1fr; 
-        max-width: 900px;
-    }
-    
-    /* Carrossel: 2 itens por vez */
-    .carousel-item {
-        min-width: calc(50% - 15px); 
-    }
-    
-    /* Galeria: 2 colunas */
-    .resultados-grid.grid-fotos {
-        grid-template-columns: 1fr 1fr; 
-    }
-    
-    /* Footer em 2 colunas */
-    .footer-grid {
-        grid-template-columns: 2fr 1.5fr;
-        text-align: left;
-    }
-    .footer-about { grid-column: span 2; }
-}
-
-/* --- 03. Desktop Padrão (> 992px) --- */
-@media (min-width: 992px) {
-    h1 { font-size: 3.5em; }
-    h2 { font-size: 2.2em; }
-    
-    #navbar nav { display: flex; } 
-    .nav-content { justify-content: space-between; }
-    
-    /* Stats em 3 colunas */
-    .stats-container { grid-template-columns: 1fr 1fr 1fr; }
-    
-    /* Carrossel: 3 itens por vez */
-    .carousel-item {
-        min-width: calc(33.333% - 13.333px); 
-    }
-    
-    /* Vídeo e Texto: Lado a lado */
-    .grid-video-texto { grid-template-columns: 1fr 1fr; }
-    .texto-video { text-align: left; }
-    
-    /* Galeria e Orçamento: Lado a lado */
-    #galeria-e-orcamento .container {
-        flex-direction: row;
-        justify-content: center;
-        gap: 60px;
-    }
-    
-    /* Footer: 3 colunas */
-    .footer-grid { 
-        grid-template-columns: 2fr 1fr 1.5fr; 
-        text-align: left;
-    }
-}
