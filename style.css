@@ -8,7 +8,6 @@
     --cor-texto-suave: #6C757D; 
 
     --cor-wpp-bg: #25D366; 
-    --cor-curtir-vermelho: #FF4D4D; /* Mantido caso queira usar em outro contexto */
     --borda-radius: 10px;
 }
 
@@ -340,25 +339,28 @@ nav a:hover {
     transform: scale(1.05);
 }
 
-/* --- SEÇÃO GALERIA & ORÇAMENTO --- */
+/* --- SEÇÃO GALERIA --- */
 .fundo-claro-engajamento {
     background-color: var(--cor-detalhe-azul-claro); 
     padding: 60px 0;
 }
 
 #galeria-e-orcamento .container {
+    /* Ajusta o layout para centralizar o conteúdo */
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 40px; 
 }
 
-.secao-engajamento-wrapper, .secao-calculadora-wrapper {
+/* Garante que a galeria ocupe o espaço */
+.secao-engajamento-wrapper {
     width: 100%;
-    max-width: 500px; 
+    /* Novo max-width para melhor visualização da galeria */
+    max-width: 1000px !important; 
 }
 
-/* Galeria de Fotos (Ajustada) */
+/* Galeria de Fotos */
 .titulo-amado {
     font-family: 'Montserrat', sans-serif; 
     font-weight: 700;
@@ -415,88 +417,6 @@ nav a:hover {
     font-weight: 600;
     font-size: 0.95em;
     color: var(--cor-detalhe-azul);
-}
-
-/* Calculadora de Orçamento */
-.secao-calculadora-wrapper {
-    padding-top: 20px; 
-}
-
-.titulo-orcamento {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    color: var(--cor-texto-escuro);
-    font-size: 1.8em;
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-.calculadora-form {
-    padding: 25px;
-    background: var(--cor-principal);
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    text-align: left;
-}
-
-.calculadora-form label {
-    font-weight: 600;
-    color: var(--cor-texto-escuro);
-    margin-bottom: 10px;
-    display: block;
-}
-
-/* Estilização Moderna para o SELECT */
-.calculadora-form select {
-    appearance: none; 
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background: white url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23007BFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") no-repeat right 15px center;
-    background-size: 20px;
-    
-    border: 2px solid var(--cor-detalhe-azul); 
-    color: var(--cor-texto-escuro);
-    font-weight: 500;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    padding: 14px 15px; 
-    border-radius: 8px; 
-    margin-bottom: 30px; 
-    font-size: 1em;
-    width: 100%;
-    cursor: pointer;
-}
-
-.calculadora-form select:focus {
-    border-color: #0056b3;
-    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.3); 
-    outline: none;
-}
-
-/* Botão CTA Azul */
-.btn-cta-zap {
-    padding: 18px 20px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1em;
-    width: 100%;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    font-weight: 700;
-    color: white;
-}
-.btn-cta-zap.btn-cta-azul {
-    background-color: var(--cor-detalhe-azul); 
-    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
-}
-
-.btn-cta-zap.btn-cta-azul:hover {
-    background-color: #0056b3;
-    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.5);
-    transform: translateY(-2px);
-}
-
-.btn-cta-zap.btn-cta-azul i {
-    margin-right: 8px;
 }
 
 /* --- DEPOIMENTOS, CTA FINAL e RODAPÉ --- */
@@ -630,6 +550,8 @@ nav a:hover {
     .texto-video { text-align: center; }
     .footer-grid { grid-template-columns: 1fr; text-align: center; }
     .footer-links, .footer-contact { text-align: center; }
+    /* Ajuste para mobile: Galeria ocupando 100% da largura */
+    .secao-engajamento-wrapper { max-width: 100% !important; }
 }
 
 @media (max-width: 600px) {
@@ -637,11 +559,17 @@ nav a:hover {
     h2 { font-size: 1.8em; }
     .stats-container { grid-template-columns: 1fr; }
     .whatsapp-float { width: 50px; height: 50px; font-size: 25px; }
-    .secao-engajamento-wrapper, .secao-calculadora-wrapper { max-width: 100%; }
 }
 
 @media (min-width: 600px) {
     .resultados-grid.grid-fotos {
         grid-template-columns: 1fr 1fr; 
+    }
+}
+
+/* Adicionando grid-template-columns: 1fr 1fr 1fr 1fr para desktop na galeria */
+@media (min-width: 1000px) {
+    .resultados-grid.grid-fotos {
+        grid-template-columns: 1fr 1fr 1fr 1fr; 
     }
 }
