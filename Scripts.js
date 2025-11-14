@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- Lógica 1: Pausa de Carrossel Animado em Interação (MANTIDA) --- 
-    // Esta lógica é necessária para o carrossel híbrido (automático + manual).
-    // Ela pausa a animação automática quando o usuário toca/arrasta manualmente.
     const carousels = document.querySelectorAll('.carousel-container');
     
     carousels.forEach(container => {
@@ -19,13 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Desktop e Mobile
         container.addEventListener('mouseenter', pauseAnimation);
         container.addEventListener('mouseleave', resumeAnimation);
-        
-        // Pausa a animação automática ao iniciar o toque/arrasto
         container.addEventListener('touchstart', pauseAnimation);
         
         container.addEventListener('touchend', () => {
-            // Retoma a animação 1 segundo após o toque ser liberado
-            // (Isso dá tempo para o 'scroll-snap' do CSS terminar o movimento)
+            // Pausa por 1 segundo após o toque ser liberado
             setTimeout(resumeAnimation, 1000); 
         });
     });
@@ -45,4 +40,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Função para gerar o link do WhatsApp (REMOVIDA) 
-// A função 'gerarLinkZap' foi removida.
+// A função 'gerarLinkZap' foi removida, pois ela era usada pelo bloco de Orçamento Rápido removido.
