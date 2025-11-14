@@ -1,34 +1,43 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Lógica 1: Pausa de Carrossel Animado em Interação (MANTIDA) --- 
+    // --- Lógica 1: Carrossel Automático + Pausa em Interação (AJUSTADO) --- 
     const carousels = document.querySelectorAll('.carousel-container');
     
     carousels.forEach(container => {
         const track = container.querySelector('.carousel-track');
         
         const pauseAnimation = () => {
-            if (track) track.style.animationPlayState = 'paused';
+            if (track) {
+                // Pausa a rolagem automática via CSS Animation
+                track.style.animationPlayState = 'paused';
+            }
         };
         
         const resumeAnimation = () => {
-            if (track) track.style.animationPlayState = 'running';
+            if (track) {
+                // Retoma a rolagem automática via CSS Animation
+                track.style.animationPlayState = 'running';
+            }
         };
 
-        // Desktop e Mobile
+        // Pausa quando o mouse entra (Desktop)
         container.addEventListener('mouseenter', pauseAnimation);
+        
+        // Retoma quando o mouse sai (Desktop)
         container.addEventListener('mouseleave', resumeAnimation);
+        
+        // Pausa quando o toque começa (Mobile/Manual start)
         container.addEventListener('touchstart', pauseAnimation);
         
+        // Retoma 1 segundo após o toque terminar (Mobile/Manual end)
         container.addEventListener('touchend', () => {
-            // Pausa por 1 segundo após o toque ser liberado
             setTimeout(resumeAnimation, 1000); 
         });
+
+        // O CSS foi modificado para adicionar scroll-snap para rolagem manual suave.
     });
 
-    // --- Lógica 2: Botão Curtir (REMOVIDA) ---
-    // O código de likes foi totalmente removido daqui.
-
-    // --- BLOQUEIO 4: Bloqueia a cópia pelo teclado (Ctrl/Cmd + C) (MANTIDO) --- 
+    // --- BLOQUEIO 4: Bloqueia a cópia pelo teclado (MANTIDO) --- 
     document.addEventListener('keydown', (e) => {
         if (e.ctrlKey || e.metaKey) { // Ctrl ou Cmd
             if (e.key === 'c' || e.key === 'C' || e.key === 'u' || e.key === 'U' || e.key === 'i' || e.key === 'I' || e.key === 'j' || e.key === 'J' || e.key === 's' || e.key === 'S') {
@@ -38,6 +47,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }); 
 });
-
-// Função para gerar o link do WhatsApp (REMOVIDA) 
-// A função 'gerarLinkZap' foi removida, pois ela era usada pelo bloco de Orçamento Rápido removido.
