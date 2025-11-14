@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gslimp - Higienização e Renovação de Estofados</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
-<body oncontextmenu="return false;">
+<body>
+
     <header id="navbar">
         <div class="container nav-content">
-            <div class="logo">GSLIMP</div>
+            <div class="logo montserrat">GSLIMP</div>
             <nav>
                 <a href="#servicos">Serviços</a>
                 <a href="#galeria-e-orcamento">Galeria</a>
@@ -22,17 +23,16 @@
     </header>
 
     <section id="hero">
-        <div class="hero-overlay"></div> 
+        <div class="hero-overlay"></div>
         <div class="container hero-content">
             <h1 class="montserrat"><span class="blue-text-hero">Gslimp</span><br>Devolva a Vida e a Saúde aos Seus Estofados</h1>
             <p>Especialistas em higienização e limpeza profunda, eliminando ácaros, bactérias e manchas. Qualidade que você vê e sente.</p>
-            
             <a href="https://wa.me/82991522179?text=Ol%C3%A1%20Gslimp,%20gostaria%20de%20um%20or%C3%A7amento%20para%20limpeza%20de%20estofado!" class="btn-cta btn-wpp-style" target="_blank">
                 <i class="fab fa-whatsapp"></i> Solicite Orçamento Imediato
             </a>
         </div>
     </section>
-    
+
     <section id="stats">
         <div class="container stats-container">
             <div class="stats-card">
@@ -57,7 +57,6 @@
                 <h2 class="montserrat">Soluções Completas para um Ambiente Saudável</h2>
                 <p>Nossos serviços utilizam a mais alta tecnologia de extração e produtos biodegradáveis, garantindo uma limpeza segura e profunda.</p>
             </div>
-            
             <div class="carousel-container services-carousel">
                 <div class="carousel-track">
                     <div class="servico-card carousel-item">
@@ -80,7 +79,7 @@
                         <h3 class="montserrat">Tapetes & Carpetes</h3>
                         <p>Lavagem especializada que restaura a cor e a textura original do seu tapete.</p>
                     </div>
-                     <div class="servico-card carousel-item">
+                    <div class="servico-card carousel-item">
                         <div class="icon-wrapper"><i class="fas fa-couch"></i></div>
                         <h3 class="montserrat">Sofás & Estofados</h3>
                         <p>Eliminação de sujeira visível, ácaros e odores. Seu sofá com aspecto de novo.</p>
@@ -108,124 +107,63 @@
     <section id="video-destaque" class="fundo-azul">
         <div class="container grid-video-texto">
             <div class="video-container">
-                <iframe 
-                    src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&loop=1&playlist=dQw4w9WgXcQ" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                </iframe>
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&loop=1&playlist=dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            
             <div class="texto-video">
                 <span class="tag-clara">Resultados que Impressionam</span>
                 <h2 class="montserrat">Veja a Nossa Qualidade em Ação</h2>
                 <p>Nenhuma foto ou texto substitui o resultado real. Assista a uma demonstração de como removemos sujeira profunda, restaurando a cor e a maciez do seu estofado.</p>
-                <a href="#hero" class="btn-cta btn-secundario">
-                    Quero ver meu estofado assim!
-                </a>
+                <a href="#hero" class="btn-cta btn-secundario"> Quero ver meu estofado assim! </a>
             </div>
         </div>
     </section>
-    
+
     <section id="galeria-e-orcamento" class="fundo-claro-engajamento">
-        <div class="container">
+        <div class="container" style="justify-content: center; align-items: center;">
             
-            <div class="secao-engajamento-wrapper">
-                <h2 class="titulo-amado">Nossos Sofás Mais Amados</h2> 
+            <div class="secao-engajamento-wrapper" style="max-width: 100%;">
+                <h2 class="titulo-amado">Nossos Sofás Mais Amados</h2>
                 <div class="resultados-grid grid-fotos">
-                    
                     <div class="item-resultado item-foto">
                         <img src="https://picsum.photos/400/250?random=1" alt="Resultado Limpeza Sofá 1">
-                        <div class="info-curtir">
-                            <button class="btn-curtir" data-id="sofa1" aria-label="Curtir este resultado">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <span id="likes-sofa1" class="contador-likes">150</span>
-                        </div>
                         <span class="resultado-nome">Resultado Limpeza Sofá 1</span>
-                        <div class="heart-animation" data-id="sofa1"></div>
                     </div>
-                    
                     <div class="item-resultado item-foto">
                         <img src="https://picsum.photos/400/250?random=2" alt="Resultado Limpeza Sofá 2">
-                        <div class="info-curtir">
-                            <button class="btn-curtir" data-id="sofa2" aria-label="Curtir este resultado">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <span id="likes-sofa2" class="contador-likes">210</span>
-                        </div>
                         <span class="resultado-nome">Resultado Limpeza Sofá 2</span>
-                        <div class="heart-animation" data-id="sofa2"></div>
                     </div>
-
                     <div class="item-resultado item-foto">
                         <img src="https://picsum.photos/400/250?random=3" alt="Resultado Limpeza Sofá 3">
-                        <div class="info-curtir">
-                            <button class="btn-curtir" data-id="sofa3" aria-label="Curtir este resultado">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <span id="likes-sofa3" class="contador-likes">180</span>
-                        </div>
                         <span class="resultado-nome">Resultado Limpeza Sofá 3</span>
-                        <div class="heart-animation" data-id="sofa3"></div>
                     </div>
-
                     <div class="item-resultado item-foto">
                         <img src="https://picsum.photos/400/250?random=4" alt="Resultado Limpeza Sofá 4">
-                        <div class="info-curtir">
-                            <button class="btn-curtir" data-id="sofa4" aria-label="Curtir este resultado">
-                                <i class="far fa-heart"></i>
-                            </button>
-                            <span id="likes-sofa4" class="contador-likes">195</span>
-                        </div>
                         <span class="resultado-nome">Resultado Limpeza Sofá 4</span>
-                        <div class="heart-animation" data-id="sofa4"></div>
                     </div>
-                    
-                    </div>
-            </div>
-            
-            <div class="secao-calculadora-wrapper">
-                <h2 class="titulo-orcamento">💰 Orçamento Rápido e Sem Compromisso</h2>
-                <div class="calculadora-form">
-                    
-                    <label for="tipoEstofado">Qual o tipo de estofado?</label>
-                    <select id="tipoEstofado">
-                        <option value="Sofá de 2 Lugares">Sofá de 2 Lugares</option>
-                        <option value="Sofá de 3 Lugares">Sofá de 3 Lugares</option>
-                        <option value="Poltrona / Cadeira">Poltrona / Cadeira</option>
-                        <option value="Colchão Queen/King">Colchão Queen/King</option>
-                        <option value="Outro (Descrever no WhatsApp)">Outro (Descrever no WhatsApp)</option>
-                    </select>
-                    
-                    <button class="btn-cta-zap btn-cta-azul" onclick="gerarLinkZap()">
-                        <i class="fab fa-whatsapp"></i> Solicitar Orçamento por WhatsApp
-                    </button>
                 </div>
             </div>
 
         </div>
     </section>
-    
+
     <section id="depoimentos">
         <div class="container">
             <div class="header-section">
                 <span class="tag">Clientes Gslimp</span>
                 <h2 class="montserrat">O Que Nossos Clientes Dizem</h2>
             </div>
-            
             <div class="carousel-container depoimentos-carousel">
                 <div class="carousel-track">
                     <div class="depoimento-card carousel-item">
                         <div class="perfil">
-                            <img src="https://i.pravatar.cc/150?img=1" alt="Maria Silva"> 
+                            <img src="https://i.pravatar.cc/150?img=1" alt="Maria Silva">
                             <strong>Maria Silva</strong>
                         </div>
                         <p>"Fiquei impressionada! Meu sofá está novo e o cheiro sumiu. Profissionais super atenciosos."</p>
                     </div>
                     <div class="depoimento-card carousel-item">
                         <div class="perfil">
-                             <img src="https://i.pravatar.cc/150?img=2" alt="João Santos">
+                            <img src="https://i.pravatar.cc/150?img=2" alt="João Santos">
                             <strong>João Santos</strong>
                         </div>
                         <p>"Serviço rápido e com zero bagunça. A higienização dos meus colchões foi excelente."</p>
@@ -239,21 +177,21 @@
                     </div>
                     <div class="depoimento-card carousel-item">
                         <div class="perfil">
-                             <img src="https://i.pravatar.cc/150?img=4" alt="Carlos Alberto">
+                            <img src="https://i.pravatar.cc/150?img=4" alt="Carlos Alberto">
                             <strong>Carlos Alberto</strong>
                         </div>
                         <p>"A impermeabilização foi a melhor decisão. Minha poltrona está protegida de verdade."</p>
                     </div>
                     <div class="depoimento-card carousel-item">
                         <div class="perfil">
-                            <img src="https://i.pravatar.cc/150?img=5" alt="Paula F."> 
+                            <img src="https://i.pravatar.cc/150?img=5" alt="Paula F.">
                             <strong>Paula F.</strong>
                         </div>
                         <p>"Fiquei impressionada! Meu sofá está novo e o cheiro sumiu. Profissionais super atenciosos."</p>
                     </div>
                     <div class="depoimento-card carousel-item">
                         <div class="perfil">
-                             <img src="https://i.pravatar.cc/150?img=6" alt="Rafaela A.">
+                            <img src="https://i.pravatar.cc/150?img=6" alt="Rafaela A.">
                             <strong>Rafaela A.</strong>
                         </div>
                         <p>"Serviço rápido e com zero bagunça. A higienização dos meus colchões foi excelente."</p>
@@ -267,7 +205,6 @@
         <div class="container cta-futurista-wrapper" id="contato">
             <h2 class="montserrat">Transforme Seu Ambiente Hoje Mesmo</h2>
             <p>Não espere. Receba um orçamento rápido e personalizado sem compromisso. É a sua chance de ter um estofado renovado.</p>
-
             <a href="https://wa.me/82991522179?text=Ol%C3%A1%20Gslimp,%20gostaria%20de%20um%20or%C3%A7amento%20imediato." class="btn-cta btn-futurista" target="_blank">
                 <i class="fab fa-whatsapp"></i> Receber Cotação Instantânea
             </a>
@@ -284,7 +221,6 @@
                     <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
-            
             <div class="footer-links">
                 <h4 class="montserrat">Navegação</h4>
                 <ul>
@@ -294,7 +230,6 @@
                     <li><a href="#contato">Fale Conosco</a></li>
                 </ul>
             </div>
-
             <div class="footer-contact">
                 <h4 class="montserrat">Contato Imediato</h4>
                 <p><i class="fas fa-phone-alt"></i> (11) 99999-9999</p>
@@ -302,16 +237,15 @@
                 <p class="horario-footer"><i class="far fa-clock"></i> Seg - Sáb, 8h às 18h</p>
             </div>
         </div>
-
         <div class="container copyright">
             &copy; 2025 Gslimp. Todos os direitos reservados.
         </div>
     </footer>
-    
+
     <a href="https://wa.me/82991522179?text=Ol%C3%A1%20quero%20fazer%20um%20or%C3%A7amento!" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
-    
+
     <script src="script.js"></script>
 </body>
 </html>
