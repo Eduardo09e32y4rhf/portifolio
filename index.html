@@ -12,7 +12,7 @@
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
-<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+<body>
 
   <!-- HEADER -->
   <header class="header" role="banner">
@@ -49,7 +49,7 @@
           <p class="lead">Tecnologia avançada, biodegradáveis e cuidado profissional. Atuando em <strong>Arapiraca</strong> e região (até 15 km).</p>
 
           <div class="hero-ctas">
-            <a href="#simulador" class="btn btn-wpp"><i class="fab fa-whatsapp"></i> Solicitar Orçamento</a>
+            <a href="#simulador" class="btn btn-wpp" id="cta-whatsapp"><i class="fab fa-whatsapp"></i> Solicitar Orçamento</a>
             <button class="btn btn-ghost video-open" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">Assistir demonstração</button>
           </div>
 
@@ -62,8 +62,8 @@
 
         <div class="hero-right">
           <div class="device-card reveal" data-reveal>
-            <div class="device-media" data-src="https://www.youtube.com/embed/dQw4w9WgXcQ">
-              <img src="https://images.unsplash.com/photo-1581579181426-9a8efb1a6a1d?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=0" alt="Demonstração Gslimp">
+            <div class="device-media" data-src="https://www.youtube.com/embed/dQw4w9WgXcQ" tabindex="0" role="button" aria-label="Assistir demonstração">
+              <img src="https://images.unsplash.com/photo-1581579181426-9a8efb1a6a1d?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=0" alt="Demonstração Gslimp" loading="lazy">
               <button class="play-large" aria-label="Assistir vídeo"><i class="fas fa-play"></i></button>
             </div>
             <div class="device-info"><strong>Gslimp — Serviço Premium</strong><span>Transformação visível</span></div>
@@ -106,34 +106,33 @@
         <p class="section-lead reveal" data-reveal>Clique na foto do item — você será direcionado ao WhatsApp com a mensagem pronta.</p>
 
         <div id="simulador" class="before-after-grid reveal" data-reveal>
-          <!-- Card template: data-type used for simulador -->
-          <div class="ba-card item" data-type="Sofá" data-id="sofa">
-            <div class="ba-thumb" role="button" tabindex="0" aria-pressed="false">
-              <img src="https://images.unsplash.com/photo-1549187774-b4d3b5f5e6e8?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=1" alt="Sofá">
+          <div class="ba-card item" data-type="Sofá" data-id="sofa" tabindex="0" role="button">
+            <div class="ba-thumb">
+              <img src="https://images.unsplash.com/photo-1549187774-b4d3b5f5e6e8?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=1" alt="Sofá" loading="lazy">
               <div class="ba-label">Sofá</div>
             </div>
             <div class="ba-meta"><small>Toque para orçar</small></div>
           </div>
 
-          <div class="ba-card item" data-type="Colchão" data-id="colchao">
+          <div class="ba-card item" data-type="Colchão" data-id="colchao" tabindex="0" role="button">
             <div class="ba-thumb">
-              <img src="https://images.unsplash.com/photo-1505691723518-36a8b40c8b1e?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=2" alt="Colchão">
+              <img src="https://images.unsplash.com/photo-1505691723518-36a8b40c8b1e?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=2" alt="Colchão" loading="lazy">
               <div class="ba-label">Colchão</div>
             </div>
             <div class="ba-meta"><small>Toque para orçar</small></div>
           </div>
 
-          <div class="ba-card item" data-type="Cadeira" data-id="cadeira">
+          <div class="ba-card item" data-type="Cadeira" data-id="cadeira" tabindex="0" role="button">
             <div class="ba-thumb">
-              <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=3" alt="Cadeira">
+              <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=3" alt="Cadeira" loading="lazy">
               <div class="ba-label">Cadeira</div>
             </div>
             <div class="ba-meta"><small>Toque para orçar</small></div>
           </div>
 
-          <div class="ba-card item" data-type="Tapete / Carpete" data-id="tapete">
+          <div class="ba-card item" data-type="Tapete / Carpete" data-id="tapete" tabindex="0" role="button">
             <div class="ba-thumb">
-              <img src="https://images.unsplash.com/photo-1493666438817-866a91353ca9?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=4" alt="Tapete">
+              <img src="https://images.unsplash.com/photo-1493666438817-866a91353ca9?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=4" alt="Tapete" loading="lazy">
               <div class="ba-label">Tapete</div>
             </div>
             <div class="ba-meta"><small>Toque para orçar</small></div>
@@ -149,14 +148,12 @@
         <p class="section-lead reveal" data-reveal>Assista demonstrações curtas</p>
 
         <div class="grid reveal" data-reveal id="videos-grid">
-          <!-- Each .video-thumb opens modal -->
-          <div class="card video-thumb" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
-            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Vídeo 1"><strong>Demonstração 1</strong>
+          <div class="card video-thumb" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ" tabindex="0" role="button">
+            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Vídeo 1" loading="lazy"><strong>Demonstração 1</strong>
           </div>
 
-          <!-- Add more YouTube short links similarly -->
-          <div class="card video-thumb" data-video="https://www.youtube.com/embed/VIDEO_ID_2">
-            <img src="https://img.youtube.com/vi/VIDEO_ID_2/hqdefault.jpg" alt="Vídeo 2"><strong>Demonstração 2</strong>
+          <div class="card video-thumb" data-video="https://www.youtube.com/embed/VIDEO_ID_2" tabindex="0" role="button">
+            <img src="https://img.youtube.com/vi/VIDEO_ID_2/hqdefault.jpg" alt="Vídeo 2" loading="lazy"><strong>Demonstração 2</strong>
           </div>
         </div>
       </div>
@@ -168,7 +165,7 @@
         <h2 class="section-title reveal" data-reveal>O que nossos clientes dizem</h2>
 
         <div class="carousel-wrap reveal" data-reveal>
-          <div class="carousel-track" data-autoplay="true" data-speed="0.35">
+          <div class="carousel-track" data-autoplay="true" data-speed="0.7">
             <blockquote class="card depo">
               <p>"Atendimento impecável e sofá como novo."</p>
               <footer>— Maria S., Arapiraca</footer>
@@ -241,19 +238,19 @@
         <h3 id="simTitle">Solicitar Orçamento</h3>
         <p id="simDesc">Escolha tamanho e informe seu endereço (opcional).</p>
 
-        <label>Tamanho</label>
+        <label for="simSize">Tamanho</label>
         <select id="simSize">
           <option value="Pequeno">Pequeno</option>
           <option value="Médio">Médio</option>
           <option value="Grande">Grande</option>
         </select>
 
-        <label>Quantidade</label>
+        <label for="simQty">Quantidade</label>
         <input id="simQty" type="number" min="1" value="1">
 
         <label>Use minha localização (recomendado)</label>
         <button id="useGeo" class="btn btn-ghost">Usar localização</button>
-        <small id="geoMsg" class="muted"></small>
+        <small id="geoMsg" class="muted" aria-live="polite"></small>
 
         <div class="sim-actions">
           <button id="simCancel" class="btn btn-ghost" data-close="true">Cancelar</button>
