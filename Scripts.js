@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Lógica 1: Carrossel Automático + Pausa em Interação (AJUSTADO) --- 
+    // --- Lógica: Carrossel Automático + Pausa em Interação (HÍBRIDO) --- 
+    // Garante que a animação automática do CSS pause quando houver interação manual.
     const carousels = document.querySelectorAll('.carousel-container');
     
     carousels.forEach(container => {
@@ -8,36 +9,31 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const pauseAnimation = () => {
             if (track) {
-                // Pausa a rolagem automática via CSS Animation
+                // Pausa a rolagem automática (CSS Animation)
                 track.style.animationPlayState = 'paused';
             }
         };
         
         const resumeAnimation = () => {
             if (track) {
-                // Retoma a rolagem automática via CSS Animation
+                // Retoma a rolagem automática (CSS Animation)
                 track.style.animationPlayState = 'running';
             }
         };
 
-        // Pausa quando o mouse entra (Desktop)
+        // Pausa ao interagir via Mouse (Desktop)
         container.addEventListener('mouseenter', pauseAnimation);
-        
-        // Retoma quando o mouse sai (Desktop)
         container.addEventListener('mouseleave', resumeAnimation);
         
-        // Pausa quando o toque começa (Mobile/Manual start)
+        // Pausa ao interagir via Toque/Arrasto (Mobile)
         container.addEventListener('touchstart', pauseAnimation);
-        
-        // Retoma 1 segundo após o toque terminar (Mobile/Manual end)
         container.addEventListener('touchend', () => {
+            // Retoma a animação 1 segundo após o toque ser liberado, dando tempo para o scroll-snap finalizar.
             setTimeout(resumeAnimation, 1000); 
         });
-
-        // O CSS foi modificado para adicionar scroll-snap para rolagem manual suave.
     });
 
-    // --- BLOQUEIO 4: Bloqueia a cópia pelo teclado (MANTIDO) --- 
+    // --- BLOQUEIO: Bloqueia a cópia pelo teclado (Ctrl/Cmd + C, U, I, J, S) --- 
     document.addEventListener('keydown', (e) => {
         if (e.ctrlKey || e.metaKey) { // Ctrl ou Cmd
             if (e.key === 'c' || e.key === 'C' || e.key === 'u' || e.key === 'U' || e.key === 'i' || e.key === 'I' || e.key === 'j' || e.key === 'J' || e.key === 's' || e.key === 'S') {
@@ -47,3 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }); 
 });
+
+// A lógica de Curtir (likes) e a função de Orçamento Rápido (gerarLinkZap) foram removidas.
+
