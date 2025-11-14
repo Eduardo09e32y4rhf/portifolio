@@ -1,110 +1,137 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" data-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gslimp - Higienização e Renovação de Estofados</title>
+
+  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body oncontextmenu="return false;">
 
   <!-- HEADER -->
-  <header id="navbar">
+  <header id="navbar" class="glass">
     <div class="container nav-content">
-      <div class="logo">GSLIMP</div>
-      <nav>
+      <div class="logo montserrat"><span class="logo-accent">G</span>SLIMP</div>
+
+      <nav class="nav-links">
         <a href="#servicos">Serviços</a>
         <a href="#galeria-e-orcamento">Galeria</a>
         <a href="#depoimentos">Clientes</a>
         <a href="#contato" class="btn-nav">Orçamento</a>
       </nav>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
     </div>
   </header>
 
   <!-- HERO -->
-  <section id="hero">
+  <section id="hero" class="hero-gradient">
     <div class="hero-overlay"></div>
     <div class="container hero-content">
-      <h1 class="montserrat"><span class="blue-text-hero">Gslimp</span><br>Devolva a Vida e a Saúde aos Seus Estofados</h1>
-      <p>Especialistas em higienização e limpeza profunda, eliminando ácaros, bactérias e manchas. Qualidade que você vê e sente.</p>
+      <h1 class="montserrat"><span class="blue-text-hero brand-gradient">Gslimp</span><br>Devolva a Vida e a Saúde aos Seus Estofados</h1>
+      <p class="lead">Especialistas em higienização e limpeza profunda, eliminando ácaros, bactérias e manchas. Qualidade que você vê e sente.</p>
 
-      <a href="https://wa.me/5582991522179?text=Ol%C3%A1%20Gslimp,%20gostaria%20de%20um%20or%C3%A7amento%20para%20limpeza%20de%20estofado!" class="btn-cta btn-wpp-style" target="_blank">
-        <i class="fab fa-whatsapp"></i> Solicite Orçamento Imediato
-      </a>
+      <div class="hero-ctas">
+        <a href="https://wa.me/5582991522179?text=Ol%C3%A1%20Gslimp,%20gostaria%20de%20um%20or%C3%A7amento%20para%20limpeza%20de%20estofado!" class="btn-cta btn-wpp-style" target="_blank">
+          <i class="fab fa-whatsapp"></i> Solicite Orçamento
+        </a>
+        <button class="ghost-video-open btn-ghost" data-open="videoModal"><i class="fas fa-play-circle"></i> Assistir demo</button>
+      </div>
     </div>
+
+    <!-- Decorative floating shapes -->
+    <div class="float-shape s1"></div>
+    <div class="float-shape s2"></div>
   </section>
 
-  <!-- ESTATÍSTICAS -->
-  <section id="stats">
+  <!-- QUICK STATS -->
+  <section id="stats" class="section--compact">
     <div class="container stats-container">
-      <div class="stats-card"><span class="montserrat">100%</span><p>Satisfação Garantida</p></div>
-      <div class="stats-card"><span class="montserrat">500+</span><p>Clientes Atendidos</p></div>
-      <div class="stats-card"><span class="montserrat">10+</span><p>Anos de Expertise</p></div>
+      <div class="stats-card glass">
+        <span class="montserrat">100%</span>
+        <p>Satisfação Garantida</p>
+      </div>
+      <div class="stats-card glass">
+        <span class="montserrat">500+</span>
+        <p>Clientes Atendidos</p>
+      </div>
+      <div class="stats-card glass">
+        <span class="montserrat">10+</span>
+        <p>Anos de Expertise</p>
+      </div>
     </div>
   </section>
 
   <!-- SERVIÇOS -->
-  <section id="servicos">
+  <section id="servicos" class="section">
     <div class="container">
       <div class="header-section">
         <span class="tag">Nossas Especialidades</span>
         <h2 class="montserrat">Soluções Completas para um Ambiente Saudável</h2>
-        <p>Nossos serviços utilizam a mais alta tecnologia de extração e produtos biodegradáveis, garantindo uma limpeza segura e profunda.</p>
+        <p class="muted">Nossos serviços utilizam a mais alta tecnologia de extração e produtos biodegradáveis, garantindo uma limpeza segura e profunda.</p>
       </div>
 
-      <div class="carousel-container services-carousel">
-        <div class="carousel-track">
-          <div class="servico-card carousel-item">
+      <div class="carousel-container services-carousel" aria-label="Serviços">
+        <div class="carousel-track auto-scroll" data-autoplay="true" data-interval="20">
+          <article class="servico-card carousel-item glass">
             <div class="icon-wrapper"><i class="fas fa-couch"></i></div>
-            <h3 class="montserrat">Sofás & Estofados</h3>
+            <h3 class="montserrat">Sofás &amp; Estofados</h3>
             <p>Eliminação de sujeira visível, ácaros e odores. Seu sofá com aspecto de novo.</p>
-          </div>
-          <div class="servico-card carousel-item">
+          </article>
+
+          <article class="servico-card carousel-item glass">
             <div class="icon-wrapper"><i class="fas fa-bed"></i></div>
             <h3 class="montserrat">Colchões</h3>
             <p>Higienização profunda para combater alérgenos e garantir um sono mais reparador.</p>
-          </div>
-          <div class="servico-card carousel-item">
+          </article>
+
+          <article class="servico-card carousel-item glass">
             <div class="icon-wrapper"><i class="fas fa-magic"></i></div>
             <h3 class="montserrat">Impermeabilização</h3>
             <p>Proteção invisível contra derramamentos de líquidos e manchas acidentais.</p>
-          </div>
-          <div class="servico-card carousel-item">
+          </article>
+
+          <article class="servico-card carousel-item glass">
             <div class="icon-wrapper"><i class="fas fa-grip-lines"></i></div>
-            <h3 class="montserrat">Tapetes & Carpetes</h3>
+            <h3 class="montserrat">Tapetes &amp; Carpetes</h3>
             <p>Lavagem especializada que restaura a cor e a textura original do seu tapete.</p>
-          </div>
+          </article>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- VÍDEO -->
-  <section id="video-destaque" class="fundo-azul">
+  <!-- VIDEO & TEXT (GRID) -->
+  <section id="video-destaque" class="section">
     <div class="container grid-video-texto">
-      <div class="video-container">
-        <iframe
-          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-          title="Demonstração"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-        </iframe>
+      <div class="video-container card-video glass">
+        <!-- Lazy load iframe on demand -->
+        <div class="video-placeholder" data-src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&showinfo=0&modestbranding=1">
+          <button class="play-btn"><i class="fas fa-play"></i> Assistir</button>
+        </div>
       </div>
 
       <div class="texto-video">
         <span class="tag-clara">Resultados que Impressionam</span>
         <h2 class="montserrat">Veja a Nossa Qualidade em Ação</h2>
-        <p>Nenhuma foto ou texto substitui o resultado real. Assista a uma demonstração de como removemos sujeira profunda, restaurando a cor e a maciez do seu estofado.</p>
-        <a href="#hero" class="btn-cta btn-secundario">Quero ver meu estofado assim!</a>
+        <p class="muted">Nenhuma foto ou texto substitui o resultado real. Assista a uma demonstração de como removemos sujeira profunda, restaurando a cor e a maciez do seu estofado.</p>
+        <a href="#contato" class="btn-cta">Quero ver meu estofado assim!</a>
       </div>
     </div>
   </section>
 
   <!-- DEPOIMENTOS -->
-  <section id="depoimentos">
+  <section id="depoimentos" class="section section--alt">
     <div class="container">
       <div class="header-section">
         <span class="tag">Clientes Gslimp</span>
@@ -112,29 +139,31 @@
       </div>
 
       <div class="carousel-container depoimentos-carousel">
-        <div class="carousel-track">
-          <div class="depoimento-card carousel-item">
+        <div class="carousel-track auto-scroll" data-autoplay="true" data-interval="28">
+          <blockquote class="depoimento-card carousel-item glass">
             <div class="perfil"><img src="https://i.pravatar.cc/150?img=1" alt="Cliente 1"><strong>Maria Silva</strong></div>
             <p>"Meu sofá está novo! Atendimento incrível e resultado impecável."</p>
-          </div>
-          <div class="depoimento-card carousel-item">
+          </blockquote>
+
+          <blockquote class="depoimento-card carousel-item glass">
             <div class="perfil"><img src="https://i.pravatar.cc/150?img=2" alt="Cliente 2"><strong>João Santos</strong></div>
             <p>"Serviço rápido e com zero bagunça. Recomendo de olhos fechados!"</p>
-          </div>
-          <div class="depoimento-card carousel-item">
+          </blockquote>
+
+          <blockquote class="depoimento-card carousel-item glass">
             <div class="perfil"><img src="https://i.pravatar.cc/150?img=3" alt="Cliente 3"><strong>Ana Costa</strong></div>
             <p>"Profissionalismo e pontualidade. Superou minhas expectativas."</p>
-          </div>
+          </blockquote>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CTA FINAL -->
-  <section id="solicite-orcamento" class="fundo-azul-claro">
+  <section id="solicite-orcamento" class="section cta-section">
     <div class="container cta-futurista-wrapper" id="contato">
       <h2 class="montserrat">Transforme Seu Ambiente Hoje Mesmo</h2>
-      <p>Não espere. Receba um orçamento rápido e personalizado sem compromisso.</p>
+      <p class="muted">Receba um orçamento rápido e personalizado sem compromisso.</p>
       <a href="https://wa.me/5582991522179?text=Ol%C3%A1%20Gslimp,%20gostaria%20de%20um%20or%C3%A7amento!" class="btn-cta btn-futurista" target="_blank">
         <i class="fab fa-whatsapp"></i> Receber Cotação Instantânea
       </a>
@@ -145,13 +174,14 @@
   <footer id="footer">
     <div class="container footer-grid">
       <div class="footer-about">
-        <h3 class="montserrat">Gslimp</h3>
+        <h3 class="montserrat brand-gradient">Gslimp</h3>
         <p>A referência em higienização e impermeabilização de estofados.</p>
         <div class="footer-social">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
+
       <div class="footer-links">
         <h4 class="montserrat">Navegação</h4>
         <ul>
@@ -160,16 +190,32 @@
           <li><a href="#contato">Contato</a></li>
         </ul>
       </div>
+
       <div class="footer-contact">
         <h4 class="montserrat">Contato</h4>
         <p><i class="fas fa-phone-alt"></i> (11) 99999-9999</p>
         <p><i class="fas fa-envelope"></i> contato@gslimp.com.br</p>
       </div>
     </div>
-    <div class="container copyright">© 2025 Gslimp. Todos os direitos reservados.</div>
+
+    <div class="container copyright">© <span id="year"></span> Gslimp. Todos os direitos reservados.</div>
   </footer>
 
-  <a href="https://wa.me/5582991522179" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  <!-- WHATSAPP FLOAT (glass) -->
+  <a id="whatsapp-float" href="https://wa.me/5582991522179" class="whatsapp-float glass" target="_blank" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- VIDEO MODAL (hidden) -->
+  <div id="videoModal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close="true"></div>
+    <div class="modal-body card-video">
+      <button class="modal-close" data-close="true" aria-label="Fechar"><i class="fas fa-times"></i></button>
+      <iframe id="modal-iframe" src="" title="Demonstração" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- JS -->
   <script src="script.js"></script>
 </body>
 </html>
