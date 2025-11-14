@@ -1,8 +1,4 @@
-
-/* ------------------------------------------------------------ STYLE.CSS — Tema iOS com Paleta Nubank (AJUSTADO) ------------------------------------------------------------ */
-
-/* 2 - IMPORTAÇÃO DA NOVA FONTE CURSIVA/SCRIPT */
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+/* ------------------------------------------------------------ STYLE.CSS — Tema iOS com Paleta Nubank (Tempo do Carrossel Ajustado) ------------------------------------------------------------ */
 
 /* --- Paleta Nubank (iOS Theme) --- */
 :root {
@@ -29,11 +25,10 @@
     box-sizing: border-box;
     scroll-behavior: smooth;
     text-decoration: none;
-    /* 1 - AJUSTE: Comentado para permitir o arrasto do carrossel manual */
-    /* -webkit-user-select: none;
+    -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none; */
+    user-select: none;
 }
 
 body {
@@ -55,37 +50,17 @@ section {
     font-family: 'Montserrat', sans-serif;
 }
 
-/* 2 - AJUSTE DE FONTES */
-h1, h2, h3, .logo, .tag, .titulo-amado {
-    font-family: 'Dancing Script', cursive !important;
+h1, h2, h3 {
     color: var(--cor-texto-escuro);
     margin-bottom: 0.4em;
-    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
     line-height: 1.15;
 }
 
-h1 { font-size: 3.2rem; } /* Tamanho ajustado para cursiva */
-h2 { font-size: 2.2rem; } /* Tamanho ajustado para cursiva */
-h3 { font-size: 1.8rem; } /* Tamanho ajustado para cursiva */
-
-p, .depoimento-card p, .footer-about p, .footer-contact p {
-    font-family: 'Dancing Script', cursive !important;
-    color: var(--cor-texto-suave);
-    font-size: 1.2rem; /* Tamanho ajustado para cursiva */
-    font-weight: 400;
-    line-height: 1.7;
-}
-
-/* Exceções de Fonte (Mantendo sans-serif para botões e números) */
-.btn-nav, .btn-cta, .btn-secundario, .btn-futurista,
-.footer-links h4, .footer-contact h4, .stats-card .montserrat {
-    font-family: 'Montserrat', sans-serif !important;
-    font-weight: 700;
-}
-.perfil strong {
-    font-family: 'Dancing Script', cursive !important;
-    font-size: 1.4rem;
-}
+h1 { font-size: 2.4rem; font-weight: 800; }
+h2 { font-size: 1.6rem; font-weight: 700; }
+h3 { font-size: 1.1rem; font-weight: 700; }
+p { color: var(--cor-texto-suave); font-size: 1rem; }
 
 .container {
     max-width: 1100px;
@@ -110,7 +85,8 @@ p, .depoimento-card p, .footer-about p, .footer-contact p {
     align-items: center;
 }
 .logo {
-    font-size: 1.8em; /* Ajustado para cursiva */
+    font-size: 1.3em;
+    font-weight: 900;
     color: var(--cor-texto-escuro);
     letter-spacing: 0.6px;
 }
@@ -252,11 +228,11 @@ nav a:hover {
     padding: 6px 15px;
     border-radius: 999px;
     font-weight: 700;
-    font-size: 1.2em; /* Ajustado para cursiva */
+    font-size: 0.9em;
     color: white;
     background: linear-gradient(180deg, var(--nubank-purple), var(--nubank-purple-dark));
     margin-bottom: 20px;
-    text-transform: none; /* Cursiva não combina com uppercase */
+    text-transform: uppercase;
 }
 
 .header-section {
@@ -293,11 +269,11 @@ nav a:hover {
     color: var(--nubank-purple);
 }
 .servico-card p {
-    font-size: 1.1em; /* Ajustado para cursiva */
+    font-size: 0.95em;
     color: var(--cor-texto-escuro);
 }
 
-/* 1 - AJUSTE DO CARROSSEL (HÍBRIDO: AUTOMÁTICO + MANUAL) */
+/* Carrossel */
 .carousel-container {
     overflow: hidden;
     position: relative;
@@ -305,20 +281,10 @@ nav a:hover {
 }
 .carousel-track {
     display: flex;
-    /* Automático (Animação CSS) */
-    animation: scroll-left 40s linear infinite;
+    /* AJUSTE DE TEMPO: Aumentado de 40s para 60s para desacelerar */
+    animation: scroll-left 60s linear infinite; 
     width: fit-content;
-    
-    /* Manual (Toque/Arrasto) */
-    overflow-x: scroll; /* Permite arrastar */
-    scroll-snap-type: x mandatory; /* Trava no item */
-    -webkit-overflow-scrolling: touch; /* Suaviza no iOS */
-    scrollbar-width: none; /* Esconde barra de rolagem (Firefox) */
 }
-.carousel-track::-webkit-scrollbar {
-    display: none; /* Esconde barra de rolagem (Webkit) */
-}
-
 .carousel-container:hover .carousel-track {
     animation-play-state: paused;
 }
@@ -329,7 +295,6 @@ nav a:hover {
 .carousel-item {
     min-width: 300px;
     margin-right: 24px;
-    scroll-snap-align: start; /* Define o ponto de travamento */
 }
 
 /* --- VÍDEO & TEXTO --- */
@@ -347,9 +312,9 @@ nav a:hover {
     padding: 6px 15px;
     border-radius: 999px;
     font-weight: 700;
-    font-size: 1.1em; /* Ajustado para cursiva */
+    font-size: 0.85em;
     margin-bottom: 20px;
-    text-transform: none; /* Ajustado para cursiva */
+    text-transform: uppercase;
 }
 .grid-video-texto {
     display: grid;
@@ -373,7 +338,7 @@ nav a:hover {
 }
 .texto-video p {
     margin: 16px 0;
-    font-size: 1.3rem; /* Ajustado para cursiva */
+    font-size: 1.02em;
     color: rgba(255,255,255,0.95);
 }
 
@@ -409,9 +374,10 @@ nav a:hover {
 
 /* Galeria Fotos */
 .titulo-amado {
+    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     color: var(--cor-texto-escuro);
-    font-size: 2.2rem; /* Ajustado para cursiva */
+    font-size: 1.4rem;
     text-align: center;
     margin-bottom: 18px;
 }
@@ -454,7 +420,7 @@ nav a:hover {
     padding: 12px 16px;
     width: 100%;
     font-weight: 600;
-    font-size: 1.4rem; /* Ajustado para cursiva */
+    font-size: 0.95em;
     color: var(--nubank-purple);
 }
 
@@ -472,7 +438,7 @@ nav a:hover {
 }
 .depoimento-card p {
     font-style: italic;
-    font-size: 1.3rem; /* Ajustado para cursiva */
+    font-size: 1rem;
     color: var(--cor-texto-escuro);
 }
 .perfil {
@@ -501,7 +467,7 @@ nav a:hover {
 
 .cta-futurista-wrapper h2 {
     color: var(--nubank-purple);
-    font-size: 2.2rem; /* Ajustado para cursiva */
+    font-size: 1.8rem;
 }
 
 .btn-futurista {
@@ -528,8 +494,8 @@ nav a:hover {
     border-bottom: 1px solid rgba(255,255,255,0.04);
 }
 
-.footer-about h3 { color: #fff; font-size: 1.8rem; } /* Ajustado para cursiva */
-.footer-about p { color: #CFC8D8; margin: 12px 0 16px; font-size: 1.1rem; } /* Ajustado para cursiva */
+.footer-about h3 { color: #fff; font-size: 1.2rem; }
+.footer-about p { color: #CFC8D8; margin: 12px 0 16px; font-size: 0.95em; }
 
 .footer-social a { font-size: 1.2em; margin-right: 12px; color: #CFC8D8; transition: color 0.25s ease; }
 
@@ -539,7 +505,7 @@ nav a:hover {
 .footer-links a { display: block; margin-bottom: 8px; color: #CFC8D8; transition: color 0.25s ease; font-size: 0.92em; }
 
 .footer-links a:hover { color: var(--nubank-purple); }
-.footer-contact p { margin-bottom: 8px; color: #CFC8D8; font-size: 1.1rem; } /* Ajustado para cursiva */
+.footer-contact p { margin-bottom: 8px; color: #CFC8D8; font-size: 0.92em; }
 
 .copyright { text-align: center; padding-top: 14px; font-size: 0.86em; color: #B9B0C8; }
 
@@ -565,11 +531,8 @@ nav a:hover {
 
 /* MEDIA QUERIES */
 @media (max-width: 992px) {
-    h1 { font-size: 2.8rem; } /* Ajustado para cursiva */
-    h2 { font-size: 2.0rem; } /* Ajustado para cursiva */
-    h3 { font-size: 1.6rem; } /* Ajustado para cursiva */
-    p, .depoimento-card p { font-size: 1.2rem; } /* Ajustado para cursiva */
-
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.5rem; }
     #navbar nav { display: none; }
     .nav-content { justify-content: center; }
     .grid-video-texto { grid-template-columns: 1fr; gap: 18px; }
@@ -584,10 +547,8 @@ nav a:hover {
 }
 
 @media (max-width: 600px) {
-    h1 { font-size: 2.2rem; } /* Ajustado para cursiva */
-    h2 { font-size: 1.8rem; } /* Ajustado para cursiva */
-    p, .depoimento-card p { font-size: 1rem; } /* Ajustado para cursiva */
-
+    h1 { font-size: 1.6rem; }
+    h2 { font-size: 1.2rem; }
     section { padding: 40px 0; }
     .whatsapp-float { width: 52px; height: 52px; font-size: 22px; bottom: 16px; right: 16px; }
     .carousel-item { min-width: 240px; margin-right: 16px; }
