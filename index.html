@@ -1,42 +1,43 @@
-<!DOCTYPE html>
-<html lang="pt-BR" data-theme="light">
+<!-- path: index.html -->
+<!doctype html>
+<html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Gslimp — Higienização Premium</title>
+  <title>Gslimp — Higienização de Estofados</title>
 
   <!-- Fonts & icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="" crossorigin="anonymous">
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header class="header" role="banner">
-    <div class="container header-inner">
+  <!-- HEADER (iPhone-like top bar) -->
+  <header class="topbar" role="banner">
+    <div class="container topbar-inner">
       <a class="brand" href="#hero" aria-label="Gslimp — Home">GSLIMP</a>
 
-      <button id="mobileToggle" class="hamburger" aria-controls="mainNav" aria-expanded="false" aria-label="Abrir menu">
-        <span class="hamburger-box"><span class="hamburger-inner"></span></span>
-      </button>
+      <nav id="mainNav" class="nav" role="navigation" aria-label="Main">
+        <button id="mobileToggle" class="hamburger" aria-expanded="false" aria-label="Abrir menu">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
 
-      <nav id="mainNav" class="nav" role="navigation">
-        <a href="#servicos">Serviços</a>
-        <a href="#galeria">Galeria</a>
-        <a href="#videos">Vídeos</a>
-        <a href="#depoimentos">Clientes</a>
-        <a href="#contato" class="btn btn-primary">Orçamento</a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#videos">Vídeos</a></li>
+          <li><a href="#depoimentos">Clientes</a></li>
+          <li><a href="#contato" class="btn btn-primary">Orçamento</a></li>
+        </ul>
+
       </nav>
 
-      <div class="actions">
-        <button id="themeToggle" class="theme-toggle" aria-label="Alternar tema" title="Tema">
-          <span class="icon sun"><i class="fas fa-sun"></i></span>
-          <span class="icon moon"><i class="fas fa-moon"></i></span>
-        </button>
-      </div>
+      <button id="themeToggle" class="icon-btn" aria-label="Alternar tema">
+        <i class="fas fa-moon"></i>
+      </button>
     </div>
   </header>
 
@@ -45,28 +46,31 @@
     <section id="hero" class="hero">
       <div class="container hero-grid">
         <div class="hero-left">
-          <h1 class="heavy">Higienização Premium<br><span class="gradient-text">para sofás, colchões e estofados</span></h1>
-          <p class="lead">Tecnologia avançada, biodegradáveis e cuidado profissional. Atuando em <strong>Arapiraca</strong> e região (até 15 km).</p>
+          <h1 class="title">Transforme seu sofá<br><span class="accent">Higienização premium</span></h1>
+          <p class="subtitle">Limpeza profunda, secagem rápida e produtos seguros para crianças e pets. Atendimento em Arapiraca e região.</p>
 
           <div class="hero-ctas">
-            <a href="#simulador" class="btn btn-wpp" id="cta-whatsapp"><i class="fab fa-whatsapp"></i> Solicitar Orçamento</a>
-            <button class="btn btn-ghost video-open" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">Assistir demonstração</button>
+            <a id="btnWhats" class="btn btn-wpp" href="https://wa.me/5582991522179" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Solicitar Orçamento</a>
+            <button class="btn btn-ghost video-open" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">Ver demonstração</button>
           </div>
 
-          <ul class="features">
+          <ul class="quick-features">
             <li>Remoção de ácaros & odores</li>
             <li>Secagem rápida</li>
-            <li>Produtos seguros para crianças e pets</li>
+            <li>Produtos biodegradáveis</li>
           </ul>
         </div>
 
         <div class="hero-right">
-          <div class="device-card reveal" data-reveal>
-            <div class="device-media" data-src="https://www.youtube.com/embed/dQw4w9WgXcQ" tabindex="0" role="button" aria-label="Assistir demonstração">
+          <!-- iPhone-like mockup card -->
+          <div class="phone-card reveal" data-reveal>
+            <div class="phone-screen" tabindex="0" role="button" aria-label="Assistir vídeo" data-src="https://www.youtube.com/embed/dQw4w9WgXcQ">
               <img src="https://images.unsplash.com/photo-1581579181426-9a8efb1a6a1d?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=0" alt="Demonstração Gslimp" loading="lazy">
-              <button class="play-large" aria-label="Assistir vídeo"><i class="fas fa-play"></i></button>
+              <button class="play" aria-hidden="false"><i class="fas fa-play"></i></button>
             </div>
-            <div class="device-info"><strong>Gslimp — Serviço Premium</strong><span>Transformação visível</span></div>
+            <div class="phone-info">
+              <strong>Gslimp</strong><span>Higienização de Estofados</span>
+            </div>
           </div>
         </div>
       </div>
@@ -75,67 +79,62 @@
     <!-- SERVIÇOS -->
     <section id="servicos" class="section">
       <div class="container">
-        <h2 class="section-title reveal" data-reveal>Serviços</h2>
-        <p class="section-lead reveal" data-reveal>Trabalhamos com:</p>
+        <h2 class="section-title reveal" data-reveal>Nossos serviços</h2>
+        <p class="section-lead reveal" data-reveal>Atendimento especializado em sofás, colchões, cadeiras e tapetes.</p>
 
-        <div class="grid reveal" data-reveal>
+        <div class="grid services-grid reveal" data-reveal>
           <article class="card">
-            <h3>Sofás e Estofados</h3>
-            <p>Limpeza profunda e impermeabilização.</p>
+            <div class="card-icon"><i class="fas fa-couch"></i></div>
+            <h3>Sofás & Estofados</h3>
+            <p>Limpeza profunda, extração de manchas e impermeabilização.</p>
           </article>
+
           <article class="card">
+            <div class="card-icon"><i class="fas fa-bed"></i></div>
             <h3>Colchões</h3>
-            <p>Higienização e eliminação de ácaros.</p>
+            <p>Higienização completa e eliminação de ácaros.</p>
           </article>
+
           <article class="card">
+            <div class="card-icon"><i class="fas fa-rug"></i></div>
             <h3>Tapetes & Carpetes</h3>
-            <p>Restauração de cor e textura.</p>
+            <p>Restauração de cor e textura com secagem rápida.</p>
           </article>
+
           <article class="card">
+            <div class="card-icon"><i class="fas fa-chair"></i></div>
             <h3>Cadeiras & Poltronas</h3>
-            <p>Limpeza especializada e rápida secagem.</p>
+            <p>Tratamento especializado e secagem express.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- SIMULADOR / GALERIA (CLICK TO WHATSAPP) -->
+    <!-- GALERIA / SIMULADOR -->
     <section id="galeria" class="section section-alt">
       <div class="container">
-        <h2 class="section-title reveal" data-reveal>Escolha o que deseja limpar</h2>
-        <p class="section-lead reveal" data-reveal>Clique na foto do item — você será direcionado ao WhatsApp com a mensagem pronta.</p>
+        <h2 class="section-title reveal" data-reveal>Galeria & Orçamento</h2>
+        <p class="section-lead reveal" data-reveal>Clique em um item para solicitar orçamento pelo WhatsApp.</p>
 
-        <div id="simulador" class="before-after-grid reveal" data-reveal>
+        <div id="simulador" class="ba-grid reveal" data-reveal>
           <div class="ba-card item" data-type="Sofá" data-id="sofa" tabindex="0" role="button">
-            <div class="ba-thumb">
-              <img src="https://images.unsplash.com/photo-1549187774-b4d3b5f5e6e8?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=1" alt="Sofá" loading="lazy">
-              <div class="ba-label">Sofá</div>
-            </div>
-            <div class="ba-meta"><small>Toque para orçar</small></div>
+            <div class="ba-thumb"><img src="https://images.unsplash.com/photo-1549187774-b4d3b5f5e6e8?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=1" alt="Sofá"></div>
+            <div class="ba-label">Sofá</div>
           </div>
 
           <div class="ba-card item" data-type="Colchão" data-id="colchao" tabindex="0" role="button">
-            <div class="ba-thumb">
-              <img src="https://images.unsplash.com/photo-1505691723518-36a8b40c8b1e?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=2" alt="Colchão" loading="lazy">
-              <div class="ba-label">Colchão</div>
-            </div>
-            <div class="ba-meta"><small>Toque para orçar</small></div>
+            <div class="ba-thumb"><img src="https://images.unsplash.com/photo-1505691723518-36a8b40c8b1e?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=2" alt="Colchão"></div>
+            <div class="ba-label">Colchão</div>
           </div>
 
           <div class="ba-card item" data-type="Cadeira" data-id="cadeira" tabindex="0" role="button">
-            <div class="ba-thumb">
-              <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=3" alt="Cadeira" loading="lazy">
-              <div class="ba-label">Cadeira</div>
-            </div>
-            <div class="ba-meta"><small>Toque para orçar</small></div>
+            <div class="ba-thumb"><img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=3" alt="Cadeira"></div>
+            <div class="ba-label">Cadeira</div>
           </div>
 
-          <div class="ba-card item" data-type="Tapete / Carpete" data-id="tapete" tabindex="0" role="button">
-            <div class="ba-thumb">
-              <img src="https://images.unsplash.com/photo-1493666438817-866a91353ca9?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=4" alt="Tapete" loading="lazy">
-              <div class="ba-label">Tapete</div>
-            </div>
-            <div class="ba-meta"><small>Toque para orçar</small></div>
+          <div class="ba-card item" data-type="Tapete" data-id="tapete" tabindex="0" role="button">
+            <div class="ba-thumb"><img src="https://images.unsplash.com/photo-1493666438817-866a91353ca9?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=4" alt="Tapete"></div>
+            <div class="ba-label">Tapete</div>
           </div>
         </div>
       </div>
@@ -145,40 +144,42 @@
     <section id="videos" class="section">
       <div class="container">
         <h2 class="section-title reveal" data-reveal>Vídeos</h2>
-        <p class="section-lead reveal" data-reveal>Assista demonstrações curtas</p>
+        <p class="section-lead reveal" data-reveal>Demonstrações rápidas</p>
 
-        <div class="grid reveal" data-reveal id="videos-grid">
-          <div class="card video-thumb" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ" tabindex="0" role="button">
-            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Vídeo 1" loading="lazy"><strong>Demonstração 1</strong>
+        <div class="grid reveal" data-reveal>
+          <div class="video-thumb card" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ" tabindex="0" role="button">
+            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Vídeo 1">
+            <strong>Demonstração 1</strong>
           </div>
 
-          <div class="card video-thumb" data-video="https://www.youtube.com/embed/VIDEO_ID_2" tabindex="0" role="button">
-            <img src="https://img.youtube.com/vi/VIDEO_ID_2/hqdefault.jpg" alt="Vídeo 2" loading="lazy"><strong>Demonstração 2</strong>
+          <div class="video-thumb card" data-video="https://www.youtube.com/embed/VIDEO_ID_2" tabindex="0" role="button">
+            <img src="https://img.youtube.com/vi/VIDEO_ID_2/hqdefault.jpg" alt="Vídeo 2">
+            <strong>Demonstração 2</strong>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- DEPOIMENTOS -->
-    <section id="depoimentos" class="section">
+    <!-- DEPOIMENTOS (CAROUSEL) -->
+    <section id="depoimentos" class="section section-alt">
       <div class="container">
-        <h2 class="section-title reveal" data-reveal>O que nossos clientes dizem</h2>
+        <h2 class="section-title reveal" data-reveal>Clientes</h2>
 
         <div class="carousel-wrap reveal" data-reveal>
-          <div class="carousel-track" data-autoplay="true" data-speed="0.7">
-            <blockquote class="card depo">
+          <div class="carousel-track" data-autoplay="true" data-speed="0.6" tabindex="0" aria-label="Depoimentos">
+            <blockquote class="testimonial card">
               <p>"Atendimento impecável e sofá como novo."</p>
               <footer>— Maria S., Arapiraca</footer>
             </blockquote>
 
-            <blockquote class="card depo">
+            <blockquote class="testimonial card">
               <p>"Profissionais pontuais, ótimo resultado."</p>
               <footer>— João P., Arapiraca</footer>
             </blockquote>
 
-            <blockquote class="card depo">
+            <blockquote class="testimonial card">
               <p>"Recomendo, excelente custo-benefício."</p>
-              <footer>— Ana C., próximidades</footer>
+              <footer>— Ana C., Arapiraca</footer>
             </blockquote>
           </div>
         </div>
@@ -189,8 +190,8 @@
     <section id="contato" class="section cta-final">
       <div class="container">
         <h2 class="section-title reveal" data-reveal>Pronto para transformar seu estofado?</h2>
-        <p class="section-lead reveal" data-reveal>Atuamos em Arapiraca e até 15 km da cidade. Abra um orçamento agora pelo WhatsApp.</p>
-        <a href="https://wa.me/5582991522179" class="btn btn-primary reveal" data-reveal target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Falar no WhatsApp</a>
+        <p class="section-lead reveal" data-reveal>Atuamos em Arapiraca e até 15 km da cidade.</p>
+        <button id="openSim" class="btn btn-primary reveal" data-reveal>Solicitar Orçamento</button>
       </div>
     </section>
 
@@ -199,65 +200,57 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-inner">
-      <div class="footer-left">
+      <div>
         <strong>Gslimp</strong>
         <p>Higienização e impermeabilização de estofados — Arapiraca e região</p>
-        <div class="socials">
-          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-          <a href="https://wa.me/5582991522179" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        </div>
       </div>
-
-      <div class="footer-right">
+      <div class="footer-actions">
         <small>Contato: (11) 99999-9999 • contato@gslimp.com.br</small>
         <div class="copyright">© <span id="year"></span> Gslimp</div>
       </div>
     </div>
   </footer>
 
-  <!-- WHATSAPP FLOAT -->
-  <a id="whatsappFloat" href="https://wa.me/5582991522179" class="whatsapp-float" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+  <!-- FLOATING WHATSAPP -->
+  <a id="whatsappFloat" class="whatsapp-float" href="https://wa.me/5582991522179" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
 
   <!-- VIDEO MODAL -->
-  <div id="videoModal" class="modal" aria-hidden="true" role="dialog">
-    <div class="modal-backdrop" data-close="true"></div>
+  <div id="videoModal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" data-close></div>
     <div class="modal-body">
-      <button class="modal-close" data-close="true" aria-label="Fechar"><i class="fas fa-times"></i></button>
+      <button class="modal-close" data-close aria-label="Fechar"><i class="fas fa-times"></i></button>
       <iframe id="modal-iframe" src="" title="Vídeo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
   </div>
 
-  <!-- SIMULATOR QUICK MODAL -->
-  <div id="simModal" class="modal small" aria-hidden="true" role="dialog">
-    <div class="modal-backdrop" data-close="true"></div>
+  <!-- SIMULATOR MODAL -->
+  <div id="simModal" class="modal small" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" data-close></div>
     <div class="modal-body small">
-      <button class="modal-close" data-close="true" aria-label="Fechar"><i class="fas fa-times"></i></button>
-
+      <button class="modal-close" data-close aria-label="Fechar"><i class="fas fa-times"></i></button>
       <div class="sim-content">
         <h3 id="simTitle">Solicitar Orçamento</h3>
-        <p id="simDesc">Escolha tamanho e informe seu endereço (opcional).</p>
+        <p id="simDesc">Escolha tamanho e informe sua localização (opcional).</p>
 
         <label for="simSize">Tamanho</label>
         <select id="simSize">
-          <option value="Pequeno">Pequeno</option>
-          <option value="Médio">Médio</option>
-          <option value="Grande">Grande</option>
+          <option>Pequeno</option>
+          <option selected>Médio</option>
+          <option>Grande</option>
         </select>
 
         <label for="simQty">Quantidade</label>
         <input id="simQty" type="number" min="1" value="1">
 
-        <label>Use minha localização (recomendado)</label>
+        <label>Usar minha localização</label>
         <button id="useGeo" class="btn btn-ghost">Usar localização</button>
         <small id="geoMsg" class="muted" aria-live="polite"></small>
 
         <div class="sim-actions">
-          <button id="simCancel" class="btn btn-ghost" data-close="true">Cancelar</button>
+          <button id="simCancel" class="btn btn-ghost" data-close>Cancelar</button>
           <button id="simSend" class="btn btn-primary">Enviar via WhatsApp</button>
         </div>
       </div>
-
     </div>
   </div>
 
