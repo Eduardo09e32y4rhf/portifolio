@@ -863,3 +863,6 @@ h1{
     line-height: 1.45;
   }
 }
+.project, .card, .skill, .preview, .cert-card, .contact-card{
+  box-shadow: 0 18px 60px rgba(106,0,255,.10), 0 18px 55px rgba(0,0,0,.35);
+}
