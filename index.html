@@ -6,15 +6,13 @@
   <meta name="description" content="Portfólio de José Eduardo da Silva — Backend Developer / API Engineer (Python, FastAPI). SaaS, Integrações, IA e Pagamentos." />
   <title>José Eduardo da Silva | Backend Developer • API Engineer</title>
 
-  <!-- Font (opcional, mas profissional) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- Swiper (carrossel) -->
+  <!-- Swiper -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
@@ -26,7 +24,7 @@
     </a>
 
     <nav class="nav" aria-label="Navegação principal">
-      <a href="#sobre">Sobre</a>
+      <a href="#perfil">Perfil</a>
       <a href="#skills">Stack</a>
       <a href="#projetos">Projetos</a>
       <a href="#certificado">Certificado</a>
@@ -52,7 +50,7 @@
       </div>
 
       <div class="drawer-links">
-        <a href="#sobre" data-close>Sobre</a>
+        <a href="#perfil" data-close>Perfil</a>
         <a href="#skills" data-close>Stack</a>
         <a href="#projetos" data-close>Projetos</a>
         <a href="#certificado" data-close>Certificado</a>
@@ -73,28 +71,36 @@
         <div class="hero-left">
           <div class="kicker">Olá, eu sou</div>
 
-          <h1>
-            <span class="accent">José Eduardo da Silva</span>
-          </h1>
+          <h1><span class="accent">José Eduardo da Silva</span></h1>
 
           <p class="lead">
             <strong>Backend Developer • API Engineer</strong><br />
-            Construo APIs em <strong>Python/FastAPI</strong> e integrações (IA, pagamentos e automação)
-            com foco em <strong>segurança</strong>, <strong>escala</strong> e <strong>produção</strong>.
+            Desenvolvo APIs e integrações com foco em <strong>produção</strong>, <strong>segurança</strong> e
+            <strong>manutenção</strong>. Meu trabalho é transformar fluxos complexos em soluções simples e confiáveis.
+          </p>
+
+          <ul class="hero-points">
+            <li>✅ Integrações (APIs externas, webhooks, pagamentos)</li>
+            <li>✅ IA aplicada (logs, fallback, qualidade e automação)</li>
+            <li>✅ Banco & arquitetura (PostgreSQL, async, versionamento)</li>
+          </ul>
+
+          <p class="hero-note">
+            <strong>Obs:</strong> projetos sigilosos aparecem como <strong>case study</strong> (sem dados e sem repositório público).
           </p>
 
           <div class="hero-tags" aria-label="Áreas de atuação">
+            <span class="tag">Backend</span>
             <span class="tag">APIs</span>
-            <span class="tag">SaaS</span>
             <span class="tag">Integrações</span>
-            <span class="tag">IA</span>
-            <span class="tag">Pagamentos</span>
-            <span class="tag">PostgreSQL</span>
+            <span class="tag">SaaS</span>
+            <span class="tag">Python</span>
+            <span class="tag">FastAPI</span>
           </div>
 
           <div class="hero-cta">
-            <a class="btn btn-primary" href="#projetos">Ver Projetos</a>
-            <a class="btn btn-ghost" href="#contato">Falar comigo</a>
+            <a class="btn btn-primary" href="#perfil">Meu perfil</a>
+            <a class="btn btn-ghost" href="#projetos">Ver projetos</a>
           </div>
 
           <div class="hero-links">
@@ -106,10 +112,10 @@
         </div>
 
         <div class="hero-right">
-          <!-- Desktop preview (sem mencionar marcas) -->
+          <!-- Desktop preview (discreto) -->
           <div class="preview" aria-label="Resumo visual">
             <div class="preview-head">
-              <div class="pill">Resumo</div>
+              <div class="pill">Resumo rápido</div>
               <div class="dots" aria-hidden="true"><span></span><span></span><span></span></div>
             </div>
 
@@ -117,43 +123,35 @@
               <div class="profile">
                 <img class="avatar" src="assets/img/avatar.png" alt="Foto de José Eduardo da Silva" />
                 <div>
-                  <div class="name">José Eduardo da Silva</div>
+                  <div class="name">José Eduardo</div>
                   <div class="role">Backend Developer • API Engineer</div>
                 </div>
               </div>
 
               <div class="mini-grid">
                 <div class="mini-card">
-                  <div class="mini-title">APIs em produção</div>
-                  <div class="mini-text">Versionamento, middlewares e erros globais.</div>
+                  <div class="mini-title">Entrega em produção</div>
+                  <div class="mini-text">Foco em estabilidade, logs e manutenção.</div>
                 </div>
                 <div class="mini-card">
                   <div class="mini-title">Integrações</div>
-                  <div class="mini-text">Serviços externos, webhooks e autenticação.</div>
-                </div>
-                <div class="mini-card">
-                  <div class="mini-title">IA aplicada</div>
-                  <div class="mini-text">Providers múltiplos, fallback e logs.</div>
-                </div>
-                <div class="mini-card">
-                  <div class="mini-title">Banco & segurança</div>
-                  <div class="mini-text">PostgreSQL, SQLAlchemy Async e JWT.</div>
+                  <div class="mini-text">APIs externas, autenticação e webhooks.</div>
                 </div>
               </div>
 
               <div class="note">
                 <span class="note-dot" aria-hidden="true"></span>
-                Cases sensíveis: apresento <strong>case studies</strong> sem expor dados.
+                Cases sigilosos como <strong>case study</strong>.
               </div>
             </div>
           </div>
 
-          <!-- Mobile frame (apenas efeito visual, sem texto de marca) -->
+          <!-- Phone (somente no mobile) -->
           <div class="phone" aria-label="Resumo para celular">
             <div class="phone-notch" aria-hidden="true"></div>
             <div class="phone-screen">
               <div class="phone-top">
-                <div class="phone-pill">Meu perfil</div>
+                <div class="phone-pill">Perfil</div>
                 <div class="phone-time" id="phoneTime">00:00</div>
               </div>
 
@@ -162,26 +160,25 @@
                   <img class="avatar-sm" src="assets/img/avatar.png" alt="Foto de José Eduardo da Silva" />
                   <div>
                     <div class="name-sm">José Eduardo</div>
-                    <div class="role-sm">APIs • SaaS • Integrações</div>
+                    <div class="role-sm">Backend • APIs • Integrações</div>
                   </div>
                 </div>
 
                 <div class="phone-cards">
                   <div class="phone-card">
-                    <div class="pc-title">Python • FastAPI</div>
-                    <div class="pc-text">APIs robustas, seguras e versionadas.</div>
+                    <div class="pc-title">Foco</div>
+                    <div class="pc-text">APIs seguras, integrações confiáveis e produção.</div>
                   </div>
                   <div class="phone-card">
-                    <div class="pc-title">IA • Pagamentos</div>
-                    <div class="pc-text">Integrações com provedores e webhooks.</div>
+                    <div class="pc-title">Projetos sigilosos</div>
+                    <div class="pc-text">Mostro como case study, sem dados e sem repositório.</div>
                   </div>
                 </div>
 
-                <a class="btn btn-primary btn-block" href="#projetos">Ver projetos</a>
+                <a class="btn btn-primary btn-block" href="#perfil">Ver perfil completo</a>
               </div>
             </div>
           </div>
-
         </div>
       </div>
 
@@ -192,43 +189,97 @@
       </div>
     </section>
 
-    <!-- SOBRE -->
-    <section id="sobre" class="section">
+    <!-- PERFIL (apresentação humana) -->
+    <section id="perfil" class="section">
       <div class="container">
         <div class="section-head">
-          <h2>Sobre</h2>
-          <p>
-            Desenvolvo soluções backend com foco em <strong>APIs seguras e escaláveis</strong>,
-            integrações com serviços externos, bancos de dados e automações — levando sistemas do
-            desenvolvimento até <strong>produção</strong>.
-          </p>
+          <h2>Perfil</h2>
+          <p>Um resumo claro sobre quem eu sou, como trabalho e onde gero mais valor.</p>
         </div>
 
-        <div class="cards">
-          <article class="card">
-            <h3>Meu foco</h3>
-            <p>Confiabilidade, segurança e manutenção: arquitetura modular, versionamento e padrões claros.</p>
-          </article>
+        <div class="perfil-wrap">
+          <div class="perfil-main">
+            <div class="perfil-header">
+              <img class="perfil-photo" src="assets/img/avatar.png" alt="Foto de José Eduardo da Silva" />
+              <div class="perfil-title">
+                <h3>José Eduardo da Silva</h3>
+                <p class="perfil-subtitle">Backend Developer • API Engineer</p>
+                <p class="perfil-mini">
+                  Trabalho com backend porque gosto de resolver o “problema de verdade”:
+                  integração, segurança, estabilidade e entrega em produção.
+                </p>
 
-          <article class="card">
-            <h3>O que eu entrego</h3>
-            <p>Integrações com APIs externas, autenticação, webhooks, persistência e logs.</p>
-          </article>
+                <div class="perfil-actions">
+                  <a class="btn btn-primary" href="#contato">Falar comigo</a>
+                  <a class="btn btn-ghost" href="#projetos">Ver projetos</a>
+                </div>
 
-          <article class="card">
-            <h3>Projetos sigilosos</h3>
-            <p>Apresento cases com prints do problema e visão de arquitetura, sem expor dados e sem repositório público.</p>
-          </article>
+                <div class="perfil-social">
+                  <a class="link" href="https://github.com/Eduardo09e32y4rhf" target="_blank" rel="noreferrer">GitHub</a>
+                  <span class="sep">•</span>
+                  <a class="link" href="https://www.linkedin.com/in/eduardo-silva-1%C2%B0-7287bb1b8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                    target="_blank" rel="noreferrer">LinkedIn</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="perfil-highlight">
+              <div class="perfil-highlight-title">Objetivo</div>
+              <p>
+                Construir APIs e integrações que resolvem problemas reais: com rastreabilidade, logs e segurança.
+              </p>
+
+              <div class="perfil-highlight-title">Diferencial</div>
+              <p>
+                Arquitetura modular, clareza nos fluxos e visão de produto.
+                Projetos sigilosos são exibidos como <strong>case study</strong> (sem dados e sem repositório).
+              </p>
+            </div>
+          </div>
+
+          <div class="perfil-cards">
+            <article class="perfil-card">
+              <div class="perfil-card-top">
+                <span class="perfil-ico">🎓</span>
+                <h4>Formação</h4>
+              </div>
+              <p>Certificado disponível na seção “Certificado” (somente visualização).</p>
+            </article>
+
+            <article class="perfil-card">
+              <div class="perfil-card-top">
+                <span class="perfil-ico">⚙️</span>
+                <h4>O que eu faço</h4>
+              </div>
+              <p>APIs REST, autenticação (JWT), webhooks, integrações e automação.</p>
+            </article>
+
+            <article class="perfil-card">
+              <div class="perfil-card-top">
+                <span class="perfil-ico">🧠</span>
+                <h4>IA aplicada</h4>
+              </div>
+              <p>Providers, fallback, score de qualidade e logs de IA.</p>
+            </article>
+
+            <article class="perfil-card">
+              <div class="perfil-card-top">
+                <span class="perfil-ico">🧩</span>
+                <h4>Como eu trabalho</h4>
+              </div>
+              <p>Organização, testes básicos, logs e entrega pensando em manutenção.</p>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- SKILLS -->
+    <!-- STACK -->
     <section id="skills" class="section">
       <div class="container">
         <div class="section-head">
           <h2>Stack</h2>
-          <p>Ferramentas que uso no dia a dia para construir APIs, integrações e produtos.</p>
+          <p>Ferramentas que eu uso com mais frequência para construir e manter sistemas.</p>
         </div>
 
         <div class="skills-grid">
@@ -275,17 +326,14 @@
       <div class="container">
         <div class="section-head">
           <h2>Projetos</h2>
-          <p>
-            Projetos sensíveis são apresentados como <strong>case study</strong>.
-            O código e dados não são públicos por confidencialidade.
-          </p>
+          <p>Alguns projetos são sigilosos e aparecem como <strong>case study</strong>.</p>
         </div>
 
         <div class="projects-wrap">
           <div class="swiper projects-swiper" aria-label="Carrossel de projetos">
             <div class="swiper-wrapper">
 
-              <!-- Slide 1: ESTE PORTFÓLIO (público) -->
+              <!-- Slide 1: Portfólio -->
               <div class="swiper-slide">
                 <article class="project">
                   <div class="project-media">
@@ -296,8 +344,7 @@
                   <div class="project-body">
                     <h3>Este Portfólio</h3>
                     <p class="project-desc">
-                      Site pessoal feito com HTML, CSS e JavaScript puros, com foco em UI moderna,
-                      responsividade e apresentação de cases sigilosos via modais.
+                      Site pessoal com HTML, CSS e JavaScript puros, com UI moderna e foco em apresentação clara.
                     </p>
 
                     <div class="pill-row">
@@ -305,21 +352,18 @@
                       <span class="pill">CSS</span>
                       <span class="pill">JavaScript</span>
                       <span class="pill">UI/UX</span>
-                      <span class="pill">Responsive</span>
                     </div>
 
                     <div class="project-actions">
                       <button class="btn btn-primary" data-modal="modalPortfolio">Ver case</button>
-                      <!-- Coloque o repo quando criar -->
-                      <a class="btn btn-ghost" href="#" target="_blank" rel="noreferrer" aria-label="Ver código do portfólio (adicione seu repositório)">
-                        Ver código
-                      </a>
+                      <a class="btn btn-ghost" href="#" target="_blank" rel="noreferrer">Ver código</a>
                     </div>
+                    <div class="small-muted">*Adicione aqui o link do repositório desse portfólio quando criar.</div>
                   </div>
                 </article>
               </div>
 
-              <!-- Slide 2: PROSOLUTION (sigiloso) -->
+              <!-- Slide 2: Prosolution -->
               <div class="swiper-slide">
                 <article class="project">
                   <div class="project-media">
@@ -330,8 +374,7 @@
                   <div class="project-body">
                     <h3>Prosolution IA</h3>
                     <p class="project-desc">
-                      SaaS de automação com integrações e IA aplicada. Fluxos assíncronos,
-                      logs e monetização por planos. (Dados e código não públicos.)
+                      SaaS de automação e integrações com IA aplicada. Dados e código não públicos.
                     </p>
 
                     <div class="pill-row">
@@ -347,14 +390,12 @@
                       <button class="btn btn-ghost" data-modal="modalProsolutionArch">Arquitetura</button>
                     </div>
 
-                    <div class="small-muted">
-                      *Projeto sigiloso: sem repositório público e sem dados expostos.
-                    </div>
+                    <div class="small-muted">*Projeto sigiloso: sem repositório público e sem dados expostos.</div>
                   </div>
                 </article>
               </div>
 
-              <!-- Slide 3: INNOVATION (sigiloso) -->
+              <!-- Slide 3: Innovation RH -->
               <div class="swiper-slide">
                 <article class="project">
                   <div class="project-media">
@@ -365,8 +406,7 @@
                   <div class="project-body">
                     <h3>Innovation RH</h3>
                     <p class="project-desc">
-                      Plataforma conceitual voltada à integração de RH, contabilidade e fiscal,
-                      com domínios complexos e visão de escalabilidade.
+                      Plataforma conceitual orientada a integrações (RH/contábil/fiscal) e domínios complexos.
                     </p>
 
                     <div class="pill-row">
@@ -381,9 +421,7 @@
                       <button class="btn btn-ghost" data-modal="modalInnovationArch">Arquitetura</button>
                     </div>
 
-                    <div class="small-muted">
-                      *Projeto sigiloso: apenas visão de arquitetura e prints do problema.
-                    </div>
+                    <div class="small-muted">*Projeto sigiloso: apenas visão de arquitetura e prints do problema.</div>
                   </div>
                 </article>
               </div>
@@ -406,15 +444,13 @@
       <div class="container">
         <div class="section-head">
           <h2>Certificado</h2>
-          <p>Visualização do certificado (apenas para ver).</p>
+          <p>Visualização do certificado (somente para ver).</p>
         </div>
 
         <div class="cert-card">
           <div class="cert-left">
             <h3>Formação acadêmica</h3>
-            <p class="small-muted">
-              Certificado disponível para visualização dentro do site.
-            </p>
+            <p class="small-muted">Certificado disponível para visualização dentro do site.</p>
           </div>
 
           <div class="cert-actions">
@@ -469,19 +505,16 @@
           <div class="modal-box">
             <div class="modal-label">O que foi feito</div>
             <ul>
-              <li>Landing page pessoal com foco em performance e clareza</li>
-              <li>UI moderna (glass, bordas arredondadas, microinterações)</li>
-              <li>Carrossel de projetos com navegação e swipe</li>
-              <li>Modais para case studies de projetos sigilosos</li>
-              <li>Seção de certificado com visualização</li>
+              <li>UI moderna com foco em leitura e hierarquia</li>
+              <li>Carrossel de projetos + modais para case studies</li>
+              <li>Seção de perfil forte (humana)</li>
+              <li>Certificado apenas para visualização</li>
             </ul>
           </div>
 
           <div class="modal-box">
             <div class="modal-label">Tecnologias</div>
-            <p class="small-muted">
-              HTML, CSS e JavaScript puros. Biblioteca leve apenas para o carrossel.
-            </p>
+            <p class="small-muted">HTML, CSS e JavaScript puros + Swiper para o carrossel.</p>
           </div>
         </div>
 
@@ -518,8 +551,7 @@
           <div class="modal-box">
             <div class="modal-label">Confidencialidade</div>
             <p class="small-muted">
-              Por segurança e sigilo, o código e integrações não são públicos.
-              Posso apresentar detalhes técnicos em entrevista.
+              Código e integrações não são públicos. Posso apresentar detalhes técnicos em entrevista.
             </p>
           </div>
         </div>
@@ -576,7 +608,6 @@
             <div class="modal-label">Confidencialidade</div>
             <p class="small-muted">
               Exibição em alto nível, sem dados reais e sem repositório público.
-              O objetivo é demonstrar arquitetura e visão de integração.
             </p>
           </div>
         </div>
