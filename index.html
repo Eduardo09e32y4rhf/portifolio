@@ -6,15 +6,15 @@
   <meta name="description" content="Portfólio de José Eduardo da Silva — Backend Developer / API Engineer (Python, FastAPI). SaaS, Integrações, IA e Pagamentos." />
   <title>José Eduardo da Silva | Backend Developer • API Engineer</title>
 
-  <!-- Font (opcional, mas deixa muito profissional) -->
+  <!-- Font (opcional, mas profissional) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Swiper (carrossel) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
@@ -25,7 +25,7 @@
       <span>José Eduardo</span>
     </a>
 
-    <nav class="nav">
+    <nav class="nav" aria-label="Navegação principal">
       <a href="#sobre">Sobre</a>
       <a href="#skills">Stack</a>
       <a href="#projetos">Projetos</a>
@@ -36,6 +36,7 @@
     <div class="topbar-actions">
       <a class="chip" href="https://github.com/Eduardo09e32y4rhf" target="_blank" rel="noreferrer">GitHub</a>
       <a class="chip" href="https://www.linkedin.com/in/eduardo-silva-1%C2%B0-7287bb1b8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noreferrer">LinkedIn</a>
+
       <button class="icon-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -49,6 +50,7 @@
         <div class="drawer-title">Menu</div>
         <button class="icon-close" id="closeDrawer" aria-label="Fechar menu">×</button>
       </div>
+
       <div class="drawer-links">
         <a href="#sobre" data-close>Sobre</a>
         <a href="#skills" data-close>Stack</a>
@@ -56,6 +58,7 @@
         <a href="#certificado" data-close>Certificado</a>
         <a href="#contato" data-close>Contato</a>
       </div>
+
       <div class="drawer-actions">
         <a class="btn btn-ghost" href="https://github.com/Eduardo09e32y4rhf" target="_blank" rel="noreferrer">GitHub</a>
         <a class="btn btn-primary" href="https://www.linkedin.com/in/eduardo-silva-1%C2%B0-7287bb1b8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noreferrer">LinkedIn</a>
@@ -68,16 +71,16 @@
     <section id="home" class="section hero">
       <div class="container hero-grid">
         <div class="hero-left">
-          <div class="kicker">Backend Developer • API Engineer</div>
+          <div class="kicker">Olá, eu sou</div>
 
           <h1>
-            Construo <span class="accent">APIs e Sistemas SaaS</span>
-            que funcionam em produção.
+            <span class="accent">José Eduardo da Silva</span>
           </h1>
 
           <p class="lead">
-            Especialista em <strong>Python e FastAPI</strong>, com foco em <strong>integrações</strong>,
-            <strong>automação</strong>, <strong>IA aplicada</strong> e <strong>monetização</strong>.
+            <strong>Backend Developer • API Engineer</strong><br />
+            Construo APIs em <strong>Python/FastAPI</strong> e integrações (IA, pagamentos e automação)
+            com foco em <strong>segurança</strong>, <strong>escala</strong> e <strong>produção</strong>.
           </p>
 
           <div class="hero-tags" aria-label="Áreas de atuação">
@@ -95,25 +98,19 @@
           </div>
 
           <div class="hero-links">
-            <a href="https://github.com/Eduardo09e32y4rhf" target="_blank" rel="noreferrer" class="link">
-              GitHub
-            </a>
+            <a href="https://github.com/Eduardo09e32y4rhf" target="_blank" rel="noreferrer" class="link">GitHub</a>
             <span class="sep">•</span>
             <a href="https://www.linkedin.com/in/eduardo-silva-1%C2%B0-7287bb1b8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-               target="_blank" rel="noreferrer" class="link">
-              LinkedIn
-            </a>
+               target="_blank" rel="noreferrer" class="link">LinkedIn</a>
           </div>
         </div>
 
         <div class="hero-right">
-          <!-- Desktop: Nubank-like preview -->
-          <div class="preview">
+          <!-- Desktop preview (sem mencionar marcas) -->
+          <div class="preview" aria-label="Resumo visual">
             <div class="preview-head">
-              <div class="pill">Dashboard • API</div>
-              <div class="dots" aria-hidden="true">
-                <span></span><span></span><span></span>
-              </div>
+              <div class="pill">Resumo</div>
+              <div class="dots" aria-hidden="true"><span></span><span></span><span></span></div>
             </div>
 
             <div class="preview-body">
@@ -127,36 +124,36 @@
 
               <div class="mini-grid">
                 <div class="mini-card">
-                  <div class="mini-title">SaaS em produção</div>
-                  <div class="mini-text">Integrações • Logs • Planos • Pagamentos</div>
+                  <div class="mini-title">APIs em produção</div>
+                  <div class="mini-text">Versionamento, middlewares e erros globais.</div>
+                </div>
+                <div class="mini-card">
+                  <div class="mini-title">Integrações</div>
+                  <div class="mini-text">Serviços externos, webhooks e autenticação.</div>
                 </div>
                 <div class="mini-card">
                   <div class="mini-title">IA aplicada</div>
-                  <div class="mini-text">Multi-provider • Fallback • Score de qualidade</div>
-                </div>
-                <div class="mini-card">
-                  <div class="mini-title">APIs robustas</div>
-                  <div class="mini-text">Versionamento • Middlewares • Erros globais</div>
+                  <div class="mini-text">Providers múltiplos, fallback e logs.</div>
                 </div>
                 <div class="mini-card">
                   <div class="mini-title">Banco & segurança</div>
-                  <div class="mini-text">PostgreSQL • SQLAlchemy Async • JWT</div>
+                  <div class="mini-text">PostgreSQL, SQLAlchemy Async e JWT.</div>
                 </div>
               </div>
 
               <div class="note">
                 <span class="note-dot" aria-hidden="true"></span>
-                Projetos sensíveis: apresento <strong>cases</strong> e visão de arquitetura.
+                Cases sensíveis: apresento <strong>case studies</strong> sem expor dados.
               </div>
             </div>
           </div>
 
-          <!-- Mobile: iPhone frame (CSS ativa só no mobile) -->
-          <div class="phone">
+          <!-- Mobile frame (apenas efeito visual, sem texto de marca) -->
+          <div class="phone" aria-label="Resumo para celular">
             <div class="phone-notch" aria-hidden="true"></div>
             <div class="phone-screen">
               <div class="phone-top">
-                <div class="phone-pill">Nubank style</div>
+                <div class="phone-pill">Meu perfil</div>
                 <div class="phone-time" id="phoneTime">00:00</div>
               </div>
 
@@ -171,12 +168,12 @@
 
                 <div class="phone-cards">
                   <div class="phone-card">
-                    <div class="pc-title">FastAPI • REST</div>
-                    <div class="pc-text">Arquitetura modular, versionamento e métricas.</div>
+                    <div class="pc-title">Python • FastAPI</div>
+                    <div class="pc-text">APIs robustas, seguras e versionadas.</div>
                   </div>
                   <div class="phone-card">
-                    <div class="pc-title">IA aplicada</div>
-                    <div class="pc-text">Gemini + OpenAI, logs e fallback automático.</div>
+                    <div class="pc-title">IA • Pagamentos</div>
+                    <div class="pc-text">Integrações com provedores e webhooks.</div>
                   </div>
                 </div>
 
@@ -201,35 +198,26 @@
         <div class="section-head">
           <h2>Sobre</h2>
           <p>
-            Atuo no desenvolvimento backend com foco em <strong>APIs seguras e escaláveis</strong>,
-            integrações com serviços externos, <strong>pagamentos</strong>, bancos de dados e
-            <strong>IA aplicada</strong> a produtos reais.
+            Desenvolvo soluções backend com foco em <strong>APIs seguras e escaláveis</strong>,
+            integrações com serviços externos, bancos de dados e automações — levando sistemas do
+            desenvolvimento até <strong>produção</strong>.
           </p>
         </div>
 
         <div class="cards">
           <article class="card">
             <h3>Meu foco</h3>
-            <p>
-              Resolver problemas complexos com engenharia bem estruturada: versionamento,
-              observabilidade, persistência, segurança e integrações.
-            </p>
+            <p>Confiabilidade, segurança e manutenção: arquitetura modular, versionamento e padrões claros.</p>
           </article>
 
           <article class="card">
-            <h3>Como trabalho</h3>
-            <p>
-              Penso em arquitetura e experiência do produto. Priorizo confiabilidade,
-              manutenção e clareza de código.
-            </p>
+            <h3>O que eu entrego</h3>
+            <p>Integrações com APIs externas, autenticação, webhooks, persistência e logs.</p>
           </article>
 
           <article class="card">
-            <h3>Projetos sensíveis</h3>
-            <p>
-              Para manter sigilo, apresento <strong>prints do problema</strong> e
-              <strong>case studies</strong> com visão de alto nível (sem dados e sem repositório).
-            </p>
+            <h3>Projetos sigilosos</h3>
+            <p>Apresento cases com prints do problema e visão de arquitetura, sem expor dados e sem repositório público.</p>
           </article>
         </div>
       </div>
@@ -240,7 +228,7 @@
       <div class="container">
         <div class="section-head">
           <h2>Stack</h2>
-          <p>Ferramentas que uso para construir APIs, integrações e produtos SaaS.</p>
+          <p>Ferramentas que uso no dia a dia para construir APIs, integrações e produtos.</p>
         </div>
 
         <div class="skills-grid">
@@ -268,7 +256,7 @@
           <div class="skill">
             <div class="skill-title">Integrações</div>
             <div class="skill-tags">
-              <span>Instagram Graph API</span><span>Mercado Pago</span><span>OpenAI</span><span>Gemini</span>
+              <span>Instagram Graph API</span><span>Pagamentos</span><span>OpenAI</span><span>Gemini</span>
             </div>
           </div>
 
@@ -288,8 +276,8 @@
         <div class="section-head">
           <h2>Projetos</h2>
           <p>
-            Cases com informações sensíveis: compartilho prints do problema e visão de arquitetura
-            (sem repositório público).
+            Projetos sensíveis são apresentados como <strong>case study</strong>.
+            O código e dados não são públicos por confidencialidade.
           </p>
         </div>
 
@@ -297,27 +285,61 @@
           <div class="swiper projects-swiper" aria-label="Carrossel de projetos">
             <div class="swiper-wrapper">
 
-              <!-- Slide 1 -->
+              <!-- Slide 1: ESTE PORTFÓLIO (público) -->
               <div class="swiper-slide">
                 <article class="project">
                   <div class="project-media">
-                    <img src="assets/img/prosolution-1.png" alt="Print do projeto Prosolution IA (placeholder)" />
+                    <img src="assets/img/portfolio-1.png" alt="Print do portfólio" />
+                    <div class="project-badge">Projeto público</div>
+                  </div>
+
+                  <div class="project-body">
+                    <h3>Este Portfólio</h3>
+                    <p class="project-desc">
+                      Site pessoal feito com HTML, CSS e JavaScript puros, com foco em UI moderna,
+                      responsividade e apresentação de cases sigilosos via modais.
+                    </p>
+
+                    <div class="pill-row">
+                      <span class="pill">HTML</span>
+                      <span class="pill">CSS</span>
+                      <span class="pill">JavaScript</span>
+                      <span class="pill">UI/UX</span>
+                      <span class="pill">Responsive</span>
+                    </div>
+
+                    <div class="project-actions">
+                      <button class="btn btn-primary" data-modal="modalPortfolio">Ver case</button>
+                      <!-- Coloque o repo quando criar -->
+                      <a class="btn btn-ghost" href="#" target="_blank" rel="noreferrer" aria-label="Ver código do portfólio (adicione seu repositório)">
+                        Ver código
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <!-- Slide 2: PROSOLUTION (sigiloso) -->
+              <div class="swiper-slide">
+                <article class="project">
+                  <div class="project-media">
+                    <img src="assets/img/prosolution-1.png" alt="Print do case Prosolution IA" />
                     <div class="project-badge">Case Study</div>
                   </div>
 
                   <div class="project-body">
                     <h3>Prosolution IA</h3>
                     <p class="project-desc">
-                      SaaS de automação para Instagram com IA aplicada e monetização por planos.
-                      Integrações em produção e arquitetura escalável.
+                      SaaS de automação com integrações e IA aplicada. Fluxos assíncronos,
+                      logs e monetização por planos. (Dados e código não públicos.)
                     </p>
 
                     <div class="pill-row">
                       <span class="pill">FastAPI</span>
                       <span class="pill">PostgreSQL</span>
-                      <span class="pill">Instagram API</span>
-                      <span class="pill">OpenAI/Gemini</span>
-                      <span class="pill">Mercado Pago</span>
+                      <span class="pill">Integrações</span>
+                      <span class="pill">IA</span>
+                      <span class="pill">Webhooks</span>
                     </div>
 
                     <div class="project-actions">
@@ -326,17 +348,17 @@
                     </div>
 
                     <div class="small-muted">
-                      *Projeto sigiloso: sem dados e sem repositório público.
+                      *Projeto sigiloso: sem repositório público e sem dados expostos.
                     </div>
                   </div>
                 </article>
               </div>
 
-              <!-- Slide 2 -->
+              <!-- Slide 3: INNOVATION (sigiloso) -->
               <div class="swiper-slide">
                 <article class="project">
                   <div class="project-media">
-                    <img src="assets/img/innovation-1.png" alt="Print do projeto Innovation RH (placeholder)" />
+                    <img src="assets/img/innovation-1.png" alt="Print do case Innovation RH" />
                     <div class="project-badge">Case Study</div>
                   </div>
 
@@ -344,7 +366,7 @@
                     <h3>Innovation RH</h3>
                     <p class="project-desc">
                       Plataforma conceitual voltada à integração de RH, contabilidade e fiscal,
-                      com arquitetura orientada a integrações e domínios complexos.
+                      com domínios complexos e visão de escalabilidade.
                     </p>
 
                     <div class="pill-row">
@@ -360,7 +382,7 @@
                     </div>
 
                     <div class="small-muted">
-                      *Projeto sigiloso: apenas visão conceitual e prints do problema.
+                      *Projeto sigiloso: apenas visão de arquitetura e prints do problema.
                     </div>
                   </div>
                 </article>
@@ -391,9 +413,10 @@
           <div class="cert-left">
             <h3>Formação acadêmica</h3>
             <p class="small-muted">
-              O certificado é exibido apenas como visualização dentro do site.
+              Certificado disponível para visualização dentro do site.
             </p>
           </div>
+
           <div class="cert-actions">
             <button class="btn btn-primary" data-modal="modalCert">Visualizar</button>
           </div>
@@ -431,40 +454,78 @@
     </section>
   </main>
 
-  <!-- MODAIS (Cases e Certificado) -->
+  <!-- MODAIS -->
+  <div class="modal" id="modalPortfolio" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3>Este Portfólio — Case Study</h3>
+        <button class="icon-close" data-close aria-label="Fechar">×</button>
+      </div>
+
+      <div class="modal-body">
+        <p><strong>Objetivo:</strong> me apresentar de forma clara e profissional, destacando projetos reais (inclusive sigilosos) sem expor dados ou código.</p>
+
+        <div class="modal-grid">
+          <div class="modal-box">
+            <div class="modal-label">O que foi feito</div>
+            <ul>
+              <li>Landing page pessoal com foco em performance e clareza</li>
+              <li>UI moderna (glass, bordas arredondadas, microinterações)</li>
+              <li>Carrossel de projetos com navegação e swipe</li>
+              <li>Modais para case studies de projetos sigilosos</li>
+              <li>Seção de certificado com visualização</li>
+            </ul>
+          </div>
+
+          <div class="modal-box">
+            <div class="modal-label">Tecnologias</div>
+            <p class="small-muted">
+              HTML, CSS e JavaScript puros. Biblioteca leve apenas para o carrossel.
+            </p>
+          </div>
+        </div>
+
+        <div class="modal-gallery">
+          <img src="assets/img/portfolio-2.png" alt="Print adicional do portfólio" />
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="modal" id="modalProsolution" role="dialog" aria-modal="true" aria-hidden="true">
     <div class="modal-card">
       <div class="modal-head">
         <h3>Prosolution IA — Case Study</h3>
         <button class="icon-close" data-close aria-label="Fechar">×</button>
       </div>
+
       <div class="modal-body">
-        <p><strong>Resumo:</strong> SaaS para automação de postagens no Instagram com IA aplicada e monetização por planos.</p>
+        <p><strong>Resumo:</strong> SaaS para automação, integrações e IA aplicada, com monetização por planos.</p>
 
         <div class="modal-grid">
           <div class="modal-box">
             <div class="modal-label">O que eu construí</div>
             <ul>
               <li>API REST com FastAPI (arquitetura modular e versionamento)</li>
-              <li>Integração Instagram Graph API (create → status → publish)</li>
-              <li>IA multi-provider (Gemini + OpenAI) com fallback e logs</li>
-              <li>Mercado Pago com webhooks e upgrade automático de plano</li>
+              <li>Integrações externas com fluxo assíncrono e tratamento de erros</li>
+              <li>IA com múltiplos provedores, fallback e logs</li>
+              <li>Pagamentos com webhooks e upgrade automático de plano</li>
               <li>JWT + autorização baseada em plano</li>
               <li>Persistência e auditoria (PostgreSQL + SQLAlchemy Async)</li>
             </ul>
           </div>
 
           <div class="modal-box">
-            <div class="modal-label">Por que não há repositório</div>
+            <div class="modal-label">Confidencialidade</div>
             <p class="small-muted">
-              Por confidencialidade e segurança, o código e integrações em produção não são públicos.
-              Posso apresentar detalhes técnicos em entrevista, incluindo decisões de arquitetura e desafios resolvidos.
+              Por segurança e sigilo, o código e integrações não são públicos.
+              Posso apresentar detalhes técnicos em entrevista.
             </p>
           </div>
         </div>
 
         <div class="modal-gallery">
-          <img src="assets/img/prosolution-2.png" alt="Print adicional Prosolution IA (placeholder)" />
+          <img src="assets/img/prosolution-2.png" alt="Print adicional do case Prosolution IA" />
         </div>
       </div>
     </div>
@@ -476,16 +537,16 @@
         <h3>Prosolution IA — Arquitetura (alto nível)</h3>
         <button class="icon-close" data-close aria-label="Fechar">×</button>
       </div>
+
       <div class="modal-body">
         <ol class="arch">
           <li><strong>Client/UI</strong> → solicita ações (agendar post, gerar conteúdo, dashboard)</li>
-          <li><strong>FastAPI</strong> → auth, instagram, ai, payments (domínios separados)</li>
-          <li><strong>DB</strong> → users, instagram_posts, ai_logs, payments, reports</li>
-          <li><strong>Instagram Graph</strong> → create media → status → publish</li>
-          <li><strong>IA Providers</strong> → Gemini/OpenAI com fallback + score</li>
-          <li><strong>Mercado Pago</strong> → webhooks → upgrade plano → billing</li>
+          <li><strong>FastAPI</strong> → domínios: auth, instagram, ai, payments</li>
+          <li><strong>DB</strong> → users, posts, logs, billing e reports</li>
+          <li><strong>Integrações</strong> → publicação assíncrona e validações</li>
+          <li><strong>IA</strong> → providers múltiplos, fallback e score</li>
+          <li><strong>Pagamentos</strong> → webhooks, planos e controle de assinatura</li>
         </ol>
-        <p class="small-muted">*Substitua por um diagrama seu (PNG) quando quiser.</p>
       </div>
     </div>
   </div>
@@ -496,31 +557,32 @@
         <h3>Innovation RH — Case Study</h3>
         <button class="icon-close" data-close aria-label="Fechar">×</button>
       </div>
+
       <div class="modal-body">
-        <p><strong>Resumo:</strong> plataforma conceitual com foco em integração de RH, contabilidade e fiscal.</p>
+        <p><strong>Resumo:</strong> sistema orientado a integrações e domínios complexos (RH, contábil e fiscal).</p>
 
         <div class="modal-grid">
           <div class="modal-box">
-            <div class="modal-label">O que o sistema propõe</div>
+            <div class="modal-label">Escopo (alto nível)</div>
             <ul>
-              <li>Integrações para dados de colaboradores, férias, benefícios e folha</li>
-              <li>Conexões com contabilidade/fiscal: DRE, balanço, apuração, obrigações</li>
-              <li>Coleta de dados via formulários e processos de onboarding</li>
+              <li>Integrações para colaboradores, férias, benefícios e folha</li>
+              <li>Conexões com contabilidade/fiscal: relatórios e obrigações</li>
+              <li>Coleta de dados por formulários e onboarding</li>
               <li>Notificações e comunicação interna</li>
             </ul>
           </div>
 
           <div class="modal-box">
-            <div class="modal-label">Contexto de sigilo</div>
+            <div class="modal-label">Confidencialidade</div>
             <p class="small-muted">
-              Estrutura exibida em alto nível. Sem dados reais e sem código público.
-              O objetivo aqui é demonstrar domínio de arquitetura e integração.
+              Exibição em alto nível, sem dados reais e sem repositório público.
+              O objetivo é demonstrar arquitetura e visão de integração.
             </p>
           </div>
         </div>
 
         <div class="modal-gallery">
-          <img src="assets/img/innovation-2.png" alt="Print adicional Innovation RH (placeholder)" />
+          <img src="assets/img/innovation-2.png" alt="Print adicional do case Innovation RH" />
         </div>
       </div>
     </div>
@@ -532,12 +594,13 @@
         <h3>Innovation RH — Arquitetura (alto nível)</h3>
         <button class="icon-close" data-close aria-label="Fechar">×</button>
       </div>
+
       <div class="modal-body">
         <ol class="arch">
-          <li><strong>Core API</strong> → domínios: colaboradores, DP, fiscal, relatórios</li>
+          <li><strong>Core API</strong> → domínios: colaboradores, DP, fiscal e relatórios</li>
           <li><strong>Integrações</strong> → RH/DP, contabilidade, fiscal, comunicação</li>
-          <li><strong>Camada de dados</strong> → normalização e validação de entradas</li>
-          <li><strong>Governança</strong> → trilhas de auditoria e rastreabilidade</li>
+          <li><strong>Camada de dados</strong> → normalização, validação e rastreabilidade</li>
+          <li><strong>Governança</strong> → trilha de auditoria e controle de acesso</li>
         </ol>
       </div>
     </div>
@@ -549,13 +612,11 @@
         <h3>Certificado</h3>
         <button class="icon-close" data-close aria-label="Fechar">×</button>
       </div>
+
       <div class="modal-body">
         <div class="cert-view">
           <img src="assets/img/certificado.png" alt="Certificado (imagem)" />
         </div>
-        <p class="small-muted">
-          *Se preferir, você pode substituir por PDF embedado — mas imagem costuma ficar mais “só visualizar”.
-        </p>
       </div>
     </div>
   </div>
