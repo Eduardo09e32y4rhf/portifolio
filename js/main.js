@@ -1,123 +1,127 @@
+// =========================
 // Helpers
-const qs = (s, el = document) => el.querySelector(s);
-const qsa = (s, el = document) => [...el.querySelectorAll(s)];
+// =========================
+function qs(sel, el = document) { return el.querySelector(sel); }
+function qsa(sel, el = document) { return [...el.querySelectorAll(sel)]; }
 
-function setYear() {
-  const y = new Date().getFullYear();
-  const el = qs("#year");
-  if (el) el.textContent = String(y);
+function lockScroll(lock) {
+  document.documentElement.style.overflow = lock ? "hidden" : "";
+  document.body.style.overflow = lock ? "hidden" : "";
 }
 
-function setPhoneTime() {
-  const el = qs("#phoneTime");
-  if (!el) return;
+// =========================
+// Drawer (mobile menu)
+// =========================
+const drawer = qs("#drawer");
+const menuBtn = qs("#menuBtn");
+const closeDrawer = qs("#closeDrawer");
 
-  const now = new Date();
-  const hh = String(now.getHours()).padStart(2, "0");
-  const mm = String(now.getMinutes()).padStart(2, "0");
-  el.textContent = `${hh}:${mm}`;
+function openDrawer() {
+  drawer.classList.add("open");
+  drawer.setAttribute("aria-hidden", "false");
+  menuBtn?.setAttribute("aria-expanded", "true");
+  lockScroll(true);
 }
 
-// Drawer
-function initDrawer() {
-  const btn = qs("#menuBtn");
-  const drawer = qs("#drawer");
-  const close = qs("#closeDrawer");
-
-  if (!btn || !drawer || !close) return;
-
-  const open = () => {
-    drawer.classList.add("open");
-    drawer.setAttribute("aria-hidden", "false");
-    btn.setAttribute("aria-expanded", "true");
-    document.body.style.overflow = "hidden";
-  };
-
-  const hide = () => {
-    drawer.classList.remove("open");
-    drawer.setAttribute("aria-hidden", "true");
-    btn.setAttribute("aria-expanded", "false");
-    document.body.style.overflow = "";
-  };
-
-  btn.addEventListener("click", open);
-  close.addEventListener("click", hide);
-  drawer.addEventListener("click", (e) => {
-    if (e.target === drawer) hide();
-  });
-
-  qsa("[data-close]", drawer).forEach(a => a.addEventListener("click", hide));
+function hideDrawer() {
+  drawer.classList.remove("open");
+  drawer.setAttribute("aria-hidden", "true");
+  menuBtn?.setAttribute("aria-expanded", "false");
+  lockScroll(false);
 }
 
+menuBtn?.addEventListener("click", openDrawer);
+closeDrawer?.addEventListener("click", hideDrawer);
+
+drawer?.addEventListener("click", (e) => {
+  if (e.target === drawer) hideDrawer();
+});
+
+qsa("[data-close]", drawer).forEach(a => {
+  a.addEventListener("click", hideDrawer);
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    hideDrawer();
+    closeAllModals();
+  }
+});
+
+// =========================
 // Modals
-function initModals() {
-  const openBtns = qsa("[data-modal]");
-  const closeBtns = qsa("[data-close]");
+// =========================
+function openModal(id) {
+  const m = qs(`#${id}`);
+  if (!m) return;
+  m.classList.add("open");
+  m.setAttribute("aria-hidden", "false");
+  lockScroll(true);
+}
 
-  const openModal = (id) => {
-    const modal = qs(`#${id}`);
-    if (!modal) return;
-    modal.classList.add("open");
-    modal.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-  };
+function closeModal(modalEl) {
+  modalEl.classList.remove("open");
+  modalEl.setAttribute("aria-hidden", "true");
+  lockScroll(false);
+}
 
-  const closeModal = (modal) => {
-    modal.classList.remove("open");
-    modal.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
-  };
+function closeAllModals() {
+  qsa(".modal.open").forEach(m => {
+    m.classList.remove("open");
+    m.setAttribute("aria-hidden", "true");
+  });
+  lockScroll(false);
+}
 
-  openBtns.forEach(btn => {
-    btn.addEventListener("click", () => openModal(btn.dataset.modal));
+qsa("[data-modal]").forEach(btn => {
+  btn.addEventListener("click", () => openModal(btn.getAttribute("data-modal")));
+});
+
+qsa(".modal").forEach(modal => {
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal(modal);
   });
 
-  closeBtns.forEach(btn => {
-    const modal = btn.closest(".modal");
-    if (!modal) return;
+  qsa("[data-close]", modal).forEach(btn => {
     btn.addEventListener("click", () => closeModal(modal));
   });
+});
 
-  qsa(".modal").forEach(modal => {
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal) closeModal(modal);
-    });
-  });
-
-  window.addEventListener("keydown", (e) => {
-    if (e.key !== "Escape") return;
-    const modal = qs(".modal.open");
-    if (modal) closeModal(modal);
-  });
-}
-
+// =========================
 // Swiper
-function initSwiper() {
-  const el = qs(".projects-swiper");
-  if (!el || typeof Swiper === "undefined") return;
+// =========================
+const swiperEl = qs(".projects-swiper");
+let swiper;
 
-  const swiper = new Swiper(el, {
+if (swiperEl) {
+  swiper = new Swiper(".projects-swiper", {
     slidesPerView: 1,
-    spaceBetween: 16,
-    centeredSlides: false,
-    loop: false,
-    grabCursor: true,
+    spaceBetween: 18,
+    loop: true,
+    speed: 550,
     pagination: {
       el: ".swiper-pagination",
       clickable: true
     }
   });
 
-  const prev = qs("#prevBtn");
-  const next = qs("#nextBtn");
-  if (prev) prev.addEventListener("click", () => swiper.slidePrev());
-  if (next) next.addEventListener("click", () => swiper.slideNext());
+  qs("#prevBtn")?.addEventListener("click", () => swiper.slidePrev());
+  qs("#nextBtn")?.addEventListener("click", () => swiper.slideNext());
 }
 
-setYear();
-setPhoneTime();
-setInterval(setPhoneTime, 15000);
+// =========================
+// Year + phone time
+// =========================
+const yearEl = qs("#year");
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-initDrawer();
-initModals();
-initSwiper();
+const phoneTime = qs("#phoneTime");
+function updatePhoneTime() {
+  if (!phoneTime) return;
+  const d = new Date();
+  const hh = String(d.getHours()).padStart(2, "0");
+  const mm = String(d.getMinutes()).padStart(2, "0");
+  phoneTime.textContent = `${hh}:${mm}`;
+}
+updatePhoneTime();
+setInterval(updatePhoneTime, 15000);
