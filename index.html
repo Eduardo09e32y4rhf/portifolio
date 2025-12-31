@@ -1,251 +1,567 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gslimp - Higienização e Renovação de Estofados</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfólio de José Eduardo da Silva — Backend Developer / API Engineer (Python, FastAPI). SaaS, Integrações, IA e Pagamentos." />
+  <title>José Eduardo da Silva | Backend Developer • API Engineer</title>
+
+  <!-- Font (opcional, mas deixa muito profissional) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Swiper (carrossel) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
-
-    <header id="navbar">
-        <div class="container nav-content">
-            <div class="logo montserrat">GSLIMP</div>
-            <nav>
-                <a href="#servicos">Serviços</a>
-                <a href="#galeria-e-orcamento">Galeria</a>
-                <a href="#depoimentos">Clientes</a>
-                <a href="#contato" class="btn-nav">Orçamento</a>
-            </nav>
-        </div>
-    </header>
-
-    <section id="hero">
-        <div class="hero-overlay"></div>
-        <div class="container hero-content">
-            <h1 class="montserrat"><span class="blue-text-hero">Gslimp</span><br>Devolva a Vida e a Saúde aos Seus Estofados</h1>
-            <p>Especialistas em higienização e limpeza profunda, eliminando ácaros, bactérias e manchas. Qualidade que você vê e sente.</p>
-            <a href="https://wa.me/82991522179?text=Ol%C3%A1%20Gslimp,%20gostaria%20de%20um%20or%C3%A7amento%20para%20limpeza%20de%20estofado!" class="btn-cta btn-wpp-style" target="_blank">
-                <i class="fab fa-whatsapp"></i> Solicite Orçamento Imediato
-            </a>
-        </div>
-    </section>
-
-    <section id="stats">
-        <div class="container stats-container">
-            <div class="stats-card">
-                <span class="montserrat">100%</span>
-                <p>Satisfação Garantida</p>
-            </div>
-            <div class="stats-card">
-                <span class="montserrat">500+</span>
-                <p>Clientes Atendidos</p>
-            </div>
-            <div class="stats-card">
-                <span class="montserrat">10+</span>
-                <p>Anos de Expertise</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="servicos">
-        <div class="container">
-            <div class="header-section">
-                <span class="tag">Nossas Especialidades</span>
-                <h2 class="montserrat">Soluções Completas para um Ambiente Saudável</h2>
-                <p>Nossos serviços utilizam a mais alta tecnologia de extração e produtos biodegradáveis, garantindo uma limpeza segura e profunda.</p>
-            </div>
-            <div class="carousel-container services-carousel">
-                <div class="carousel-track">
-                    <div class="servico-card carousel-item">
-                        <div class="icon-wrapper"><i class="fas fa-couch"></i></div>
-                        <h3 class="montserrat">Sofás & Estofados</h3>
-                        <p>Eliminação de sujeira visível, ácaros e odores. Seu sofá com aspecto de novo.</p>
-                    </div>
-                    <div class="servico-card carousel-item">
-                        <div class="icon-wrapper"><i class="fas fa-bed"></i></div>
-                        <h3 class="montserrat">Colchões</h3>
-                        <p>Higienização profunda para combater alérgenos e garantir um sono mais reparador.</p>
-                    </div>
-                    <div class="servico-card carousel-item">
-                        <div class="icon-wrapper"><i class="fas fa-magic"></i></div>
-                        <h3 class="montserrat">Impermeabilização</h3>
-                        <p>Proteção invisível contra derramamentos de líquidos e manchas acidentais.</p>
-                    </div>
-                    <div class="servico-card carousel-item">
-                        <div class="icon-wrapper"><i class="fas fa-grip-lines"></i></div>
-                        <h3 class="montserrat">Tapetes & Carpetes</h3>
-                        <p>Lavagem especializada que restaura a cor e a textura original do seu tapete.</p>
-                    </div>
-                    <div class="servico-card carousel-item">
-                        <div class="icon-wrapper"><i class="fas fa-couch"></i></div>
-                        <h3 class="montserrat">Sofás & Estofados</h3>
-                        <p>Eliminação de sujeira visível, ácaros e odores. Seu sofá com aspecto de novo.</p>
-                    </div>
-                    <div class="servico-card carousel-item">
-                        <div class="icon-wrapper"><i class="fas fa-bed"></i></div>
-                        <h3 class="montserrat">Colchões</h3>
-                        <p>Higienização profunda para combater alérgenos e garantir um sono mais reparador.</p>
-                    </div>
-                    <div class="servico-card carousel-item">
-                        <div class="icon-wrapper"><i class="fas fa-magic"></i></div>
-                        <h3 class="montserrat">Impermeabilização</h3>
-                        <p>Proteção invisível contra derramamentos de líquidos e manchas acidentais.</p>
-                    </div>
-                    <div class="servico-card carousel-item">
-                        <div class="icon-wrapper"><i class="fas fa-grip-lines"></i></div>
-                        <h3 class="montserrat">Tapetes & Carpetes</h3>
-                        <p>Lavagem especializada que restaura a cor e a textura original do seu tapete.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="video-destaque" class="fundo-azul">
-        <div class="container grid-video-texto">
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&loop=1&playlist=dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="texto-video">
-                <span class="tag-clara">Resultados que Impressionam</span>
-                <h2 class="montserrat">Veja a Nossa Qualidade em Ação</h2>
-                <p>Nenhuma foto ou texto substitui o resultado real. Assista a uma demonstração de como removemos sujeira profunda, restaurando a cor e a maciez do seu estofado.</p>
-                <a href="#hero" class="btn-cta btn-secundario"> Quero ver meu estofado assim! </a>
-            </div>
-        </div>
-    </section>
-
-    <section id="galeria-e-orcamento" class="fundo-claro-engajamento">
-        <div class="container" style="justify-content: center; align-items: center;">
-            
-            <div class="secao-engajamento-wrapper" style="max-width: 100%;">
-                <h2 class="titulo-amado">Nossos Sofás Mais Amados</h2>
-                <div class="resultados-grid grid-fotos">
-                    <div class="item-resultado item-foto">
-                        <img src="https://picsum.photos/400/250?random=1" alt="Resultado Limpeza Sofá 1">
-                        <span class="resultado-nome">Resultado Limpeza Sofá 1</span>
-                    </div>
-                    <div class="item-resultado item-foto">
-                        <img src="https://picsum.photos/400/250?random=2" alt="Resultado Limpeza Sofá 2">
-                        <span class="resultado-nome">Resultado Limpeza Sofá 2</span>
-                    </div>
-                    <div class="item-resultado item-foto">
-                        <img src="https://picsum.photos/400/250?random=3" alt="Resultado Limpeza Sofá 3">
-                        <span class="resultado-nome">Resultado Limpeza Sofá 3</span>
-                    </div>
-                    <div class="item-resultado item-foto">
-                        <img src="https://picsum.photos/400/250?random=4" alt="Resultado Limpeza Sofá 4">
-                        <span class="resultado-nome">Resultado Limpeza Sofá 4</span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="depoimentos">
-        <div class="container">
-            <div class="header-section">
-                <span class="tag">Clientes Gslimp</span>
-                <h2 class="montserrat">O Que Nossos Clientes Dizem</h2>
-            </div>
-            <div class="carousel-container depoimentos-carousel">
-                <div class="carousel-track">
-                    <div class="depoimento-card carousel-item">
-                        <div class="perfil">
-                            <img src="https://i.pravatar.cc/150?img=1" alt="Maria Silva">
-                            <strong>Maria Silva</strong>
-                        </div>
-                        <p>"Fiquei impressionada! Meu sofá está novo e o cheiro sumiu. Profissionais super atenciosos."</p>
-                    </div>
-                    <div class="depoimento-card carousel-item">
-                        <div class="perfil">
-                            <img src="https://i.pravatar.cc/150?img=2" alt="João Santos">
-                            <strong>João Santos</strong>
-                        </div>
-                        <p>"Serviço rápido e com zero bagunça. A higienização dos meus colchões foi excelente."</p>
-                    </div>
-                    <div class="depoimento-card carousel-item">
-                        <div class="perfil">
-                            <img src="https://i.pravatar.cc/150?img=3" alt="Ana Costa">
-                            <strong>Ana Costa</strong>
-                        </div>
-                        <p>"Contratei para os estofados da empresa. Qualidade impecável e atendimento pontual."</p>
-                    </div>
-                    <div class="depoimento-card carousel-item">
-                        <div class="perfil">
-                            <img src="https://i.pravatar.cc/150?img=4" alt="Carlos Alberto">
-                            <strong>Carlos Alberto</strong>
-                        </div>
-                        <p>"A impermeabilização foi a melhor decisão. Minha poltrona está protegida de verdade."</p>
-                    </div>
-                    <div class="depoimento-card carousel-item">
-                        <div class="perfil">
-                            <img src="https://i.pravatar.cc/150?img=5" alt="Paula F.">
-                            <strong>Paula F.</strong>
-                        </div>
-                        <p>"Fiquei impressionada! Meu sofá está novo e o cheiro sumiu. Profissionais super atenciosos."</p>
-                    </div>
-                    <div class="depoimento-card carousel-item">
-                        <div class="perfil">
-                            <img src="https://i.pravatar.cc/150?img=6" alt="Rafaela A.">
-                            <strong>Rafaela A.</strong>
-                        </div>
-                        <p>"Serviço rápido e com zero bagunça. A higienização dos meus colchões foi excelente."</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="solicite-orcamento" class="fundo-azul-claro">
-        <div class="container cta-futurista-wrapper" id="contato">
-            <h2 class="montserrat">Transforme Seu Ambiente Hoje Mesmo</h2>
-            <p>Não espere. Receba um orçamento rápido e personalizado sem compromisso. É a sua chance de ter um estofado renovado.</p>
-            <a href="https://wa.me/82991522179?text=Ol%C3%A1%20Gslimp,%20gostaria%20de%20um%20or%C3%A7amento%20imediato." class="btn-cta btn-futurista" target="_blank">
-                <i class="fab fa-whatsapp"></i> Receber Cotação Instantânea
-            </a>
-        </div>
-    </section>
-
-    <footer id="footer">
-        <div class="container footer-grid">
-            <div class="footer-about">
-                <h3 class="montserrat">Gslimp</h3>
-                <p>A referência em higienização e impermeabilização de estofados. Tecnologia e excelência ao seu serviço.</p>
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-            <div class="footer-links">
-                <h4 class="montserrat">Navegação</h4>
-                <ul>
-                    <li><a href="#servicos">Nossos Serviços</a></li>
-                    <li><a href="#galeria-e-orcamento">Galeria de Resultados</a></li>
-                    <li><a href="#depoimentos">Testemunhos</a></li>
-                    <li><a href="#contato">Fale Conosco</a></li>
-                </ul>
-            </div>
-            <div class="footer-contact">
-                <h4 class="montserrat">Contato Imediato</h4>
-                <p><i class="fas fa-phone-alt"></i> (11) 99999-9999</p>
-                <p><i class="fas fa-envelope"></i> contato@gslimp.com.br</p>
-                <p class="horario-footer"><i class="far fa-clock"></i> Seg - Sáb, 8h às 18h</p>
-            </div>
-        </div>
-        <div class="container copyright">
-            &copy; 2025 Gslimp. Todos os direitos reservados.
-        </div>
-    </footer>
-
-    <a href="https://wa.me/82991522179?text=Ol%C3%A1%20quero%20fazer%20um%20or%C3%A7amento!" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
+  <!-- Topbar -->
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Ir para o início">
+      <span class="brand-dot" aria-hidden="true"></span>
+      <span>José Eduardo</span>
     </a>
 
-    <script src="script.js"></script>
+    <nav class="nav">
+      <a href="#sobre">Sobre</a>
+      <a href="#skills">Stack</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#certificado">Certificado</a>
+      <a href="#contato">Contato</a>
+    </nav>
+
+    <div class="topbar-actions">
+      <a class="chip" href="https://github.com/Eduardo09e32y4rhf" target="_blank" rel="noreferrer">GitHub</a>
+      <a class="chip" href="https://www.linkedin.com/in/eduardo-silva-1%C2%B0-7287bb1b8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noreferrer">LinkedIn</a>
+      <button class="icon-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile drawer -->
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-card">
+      <div class="drawer-head">
+        <div class="drawer-title">Menu</div>
+        <button class="icon-close" id="closeDrawer" aria-label="Fechar menu">×</button>
+      </div>
+      <div class="drawer-links">
+        <a href="#sobre" data-close>Sobre</a>
+        <a href="#skills" data-close>Stack</a>
+        <a href="#projetos" data-close>Projetos</a>
+        <a href="#certificado" data-close>Certificado</a>
+        <a href="#contato" data-close>Contato</a>
+      </div>
+      <div class="drawer-actions">
+        <a class="btn btn-ghost" href="https://github.com/Eduardo09e32y4rhf" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="btn btn-primary" href="https://www.linkedin.com/in/eduardo-silva-1%C2%B0-7287bb1b8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    <!-- HERO -->
+    <section id="home" class="section hero">
+      <div class="container hero-grid">
+        <div class="hero-left">
+          <div class="kicker">Backend Developer • API Engineer</div>
+
+          <h1>
+            Construo <span class="accent">APIs e Sistemas SaaS</span>
+            que funcionam em produção.
+          </h1>
+
+          <p class="lead">
+            Especialista em <strong>Python e FastAPI</strong>, com foco em <strong>integrações</strong>,
+            <strong>automação</strong>, <strong>IA aplicada</strong> e <strong>monetização</strong>.
+          </p>
+
+          <div class="hero-tags" aria-label="Áreas de atuação">
+            <span class="tag">APIs</span>
+            <span class="tag">SaaS</span>
+            <span class="tag">Integrações</span>
+            <span class="tag">IA</span>
+            <span class="tag">Pagamentos</span>
+            <span class="tag">PostgreSQL</span>
+          </div>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#projetos">Ver Projetos</a>
+            <a class="btn btn-ghost" href="#contato">Falar comigo</a>
+          </div>
+
+          <div class="hero-links">
+            <a href="https://github.com/Eduardo09e32y4rhf" target="_blank" rel="noreferrer" class="link">
+              GitHub
+            </a>
+            <span class="sep">•</span>
+            <a href="https://www.linkedin.com/in/eduardo-silva-1%C2%B0-7287bb1b8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+               target="_blank" rel="noreferrer" class="link">
+              LinkedIn
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <!-- Desktop: Nubank-like preview -->
+          <div class="preview">
+            <div class="preview-head">
+              <div class="pill">Dashboard • API</div>
+              <div class="dots" aria-hidden="true">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+
+            <div class="preview-body">
+              <div class="profile">
+                <img class="avatar" src="assets/img/avatar.png" alt="Foto de José Eduardo da Silva" />
+                <div>
+                  <div class="name">José Eduardo da Silva</div>
+                  <div class="role">Backend Developer • API Engineer</div>
+                </div>
+              </div>
+
+              <div class="mini-grid">
+                <div class="mini-card">
+                  <div class="mini-title">SaaS em produção</div>
+                  <div class="mini-text">Integrações • Logs • Planos • Pagamentos</div>
+                </div>
+                <div class="mini-card">
+                  <div class="mini-title">IA aplicada</div>
+                  <div class="mini-text">Multi-provider • Fallback • Score de qualidade</div>
+                </div>
+                <div class="mini-card">
+                  <div class="mini-title">APIs robustas</div>
+                  <div class="mini-text">Versionamento • Middlewares • Erros globais</div>
+                </div>
+                <div class="mini-card">
+                  <div class="mini-title">Banco & segurança</div>
+                  <div class="mini-text">PostgreSQL • SQLAlchemy Async • JWT</div>
+                </div>
+              </div>
+
+              <div class="note">
+                <span class="note-dot" aria-hidden="true"></span>
+                Projetos sensíveis: apresento <strong>cases</strong> e visão de arquitetura.
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile: iPhone frame (CSS ativa só no mobile) -->
+          <div class="phone">
+            <div class="phone-notch" aria-hidden="true"></div>
+            <div class="phone-screen">
+              <div class="phone-top">
+                <div class="phone-pill">Nubank style</div>
+                <div class="phone-time" id="phoneTime">00:00</div>
+              </div>
+
+              <div class="phone-content">
+                <div class="phone-profile">
+                  <img class="avatar-sm" src="assets/img/avatar.png" alt="Foto de José Eduardo da Silva" />
+                  <div>
+                    <div class="name-sm">José Eduardo</div>
+                    <div class="role-sm">APIs • SaaS • Integrações</div>
+                  </div>
+                </div>
+
+                <div class="phone-cards">
+                  <div class="phone-card">
+                    <div class="pc-title">FastAPI • REST</div>
+                    <div class="pc-text">Arquitetura modular, versionamento e métricas.</div>
+                  </div>
+                  <div class="phone-card">
+                    <div class="pc-title">IA aplicada</div>
+                    <div class="pc-text">Gemini + OpenAI, logs e fallback automático.</div>
+                  </div>
+                </div>
+
+                <a class="btn btn-primary btn-block" href="#projetos">Ver projetos</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="bg-orbs" aria-hidden="true">
+        <span class="orb o1"></span>
+        <span class="orb o2"></span>
+        <span class="orb o3"></span>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Sobre</h2>
+          <p>
+            Atuo no desenvolvimento backend com foco em <strong>APIs seguras e escaláveis</strong>,
+            integrações com serviços externos, <strong>pagamentos</strong>, bancos de dados e
+            <strong>IA aplicada</strong> a produtos reais.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Meu foco</h3>
+            <p>
+              Resolver problemas complexos com engenharia bem estruturada: versionamento,
+              observabilidade, persistência, segurança e integrações.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Como trabalho</h3>
+            <p>
+              Penso em arquitetura e experiência do produto. Priorizo confiabilidade,
+              manutenção e clareza de código.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Projetos sensíveis</h3>
+            <p>
+              Para manter sigilo, apresento <strong>prints do problema</strong> e
+              <strong>case studies</strong> com visão de alto nível (sem dados e sem repositório).
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Stack</h2>
+          <p>Ferramentas que uso para construir APIs, integrações e produtos SaaS.</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill">
+            <div class="skill-title">Linguagens</div>
+            <div class="skill-tags">
+              <span>Python</span><span>JavaScript</span><span>SQL</span><span>HTML</span><span>CSS</span>
+            </div>
+          </div>
+
+          <div class="skill">
+            <div class="skill-title">Backend & APIs</div>
+            <div class="skill-tags">
+              <span>FastAPI</span><span>REST</span><span>JWT</span><span>Webhooks</span><span>Versionamento</span>
+            </div>
+          </div>
+
+          <div class="skill">
+            <div class="skill-title">Banco de Dados</div>
+            <div class="skill-tags">
+              <span>PostgreSQL</span><span>SQLite</span><span>SQLAlchemy Async</span>
+            </div>
+          </div>
+
+          <div class="skill">
+            <div class="skill-title">Integrações</div>
+            <div class="skill-tags">
+              <span>Instagram Graph API</span><span>Mercado Pago</span><span>OpenAI</span><span>Gemini</span>
+            </div>
+          </div>
+
+          <div class="skill">
+            <div class="skill-title">Infra & Deploy</div>
+            <div class="skill-tags">
+              <span>Render</span><span>Async</span><span>Logs</span><span>Observabilidade</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJETOS -->
+    <section id="projetos" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Projetos</h2>
+          <p>
+            Cases com informações sensíveis: compartilho prints do problema e visão de arquitetura
+            (sem repositório público).
+          </p>
+        </div>
+
+        <div class="projects-wrap">
+          <div class="swiper projects-swiper" aria-label="Carrossel de projetos">
+            <div class="swiper-wrapper">
+
+              <!-- Slide 1 -->
+              <div class="swiper-slide">
+                <article class="project">
+                  <div class="project-media">
+                    <img src="assets/img/prosolution-1.png" alt="Print do projeto Prosolution IA (placeholder)" />
+                    <div class="project-badge">Case Study</div>
+                  </div>
+
+                  <div class="project-body">
+                    <h3>Prosolution IA</h3>
+                    <p class="project-desc">
+                      SaaS de automação para Instagram com IA aplicada e monetização por planos.
+                      Integrações em produção e arquitetura escalável.
+                    </p>
+
+                    <div class="pill-row">
+                      <span class="pill">FastAPI</span>
+                      <span class="pill">PostgreSQL</span>
+                      <span class="pill">Instagram API</span>
+                      <span class="pill">OpenAI/Gemini</span>
+                      <span class="pill">Mercado Pago</span>
+                    </div>
+
+                    <div class="project-actions">
+                      <button class="btn btn-primary" data-modal="modalProsolution">Ver case</button>
+                      <button class="btn btn-ghost" data-modal="modalProsolutionArch">Arquitetura</button>
+                    </div>
+
+                    <div class="small-muted">
+                      *Projeto sigiloso: sem dados e sem repositório público.
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <!-- Slide 2 -->
+              <div class="swiper-slide">
+                <article class="project">
+                  <div class="project-media">
+                    <img src="assets/img/innovation-1.png" alt="Print do projeto Innovation RH (placeholder)" />
+                    <div class="project-badge">Case Study</div>
+                  </div>
+
+                  <div class="project-body">
+                    <h3>Innovation RH</h3>
+                    <p class="project-desc">
+                      Plataforma conceitual voltada à integração de RH, contabilidade e fiscal,
+                      com arquitetura orientada a integrações e domínios complexos.
+                    </p>
+
+                    <div class="pill-row">
+                      <span class="pill">Arquitetura</span>
+                      <span class="pill">Integrações</span>
+                      <span class="pill">RH/DP</span>
+                      <span class="pill">Fiscal</span>
+                    </div>
+
+                    <div class="project-actions">
+                      <button class="btn btn-primary" data-modal="modalInnovation">Ver case</button>
+                      <button class="btn btn-ghost" data-modal="modalInnovationArch">Arquitetura</button>
+                    </div>
+
+                    <div class="small-muted">
+                      *Projeto sigiloso: apenas visão conceitual e prints do problema.
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+            </div>
+
+            <div class="swiper-pagination"></div>
+          </div>
+
+          <div class="projects-nav">
+            <button class="nav-btn" id="prevBtn" aria-label="Projeto anterior">‹</button>
+            <button class="nav-btn" id="nextBtn" aria-label="Próximo projeto">›</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICADO -->
+    <section id="certificado" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Certificado</h2>
+          <p>Visualização do certificado (apenas para ver).</p>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-left">
+            <h3>Formação acadêmica</h3>
+            <p class="small-muted">
+              O certificado é exibido apenas como visualização dentro do site.
+            </p>
+          </div>
+          <div class="cert-actions">
+            <button class="btn btn-primary" data-modal="modalCert">Visualizar</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Contato</h2>
+          <p>Disponível para oportunidades como Backend Developer / API Engineer e projetos SaaS.</p>
+        </div>
+
+        <div class="contact-card">
+          <div>
+            <div class="contact-name">José Eduardo da Silva</div>
+            <div class="contact-role">Backend Developer • API Engineer</div>
+          </div>
+
+          <div class="contact-actions">
+            <a class="btn btn-ghost" href="https://github.com/Eduardo09e32y4rhf" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn btn-primary" href="https://www.linkedin.com/in/eduardo-silva-1%C2%B0-7287bb1b8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+               target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+        </div>
+
+        <footer class="footer">
+          <span>© <span id="year"></span> José Eduardo da Silva</span>
+          <span class="dot">•</span>
+          <span class="small-muted">Feito com HTML • CSS • JS</span>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAIS (Cases e Certificado) -->
+  <div class="modal" id="modalProsolution" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3>Prosolution IA — Case Study</h3>
+        <button class="icon-close" data-close aria-label="Fechar">×</button>
+      </div>
+      <div class="modal-body">
+        <p><strong>Resumo:</strong> SaaS para automação de postagens no Instagram com IA aplicada e monetização por planos.</p>
+
+        <div class="modal-grid">
+          <div class="modal-box">
+            <div class="modal-label">O que eu construí</div>
+            <ul>
+              <li>API REST com FastAPI (arquitetura modular e versionamento)</li>
+              <li>Integração Instagram Graph API (create → status → publish)</li>
+              <li>IA multi-provider (Gemini + OpenAI) com fallback e logs</li>
+              <li>Mercado Pago com webhooks e upgrade automático de plano</li>
+              <li>JWT + autorização baseada em plano</li>
+              <li>Persistência e auditoria (PostgreSQL + SQLAlchemy Async)</li>
+            </ul>
+          </div>
+
+          <div class="modal-box">
+            <div class="modal-label">Por que não há repositório</div>
+            <p class="small-muted">
+              Por confidencialidade e segurança, o código e integrações em produção não são públicos.
+              Posso apresentar detalhes técnicos em entrevista, incluindo decisões de arquitetura e desafios resolvidos.
+            </p>
+          </div>
+        </div>
+
+        <div class="modal-gallery">
+          <img src="assets/img/prosolution-2.png" alt="Print adicional Prosolution IA (placeholder)" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="modalProsolutionArch" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3>Prosolution IA — Arquitetura (alto nível)</h3>
+        <button class="icon-close" data-close aria-label="Fechar">×</button>
+      </div>
+      <div class="modal-body">
+        <ol class="arch">
+          <li><strong>Client/UI</strong> → solicita ações (agendar post, gerar conteúdo, dashboard)</li>
+          <li><strong>FastAPI</strong> → auth, instagram, ai, payments (domínios separados)</li>
+          <li><strong>DB</strong> → users, instagram_posts, ai_logs, payments, reports</li>
+          <li><strong>Instagram Graph</strong> → create media → status → publish</li>
+          <li><strong>IA Providers</strong> → Gemini/OpenAI com fallback + score</li>
+          <li><strong>Mercado Pago</strong> → webhooks → upgrade plano → billing</li>
+        </ol>
+        <p class="small-muted">*Substitua por um diagrama seu (PNG) quando quiser.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="modalInnovation" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3>Innovation RH — Case Study</h3>
+        <button class="icon-close" data-close aria-label="Fechar">×</button>
+      </div>
+      <div class="modal-body">
+        <p><strong>Resumo:</strong> plataforma conceitual com foco em integração de RH, contabilidade e fiscal.</p>
+
+        <div class="modal-grid">
+          <div class="modal-box">
+            <div class="modal-label">O que o sistema propõe</div>
+            <ul>
+              <li>Integrações para dados de colaboradores, férias, benefícios e folha</li>
+              <li>Conexões com contabilidade/fiscal: DRE, balanço, apuração, obrigações</li>
+              <li>Coleta de dados via formulários e processos de onboarding</li>
+              <li>Notificações e comunicação interna</li>
+            </ul>
+          </div>
+
+          <div class="modal-box">
+            <div class="modal-label">Contexto de sigilo</div>
+            <p class="small-muted">
+              Estrutura exibida em alto nível. Sem dados reais e sem código público.
+              O objetivo aqui é demonstrar domínio de arquitetura e integração.
+            </p>
+          </div>
+        </div>
+
+        <div class="modal-gallery">
+          <img src="assets/img/innovation-2.png" alt="Print adicional Innovation RH (placeholder)" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="modalInnovationArch" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3>Innovation RH — Arquitetura (alto nível)</h3>
+        <button class="icon-close" data-close aria-label="Fechar">×</button>
+      </div>
+      <div class="modal-body">
+        <ol class="arch">
+          <li><strong>Core API</strong> → domínios: colaboradores, DP, fiscal, relatórios</li>
+          <li><strong>Integrações</strong> → RH/DP, contabilidade, fiscal, comunicação</li>
+          <li><strong>Camada de dados</strong> → normalização e validação de entradas</li>
+          <li><strong>Governança</strong> → trilhas de auditoria e rastreabilidade</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="modalCert" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card modal-wide">
+      <div class="modal-head">
+        <h3>Certificado</h3>
+        <button class="icon-close" data-close aria-label="Fechar">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="cert-view">
+          <img src="assets/img/certificado.png" alt="Certificado (imagem)" />
+        </div>
+        <p class="small-muted">
+          *Se preferir, você pode substituir por PDF embedado — mas imagem costuma ficar mais “só visualizar”.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Swiper -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
