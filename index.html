@@ -23,9 +23,9 @@ body {
   font-family: 'Outfit', sans-serif;
   background: var(--bg);
   color: var(--text);
-  overflow-x: hidden;
   text-align: center;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 /* HEADER */
@@ -53,97 +53,95 @@ nav a {
 }
 nav a:hover { color: var(--primary); }
 
-.lang {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  border-radius: 999px;
-  padding: 8px 14px;
-  color: white;
-  font-weight: 700;
-  cursor: pointer;
-  position: relative;
-}
-.lang-menu {
-  position: absolute;
-  right: 0; top: 50px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: var(--shadow);
-  display: none;
-}
-.lang-menu button {
-  background: none; border: none; width: 100%;
-  padding: 10px 20px; cursor: pointer;
-  font-weight: 600;
-}
-.lang-menu button:hover { background: rgba(0,0,0,.05); }
-
 /* HERO */
 .hero {
-  max-width: 1100px; margin: auto; padding: 80px 20px;
-  display: flex; flex-direction: column; align-items: center; gap: 20px;
-}
-.hero img {
-  width: 100%; border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  max-width: 1100px;
+  margin: auto;
+  padding: 80px 20px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 .hero h1 {
   font-size: clamp(2.2rem, 5vw, 3.5rem);
   font-weight: 800;
   background: linear-gradient(135deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text; color: transparent;
+  -webkit-background-clip: text;
+  color: transparent;
 }
 .hero p {
   font-size: 1.2rem;
   color: var(--muted);
   max-width: 680px;
-  margin: 10px auto 30px;
   line-height: 1.6;
 }
 
-/* SLIDER BUTTON */
-.slider-btn {
-  width: 300px; height: 60px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  margin: 20px auto;
+/* BOTÃO ARRASTE REFORÇADO */
+.drag-btn {
   position: relative;
-  color: white;
+  width: 320px;
+  height: 65px;
+  margin: 30px auto;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #FF385C, #FF0080, #007AFF);
+  background-size: 300%;
+  color: #fff;
   font-weight: 700;
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 8px 20px rgba(0,0,0,.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,.2);
   overflow: hidden;
-  cursor: pointer;
+  cursor: grab;
+  transition: background-position 1s ease;
+  animation: attract 3s ease-in-out infinite;
 }
-.slider-btn span {
+
+@keyframes attract {
+  0%,100% { background-position: left; }
+  50% { background-position: right; }
+}
+
+.drag-circle {
   position: absolute;
-  left: 10px;
+  left: 5px;
   top: 5px;
-  width: 50px; height: 50px;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
   background: white;
   color: var(--primary);
-  display: grid; place-items: center;
-  font-size: 1.5rem;
-  transition: left .3s ease;
+  display: grid;
+  place-items: center;
+  font-size: 1.3rem;
+  font-weight: 800;
+  box-shadow: 0 3px 12px rgba(0,0,0,.25);
+  transition: left 0.2s linear;
 }
-.slider-btn p {
-  margin-left: 10px;
-  font-size: 1.1rem;
-}
-.slider-btn.active span { left: 240px; transition: left .8s ease; }
-.slider-btn.active { background: var(--accent); }
 
-/* SECTIONS */
+.drag-text {
+  position: relative;
+  font-size: 1.05rem;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.drag-btn.dragging {
+  cursor: grabbing;
+}
+
+/* SERVIÇOS */
 section {
   max-width: 1100px;
-  margin: 80px auto;
+  margin: 60px auto;
   padding: 0 20px;
 }
 .section-title {
   font-size: 2rem;
   font-weight: 800;
   background: linear-gradient(135deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text; color: transparent;
+  -webkit-background-clip: text;
+  color: transparent;
   margin-bottom: 30px;
 }
 .grid3 {
@@ -169,20 +167,28 @@ footer {
   padding: 60px 20px;
 }
 footer .social {
-  display: flex; justify-content: center; gap: 18px;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
   margin: 20px 0;
 }
-footer .social img { width: 38px; height: 38px; transition: .3s; }
+footer .social img {
+  width: 38px;
+  height: 38px;
+  transition: .3s;
+}
 footer .social img:hover { transform: scale(1.1); }
 
-/* WHATSAPP FLOAT */
 .wa-float {
   position: fixed;
-  right: 18px; bottom: 18px;
-  width: 60px; height: 60px;
+  right: 18px;
+  bottom: 18px;
+  width: 60px;
+  height: 60px;
   background: #25D366;
   border-radius: 50%;
-  display: grid; place-items: center;
+  display: grid;
+  place-items: center;
   box-shadow: 0 8px 20px rgba(0,0,0,.2);
   animation: pulse 1.8s infinite;
   z-index: 100;
@@ -205,29 +211,25 @@ footer .social img:hover { transform: scale(1.1); }
       <a href="#inicio">Início</a>
       <a href="#servicos">Serviços</a>
       <a href="#sobre">Sobre</a>
-      <a href="#depoimentos">Depoimentos</a>
+      <a href="#contato">Contato</a>
     </nav>
-    <div class="lang" id="langBtn">🌍 PT</div>
-    <div class="lang-menu" id="langMenu">
-      <button data-lang="pt">🇧🇷 Português</button>
-      <button data-lang="en">🇬🇧 English</button>
-      <button data-lang="es">🇪🇸 Español</button>
-    </div>
   </div>
 </header>
 
 <section class="hero" id="inicio">
-  <h1 id="heroTitle">Conquiste sua cidadania europeia.</h1>
-  <p id="heroText">Moreira & Borges transforma seu direito em realidade. Atendimento humano, ágil e internacional — do documento ao passaporte. 🌍</p>
-  <div class="slider-btn" id="slideBtn">
-    <span>📞</span>
-    <p>Arraste para falar com consultor</p>
+  <h1>Conquiste sua cidadania europeia.</h1>
+  <p>Moreira & Borges transforma seu direito em realidade. Atendimento humano, ágil e internacional — do documento ao passaporte. 🌍</p>
+
+  <div class="drag-btn" id="dragBtn">
+    <div class="drag-circle" id="dragCircle">👉</div>
+    <span class="drag-text" id="dragText">Arraste para falar com consultor</span>
   </div>
+
   <img src="https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?auto=format&fit=crop&w=1100&q=80" alt="Cidadania">
 </section>
 
 <section id="servicos">
-  <h2 class="section-title" id="servicesTitle">Nossos Serviços</h2>
+  <h2 class="section-title">Nossos Serviços</h2>
   <div class="grid3">
     <div class="card">
       <img src="https://images.unsplash.com/photo-1568831769114-80fef42f89b1?auto=format&fit=crop&w=800&q=80">
@@ -247,13 +249,7 @@ footer .social img:hover { transform: scale(1.1); }
   </div>
 </section>
 
-<section id="sobre">
-  <h2 class="section-title" id="aboutTitle">Sobre a M&B</h2>
-  <p>Fundada em 2021, a Moreira & Borges é uma consultoria internacional especializada em genealogia e cidadanias europeias.  
-  Nossa missão é transformar sonhos em dupla cidadania, com transparência, agilidade e humanidade.</p>
-</section>
-
-<footer>
+<footer id="contato">
   <div style="font-size:1.5rem;font-weight:800;">Moreira & Borges</div>
   <p style="opacity:.8;">Cidadanias & Consultoria Internacional</p>
   <div class="social">
@@ -269,52 +265,44 @@ footer .social img:hover { transform: scale(1.1); }
 </a>
 
 <script>
-// Idiomas
-const translations = {
-  pt: {
-    heroTitle: "Conquiste sua cidadania europeia.",
-    heroText: "Moreira & Borges transforma seu direito em realidade. Atendimento humano, ágil e internacional — do documento ao passaporte. 🌍",
-    servicesTitle: "Nossos Serviços",
-    aboutTitle: "Sobre a M&B"
-  },
-  en: {
-    heroTitle: "Claim your European citizenship.",
-    heroText: "Moreira & Borges turns your right into reality. Human, fast and international service — from document to passport. 🌍",
-    servicesTitle: "Our Services",
-    aboutTitle: "About M&B"
-  },
-  es: {
-    heroTitle: "Consigue tu ciudadanía europea hoy.",
-    heroText: "Moreira & Borges transforma tu derecho en realidad. Servicio humano, ágil e internacional — del documento al pasaporte. 🌍",
-    servicesTitle: "Nuestros Servicios",
-    aboutTitle: "Sobre M&B"
-  }
-};
+const dragBtn = document.getElementById('dragBtn');
+const dragCircle = document.getElementById('dragCircle');
+const dragText = document.getElementById('dragText');
 
-const langBtn = document.getElementById('langBtn');
-const langMenu = document.getElementById('langMenu');
-langBtn.onclick = () => langMenu.style.display = langMenu.style.display === 'block' ? 'none' : 'block';
-document.querySelectorAll('.lang-menu button').forEach(btn => {
-  btn.onclick = () => {
-    const lang = btn.dataset.lang;
-    const t = translations[lang];
-    document.getElementById('heroTitle').textContent = t.heroTitle;
-    document.getElementById('heroText').textContent = t.heroText;
-    document.getElementById('servicesTitle').textContent = t.servicesTitle;
-    document.getElementById('aboutTitle').textContent = t.aboutTitle;
-    langBtn.textContent = `🌍 ${lang.toUpperCase()}`;
-    langMenu.style.display = 'none';
-  };
+let dragging = false;
+let offsetX = 0;
+const maxMove = 260; // distância máxima até a borda direita
+
+dragCircle.addEventListener('mousedown', e => { dragging = true; offsetX = e.clientX; dragBtn.classList.add('dragging'); });
+window.addEventListener('mouseup', () => {
+  if (!dragging) return;
+  dragging = false;
+  dragBtn.classList.remove('dragging');
+
+  if (parseInt(dragCircle.style.left) >= maxMove - 30) {
+    dragText.textContent = "WhatsApp ✅";
+    dragCircle.style.left = maxMove + "px";
+    setTimeout(() => window.open('https://wa.me/5564999522932', '_blank'), 500);
+  } else {
+    dragCircle.style.left = "5px";
+    dragText.textContent = "Arraste para falar com consultor";
+  }
 });
 
-// Botão Slider (arrastar)
-const slideBtn = document.getElementById('slideBtn');
-slideBtn.addEventListener('click', () => {
-  slideBtn.classList.add('active');
-  setTimeout(() => {
-    window.open('https://wa.me/5564999522932', '_blank');
-    slideBtn.classList.remove('active');
-  }, 800);
+window.addEventListener('mousemove', e => {
+  if (!dragging) return;
+  let move = e.clientX - offsetX;
+  move = Math.max(0, Math.min(maxMove, move));
+  dragCircle.style.left = move + "px";
+
+  // Texto se revela conforme o avanço
+  const progress = Math.floor((move / maxMove) * 8);
+  const word = "WhatsApp";
+  dragText.textContent = word.slice(0, progress);
+
+  if (move >= maxMove - 5) {
+    dragCircle.style.left = maxMove + "px";
+  }
 });
 </script>
 
