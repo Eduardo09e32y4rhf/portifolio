@@ -1,127 +1,100 @@
-// =========================
-// Helpers
-// =========================
-function qs(sel, el = document) { return el.querySelector(sel); }
-function qsa(sel, el = document) { return [...el.querySelectorAll(sel)]; }
+const translations = {
+  pt: {
+    brandSub: "Consultoria Genealógica",
+    navHome: "Início",
+    navServices: "Serviços",
+    navAbout: "Sobre",
+    navTestimonials: "Depoimentos",
+    navContact: "Contato",
+    heroTitle: "Seu direito pode se tornar um <em>passaporte global</em>",
+    heroSubtitle: "Assessoria completa em cidadania portuguesa, italiana e espanhola.",
+    heroCTA: "Falar com um especialista",
+    heroPoint1: "✔️ Atendimento internacional",
+    heroPoint2: "✔️ Pesquisa genealógica completa",
+    heroPoint3: "✔️ Processo claro e acompanhado",
+    servicesTitle: "Nossas Especialidades",
+    srvPT: "Cidadania Portuguesa",
+    srvPTDesc: "Tradicional e por ascendência sefardita.",
+    srvIT: "Cidadania Italiana",
+    srvITDesc: "Pesquisa e organização documental.",
+    srvES: "Cidadania Espanhola",
+    srvESDesc: "Orientação estratégica.",
+    aboutTitle: "Quem Somos",
+    aboutText: "Consultoria especializada em cidadanias e genealogia.",
+    testimonialsTitle: "Depoimentos",
+    testimonial1: "Equipe extremamente profissional.",
+    contactTitle: "Atendimento via WhatsApp",
+    contactText: "Fale diretamente com nossa equipe."
+  },
 
-function lockScroll(lock) {
-  document.documentElement.style.overflow = lock ? "hidden" : "";
-  document.body.style.overflow = lock ? "hidden" : "";
-}
+  en: {
+    brandSub: "Genealogy Consulting",
+    navHome: "Home",
+    navServices: "Services",
+    navAbout: "About",
+    navTestimonials: "Testimonials",
+    navContact: "Contact",
+    heroTitle: "Your right can become a <em>global passport</em>",
+    heroSubtitle: "Complete support for Portuguese, Italian and Spanish citizenship.",
+    heroCTA: "Talk to a specialist",
+    heroPoint1: "✔️ International service",
+    heroPoint2: "✔️ Full genealogy research",
+    heroPoint3: "✔️ Clear process",
+    servicesTitle: "Our Services",
+    srvPT: "Portuguese Citizenship",
+    srvPTDesc: "Traditional and Sephardic ancestry.",
+    srvIT: "Italian Citizenship",
+    srvITDesc: "Research and documentation.",
+    srvES: "Spanish Citizenship",
+    srvESDesc: "Strategic guidance.",
+    aboutTitle: "About Us",
+    aboutText: "Specialized consulting in citizenships.",
+    testimonialsTitle: "Testimonials",
+    testimonial1: "Extremely professional team.",
+    contactTitle: "WhatsApp Support",
+    contactText: "Talk directly with our team."
+  },
 
-// =========================
-// Drawer (mobile menu)
-// =========================
-const drawer = qs("#drawer");
-const menuBtn = qs("#menuBtn");
-const closeDrawer = qs("#closeDrawer");
-
-function openDrawer() {
-  drawer.classList.add("open");
-  drawer.setAttribute("aria-hidden", "false");
-  menuBtn?.setAttribute("aria-expanded", "true");
-  lockScroll(true);
-}
-
-function hideDrawer() {
-  drawer.classList.remove("open");
-  drawer.setAttribute("aria-hidden", "true");
-  menuBtn?.setAttribute("aria-expanded", "false");
-  lockScroll(false);
-}
-
-menuBtn?.addEventListener("click", openDrawer);
-closeDrawer?.addEventListener("click", hideDrawer);
-
-drawer?.addEventListener("click", (e) => {
-  if (e.target === drawer) hideDrawer();
-});
-
-qsa("[data-close]", drawer).forEach(a => {
-  a.addEventListener("click", hideDrawer);
-});
-
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    hideDrawer();
-    closeAllModals();
+  es: {
+    brandSub: "Consultoría Genealógica",
+    navHome: "Inicio",
+    navServices: "Servicios",
+    navAbout: "Sobre",
+    navTestimonials: "Testimonios",
+    navContact: "Contacto",
+    heroTitle: "Tu derecho puede ser un <em>pasaporte global</em>",
+    heroSubtitle: "Asesoría completa en ciudadanías europeas.",
+    heroCTA: "Hablar con un especialista",
+    heroPoint1: "✔️ Atención internacional",
+    heroPoint2: "✔️ Investigación genealógica",
+    heroPoint3: "✔️ Proceso claro",
+    servicesTitle: "Especialidades",
+    srvPT: "Ciudadanía Portuguesa",
+    srvPTDesc: "Tradicional y sefardí.",
+    srvIT: "Ciudadanía Italiana",
+    srvITDesc: "Documentación y linaje.",
+    srvES: "Ciudadanía Española",
+    srvESDesc: "Orientación estratégica.",
+    aboutTitle: "Quiénes Somos",
+    aboutText: "Consultoría especializada.",
+    testimonialsTitle: "Testimonios",
+    testimonial1: "Equipo muy profesional.",
+    contactTitle: "Atención por WhatsApp",
+    contactText: "Habla directamente con el equipo."
   }
-});
+};
 
-// =========================
-// Modals
-// =========================
-function openModal(id) {
-  const m = qs(`#${id}`);
-  if (!m) return;
-  m.classList.add("open");
-  m.setAttribute("aria-hidden", "false");
-  lockScroll(true);
-}
+document.querySelectorAll(".lang-switch button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".lang-switch button").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
 
-function closeModal(modalEl) {
-  modalEl.classList.remove("open");
-  modalEl.setAttribute("aria-hidden", "true");
-  lockScroll(false);
-}
-
-function closeAllModals() {
-  qsa(".modal.open").forEach(m => {
-    m.classList.remove("open");
-    m.setAttribute("aria-hidden", "true");
-  });
-  lockScroll(false);
-}
-
-qsa("[data-modal]").forEach(btn => {
-  btn.addEventListener("click", () => openModal(btn.getAttribute("data-modal")));
-});
-
-qsa(".modal").forEach(modal => {
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) closeModal(modal);
-  });
-
-  qsa("[data-close]", modal).forEach(btn => {
-    btn.addEventListener("click", () => closeModal(modal));
+    const lang = btn.dataset.lang;
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.dataset.i18n;
+      if (translations[lang][key]) {
+        el.innerHTML = translations[lang][key];
+      }
+    });
   });
 });
-
-// =========================
-// Swiper
-// =========================
-const swiperEl = qs(".projects-swiper");
-let swiper;
-
-if (swiperEl) {
-  swiper = new Swiper(".projects-swiper", {
-    slidesPerView: 1,
-    spaceBetween: 18,
-    loop: true,
-    speed: 550,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true
-    }
-  });
-
-  qs("#prevBtn")?.addEventListener("click", () => swiper.slidePrev());
-  qs("#nextBtn")?.addEventListener("click", () => swiper.slideNext());
-}
-
-// =========================
-// Year + phone time
-// =========================
-const yearEl = qs("#year");
-if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-const phoneTime = qs("#phoneTime");
-function updatePhoneTime() {
-  if (!phoneTime) return;
-  const d = new Date();
-  const hh = String(d.getHours()).padStart(2, "0");
-  const mm = String(d.getMinutes()).padStart(2, "0");
-  phoneTime.textContent = `${hh}:${mm}`;
-}
-updatePhoneTime();
-setInterval(updatePhoneTime, 15000);
