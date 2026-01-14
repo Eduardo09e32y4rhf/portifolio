@@ -1,156 +1,2004 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!doctype html>
+<html lang="pt-BR" data-lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <title>Moreira & Borges | Cidadania Internacional</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Consultoria especializada em cidadania portuguesa, italiana e espanhola. Atendimento internacional via WhatsApp.">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0B1020" />
+  <title>Moreira & Borges • Consultoria Genealógica e Cidadanias</title>
+  <meta name="description" content="Consultoria genealógica e assessoria completa para cidadania portuguesa, italiana e espanhola. Pesquisa, busca de documentos e orientação especializada." />
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css">
+  <style>
+    :root{
+      --bg0:#070A14;
+      --bg1:#0B1020;
+      --card: rgba(255,255,255,.08);
+      --card2: rgba(255,255,255,.06);
+      --stroke: rgba(255,255,255,.14);
+      --stroke2: rgba(255,255,255,.09);
+
+      --text:#EAF0FF;
+      --muted: rgba(234,240,255,.70);
+      --muted2: rgba(234,240,255,.55);
+
+      --primary:#3B82F6;     /* blue */
+      --primary2:#6366F1;    /* indigo */
+      --accent:#14B8A6;      /* teal */
+      --gold:#F5C84B;
+
+      --shadow: 0 30px 80px rgba(0,0,0,.45);
+      --shadow2: 0 16px 40px rgba(0,0,0,.35);
+
+      --r-xl: 28px;
+      --r-lg: 22px;
+      --r-md: 16px;
+      --r-sm: 12px;
+
+      --max: 1120px;
+
+      --ease: cubic-bezier(.2,.9,.2,1);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background: radial-gradient(1200px 800px at 20% 10%, rgba(99,102,241,.18), transparent 65%),
+                  radial-gradient(900px 700px at 85% 20%, rgba(20,184,166,.14), transparent 60%),
+                  radial-gradient(1000px 800px at 45% 100%, rgba(59,130,246,.12), transparent 55%),
+                  linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
+    }
+
+    a{color:inherit; text-decoration:none}
+    button, input {font: inherit}
+    .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+
+    /* ===== Floating background blobs (alive) ===== */
+    .blobs{
+      position:fixed; inset:-20vmax;
+      z-index:-1; pointer-events:none;
+      filter: blur(40px);
+      opacity:.85;
+    }
+    .blob{
+      position:absolute;
+      width:42vmax; height:42vmax;
+      border-radius:999px;
+      background: radial-gradient(circle at 30% 30%, rgba(99,102,241,.55), rgba(59,130,246,.15) 55%, transparent 70%);
+      animation: float1 18s var(--ease) infinite;
+      mix-blend-mode: screen;
+    }
+    .blob.b2{
+      width:48vmax; height:48vmax;
+      left:55%; top:10%;
+      background: radial-gradient(circle at 30% 30%, rgba(20,184,166,.45), rgba(59,130,246,.10) 55%, transparent 70%);
+      animation: float2 22s var(--ease) infinite;
+    }
+    .blob.b3{
+      width:44vmax; height:44vmax;
+      left:20%; top:55%;
+      background: radial-gradient(circle at 30% 30%, rgba(59,130,246,.48), rgba(99,102,241,.12) 55%, transparent 70%);
+      animation: float3 26s var(--ease) infinite;
+      opacity:.75;
+    }
+    @keyframes float1{
+      0%{transform: translate(8%, 4%) scale(1)}
+      50%{transform: translate(18%, 12%) scale(1.08)}
+      100%{transform: translate(8%, 4%) scale(1)}
+    }
+    @keyframes float2{
+      0%{transform: translate(-6%, 4%) scale(1)}
+      50%{transform: translate(-14%, 12%) scale(1.07)}
+      100%{transform: translate(-6%, 4%) scale(1)}
+    }
+    @keyframes float3{
+      0%{transform: translate(4%, -6%) scale(1)}
+      50%{transform: translate(12%, -16%) scale(1.06)}
+      100%{transform: translate(4%, -6%) scale(1)}
+    }
+
+    /* ===== iPhone-ish frame on desktop ===== */
+    .frame{
+      max-width: calc(var(--max) + 120px);
+      margin: 18px auto 48px;
+      padding: 18px;
+    }
+    .shell{
+      position:relative;
+      border-radius: 44px;
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border: 1px solid rgba(255,255,255,.16);
+      box-shadow: var(--shadow);
+      padding: 12px;
+      overflow:hidden;
+    }
+    .shell::before{
+      content:"";
+      position:absolute; inset:0;
+      border-radius: 44px;
+      background: radial-gradient(900px 600px at 20% 0%, rgba(255,255,255,.12), transparent 45%),
+                  radial-gradient(700px 500px at 80% 30%, rgba(255,255,255,.08), transparent 55%);
+      pointer-events:none;
+    }
+    .app{
+      position:relative;
+      border-radius: 34px;
+      overflow:hidden;
+      background: rgba(8,12,24,.92);
+      border: 1px solid rgba(255,255,255,.10);
+      min-height: 86vh;
+    }
+
+    @media (max-width: 980px){
+      .frame{padding:0; margin:0}
+      .shell{border-radius:0; padding:0; border:none; box-shadow:none; background:transparent}
+      .shell::before{display:none}
+      .app{border-radius:0; min-height:100vh}
+    }
+
+    /* ===== Topbar ===== */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(12px);
+      background: linear-gradient(180deg, rgba(7,10,20,.82), rgba(7,10,20,.55));
+      border-bottom:1px solid rgba(255,255,255,.10);
+    }
+    .topbar-inner{
+      max-width: var(--max);
+      margin: 0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 14px 18px;
+      gap: 14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap: 10px;
+      min-width: 240px;
+    }
+    .logo{
+      width:38px; height:38px; border-radius:14px;
+      background: radial-gradient(circle at 30% 30%, rgba(20,184,166,.45), rgba(99,102,241,.35)),
+                  linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow: 0 10px 24px rgba(0,0,0,.35);
+      display:grid; place-items:center;
+    }
+    .logo svg{opacity:.92}
+    .brand h1{
+      font-size: 14px;
+      line-height: 1.1;
+      margin:0;
+      letter-spacing:.2px;
+    }
+    .brand small{
+      display:block;
+      margin-top:3px;
+      font-size: 12px;
+      color: var(--muted);
+      font-weight:500;
+    }
+
+    .nav{
+      display:flex; align-items:center; gap: 10px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+    .nav a{
+      font-size: 13px;
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: all .25s var(--ease);
+    }
+    .nav a:hover{
+      color: var(--text);
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.10);
+      transform: translateY(-1px);
+    }
+
+    .right-actions{
+      display:flex; align-items:center; gap: 10px;
+      min-width: 240px;
+      justify-content:flex-end;
+    }
+
+    .lang{
+      display:flex;
+      align-items:center;
+      gap: 6px;
+      padding: 6px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+    .lang button{
+      border:0;
+      background:transparent;
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 999px;
+      cursor:pointer;
+      transition: all .2s var(--ease);
+      font-weight:700;
+      letter-spacing:.4px;
+      font-size:12px;
+    }
+    .lang button[aria-pressed="true"]{
+      color: #091022;
+      background: linear-gradient(135deg, rgba(20,184,166,.95), rgba(59,130,246,.95));
+      box-shadow: 0 10px 22px rgba(0,0,0,.35);
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      cursor:pointer;
+      transition: transform .25s var(--ease), background .25s var(--ease), box-shadow .25s var(--ease), border-color .25s var(--ease);
+      font-weight:700;
+      font-size: 13px;
+      letter-spacing:.2px;
+      user-select:none;
+    }
+    .btn:hover{
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,.20);
+      background: rgba(255,255,255,.08);
+      box-shadow: var(--shadow2);
+    }
+    .btn.primary{
+      border-color: rgba(59,130,246,.35);
+      background: linear-gradient(135deg, rgba(99,102,241,.95), rgba(59,130,246,.92));
+      box-shadow: 0 16px 42px rgba(59,130,246,.22);
+    }
+    .btn.primary:hover{
+      box-shadow: 0 18px 54px rgba(59,130,246,.30);
+    }
+
+    .menuBtn{
+      display:none;
+      width:42px; height:42px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      cursor:pointer;
+    }
+    .menuBtn svg{display:block;margin:auto}
+    @media (max-width: 980px){
+      .nav{display:none}
+      .menuBtn{display:inline-grid; place-items:center}
+      .brand{min-width:auto}
+      .right-actions{min-width:auto}
+    }
+
+    /* ===== Mobile drawer ===== */
+    .drawer{
+      position:fixed; inset:0;
+      z-index:80;
+      background: rgba(0,0,0,.55);
+      display:none;
+    }
+    .drawer[data-open="true"]{display:block}
+    .panel{
+      position:absolute; right:0; top:0; height:100%; width:min(420px, 90vw);
+      background: linear-gradient(180deg, rgba(11,16,32,.98), rgba(7,10,20,.98));
+      border-left: 1px solid rgba(255,255,255,.12);
+      padding: 18px;
+      transform: translateX(100%);
+      transition: transform .35s var(--ease);
+    }
+    .drawer[data-open="true"] .panel{transform: translateX(0)}
+    .panel .close{
+      display:flex; justify-content:space-between; align-items:center;
+      margin-bottom: 14px;
+    }
+    .panel .close button{
+      width:44px; height:44px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      cursor:pointer;
+    }
+    .panel nav a{
+      display:block;
+      padding: 14px 12px;
+      border-radius: var(--r-md);
+      color: var(--muted);
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.04);
+      margin: 10px 0;
+    }
+    .panel nav a:hover{color:var(--text); border-color: rgba(255,255,255,.16)}
+
+    /* ===== Sections ===== */
+    main{display:block}
+    section{
+      padding: 72px 18px;
+      position:relative;
+    }
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      color: var(--muted);
+      font-weight:700;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-size:12px;
+    }
+    .dot{
+      width:10px; height:10px; border-radius:999px;
+      background: linear-gradient(135deg, var(--accent), var(--primary));
+      box-shadow: 0 10px 26px rgba(20,184,166,.25);
+    }
+    h2{
+      margin: 12px 0 12px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+    }
+    .lead{
+      margin: 0;
+      max-width: 72ch;
+      color: var(--muted);
+      font-size: clamp(15px, 1.6vw, 18px);
+      line-height: 1.7;
+    }
+
+    /* ===== Hero ===== */
+    .hero{
+      padding-top: 44px;
+      padding-bottom: 48px;
+      overflow:hidden;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 24px;
+      align-items:center;
+    }
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr}
+    }
+    .hero-card{
+      border-radius: var(--r-xl);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: var(--shadow2);
+      padding: 22px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-card::after{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(600px 280px at 10% 10%, rgba(20,184,166,.18), transparent 50%),
+                  radial-gradient(520px 260px at 80% 30%, rgba(99,102,241,.18), transparent 55%);
+      pointer-events:none;
+    }
+    .hero h2{
+      margin-top: 14px;
+      font-size: clamp(34px, 5vw, 56px);
+    }
+    .hero h2 em{
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      font-weight: 600;
+      background: linear-gradient(135deg, rgba(20,184,166,.95), rgba(59,130,246,.92));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero-actions{
+      display:flex; gap: 12px; flex-wrap:wrap;
+      margin-top: 18px;
+      position:relative;
+      z-index:1;
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 18px;
+      position:relative;
+      z-index:1;
+    }
+    .stat{
+      border-radius: var(--r-lg);
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.10);
+      padding: 14px;
+    }
+    .stat strong{
+      display:block;
+      font-size: 18px;
+      letter-spacing:-0.01em;
+    }
+    .stat span{
+      color: var(--muted);
+      font-size: 12.5px;
+      line-height:1.4;
+    }
+
+    .showcase{
+      border-radius: var(--r-xl);
+      background: linear-gradient(135deg, rgba(20,184,166,.12), rgba(99,102,241,.14));
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: var(--shadow2);
+      padding: 18px;
+      position:relative;
+      overflow:hidden;
+      min-height: 340px;
+    }
+    .showcase::before{
+      content:"";
+      position:absolute; inset:-40px;
+      background:
+        radial-gradient(500px 260px at 20% 15%, rgba(255,255,255,.14), transparent 55%),
+        radial-gradient(560px 280px at 80% 55%, rgba(255,255,255,.10), transparent 60%),
+        linear-gradient(180deg, rgba(0,0,0,.15), transparent);
+      pointer-events:none;
+    }
+    .mini-phone{
+      position:absolute;
+      right: 18px;
+      bottom: 18px;
+      width: min(300px, 70%);
+      height: 300px;
+      border-radius: 34px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: linear-gradient(180deg, rgba(7,10,20,.75), rgba(7,10,20,.55));
+      box-shadow: 0 26px 70px rgba(0,0,0,.45);
+      overflow:hidden;
+      transform: rotate(2deg);
+    }
+    .mini-phone .notch{
+      width: 46%;
+      height: 18px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 0 0 14px 14px;
+      margin: 0 auto;
+    }
+    .mini-phone .screen{
+      padding: 16px;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+    }
+    .chip{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: var(--muted);
+      width: fit-content;
+    }
+    .chip b{color:var(--text)}
+    .pulse{
+      width:10px; height:10px;
+      border-radius:999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 0 rgba(20,184,166,.35);
+      animation: pulse 1.8s infinite;
+    }
+    @keyframes pulse{
+      0%{box-shadow:0 0 0 0 rgba(20,184,166,.35)}
+      70%{box-shadow:0 0 0 16px rgba(20,184,166,0)}
+      100%{box-shadow:0 0 0 0 rgba(20,184,166,0)}
+    }
+    .mock-cards{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 6px;
+    }
+    .mock{
+      border-radius: 18px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      padding: 12px;
+    }
+    .mock .t{
+      height: 10px;
+      width: 60%;
+      border-radius: 999px;
+      background: rgba(255,255,255,.16);
+      margin-bottom: 10px;
+    }
+    .mock .l{
+      height: 8px;
+      width: 90%;
+      border-radius: 999px;
+      background: rgba(255,255,255,.10);
+      margin: 7px 0;
+    }
+    .mock .l:nth-child(3){width:75%}
+    .mock .l:nth-child(4){width:82%}
+
+    /* ===== Cards grids ===== */
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 24px;
+    }
+    @media (max-width: 980px){
+      .grid3{grid-template-columns:1fr}
+    }
+    .card{
+      border-radius: var(--r-xl);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border: 1px solid rgba(255,255,255,.12);
+      padding: 18px;
+      position:relative;
+      overflow:hidden;
+      transition: transform .28s var(--ease), border-color .28s var(--ease), background .28s var(--ease);
+    }
+    .card:hover{
+      transform: translateY(-4px);
+      border-color: rgba(255,255,255,.18);
+      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
+    }
+    .icon{
+      width: 44px; height: 44px;
+      border-radius: 16px;
+      display:grid; place-items:center;
+      background: linear-gradient(135deg, rgba(20,184,166,.22), rgba(99,102,241,.22));
+      border: 1px solid rgba(255,255,255,.16);
+      margin-bottom: 12px;
+    }
+    .card h3{
+      margin: 0 0 6px;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+    }
+    .card p{
+      margin: 0 0 14px;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 14px;
+    }
+    .tagrow{
+      display:flex; flex-wrap:wrap; gap:8px;
+    }
+    .tag{
+      font-size: 12px;
+      color: var(--muted);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      padding: 7px 10px;
+      border-radius: 999px;
+    }
+
+    /* ===== Steps ===== */
+    .steps{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 22px;
+    }
+    @media (max-width: 980px){
+      .steps{grid-template-columns:1fr}
+    }
+    .step{
+      border-radius: var(--r-xl);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      padding: 18px;
+      display:flex;
+      gap: 14px;
+      align-items:flex-start;
+    }
+    .num{
+      width: 40px; height: 40px;
+      border-radius: 16px;
+      display:grid; place-items:center;
+      font-weight:900;
+      background: linear-gradient(135deg, rgba(99,102,241,.95), rgba(59,130,246,.95));
+      color:#071022;
+      box-shadow: 0 14px 40px rgba(59,130,246,.18);
+      flex: 0 0 auto;
+    }
+    .step h4{margin:0 0 6px}
+    .step p{margin:0; color:var(--muted); line-height:1.65; font-size:14px}
+
+    /* ===== Testimonials slider ===== */
+    .slider{
+      margin-top: 24px;
+      border-radius: var(--r-xl);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      overflow:hidden;
+    }
+    .slides{
+      display:flex;
+      transition: transform .55s var(--ease);
+      will-change: transform;
+    }
+    .quote{
+      min-width: 100%;
+      padding: 22px;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    .stars{
+      display:flex; gap: 6px; align-items:center;
+      color: var(--gold);
+    }
+    .qtext{
+      font-size: 16px;
+      line-height:1.8;
+      color: rgba(234,240,255,.84);
+    }
+    .who{
+      display:flex; gap: 12px; align-items:center;
+      color: var(--muted);
+    }
+    .avatar{
+      width: 44px; height: 44px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.18), rgba(255,255,255,.06));
+      display:grid; place-items:center;
+      font-weight:900;
+      color: rgba(234,240,255,.85);
+    }
+    .slider-controls{
+      display:flex; justify-content:space-between; align-items:center;
+      padding: 12px 14px;
+      border-top: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.14);
+    }
+    .dots{display:flex; gap: 8px}
+    .dotbtn{
+      width: 9px; height: 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.25);
+      background: rgba(255,255,255,.10);
+      cursor:pointer;
+      opacity:.7;
+    }
+    .dotbtn[aria-current="true"]{
+      background: linear-gradient(135deg, var(--accent), var(--primary));
+      border-color: rgba(255,255,255,.35);
+      opacity: 1;
+      transform: scale(1.08);
+    }
+
+    /* ===== About split ===== */
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 22px;
+      align-items:stretch;
+    }
+    @media (max-width: 980px){ .split{grid-template-columns:1fr} }
+    .panelCard{
+      border-radius: var(--r-xl);
+      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      padding: 20px;
+      overflow:hidden;
+    }
+    .panelCard ul{margin: 12px 0 0; padding-left: 18px; color: var(--muted); line-height: 1.8}
+    .pill{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      font-size:12px;
+      color: var(--muted);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      padding: 8px 10px;
+      border-radius: 999px;
+      margin-top: 8px;
+    }
+
+    /* ===== FAQ ===== */
+    details{
+      border-radius: var(--r-lg);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      padding: 14px 14px;
+      margin: 10px 0;
+    }
+    summary{
+      cursor:pointer;
+      font-weight: 800;
+      color: rgba(234,240,255,.92);
+      list-style:none;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+    }
+    summary::-webkit-details-marker{display:none}
+    details p{
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    /* ===== Contact ===== */
+    .contact-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 14px;
+      margin-top: 22px;
+    }
+    @media (max-width: 980px){ .contact-grid{grid-template-columns:1fr} }
+    .form{
+      display:grid; gap: 10px;
+    }
+    .field{
+      display:grid; gap: 6px;
+    }
+    label{font-size: 13px; color: var(--muted)}
+    input, textarea{
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      padding: 12px 12px;
+      outline:none;
+    }
+    textarea{min-height: 110px; resize:vertical}
+    input:focus, textarea:focus{
+      border-color: rgba(59,130,246,.35);
+      box-shadow: 0 0 0 4px rgba(59,130,246,.12);
+    }
+    .contact-card{
+      border-radius: var(--r-xl);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      padding: 18px;
+      display:grid; gap: 12px;
+      height: fit-content;
+    }
+    .row{
+      display:flex; gap: 12px; align-items:flex-start;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+    .row strong{color: var(--text)}
+    .ico{
+      width: 34px; height: 34px;
+      border-radius: 14px;
+      display:grid; place-items:center;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      flex: 0 0 auto;
+      margin-top: 2px;
+    }
+
+    /* ===== Footer ===== */
+    footer{
+      padding: 24px 18px;
+      border-top: 1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(7,10,20,.55), rgba(7,10,20,.85));
+    }
+    .footer-inner{
+      max-width: var(--max);
+      margin: 0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+      flex-wrap:wrap;
+    }
+    .social{
+      display:flex; gap: 10px;
+    }
+    .social a{
+      width: 42px; height: 42px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      display:grid; place-items:center;
+      transition: transform .25s var(--ease), background .25s var(--ease);
+    }
+    .social a:hover{transform: translateY(-2px); background: rgba(255,255,255,.09)}
+    .tiny{color: var(--muted2); font-size: 12.5px; line-height: 1.5}
+
+    /* ===== WhatsApp floating ===== */
+    .wa-float{
+      position:fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 90;
+      width: 56px; height: 56px;
+      border-radius: 999px;
+      display:grid; place-items:center;
+      background: linear-gradient(135deg, #22C55E, #16A34A);
+      box-shadow: 0 18px 60px rgba(34,197,94,.25);
+      border: 1px solid rgba(255,255,255,.18);
+      transition: transform .25s var(--ease);
+    }
+    .wa-float:hover{transform: translateY(-3px) scale(1.02)}
+    .wa-float svg{filter: drop-shadow(0 6px 18px rgba(0,0,0,.25))}
+
+    /* ===== Reveal on scroll ===== */
+    .reveal{opacity:0; transform: translateY(14px); transition: opacity .7s var(--ease), transform .7s var(--ease)}
+    .reveal.is-visible{opacity:1; transform: translateY(0)}
+  </style>
 </head>
 
 <body>
+  <div class="blobs" aria-hidden="true">
+    <div class="blob" style="left:10%; top:6%"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+  </div>
 
-<header class="header">
-  <div class="container header-inner">
-    <div class="logo">
-      <div class="logo-icon">MB</div>
-      <div>
-        <strong>Moreira & Borges</strong>
-        <span data-i18n="brand">Consultoria Genealógica</span>
+  <div class="frame">
+    <div class="shell">
+      <div class="app">
+
+        <!-- Topbar -->
+        <header class="topbar">
+          <div class="topbar-inner">
+            <div class="brand" aria-label="Moreira & Borges">
+              <div class="logo" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 3c4.5 0 8.2 3.7 8.2 8.2S16.5 19.4 12 19.4 3.8 15.7 3.8 11.2 7.5 3 12 3Z" stroke="rgba(255,255,255,.9)" stroke-width="1.8"/>
+                  <path d="M12 7v10M7 12h10" stroke="rgba(255,255,255,.9)" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div>
+                <h1>Moreira & Borges</h1>
+                <small data-i18n="brandSub">Consultoria Genealógica • Cidadanias</small>
+              </div>
+            </div>
+
+            <nav class="nav" aria-label="Navegação">
+              <a href="#inicio" data-i18n="navHome">Início</a>
+              <a href="#servicos" data-i18n="navServices">Serviços</a>
+              <a href="#processo" data-i18n="navProcess">Processo</a>
+              <a href="#depoimentos" data-i18n="navTestimonials">Depoimentos</a>
+              <a href="#sobre" data-i18n="navAbout">Sobre</a>
+              <a href="#faq" data-i18n="navFaq">FAQ</a>
+              <a href="#contato" data-i18n="navContact">Contato</a>
+            </nav>
+
+            <div class="right-actions">
+              <div class="lang" role="group" aria-label="Seleção de idioma">
+                <button type="button" data-lang-btn="pt" aria-pressed="true">PT</button>
+                <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+                <button type="button" data-lang-btn="es" aria-pressed="false">ES</button>
+              </div>
+
+              <a class="btn primary" href="#contato" data-i18n="ctaTop">
+                Converse com um especialista
+                <span aria-hidden="true">→</span>
+              </a>
+
+              <button class="menuBtn" id="menuBtn" aria-label="Abrir menu">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 7h16M4 12h16M4 17h16" stroke="rgba(255,255,255,.9)" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </header>
+
+        <!-- Drawer -->
+        <div class="drawer" id="drawer" data-open="false" aria-hidden="true">
+          <div class="panel" role="dialog" aria-modal="true" aria-label="Menu">
+            <div class="close">
+              <div class="pill">
+                <span class="pulse" aria-hidden="true"></span>
+                <span data-i18n="drawerTitle">Navegação</span>
+              </div>
+              <button type="button" id="closeDrawer" aria-label="Fechar menu">✕</button>
+            </div>
+            <nav>
+              <a href="#inicio" data-drawer-link data-i18n="navHome">Início</a>
+              <a href="#servicos" data-drawer-link data-i18n="navServices">Serviços</a>
+              <a href="#processo" data-drawer-link data-i18n="navProcess">Processo</a>
+              <a href="#depoimentos" data-drawer-link data-i18n="navTestimonials">Depoimentos</a>
+              <a href="#sobre" data-drawer-link data-i18n="navAbout">Sobre</a>
+              <a href="#faq" data-drawer-link data-i18n="navFaq">FAQ</a>
+              <a href="#contato" data-drawer-link data-i18n="navContact">Contato</a>
+            </nav>
+            <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap">
+              <a class="btn" href="#contato" data-drawer-link data-i18n="ctaSecondary">Agendar consulta</a>
+              <a class="btn primary" id="drawerWhats" target="_blank" rel="noopener" href="https://wa.me/5564999522932?text=Olá!%20Quero%20tirar%20dúvidas%20sobre%20cidadania." data-i18n="ctaWhats">
+                WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <main>
+          <!-- HERO -->
+          <section class="hero" id="inicio">
+            <div class="wrap hero-grid">
+              <div class="hero-card reveal">
+                <span class="kicker"><span class="dot"></span><span data-i18n="heroKicker">Cidadanias • Genealogia • Documentos</span></span>
+                <h2 data-i18n="heroTitle">Transforme seu direito em <em>passaporte global</em>.</h2>
+                <p class="lead" data-i18n="heroLead">
+                  Assessoria completa para cidadania portuguesa (tradicional e por ascendência sefardita), italiana e espanhola —
+                  com pesquisa genealógica, busca documental e orientação do início ao protocolo.
+                </p>
+
+                <div class="hero-actions">
+                  <a class="btn primary" href="#contato" data-i18n="heroCTA1">Falar com especialista</a>
+                  <a class="btn" href="#servicos" data-i18n="heroCTA2">Ver serviços</a>
+                </div>
+
+                <div class="stats" aria-label="Destaques">
+                  <div class="stat">
+                    <strong data-i18n="stat1a">Estratégia + execução</strong>
+                    <span data-i18n="stat1b">Plano claro, documentos certos e acompanhamento.</span>
+                  </div>
+                  <div class="stat">
+                    <strong data-i18n="stat2a">Atendimento internacional</strong>
+                    <span data-i18n="stat2b">PT/EN/ES para atender clientes de fora.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="showcase reveal" aria-label="Demonstração visual">
+                <div class="chip"><span class="pulse" aria-hidden="true"></span> <b data-i18n="show1b">Experiência real</b> <span data-i18n="show1a">em cidadanias</span></div>
+                <div class="chip"><span class="pulse" aria-hidden="true" style="background:var(--primary)"></span> <b data-i18n="show2b">Design premium</b> <span data-i18n="show2a">tipo startup</span></div>
+
+                <div class="mini-phone" aria-hidden="true">
+                  <div class="notch"></div>
+                  <div class="screen">
+                    <div class="chip" style="margin-top:10px"><span class="pulse"></span><b>PT • EN • ES</b></div>
+                    <div class="mock-cards">
+                      <div class="mock">
+                        <div class="t"></div>
+                        <div class="l"></div><div class="l"></div><div class="l"></div>
+                      </div>
+                      <div class="mock">
+                        <div class="t" style="width:52%"></div>
+                        <div class="l"></div><div class="l" style="width:64%"></div><div class="l" style="width:78%"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <p class="lead" style="margin-top:18px" data-i18n="showLead">
+                  Um site que não “parece uma consultoria comum”. Parece uma plataforma de sucesso: moderna, confiável e direta.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- SERVICES -->
+          <section id="servicos">
+            <div class="wrap">
+              <span class="kicker reveal"><span class="dot"></span><span data-i18n="servicesKicker">Especialidades</span></span>
+              <h2 class="reveal" data-i18n="servicesTitle">Cidadanias e genealogia com método.</h2>
+              <p class="lead reveal" data-i18n="servicesLead">
+                Você recebe orientação estratégica, checklist de documentos, busca e conferência — tudo pensado para reduzir retrabalho e acelerar decisões.
+              </p>
+
+              <div class="grid3">
+                <article class="card reveal">
+                  <div class="icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                      <path d="M7 21h10a2 2 0 0 0 2-2V7l-4-4H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2Z" stroke="rgba(255,255,255,.9)" stroke-width="1.8"/>
+                      <path d="M15 3v4h4" stroke="rgba(255,255,255,.9)" stroke-width="1.8"/>
+                      <path d="M8.5 12h7M8.5 15h7" stroke="rgba(255,255,255,.75)" stroke-width="1.8" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <h3 data-i18n="srv1t">Cidadania Portuguesa</h3>
+                  <p data-i18n="srv1p">
+                    Tradicional e por ascendência sefardita: orientação, preparação documental e acompanhamento do processo.
+                  </p>
+                  <div class="tagrow">
+                    <span class="tag" data-i18n="srv1a">Portugal</span>
+                    <span class="tag" data-i18n="srv1b">Sefardita</span>
+                    <span class="tag" data-i18n="srv1c">Checklist</span>
+                  </div>
+                </article>
+
+                <article class="card reveal">
+                  <div class="icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 21s7-4.4 7-10.2C19 6.6 16.3 4 12 4S5 6.6 5 10.8C5 16.6 12 21 12 21Z" stroke="rgba(255,255,255,.9)" stroke-width="1.8"/>
+                      <path d="M9.2 11.6 11 13.4l3.8-4" stroke="rgba(255,255,255,.75)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <h3 data-i18n="srv2t">Cidadania Italiana</h3>
+                  <p data-i18n="srv2p">
+                    Do diagnóstico à montagem do dossiê: pesquisa, documentos, conferência e organização por linhagem.
+                  </p>
+                  <div class="tagrow">
+                    <span class="tag" data-i18n="srv2a">Itália</span>
+                    <span class="tag" data-i18n="srv2b">Linha familiar</span>
+                    <span class="tag" data-i18n="srv2c">Dossiê</span>
+                  </div>
+                </article>
+
+                <article class="card reveal">
+                  <div class="icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                      <path d="M4 7h16M4 12h16M4 17h10" stroke="rgba(255,255,255,.9)" stroke-width="2" stroke-linecap="round"/>
+                      <path d="M17 17l2 2 4-4" stroke="rgba(255,255,255,.75)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <h3 data-i18n="srv3t">Cidadania Espanhola</h3>
+                  <p data-i18n="srv3p">
+                    Planejamento e organização documental com foco em clareza, prazos e próxima ação sempre definida.
+                  </p>
+                  <div class="tagrow">
+                    <span class="tag" data-i18n="srv3a">Espanha</span>
+                    <span class="tag" data-i18n="srv3b">Prazos</span>
+                    <span class="tag" data-i18n="srv3c">Orientação</span>
+                  </div>
+                </article>
+
+                <article class="card reveal">
+                  <div class="icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 20c4.4 0 8-3.6 8-8s-3.6-8-8-8-8 3.6-8 8 3.6 8 8 8Z" stroke="rgba(255,255,255,.9)" stroke-width="1.8"/>
+                      <path d="M21 21l-4.3-4.3" stroke="rgba(255,255,255,.75)" stroke-width="1.8" stroke-linecap="round"/>
+                      <path d="M8.5 12h7" stroke="rgba(255,255,255,.75)" stroke-width="1.8" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <h3 data-i18n="srv4t">Pesquisa Genealógica</h3>
+                  <p data-i18n="srv4p">
+                    Reconstrução da árvore genealógica com rigor: fontes civis, eclesiásticas e registros históricos.
+                  </p>
+                  <div class="tagrow">
+                    <span class="tag" data-i18n="srv4a">Árvore</span>
+                    <span class="tag" data-i18n="srv4b">Fontes</span>
+                    <span class="tag" data-i18n="srv4c">Relatório</span>
+                  </div>
+                </article>
+
+                <article class="card reveal">
+                  <div class="icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                      <path d="M6 3h12v18H6z" stroke="rgba(255,255,255,.9)" stroke-width="1.8"/>
+                      <path d="M9 7h6M9 11h6M9 15h6" stroke="rgba(255,255,255,.75)" stroke-width="1.8" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <h3 data-i18n="srv5t">Busca de Documentos</h3>
+                  <p data-i18n="srv5p">
+                    Localização e solicitação de certidões em cartórios, paróquias e arquivos — com organização e conferência.
+                  </p>
+                  <div class="tagrow">
+                    <span class="tag" data-i18n="srv5a">Cartórios</span>
+                    <span class="tag" data-i18n="srv5b">Paróquias</span>
+                    <span class="tag" data-i18n="srv5c">Arquivos</span>
+                  </div>
+                </article>
+
+                <article class="card reveal">
+                  <div class="icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 2l3 7h7l-5.6 4.1L18.5 21 12 16.9 5.5 21l2.1-7.9L2 9h7l3-7Z" stroke="rgba(255,255,255,.9)" stroke-width="1.8"/>
+                    </svg>
+                  </div>
+                  <h3 data-i18n="srv6t">Transcrições e Organização</h3>
+                  <p data-i18n="srv6p">
+                    Padronização e montagem de dossiês para leitura clara, conferência rápida e envio sem ruído.
+                  </p>
+                  <div class="tagrow">
+                    <span class="tag" data-i18n="srv6a">Padrão</span>
+                    <span class="tag" data-i18n="srv6b">Dossiê</span>
+                    <span class="tag" data-i18n="srv6c">Revisão</span>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <!-- PROCESS -->
+          <section id="processo">
+            <div class="wrap">
+              <span class="kicker reveal"><span class="dot"></span><span data-i18n="processKicker">Como funciona</span></span>
+              <h2 class="reveal" data-i18n="processTitle">Um processo leve, claro e com próximos passos.</h2>
+              <p class="lead reveal" data-i18n="processLead">
+                Você sempre sabe o que está acontecendo: diagnóstico → documentos → montagem → conferência → protocolo.
+              </p>
+
+              <div class="steps">
+                <div class="step reveal">
+                  <div class="num">1</div>
+                  <div>
+                    <h4 data-i18n="st1t">Diagnóstico de viabilidade</h4>
+                    <p data-i18n="st1p">Entendemos sua linha familiar e definimos a estratégia do caso com base nos documentos disponíveis.</p>
+                  </div>
+                </div>
+                <div class="step reveal">
+                  <div class="num">2</div>
+                  <div>
+                    <h4 data-i18n="st2t">Plano e checklist</h4>
+                    <p data-i18n="st2p">Você recebe uma lista objetiva do que buscar e em que ordem, com orientação para cada etapa.</p>
+                  </div>
+                </div>
+                <div class="step reveal">
+                  <div class="num">3</div>
+                  <div>
+                    <h4 data-i18n="st3t">Busca e conferência</h4>
+                    <p data-i18n="st3p">Localizamos documentos (quando contratado) e revisamos consistência de nomes, datas e vínculos.</p>
+                  </div>
+                </div>
+                <div class="step reveal">
+                  <div class="num">4</div>
+                  <div>
+                    <h4 data-i18n="st4t">Dossiê e protocolo</h4>
+                    <p data-i18n="st4p">Organizamos o dossiê para reduzir pendências e acompanhamos até o envio/protocolo.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div style="margin-top:18px" class="reveal">
+                <a class="btn primary" href="#contato" data-i18n="processCTA">Quero iniciar meu diagnóstico</a>
+              </div>
+            </div>
+          </section>
+
+          <!-- TESTIMONIALS -->
+          <section id="depoimentos">
+            <div class="wrap">
+              <span class="kicker reveal"><span class="dot"></span><span data-i18n="testKicker">Depoimentos</span></span>
+              <h2 class="reveal" data-i18n="testTitle">Clientes que decidiram com confiança.</h2>
+              <p class="lead reveal" data-i18n="testLead">Resultado é quando o cliente entende, confia e vê o processo andar.</p>
+
+              <div class="slider reveal" aria-label="Carrossel de depoimentos">
+                <div class="slides" id="slides">
+                  <div class="quote">
+                    <div class="stars" aria-label="5 estrelas">
+                      ★★★★★
+                    </div>
+                    <div class="qtext" data-i18n="q1">
+                      “A equipe me ajudou a obter o certificado de ascendência sefardita e a organizar tudo com clareza.
+                      Foi o passo que faltava para seguir com segurança.”
+                    </div>
+                    <div class="who">
+                      <div class="avatar" aria-hidden="true">JM</div>
+                      <div>
+                        <div style="font-weight:800; color:var(--text)" data-i18n="q1n">Janaína Monteiro</div>
+                        <div style="font-size:12.5px" data-i18n="q1r">Atendimento e organização impecáveis</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="quote">
+                    <div class="stars" aria-label="5 estrelas">★★★★★</div>
+                    <div class="qtext" data-i18n="q2">
+                      “Eu tinha documentos soltos e várias dúvidas. Recebi um checklist bem direto e o dossiê ficou pronto sem confusão.”
+                    </div>
+                    <div class="who">
+                      <div class="avatar" aria-hidden="true">AR</div>
+                      <div>
+                        <div style="font-weight:800; color:var(--text)" data-i18n="q2n">A. Ribeiro</div>
+                        <div style="font-size:12.5px" data-i18n="q2r">Checklist claro, processo leve</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="quote">
+                    <div class="stars" aria-label="5 estrelas">★★★★★</div>
+                    <div class="qtext" data-i18n="q3">
+                      “O diferencial foi a transparência: eu sempre sabia o próximo passo. Atendimento excelente e comunicação rápida.”
+                    </div>
+                    <div class="who">
+                      <div class="avatar" aria-hidden="true">LC</div>
+                      <div>
+                        <div style="font-weight:800; color:var(--text)" data-i18n="q3n">L. Costa</div>
+                        <div style="font-size:12.5px" data-i18n="q3r">Acompanhamento de verdade</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="slider-controls">
+                  <button class="btn" id="prev" type="button" aria-label="Anterior">←</button>
+                  <div class="dots" id="dots" aria-label="Pontos do carrossel"></div>
+                  <button class="btn" id="next" type="button" aria-label="Próximo">→</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ABOUT -->
+          <section id="sobre">
+            <div class="wrap">
+              <span class="kicker reveal"><span class="dot"></span><span data-i18n="aboutKicker">Quem somos</span></span>
+              <h2 class="reveal" data-i18n="aboutTitle">Consultoria que une pesquisa + estratégia + execução.</h2>
+              <p class="lead reveal" data-i18n="aboutLead">
+                Atuação com genealogia, busca documental, transcrições e assessoria para cidadanias — com foco em clareza e confiança.
+              </p>
+
+              <div class="split">
+                <div class="panelCard reveal">
+                  <h3 style="margin:0 0 8px" data-i18n="aboutCard1t">O que você recebe</h3>
+                  <p class="lead" style="font-size:14.5px" data-i18n="aboutCard1p">
+                    Um caminho objetivo para não “andar em círculos”: organização, conferência e orientação prática.
+                  </p>
+                  <ul>
+                    <li data-i18n="aboutLi1">Estratégia e checklist por caso</li>
+                    <li data-i18n="aboutLi2">Busca e validação de documentos</li>
+                    <li data-i18n="aboutLi3">Montagem e organização de dossiês</li>
+                    <li data-i18n="aboutLi4">Atendimento com comunicação clara</li>
+                  </ul>
+                  <div class="pill">
+                    <span class="pulse" aria-hidden="true"></span>
+                    <span data-i18n="aboutPill">Fundada em 2021 • Consultoria e assessoria</span>
+                  </div>
+                </div>
+
+                <div class="panelCard reveal">
+                  <h3 style="margin:0 0 8px" data-i18n="aboutCard2t">Por que isso importa?</h3>
+                  <p class="lead" style="font-size:14.5px" data-i18n="aboutCard2p">
+                    Em cidadania, detalhe é tudo: consistência documental, ordem dos passos e evidências corretas.
+                  </p>
+
+                  <div class="grid3" style="grid-template-columns:1fr; margin-top:12px">
+                    <div class="card" style="margin:0">
+                      <h3 style="margin:0 0 6px" data-i18n="aboutMini1t">Clareza</h3>
+                      <p style="margin:0" data-i18n="aboutMini1p">Você entende o processo e decide com tranquilidade.</p>
+                    </div>
+                    <div class="card" style="margin:0">
+                      <h3 style="margin:0 0 6px" data-i18n="aboutMini2t">Rigor</h3>
+                      <p style="margin:0" data-i18n="aboutMini2p">Conferência de dados, vínculos e documentação.</p>
+                    </div>
+                    <div class="card" style="margin:0">
+                      <h3 style="margin:0 0 6px" data-i18n="aboutMini3t">Velocidade com segurança</h3>
+                      <p style="margin:0" data-i18n="aboutMini3p">Menos retrabalho, mais avanço no que importa.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- FAQ -->
+          <section id="faq">
+            <div class="wrap">
+              <span class="kicker reveal"><span class="dot"></span><span data-i18n="faqKicker">Dúvidas</span></span>
+              <h2 class="reveal" data-i18n="faqTitle">Perguntas frequentes</h2>
+              <p class="lead reveal" data-i18n="faqLead">Respostas diretas para você entender o próximo passo.</p>
+
+              <div class="reveal">
+                <details>
+                  <summary><span data-i18n="faq1q">Vocês atendem clientes fora do Brasil?</span><span aria-hidden="true">＋</span></summary>
+                  <p data-i18n="faq1a">Sim. O site e o atendimento podem ser em português, inglês ou espanhol, e orientamos o envio/organização de documentos à distância.</p>
+                </details>
+
+                <details>
+                  <summary><span data-i18n="faq2q">Preciso ter todos os documentos para começar?</span><span aria-hidden="true">＋</span></summary>
+                  <p data-i18n="faq2a">Não. Começamos com um diagnóstico do que você já tem e montamos um checklist do que falta, em ordem de prioridade.</p>
+                </details>
+
+                <details>
+                  <summary><span data-i18n="faq3q">Vocês fazem pesquisa genealógica e busca de certidões?</span><span aria-hidden="true">＋</span></summary>
+                  <p data-i18n="faq3a">Sim. A consultoria atua com pesquisa genealógica, busca documental, transcrições e montagem do dossiê (conforme contratação).</p>
+                </details>
+
+                <details>
+                  <summary><span data-i18n="faq4q">Como é o primeiro contato?</span><span aria-hidden="true">＋</span></summary>
+                  <p data-i18n="faq4a">Você explica seu objetivo (Portugal/Itália/Espanha), envia o que já possui e recebe orientação inicial com próximos passos.</p>
+                </details>
+              </div>
+            </div>
+          </section>
+
+          <!-- CONTACT -->
+          <section id="contato">
+            <div class="wrap">
+              <span class="kicker reveal"><span class="dot"></span><span data-i18n="contactKicker">Contato</span></span>
+              <h2 class="reveal" data-i18n="contactTitle">Vamos conversar sobre seu caso?</h2>
+              <p class="lead reveal" data-i18n="contactLead">
+                Envie uma mensagem. Se preferir, clique no WhatsApp e fale agora com a equipe.
+              </p>
+
+              <div class="contact-grid">
+                <div class="panelCard reveal">
+                  <form class="form" id="leadForm">
+                    <div class="field">
+                      <label for="name" data-i18n="fName">Nome</label>
+                      <input id="name" name="name" autocomplete="name" required placeholder="Seu nome" />
+                    </div>
+
+                    <div class="field">
+                      <label for="email" data-i18n="fEmail">E-mail</label>
+                      <input id="email" name="email" type="email" autocomplete="email" required placeholder="seuemail@exemplo.com" />
+                    </div>
+
+                    <div class="field">
+                      <label for="goal" data-i18n="fGoal">Objetivo</label>
+                      <input id="goal" name="goal" required placeholder="Cidadania Portuguesa / Italiana / Espanhola..." />
+                    </div>
+
+                    <div class="field">
+                      <label for="msg" data-i18n="fMsg">Mensagem</label>
+                      <textarea id="msg" name="msg" required placeholder="Conte rapidamente sua situação (ex.: avô português, certidões que já possui, cidade/estado, etc.)"></textarea>
+                    </div>
+
+                    <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:6px">
+                      <button class="btn primary" type="submit" data-i18n="fSend">Enviar e abrir WhatsApp</button>
+                      <a class="btn" href="#servicos" data-i18n="fSee">Ver serviços</a>
+                    </div>
+
+                    <p class="tiny" style="margin:10px 0 0" data-i18n="fNote">
+                      Ao enviar, abriremos seu WhatsApp com a mensagem pronta. Você pode ajustar antes de enviar.
+                    </p>
+                  </form>
+                </div>
+
+                <aside class="contact-card reveal" aria-label="Informações de contato">
+                  <div class="row">
+                    <div class="ico" aria-hidden="true">📞</div>
+                    <div>
+                      <strong data-i18n="cPhoneT">Telefone / WhatsApp</strong><br/>
+                      <span id="phoneText">(64) 9 9952-2932</span>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="ico" aria-hidden="true">✉️</div>
+                    <div>
+                      <strong data-i18n="cEmailT">E-mail</strong><br/>
+                      <span>moreiraborgesconsultoria@gmail.com</span>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="ico" aria-hidden="true">⏰</div>
+                    <div>
+                      <strong data-i18n="cHoursT">Horário</strong><br/>
+                      <span data-i18n="cHoursV">Seg–Sex: 8h–18h • Sáb: 8h–13h • Dom: fechado</span>
+                    </div>
+                  </div>
+
+                  <a class="btn primary" id="ctaWhats" target="_blank" rel="noopener"
+                     href="https://wa.me/5564999522932?text=Olá!%20Quero%20tirar%20dúvidas%20sobre%20cidadania."
+                     data-i18n="cWhats">
+                    Falar no WhatsApp
+                    <span aria-hidden="true">→</span>
+                  </a>
+
+                  <p class="tiny" data-i18n="cTiny">
+                    Atendimento internacional com troca de idioma no site (PT/EN/ES).
+                  </p>
+                </aside>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        <footer>
+          <div class="footer-inner">
+            <div>
+              <div style="font-weight:900; letter-spacing:-.01em">Moreira & Borges</div>
+              <div class="tiny" data-i18n="footerCopy">© 2021–2026 • Consultoria Genealógica • Todos os direitos reservados.</div>
+            </div>
+
+            <div class="social" aria-label="Redes sociais">
+              <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M14 8h3V5h-3c-2.2 0-4 1.8-4 4v3H7v3h3v6h3v-6h3l1-3h-4V9c0-.6.4-1 1-1Z" fill="rgba(234,240,255,.92)"/>
+                </svg>
+              </a>
+              <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z" stroke="rgba(234,240,255,.92)" stroke-width="1.8"/>
+                  <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="rgba(234,240,255,.92)" stroke-width="1.8"/>
+                  <path d="M17.5 6.5h.01" stroke="rgba(234,240,255,.92)" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </footer>
+
+        <!-- WhatsApp floating -->
+        <a class="wa-float" target="_blank" rel="noopener"
+           href="https://wa.me/5564999522932?text=Olá!%20Quero%20falar%20sobre%20cidadania%20(Portugal/Itália/Espanha)."
+           aria-label="Falar no WhatsApp">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M20.5 11.9c0 4.7-3.8 8.5-8.5 8.5-1.5 0-3-.4-4.3-1.1l-4.2 1.1 1.1-4.1A8.44 8.44 0 0 1 3.5 11.9c0-4.7 3.8-8.5 8.5-8.5s8.5 3.8 8.5 8.5Z" stroke="rgba(255,255,255,.95)" stroke-width="1.8" stroke-linejoin="round"/>
+            <path d="M9.2 8.4c.2-.5.5-.5.8-.5h.6c.2 0 .5.1.6.4l.8 1.8c.1.2.1.5 0 .7l-.5.8c-.1.2-.1.5.1.7.5.7 1.3 1.5 2.2 2 .2.1.5.1.7 0l.8-.5c.2-.1.5-.1.7 0l1.8.8c.3.1.4.4.4.6v.6c0 .3 0 .6-.5.8-.6.3-1.7.7-3.3.1-2.3-.9-4.6-3.2-5.5-5.5-.6-1.6-.2-2.7.1-3.3Z" fill="rgba(255,255,255,.95)"/>
+          </svg>
+        </a>
+
       </div>
     </div>
-
-    <nav class="menu">
-      <a href="#inicio" data-i18n="navInicio">Início</a>
-      <a href="#servicos" data-i18n="navServicos">Serviços</a>
-      <a href="#sobre" data-i18n="navSobre">Sobre</a>
-      <a href="#depoimentos" data-i18n="navDepoimentos">Depoimentos</a>
-      <a href="#contato" data-i18n="navContato">Contato</a>
-    </nav>
-
-    <div class="lang">
-      <button data-lang="pt" class="active">PT</button>
-      <button data-lang="en">EN</button>
-      <button data-lang="es">ES</button>
-    </div>
   </div>
-</header>
 
-<section class="hero" id="inicio">
-  <div class="container hero-grid">
-    <div class="hero-text">
-      <h1 data-i18n="heroTitle">
-        Transforme sua história em um <em>passaporte global</em>
-      </h1>
-      <p data-i18n="heroDesc">
-        Assessoria completa em cidadania europeia com segurança, clareza e estratégia.
-      </p>
+  <script>
+    // ===== Smooth anchor scroll
+    document.addEventListener("click", (e) => {
+      const a = e.target.closest('a[href^="#"]');
+      if (!a) return;
+      const id = a.getAttribute("href");
+      if (!id || id === "#") return;
+      const el = document.querySelector(id);
+      if (!el) return;
+      e.preventDefault();
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      // close drawer if open
+      setDrawer(false);
+    });
 
-      <a href="https://wa.me/5564999522932" target="_blank" class="btn">
-        WhatsApp
-      </a>
-    </div>
+    // ===== Drawer
+    const drawer = document.getElementById("drawer");
+    const menuBtn = document.getElementById("menuBtn");
+    const closeDrawer = document.getElementById("closeDrawer");
 
-    <div class="hero-card">
-      <ul>
-        <li data-i18n="hero1">✔ Atendimento internacional</li>
-        <li data-i18n="hero2">✔ Pesquisa genealógica profunda</li>
-        <li data-i18n="hero3">✔ Processo acompanhado do início ao fim</li>
-      </ul>
-    </div>
-  </div>
-</section>
+    function setDrawer(open){
+      drawer.dataset.open = open ? "true" : "false";
+      drawer.setAttribute("aria-hidden", open ? "false" : "true");
+      document.body.style.overflow = open ? "hidden" : "";
+    }
 
-<section class="services" id="servicos">
-  <div class="container">
-    <h2 data-i18n="servicesTitle">Especialidades</h2>
+    menuBtn?.addEventListener("click", () => setDrawer(true));
+    closeDrawer?.addEventListener("click", () => setDrawer(false));
+    drawer?.addEventListener("click", (e) => {
+      if (e.target === drawer) setDrawer(false);
+    });
 
-    <div class="cards">
-      <div class="card">
-        <h3 data-i18n="srvPT">Cidadania Portuguesa</h3>
-        <p data-i18n="srvPTDesc">
-          Processos tradicionais e sefarditas com organização completa.
-        </p>
-      </div>
+    // ===== Reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+      for (const ent of entries){
+        if (ent.isIntersecting){
+          ent.target.classList.add("is-visible");
+          io.unobserve(ent.target);
+        }
+      }
+    }, { threshold: 0.12 });
 
-      <div class="card">
-        <h3 data-i18n="srvIT">Cidadania Italiana</h3>
-        <p data-i18n="srvITDesc">
-          Reconhecimento por descendência com documentação precisa.
-        </p>
-      </div>
+    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
 
-      <div class="card">
-        <h3 data-i18n="srvES">Cidadania Espanhola</h3>
-        <p data-i18n="srvESDesc">
-          Assessoria estratégica e acompanhamento profissional.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+    // ===== Testimonials slider
+    const slides = document.getElementById("slides");
+    const prev = document.getElementById("prev");
+    const next = document.getElementById("next");
+    const dots = document.getElementById("dots");
 
-<section class="about" id="sobre">
-  <div class="container about-grid">
-    <div>
-      <h2 data-i18n="aboutTitle">Quem Somos</h2>
-      <p data-i18n="aboutDesc">
-        Desde 2021 ajudamos famílias a reconectar sua origem com oportunidades globais,
-        oferecendo consultoria genealógica e cidadania internacional.
-      </p>
-    </div>
+    let idx = 0;
+    const total = slides?.children?.length ?? 0;
+    const dotBtns = [];
 
-    <div class="about-box">
-      <p data-i18n="aboutHighlight">
-        Não é apenas um site. É uma estrutura profissional de sucesso.
-      </p>
-    </div>
-  </div>
-</section>
+    function renderDots(){
+      if (!dots) return;
+      dots.innerHTML = "";
+      for (let i=0; i<total; i++){
+        const b = document.createElement("button");
+        b.className = "dotbtn";
+        b.type = "button";
+        b.setAttribute("aria-label", "Ir para depoimento " + (i+1));
+        b.setAttribute("aria-current", i === idx ? "true" : "false");
+        b.addEventListener("click", () => go(i));
+        dots.appendChild(b);
+        dotBtns[i] = b;
+      }
+    }
 
-<section class="testimonials" id="depoimentos">
-  <div class="container">
-    <h2 data-i18n="depTitle">Depoimentos</h2>
+    function go(i){
+      idx = (i + total) % total;
+      if (slides) slides.style.transform = `translateX(${-idx * 100}%)`;
+      dotBtns.forEach((b, j) => b?.setAttribute("aria-current", j === idx ? "true" : "false"));
+    }
 
-    <blockquote>
-      <p data-i18n="depText">
-        A equipe organizou todo o processo da minha cidadania portuguesa com excelência.
-      </p>
-      <cite>— Janaína Monteiro</cite>
-    </blockquote>
-  </div>
-</section>
+    prev?.addEventListener("click", () => go(idx - 1));
+    next?.addEventListener("click", () => go(idx + 1));
+    if (total > 0){ renderDots(); go(0); }
 
-<section class="contact" id="contato">
-  <div class="container contact-box">
-    <h2 data-i18n="contactTitle">Atendimento via WhatsApp</h2>
-    <p data-i18n="contactDesc">
-      Clique abaixo e fale diretamente com nossa equipe especializada.
-    </p>
+    // ===== Auto-advance testimonials (pauses on hover)
+    let timer = null;
+    function startAuto(){
+      stopAuto();
+      timer = setInterval(() => go(idx + 1), 7000);
+    }
+    function stopAuto(){
+      if (timer) clearInterval(timer);
+      timer = null;
+    }
+    document.querySelector(".slider")?.addEventListener("mouseenter", stopAuto);
+    document.querySelector(".slider")?.addEventListener("mouseleave", startAuto);
+    startAuto();
 
-    <a href="https://wa.me/5564999522932" target="_blank" class="btn btn-large">
-      Iniciar conversa
-    </a>
-  </div>
-</section>
+    // ===== i18n (PT/EN/ES) — full site text switch
+    const dict = {
+      pt: {
+        brandSub: "Consultoria Genealógica • Cidadanias",
+        navHome: "Início",
+        navServices: "Serviços",
+        navProcess: "Processo",
+        navTestimonials: "Depoimentos",
+        navAbout: "Sobre",
+        navFaq: "FAQ",
+        navContact: "Contato",
+        ctaTop: "Converse com um especialista",
+        drawerTitle: "Navegação",
+        ctaSecondary: "Agendar consulta",
+        ctaWhats: "WhatsApp",
 
-<footer class="footer">
-  <div class="container footer-inner">
-    <p>© 2021–2026 Moreira & Borges</p>
+        heroKicker: "Cidadanias • Genealogia • Documentos",
+        heroTitle: "Transforme seu direito em <em>passaporte global</em>.",
+        heroLead: "Assessoria completa para cidadania portuguesa (tradicional e por ascendência sefardita), italiana e espanhola — com pesquisa genealógica, busca documental e orientação do início ao protocolo.",
+        heroCTA1: "Falar com especialista",
+        heroCTA2: "Ver serviços",
+        stat1a: "Estratégia + execução",
+        stat1b: "Plano claro, documentos certos e acompanhamento.",
+        stat2a: "Atendimento internacional",
+        stat2b: "PT/EN/ES para atender clientes de fora.",
+        show1a: "em cidadanias",
+        show1b: "Experiência real",
+        show2a: "tipo startup",
+        show2b: "Design premium",
+        showLead: "Um site que não “parece uma consultoria comum”. Parece uma plataforma de sucesso: moderna, confiável e direta.",
 
-    <div class="social">
-      <a href="#">Instagram</a>
-      <a href="#">Facebook</a>
-    </div>
-  </div>
-</footer>
+        servicesKicker: "Especialidades",
+        servicesTitle: "Cidadanias e genealogia com método.",
+        servicesLead: "Você recebe orientação estratégica, checklist de documentos, busca e conferência — tudo pensado para reduzir retrabalho e acelerar decisões.",
 
-<a href="https://wa.me/5564999522932" class="whatsapp" target="_blank">💬</a>
+        srv1t: "Cidadania Portuguesa",
+        srv1p: "Tradicional e por ascendência sefardita: orientação, preparação documental e acompanhamento do processo.",
+        srv1a: "Portugal", srv1b: "Sefardita", srv1c: "Checklist",
 
-<script src="js/main.js"></script>
+        srv2t: "Cidadania Italiana",
+        srv2p: "Do diagnóstico à montagem do dossiê: pesquisa, documentos, conferência e organização por linhagem.",
+        srv2a: "Itália", srv2b: "Linha familiar", srv2c: "Dossiê",
+
+        srv3t: "Cidadania Espanhola",
+        srv3p: "Planejamento e organização documental com foco em clareza, prazos e próxima ação sempre definida.",
+        srv3a: "Espanha", srv3b: "Prazos", srv3c: "Orientação",
+
+        srv4t: "Pesquisa Genealógica",
+        srv4p: "Reconstrução da árvore genealógica com rigor: fontes civis, eclesiásticas e registros históricos.",
+        srv4a: "Árvore", srv4b: "Fontes", srv4c: "Relatório",
+
+        srv5t: "Busca de Documentos",
+        srv5p: "Localização e solicitação de certidões em cartórios, paróquias e arquivos — com organização e conferência.",
+        srv5a: "Cartórios", srv5b: "Paróquias", srv5c: "Arquivos",
+
+        srv6t: "Transcrições e Organização",
+        srv6p: "Padronização e montagem de dossiês para leitura clara, conferência rápida e envio sem ruído.",
+        srv6a: "Padrão", srv6b: "Dossiê", srv6c: "Revisão",
+
+        processKicker: "Como funciona",
+        processTitle: "Um processo leve, claro e com próximos passos.",
+        processLead: "Você sempre sabe o que está acontecendo: diagnóstico → documentos → montagem → conferência → protocolo.",
+        st1t: "Diagnóstico de viabilidade",
+        st1p: "Entendemos sua linha familiar e definimos a estratégia do caso com base nos documentos disponíveis.",
+        st2t: "Plano e checklist",
+        st2p: "Você recebe uma lista objetiva do que buscar e em que ordem, com orientação para cada etapa.",
+        st3t: "Busca e conferência",
+        st3p: "Localizamos documentos (quando contratado) e revisamos consistência de nomes, datas e vínculos.",
+        st4t: "Dossiê e protocolo",
+        st4p: "Organizamos o dossiê para reduzir pendências e acompanhamos até o envio/protocolo.",
+        processCTA: "Quero iniciar meu diagnóstico",
+
+        testKicker: "Depoimentos",
+        testTitle: "Clientes que decidiram com confiança.",
+        testLead: "Resultado é quando o cliente entende, confia e vê o processo andar.",
+        q1: "“A equipe me ajudou a obter o certificado de ascendência sefardita e a organizar tudo com clareza. Foi o passo que faltava para seguir com segurança.”",
+        q1n: "Janaína Monteiro",
+        q1r: "Atendimento e organização impecáveis",
+        q2: "“Eu tinha documentos soltos e várias dúvidas. Recebi um checklist bem direto e o dossiê ficou pronto sem confusão.”",
+        q2n: "A. Ribeiro",
+        q2r: "Checklist claro, processo leve",
+        q3: "“O diferencial foi a transparência: eu sempre sabia o próximo passo. Atendimento excelente e comunicação rápida.”",
+        q3n: "L. Costa",
+        q3r: "Acompanhamento de verdade",
+
+        aboutKicker: "Quem somos",
+        aboutTitle: "Consultoria que une pesquisa + estratégia + execução.",
+        aboutLead: "Atuação com genealogia, busca documental, transcrições e assessoria para cidadanias — com foco em clareza e confiança.",
+        aboutCard1t: "O que você recebe",
+        aboutCard1p: "Um caminho objetivo para não “andar em círculos”: organização, conferência e orientação prática.",
+        aboutLi1: "Estratégia e checklist por caso",
+        aboutLi2: "Busca e validação de documentos",
+        aboutLi3: "Montagem e organização de dossiês",
+        aboutLi4: "Atendimento com comunicação clara",
+        aboutPill: "Fundada em 2021 • Consultoria e assessoria",
+        aboutCard2t: "Por que isso importa?",
+        aboutCard2p: "Em cidadania, detalhe é tudo: consistência documental, ordem dos passos e evidências corretas.",
+        aboutMini1t: "Clareza",
+        aboutMini1p: "Você entende o processo e decide com tranquilidade.",
+        aboutMini2t: "Rigor",
+        aboutMini2p: "Conferência de dados, vínculos e documentação.",
+        aboutMini3t: "Velocidade com segurança",
+        aboutMini3p: "Menos retrabalho, mais avanço no que importa.",
+
+        faqKicker: "Dúvidas",
+        faqTitle: "Perguntas frequentes",
+        faqLead: "Respostas diretas para você entender o próximo passo.",
+        faq1q: "Vocês atendem clientes fora do Brasil?",
+        faq1a: "Sim. O site e o atendimento podem ser em português, inglês ou espanhol, e orientamos o envio/organização de documentos à distância.",
+        faq2q: "Preciso ter todos os documentos para começar?",
+        faq2a: "Não. Começamos com um diagnóstico do que você já tem e montamos um checklist do que falta, em ordem de prioridade.",
+        faq3q: "Vocês fazem pesquisa genealógica e busca de certidões?",
+        faq3a: "Sim. A consultoria atua com pesquisa genealógica, busca documental, transcrições e montagem do dossiê (conforme contratação).",
+        faq4q: "Como é o primeiro contato?",
+        faq4a: "Você explica seu objetivo (Portugal/Itália/Espanha), envia o que já possui e recebe orientação inicial com próximos passos.",
+
+        contactKicker: "Contato",
+        contactTitle: "Vamos conversar sobre seu caso?",
+        contactLead: "Envie uma mensagem. Se preferir, clique no WhatsApp e fale agora com a equipe.",
+        fName: "Nome",
+        fEmail: "E-mail",
+        fGoal: "Objetivo",
+        fMsg: "Mensagem",
+        fSend: "Enviar e abrir WhatsApp",
+        fSee: "Ver serviços",
+        fNote: "Ao enviar, abriremos seu WhatsApp com a mensagem pronta. Você pode ajustar antes de enviar.",
+
+        cPhoneT: "Telefone / WhatsApp",
+        cEmailT: "E-mail",
+        cHoursT: "Horário",
+        cHoursV: "Seg–Sex: 8h–18h • Sáb: 8h–13h • Dom: fechado",
+        cWhats: "Falar no WhatsApp",
+        cTiny: "Atendimento internacional com troca de idioma no site (PT/EN/ES).",
+
+        footerCopy: "© 2021–2026 • Consultoria Genealógica • Todos os direitos reservados."
+      },
+
+      en: {
+        brandSub: "Genealogy Consulting • Citizenship Services",
+        navHome: "Home",
+        navServices: "Services",
+        navProcess: "Process",
+        navTestimonials: "Testimonials",
+        navAbout: "About",
+        navFaq: "FAQ",
+        navContact: "Contact",
+        ctaTop: "Talk to a specialist",
+        drawerTitle: "Navigation",
+        ctaSecondary: "Book a consultation",
+        ctaWhats: "WhatsApp",
+
+        heroKicker: "Citizenship • Genealogy • Documents",
+        heroTitle: "Turn your eligibility into a <em>global passport</em>.",
+        heroLead: "Full support for Portuguese citizenship (standard and Sephardic ancestry), Italian and Spanish — including genealogy research, document retrieval and step-by-step guidance.",
+        heroCTA1: "Talk to a specialist",
+        heroCTA2: "See services",
+        stat1a: "Strategy + execution",
+        stat1b: "Clear plan, correct documents, real follow-up.",
+        stat2a: "International-ready",
+        stat2b: "PT/EN/ES for clients worldwide.",
+        show1a: "in citizenship cases",
+        show1b: "Real experience",
+        show2a: "startup-grade",
+        show2b: "Premium design",
+        showLead: "Not a “typical consultancy website”. This feels like a success platform: modern, trustworthy and direct.",
+
+        servicesKicker: "Expertise",
+        servicesTitle: "Citizenship and genealogy with a method.",
+        servicesLead: "You get strategy, a document checklist, retrieval and validation — designed to reduce rework and speed up decisions.",
+
+        srv1t: "Portuguese Citizenship",
+        srv1p: "Standard and Sephardic ancestry: guidance, document preparation and process follow-up.",
+        srv1a: "Portugal", srv1b: "Sephardic", srv1c: "Checklist",
+
+        srv2t: "Italian Citizenship",
+        srv2p: "From eligibility to dossier: research, documents, validation and lineage organization.",
+        srv2a: "Italy", srv2b: "Family line", srv2c: "Dossier",
+
+        srv3t: "Spanish Citizenship",
+        srv3p: "Planning and document organization with clear steps, timelines and next actions.",
+        srv3a: "Spain", srv3b: "Timelines", srv3c: "Guidance",
+
+        srv4t: "Genealogy Research",
+        srv4p: "Family tree reconstruction with rigor: civil, church and historical sources.",
+        srv4a: "Family tree", srv4b: "Sources", srv4c: "Report",
+
+        srv5t: "Document Retrieval",
+        srv5p: "Certificates from registries, parishes and archives — organized and validated.",
+        srv5a: "Registries", srv5b: "Parishes", srv5c: "Archives",
+
+        srv6t: "Transcription & Organization",
+        srv6p: "Standardization and dossier setup for fast review and clean submission.",
+        srv6a: "Standard", srv6b: "Dossier", srv6c: "Review",
+
+        processKicker: "How it works",
+        processTitle: "A smooth process with clear next steps.",
+        processLead: "You always know what’s happening: eligibility → documents → dossier → validation → submission.",
+        st1t: "Eligibility diagnosis",
+        st1p: "We review your family line and define the best strategy based on your current documents.",
+        st2t: "Plan and checklist",
+        st2p: "You receive an objective checklist — what to obtain and in which order.",
+        st3t: "Retrieval and validation",
+        st3p: "We retrieve documents (when contracted) and validate names, dates and links.",
+        st4t: "Dossier and submission",
+        st4p: "We build the dossier to reduce issues and guide you through submission.",
+        processCTA: "Start my diagnosis",
+
+        testKicker: "Testimonials",
+        testTitle: "Clients who moved forward with confidence.",
+        testLead: "Success is clarity + trust + progress.",
+        q1: "“They helped me obtain the Sephardic ancestry certificate and organize everything clearly. It was the missing step to move forward safely.”",
+        q1n: "Janaína Monteiro",
+        q1r: "Impeccable organization",
+        q2: "“I had scattered documents and lots of doubts. I received a straight checklist and the dossier was built without confusion.”",
+        q2n: "A. Ribeiro",
+        q2r: "Clear checklist, smooth flow",
+        q3: "“The difference was transparency: I always knew the next step. Great service and fast communication.”",
+        q3n: "L. Costa",
+        q3r: "Real follow-up",
+
+        aboutKicker: "About",
+        aboutTitle: "Consulting that combines research + strategy + execution.",
+        aboutLead: "We work with genealogy, document retrieval, transcriptions and citizenship support — focused on clarity and trust.",
+        aboutCard1t: "What you get",
+        aboutCard1p: "A direct path to avoid going in circles: organization, validation and practical guidance.",
+        aboutLi1: "Case-based strategy and checklist",
+        aboutLi2: "Document retrieval and validation",
+        aboutLi3: "Dossier building and organization",
+        aboutLi4: "Clear communication and support",
+        aboutPill: "Founded in 2021 • Consulting & advisory",
+        aboutCard2t: "Why it matters",
+        aboutCard2p: "In citizenship cases, details matter: consistency, correct order and solid evidence.",
+        aboutMini1t: "Clarity",
+        aboutMini1p: "You understand the process and decide calmly.",
+        aboutMini2t: "Rigor",
+        aboutMini2p: "Validation of data, links and documents.",
+        aboutMini3t: "Safe speed",
+        aboutMini3p: "Less rework, more progress.",
+
+        faqKicker: "Questions",
+        faqTitle: "Frequently asked questions",
+        faqLead: "Straight answers so you know your next step.",
+        faq1q: "Do you work with clients outside Brazil?",
+        faq1a: "Yes. We can support in PT/EN/ES and guide remote document organization and delivery.",
+        faq2q: "Do I need all documents to start?",
+        faq2a: "No. We begin with what you have and create a priority checklist for what’s missing.",
+        faq3q: "Do you do genealogy research and certificate retrieval?",
+        faq3a: "Yes. We offer genealogy research, document retrieval, transcriptions and dossier building (as contracted).",
+        faq4q: "How does the first contact work?",
+        faq4a: "You share your goal (Portugal/Italy/Spain), send what you have, and receive initial guidance and next steps.",
+
+        contactKicker: "Contact",
+        contactTitle: "Shall we talk about your case?",
+        contactLead: "Send a message. Or click WhatsApp and talk to the team now.",
+        fName: "Name",
+        fEmail: "Email",
+        fGoal: "Goal",
+        fMsg: "Message",
+        fSend: "Send and open WhatsApp",
+        fSee: "See services",
+        fNote: "After submitting, we’ll open WhatsApp with a pre-filled message. You can edit before sending.",
+
+        cPhoneT: "Phone / WhatsApp",
+        cEmailT: "Email",
+        cHoursT: "Hours",
+        cHoursV: "Mon–Fri: 8am–6pm • Sat: 8am–1pm • Sun: closed",
+        cWhats: "Chat on WhatsApp",
+        cTiny: "International-ready with PT/EN/ES language switch.",
+
+        footerCopy: "© 2021–2026 • Genealogy Consulting • All rights reserved."
+      },
+
+      es: {
+        brandSub: "Consultoría Genealógica • Ciudadanías",
+        navHome: "Inicio",
+        navServices: "Servicios",
+        navProcess: "Proceso",
+        navTestimonials: "Testimonios",
+        navAbout: "Sobre nosotros",
+        navFaq: "FAQ",
+        navContact: "Contacto",
+        ctaTop: "Hablar con un especialista",
+        drawerTitle: "Navegación",
+        ctaSecondary: "Agendar consulta",
+        ctaWhats: "WhatsApp",
+
+        heroKicker: "Ciudadanía • Genealogía • Documentos",
+        heroTitle: "Convierte tu derecho en un <em>pasaporte global</em>.",
+        heroLead: "Asesoría completa para ciudadanía portuguesa (tradicional y por ascendencia sefardí), italiana y española — con investigación genealógica, búsqueda documental y guía paso a paso.",
+        heroCTA1: "Hablar con un especialista",
+        heroCTA2: "Ver servicios",
+        stat1a: "Estrategia + ejecución",
+        stat1b: "Plan claro, documentos correctos y seguimiento.",
+        stat2a: "Atención internacional",
+        stat2b: "PT/EN/ES para clientes de todo el mundo.",
+        show1a: "en ciudadanías",
+        show1b: "Experiencia real",
+        show2a: "estilo startup",
+        show2b: "Diseño premium",
+        showLead: "No es un “sitio común de consultoría”. Se siente como una plataforma de éxito: moderna, confiable y directa.",
+
+        servicesKicker: "Especialidades",
+        servicesTitle: "Ciudadanías y genealogía con método.",
+        servicesLead: "Recibes estrategia, checklist, búsqueda y validación — pensado para reducir retrabajo y acelerar decisiones.",
+
+        srv1t: "Ciudadanía Portuguesa",
+        srv1p: "Tradicional y por ascendencia sefardí: orientación, preparación documental y seguimiento del proceso.",
+        srv1a: "Portugal", srv1b: "Sefardí", srv1c: "Checklist",
+
+        srv2t: "Ciudadanía Italiana",
+        srv2p: "Del diagnóstico al dossier: investigación, documentos, validación y organización por linaje.",
+        srv2a: "Italia", srv2b: "Línea familiar", srv2c: "Dossier",
+
+        srv3t: "Ciudadanía Española",
+        srv3p: "Planificación y organización documental con pasos claros, plazos y próxima acción definida.",
+        srv3a: "España", srv3b: "Plazos", srv3c: "Orientación",
+
+        srv4t: "Investigación Genealógica",
+        srv4p: "Reconstrucción del árbol genealógico con rigor: fuentes civiles, eclesiásticas e históricas.",
+        srv4a: "Árbol", srv4b: "Fuentes", srv4c: "Informe",
+
+        srv5t: "Búsqueda de Documentos",
+        srv5p: "Localización de certificados en registros, parroquias y archivos — con organización y validación.",
+        srv5a: "Registros", srv5b: "Parroquias", srv5c: "Archivos",
+
+        srv6t: "Transcripciones y Organización",
+        srv6p: "Estandarización y armado de dossiers para revisión rápida y envío limpio.",
+        srv6a: "Estándar", srv6b: "Dossier", srv6c: "Revisión",
+
+        processKicker: "Cómo funciona",
+        processTitle: "Un proceso ligero, claro y con próximos pasos.",
+        processLead: "Siempre sabes qué pasa: diagnóstico → documentos → dossier → validación → presentación.",
+        st1t: "Diagnóstico de viabilidad",
+        st1p: "Revisamos tu línea familiar y definimos la mejor estrategia según tus documentos.",
+        st2t: "Plan y checklist",
+        st2p: "Recibes una lista objetiva de lo que falta y en qué orden obtenerlo.",
+        st3t: "Búsqueda y validación",
+        st3p: "Buscamos documentos (según contratación) y validamos nombres, fechas y vínculos.",
+        st4t: "Dossier y presentación",
+        st4p: "Armamos el dossier para reducir incidencias y guiamos la presentación.",
+        processCTA: "Quiero iniciar mi diagnóstico",
+
+        testKicker: "Testimonios",
+        testTitle: "Clientes que avanzaron con confianza.",
+        testLead: "Éxito es claridad + confianza + progreso.",
+        q1: "“Me ayudaron a obtener el certificado de ascendencia sefardí y a organizar todo con claridad. Fue el paso que faltaba para avanzar con seguridad.”",
+        q1n: "Janaína Monteiro",
+        q1r: "Organización impecable",
+        q2: "“Tenía documentos sueltos y muchas dudas. Recibí un checklist directo y el dossier quedó listo sin confusión.”",
+        q2n: "A. Ribeiro",
+        q2r: "Checklist claro, proceso fluido",
+        q3: "“La diferencia fue la transparencia: siempre supe el próximo paso. Excelente atención y comunicación rápida.”",
+        q3n: "L. Costa",
+        q3r: "Acompañamiento real",
+
+        aboutKicker: "Sobre nosotros",
+        aboutTitle: "Consultoría que une investigación + estrategia + ejecución.",
+        aboutLead: "Actuamos con genealogía, búsqueda documental, transcripciones y asesoría — con foco en claridad y confianza.",
+        aboutCard1t: "Lo que recibes",
+        aboutCard1p: "Un camino objetivo para no dar vueltas: organización, validación y guía práctica.",
+        aboutLi1: "Estrategia y checklist por caso",
+        aboutLi2: "Búsqueda y validación de documentos",
+        aboutLi3: "Armado y organización de dossiers",
+        aboutLi4: "Atención con comunicación clara",
+        aboutPill: "Fundada en 2021 • Consultoría y asesoría",
+        aboutCard2t: "¿Por qué importa?",
+        aboutCard2p: "En ciudadanías, el detalle lo es todo: consistencia, orden correcto y evidencia sólida.",
+        aboutMini1t: "Claridad",
+        aboutMini1p: "Entiendes el proceso y decides tranquilo.",
+        aboutMini2t: "Rigor",
+        aboutMini2p: "Validación de datos, vínculos y documentos.",
+        aboutMini3t: "Rapidez segura",
+        aboutMini3p: "Menos retrabajo, más avance.",
+
+        faqKicker: "Dudas",
+        faqTitle: "Preguntas frecuentes",
+        faqLead: "Respuestas directas para tu próximo paso.",
+        faq1q: "¿Atienden clientes fuera de Brasil?",
+        faq1a: "Sí. Atendemos en PT/EN/ES y guiamos la organización y envío remoto de documentos.",
+        faq2q: "¿Necesito todos los documentos para empezar?",
+        faq2a: "No. Empezamos con lo que tienes y creamos un checklist prioritario de lo que falta.",
+        faq3q: "¿Hacen investigación genealógica y búsqueda de certificados?",
+        faq3a: "Sí. Ofrecemos investigación, búsqueda documental, transcripciones y armado de dossier (según contratación).",
+        faq4q: "¿Cómo es el primer contacto?",
+        faq4a: "Nos cuentas tu objetivo (Portugal/Italia/España), envías lo que tienes y recibes orientación inicial y próximos pasos.",
+
+        contactKicker: "Contacto",
+        contactTitle: "¿Hablamos de tu caso?",
+        contactLead: "Envíanos un mensaje. O haz clic en WhatsApp y habla ahora con el equipo.",
+        fName: "Nombre",
+        fEmail: "Correo",
+        fGoal: "Objetivo",
+        fMsg: "Mensaje",
+        fSend: "Enviar y abrir WhatsApp",
+        fSee: "Ver servicios",
+        fNote: "Al enviar, abriremos WhatsApp con un mensaje listo. Puedes editar antes de enviarlo.",
+
+        cPhoneT: "Teléfono / WhatsApp",
+        cEmailT: "Correo",
+        cHoursT: "Horario",
+        cHoursV: "Lun–Vie: 8–18 • Sáb: 8–13 • Dom: cerrado",
+        cWhats: "Hablar por WhatsApp",
+        cTiny: "Listo para el mundo con cambio de idioma (PT/EN/ES).",
+
+        footerCopy: "© 2021–2026 • Consultoría Genealógica • Todos los derechos reservados."
+      }
+    };
+
+    function setLang(lang){
+      const html = document.documentElement;
+      const d = dict[lang] || dict.pt;
+      html.dataset.lang = lang;
+
+      // toggle aria-pressed
+      document.querySelectorAll("[data-lang-btn]").forEach(btn => {
+        const on = btn.getAttribute("data-lang-btn") === lang;
+        btn.setAttribute("aria-pressed", on ? "true" : "false");
+      });
+
+      // apply text
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (!key) return;
+        const val = d[key];
+        if (typeof val !== "string") return;
+        // allow safe inline <em> in a few keys
+        if (key === "heroTitle") el.innerHTML = val;
+        else el.textContent = val;
+      });
+
+      // persist
+      try { localStorage.setItem("lang", lang); } catch {}
+    }
+
+    document.querySelectorAll("[data-lang-btn]").forEach(btn => {
+      btn.addEventListener("click", () => setLang(btn.getAttribute("data-lang-btn")));
+    });
+
+    // load saved language or auto-detect
+    (function initLang(){
+      let preferred = "pt";
+      try {
+        preferred = localStorage.getItem("lang") || preferred;
+      } catch {}
+      if (!preferred || !dict[preferred]){
+        const nav = (navigator.language || "pt").toLowerCase();
+        if (nav.startsWith("es")) preferred = "es";
+        else if (nav.startsWith("en")) preferred = "en";
+        else preferred = "pt";
+      }
+      setLang(preferred);
+    })();
+
+    // ===== Form -> open WhatsApp with prefilled message
+    const leadForm = document.getElementById("leadForm");
+    leadForm?.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = document.getElementById("name")?.value?.trim() || "";
+      const email = document.getElementById("email")?.value?.trim() || "";
+      const goal = document.getElementById("goal")?.value?.trim() || "";
+      const msg = document.getElementById("msg")?.value?.trim() || "";
+
+      const lang = document.documentElement.dataset.lang || "pt";
+      const templates = {
+        pt: `Olá! Meu nome é ${name}. Quero falar sobre: ${goal}. Email: ${email}. Mensagem: ${msg}`,
+        en: `Hello! My name is ${name}. I'd like help with: ${goal}. Email: ${email}. Message: ${msg}`,
+        es: `¡Hola! Mi nombre es ${name}. Quiero ayuda con: ${goal}. Correo: ${email}. Mensaje: ${msg}`
+      };
+
+      const text = encodeURIComponent(templates[lang] || templates.pt);
+      const url = `https://wa.me/5564999522932?text=${text}`;
+      window.open(url, "_blank", "noopener");
+      leadForm.reset();
+    });
+  </script>
 </body>
 </html>
