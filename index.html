@@ -1,41 +1,38 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-lang="pt">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>Moreira & Borges | Cidadania Internacional</title>
-  <meta name="description" content="Consultoria especializada em cidadania portuguesa, italiana e espanhola. Atendimento internacional via WhatsApp." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Consultoria especializada em cidadania portuguesa, italiana e espanhola. Atendimento internacional via WhatsApp.">
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
 <header class="header">
-  <div class="container header-content">
+  <div class="container header-inner">
     <div class="logo">
-      <span class="logo-icon">MB</span>
+      <div class="logo-icon">MB</div>
       <div>
         <strong>Moreira & Borges</strong>
-        <small data-i18n="brandSub">Consultoria Genealógica</small>
+        <span data-i18n="brand">Consultoria Genealógica</span>
       </div>
     </div>
 
-    <nav class="nav">
-      <a href="#inicio" data-i18n="navHome">Início</a>
-      <a href="#servicos" data-i18n="navServices">Serviços</a>
-      <a href="#sobre" data-i18n="navAbout">Sobre</a>
-      <a href="#depoimentos" data-i18n="navTestimonials">Depoimentos</a>
-      <a href="#contato" data-i18n="navContact">Contato</a>
+    <nav class="menu">
+      <a href="#inicio" data-i18n="navInicio">Início</a>
+      <a href="#servicos" data-i18n="navServicos">Serviços</a>
+      <a href="#sobre" data-i18n="navSobre">Sobre</a>
+      <a href="#depoimentos" data-i18n="navDepoimentos">Depoimentos</a>
+      <a href="#contato" data-i18n="navContato">Contato</a>
     </nav>
 
-    <div class="lang-switch">
+    <div class="lang">
       <button data-lang="pt" class="active">PT</button>
       <button data-lang="en">EN</button>
       <button data-lang="es">ES</button>
@@ -43,132 +40,116 @@
   </div>
 </header>
 
-<!-- ================= HERO ================= -->
 <section class="hero" id="inicio">
   <div class="container hero-grid">
     <div class="hero-text">
       <h1 data-i18n="heroTitle">
-        Seu direito pode se tornar um <em>passaporte global</em>
+        Transforme sua história em um <em>passaporte global</em>
       </h1>
-      <p data-i18n="heroSubtitle">
-        Assessoria completa em cidadania portuguesa, italiana e espanhola, com foco em segurança, clareza e resultados.
+      <p data-i18n="heroDesc">
+        Assessoria completa em cidadania europeia com segurança, clareza e estratégia.
       </p>
 
-      <a class="btn-primary"
-         href="https://wa.me/5564999522932"
-         target="_blank"
-         data-i18n="heroCTA">
-        Falar com um especialista
+      <a href="https://wa.me/5564999522932" target="_blank" class="btn">
+        WhatsApp
       </a>
     </div>
 
     <div class="hero-card">
       <ul>
-        <li data-i18n="heroPoint1">✔️ Atendimento internacional</li>
-        <li data-i18n="heroPoint2">✔️ Pesquisa genealógica completa</li>
-        <li data-i18n="heroPoint3">✔️ Processo claro e acompanhado</li>
+        <li data-i18n="hero1">✔ Atendimento internacional</li>
+        <li data-i18n="hero2">✔ Pesquisa genealógica profunda</li>
+        <li data-i18n="hero3">✔ Processo acompanhado do início ao fim</li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- ================= SERVIÇOS ================= -->
 <section class="services" id="servicos">
   <div class="container">
-    <h2 data-i18n="servicesTitle">Nossas Especialidades</h2>
+    <h2 data-i18n="servicesTitle">Especialidades</h2>
 
     <div class="cards">
       <div class="card">
         <h3 data-i18n="srvPT">Cidadania Portuguesa</h3>
         <p data-i18n="srvPTDesc">
-          Tradicional e por ascendência sefardita, com organização completa do processo.
+          Processos tradicionais e sefarditas com organização completa.
         </p>
       </div>
 
       <div class="card">
         <h3 data-i18n="srvIT">Cidadania Italiana</h3>
         <p data-i18n="srvITDesc">
-          Pesquisa, documentos e montagem do dossiê por linhagem familiar.
+          Reconhecimento por descendência com documentação precisa.
         </p>
       </div>
 
       <div class="card">
         <h3 data-i18n="srvES">Cidadania Espanhola</h3>
         <p data-i18n="srvESDesc">
-          Orientação estratégica e documental para seu reconhecimento.
+          Assessoria estratégica e acompanhamento profissional.
         </p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= SOBRE ================= -->
 <section class="about" id="sobre">
   <div class="container about-grid">
     <div>
       <h2 data-i18n="aboutTitle">Quem Somos</h2>
-      <p data-i18n="aboutText">
-        A Moreira & Borges atua desde 2021 com consultoria genealógica e assessoria em cidadanias,
-        ajudando famílias a reconectarem sua história com oportunidades globais.
+      <p data-i18n="aboutDesc">
+        Desde 2021 ajudamos famílias a reconectar sua origem com oportunidades globais,
+        oferecendo consultoria genealógica e cidadania internacional.
       </p>
     </div>
 
-    <div class="about-highlight">
+    <div class="about-box">
       <p data-i18n="aboutHighlight">
-        Mais que um site, uma estrutura profissional de sucesso internacional.
+        Não é apenas um site. É uma estrutura profissional de sucesso.
       </p>
     </div>
   </div>
 </section>
 
-<!-- ================= DEPOIMENTOS ================= -->
 <section class="testimonials" id="depoimentos">
   <div class="container">
-    <h2 data-i18n="testimonialsTitle">Depoimentos</h2>
+    <h2 data-i18n="depTitle">Depoimentos</h2>
 
     <blockquote>
-      <p data-i18n="testimonial1">
-        “Equipe extremamente profissional. Organizaram toda minha documentação para cidadania portuguesa.”
+      <p data-i18n="depText">
+        A equipe organizou todo o processo da minha cidadania portuguesa com excelência.
       </p>
       <cite>— Janaína Monteiro</cite>
     </blockquote>
   </div>
 </section>
 
-<!-- ================= CONTATO ================= -->
 <section class="contact" id="contato">
   <div class="container contact-box">
     <h2 data-i18n="contactTitle">Atendimento via WhatsApp</h2>
-    <p data-i18n="contactText">
-      Clique no botão abaixo e fale diretamente com nossa equipe.
+    <p data-i18n="contactDesc">
+      Clique abaixo e fale diretamente com nossa equipe especializada.
     </p>
 
-    <a class="btn-primary large"
-       href="https://wa.me/5564999522932"
-       target="_blank">
-       WhatsApp
+    <a href="https://wa.me/5564999522932" target="_blank" class="btn btn-large">
+      Iniciar conversa
     </a>
   </div>
 </section>
 
-<!-- ================= FOOTER ================= -->
 <footer class="footer">
-  <div class="container footer-content">
+  <div class="container footer-inner">
     <p>© 2021–2026 Moreira & Borges</p>
 
     <div class="social">
-      <a href="#" aria-label="Instagram">Instagram</a>
-      <a href="#" aria-label="Facebook">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
     </div>
   </div>
 </footer>
 
-<!-- WhatsApp flutuante -->
-<a href="https://wa.me/5564999522932"
-   target="_blank"
-   class="whatsapp-float">
-  💬
-</a>
+<a href="https://wa.me/5564999522932" class="whatsapp" target="_blank">💬</a>
 
 <script src="js/main.js"></script>
 </body>
