@@ -100,7 +100,7 @@ nav a:hover { color: var(--primary); }
   line-height: 1.6;
 }
 
-/* BOTÃO ARRASTE REFORÇADO */
+/* BOTÃO ARRASTE COMPLETO */
 .drag-btn {
   position: relative;
   width: 320px;
@@ -118,14 +118,13 @@ nav a:hover { color: var(--primary); }
   overflow: hidden;
   cursor: grab;
   transition: background-position 1s ease;
-  animation: attract 3s ease-in-out infinite;
+  animation: attract-move 3s ease-in-out infinite;
 }
-
-@keyframes attract {
-  0%,100% { background-position: left; }
-  50% { background-position: right; }
+@keyframes attract-move {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(10px); }
+  100% { transform: translateX(0); }
 }
-
 .drag-circle {
   position: absolute;
   left: 5px;
@@ -137,21 +136,19 @@ nav a:hover { color: var(--primary); }
   color: var(--primary);
   display: grid;
   place-items: center;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 800;
   box-shadow: 0 3px 12px rgba(0,0,0,.25);
   transition: left 0.2s linear;
 }
-
 .drag-text {
   position: relative;
   font-size: 1.05rem;
+  font-weight: 700;
   pointer-events: none;
   transition: opacity 0.3s ease;
 }
-.drag-btn.dragging {
-  cursor: grabbing;
-}
+.drag-btn.dragging { cursor: grabbing; }
 
 /* SECTIONS */
 section {
@@ -240,9 +237,9 @@ footer .social img:hover { transform: scale(1.1); }
   <h1 id="heroTitle">Conquiste sua cidadania europeia.</h1>
   <p id="heroText">Moreira & Borges transforma seu direito em realidade. Atendimento humano, ágil e internacional — do documento ao passaporte. 🌍</p>
 
-  <!-- Novo botão de arrastar -->
+  <!-- BOTÃO DE ARRASTE -->
   <div class="drag-btn" id="dragBtn">
-    <div class="drag-circle" id="dragCircle">👉</div>
+    <div class="drag-circle" id="dragCircle">👍</div>
     <span class="drag-text" id="dragText">Arraste para falar com consultor</span>
   </div>
 
@@ -292,7 +289,7 @@ footer .social img:hover { transform: scale(1.1); }
 </a>
 
 <script>
-// Idiomas
+// Troca de idioma
 const translations = {
   pt: {
     heroTitle: "Conquiste sua cidadania europeia.",
@@ -313,7 +310,6 @@ const translations = {
     aboutTitle: "Sobre M&B"
   }
 };
-
 const langBtn = document.getElementById('langBtn');
 const langMenu = document.getElementById('langMenu');
 langBtn.onclick = () => langMenu.style.display = langMenu.style.display === 'block' ? 'none' : 'block';
@@ -334,10 +330,18 @@ document.querySelectorAll('.lang-menu button').forEach(btn => {
 const dragBtn = document.getElementById('dragBtn');
 const dragCircle = document.getElementById('dragCircle');
 const dragText = document.getElementById('dragText');
-
 let dragging = false;
 let offsetX = 0;
 const maxMove = 260;
+
+// Efeito de chamada automática até o meio
+setInterval(() => {
+  dragCircle.animate([
+    { left: "5px" },
+    { left: "140px" },
+    { left: "5px" }
+  ], { duration: 3000, iterations: 1, easing: "ease-in-out" });
+}, 4000);
 
 dragCircle.addEventListener('mousedown', e => { dragging = true; offsetX = e.clientX; dragBtn.classList.add('dragging'); });
 window.addEventListener('mouseup', () => {
