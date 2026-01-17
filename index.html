@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Moreira & Borges • Cidadania Internacional</title>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Moreira & Borges • Descubra Suas Raízes</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --primary: #FF385C;
-  --secondary: #007AFF;
-  --accent: #00C48C;
-  --bg: #F9FAFB;
-  --text: #111827;
-  --muted: #6B7280;
-  --radius: 20px;
-  --shadow: 0 10px 25px rgba(0,0,0,.08);
+  --gold: #D4AF37;
+  --dark: #1A1A1A;
+  --light: #F5F1E8;
+  --bg: #2B241C;
+  --text: #F8F8F8;
+  --muted: #C4BBA7;
+  --shadow: 0 10px 25px rgba(0,0,0,.3);
+  --radius: 14px;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -24,172 +24,228 @@ body {
   background: var(--bg);
   color: var(--text);
   overflow-x: hidden;
-  text-align: center;
   scroll-behavior: smooth;
 }
 
 /* HEADER */
 header {
-  position: sticky;
-  top: 0;
-  background: rgba(255,255,255,.95);
-  backdrop-filter: blur(12px);
+  position: sticky; top: 0;
+  background: rgba(26,26,26,.95);
+  backdrop-filter: blur(10px);
   z-index: 99;
-  box-shadow: 0 1px 4px rgba(0,0,0,.05);
+  box-shadow: 0 1px 8px rgba(0,0,0,.3);
 }
 .nav {
+  max-width: 1200px;
+  margin: auto;
   display: flex; justify-content: space-between; align-items: center;
-  max-width: 1200px; margin: auto; padding: 16px 20px;
+  padding: 18px 20px;
 }
 .logo {
-  font-weight: 800; font-size: 1.4rem;
-  color: var(--primary);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  color: var(--gold);
+  letter-spacing: 1px;
 }
 nav a {
-  margin: 0 10px;
-  font-weight: 600;
+  margin: 0 14px;
   color: var(--muted);
+  font-weight: 500;
+  text-decoration: none;
   transition: .3s;
 }
-nav a:hover { color: var(--primary); }
-
-.lang {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  border-radius: 999px;
-  padding: 8px 14px;
-  color: white;
-  font-weight: 700;
-  cursor: pointer;
-  position: relative;
-}
-.lang-menu {
-  position: absolute;
-  right: 0; top: 50px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: var(--shadow);
-  display: none;
-}
-.lang-menu button {
-  background: none; border: none; width: 100%;
-  padding: 10px 20px; cursor: pointer;
-  font-weight: 600;
-}
-.lang-menu button:hover { background: rgba(0,0,0,.05); }
+nav a:hover { color: var(--gold); }
 
 /* HERO */
 .hero {
-  max-width: 1100px; margin: auto; padding: 80px 20px;
-  display: flex; flex-direction: column; align-items: center; gap: 20px;
-}
-.hero img {
-  width: 100%; border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  background: linear-gradient(rgba(26,26,26,0.6), rgba(26,26,26,0.9)),
+              url('https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+  color: var(--light);
+  text-align: center;
+  padding: 120px 20px;
 }
 .hero h1 {
+  font-family: 'Playfair Display', serif;
   font-size: clamp(2.2rem, 5vw, 3.5rem);
-  font-weight: 800;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text; color: transparent;
+  color: var(--gold);
+  margin-bottom: 20px;
 }
 .hero p {
-  font-size: 1.2rem;
-  color: var(--muted);
   max-width: 680px;
-  margin: 10px auto 30px;
-  line-height: 1.6;
+  margin: auto;
+  font-size: 1.1rem;
+  color: var(--muted);
+  line-height: 1.7;
 }
-
-/* BOTÃO ARRASTE COMPLETO */
-.drag-btn {
-  position: relative;
-  width: 320px;
-  height: 65px;
-  margin: 30px auto;
-  border-radius: 50px;
-  background: linear-gradient(135deg, #FF385C, #FF0080, #007AFF);
-  background-size: 300%;
-  color: #fff;
-  font-weight: 700;
+.hero .buttons {
+  margin-top: 30px;
   display: flex;
-  align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,.2);
-  overflow: hidden;
-  cursor: grab;
-  transition: background-position 1s ease;
-  animation: attract-move 3s ease-in-out infinite;
-}
-@keyframes attract-move {
-  0% { transform: translateX(0); }
-  50% { transform: translateX(10px); }
-  100% { transform: translateX(0); }
-}
-.drag-circle {
-  position: absolute;
-  left: 5px;
-  top: 5px;
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  background: white;
-  color: var(--primary);
-  display: grid;
-  place-items: center;
-  font-size: 1.4rem;
-  font-weight: 800;
-  box-shadow: 0 3px 12px rgba(0,0,0,.25);
-  transition: left 0.2s linear;
-}
-.drag-text {
-  position: relative;
-  font-size: 1.05rem;
-  font-weight: 700;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-.drag-btn.dragging { cursor: grabbing; }
-
-/* SECTIONS */
-section {
-  max-width: 1100px;
-  margin: 80px auto;
-  padding: 0 20px;
-}
-.section-title {
-  font-size: 2rem;
-  font-weight: 800;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text; color: transparent;
-  margin-bottom: 30px;
-}
-.grid3 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
 }
-.card {
-  background: #fff;
+.hero button {
+  background: var(--gold);
+  color: var(--dark);
+  font-weight: 700;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: .3s;
+  box-shadow: 0 6px 18px rgba(0,0,0,.3);
+}
+.hero button:hover { background: #F0D77A; transform: scale(1.05); }
+
+/* FEATURES */
+.features {
+  background: #1F1A14;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+  gap: 30px;
+  padding: 80px 20px;
+  text-align: center;
+}
+.feature {
+  background: rgba(255,255,255,0.04);
   border-radius: var(--radius);
-  padding: 24px;
+  padding: 40px 20px;
   box-shadow: var(--shadow);
   transition: .3s;
 }
-.card:hover { transform: translateY(-5px); }
-.card img { width: 100%; border-radius: var(--radius); margin-bottom: 12px; }
-.card h3 { color: var(--primary); margin-bottom: 10px; }
+.feature:hover { transform: translateY(-5px); }
+.feature h3 {
+  color: var(--gold);
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.feature p {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* ÁRVORE GENEALÓGICA */
+.tree-section {
+  background: linear-gradient(#231C16, #1A1A1A);
+  padding: 90px 20px;
+  text-align: center;
+}
+.tree-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  color: var(--gold);
+  margin-bottom: 30px;
+}
+.tree-preview {
+  max-width: 800px;
+  margin: auto;
+  background: rgba(255,255,255,0.05);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+.tree-preview img {
+  width: 100%;
+  border-radius: var(--radius);
+}
+
+/* BUSCA */
+.search-section {
+  background: #17130F;
+  padding: 80px 20px;
+  text-align: center;
+}
+.search-section h2 {
+  color: var(--gold);
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 20px;
+}
+.search-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+.search-bar input {
+  padding: 12px 18px;
+  border-radius: 30px;
+  border: none;
+  width: 220px;
+  font-size: 1rem;
+}
+.search-bar button {
+  background: var(--gold);
+  color: var(--dark);
+  font-weight: 700;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 30px;
+  cursor: pointer;
+  transition: .3s;
+}
+.search-bar button:hover { background: #F0D77A; }
+
+/* HISTÓRIAS */
+.history {
+  background: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+  background-blend-mode: multiply;
+  background-color: rgba(26,26,26,0.85);
+  color: var(--light);
+  text-align: center;
+  padding: 100px 20px;
+}
+.history h2 {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold);
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.history p {
+  max-width: 680px;
+  margin: auto;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+.history button {
+  margin-top: 25px;
+  background: var(--gold);
+  border: none;
+  color: var(--dark);
+  padding: 14px 28px;
+  border-radius: 40px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .3s;
+}
+.history button:hover { background: #F0D77A; }
 
 /* FOOTER */
 footer {
-  background: #111827;
-  color: white;
+  background: #111;
+  color: var(--muted);
+  text-align: center;
   padding: 60px 20px;
+  font-size: .9rem;
+}
+footer .logo {
+  color: var(--gold);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
 }
 footer .social {
-  display: flex; justify-content: center; gap: 18px;
   margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
 }
-footer .social img { width: 38px; height: 38px; transition: .3s; }
+footer .social img {
+  width: 34px;
+  height: 34px;
+  transition: .3s;
+}
 footer .social img:hover { transform: scale(1.1); }
 
 /* WHATSAPP FLOAT */
@@ -200,7 +256,7 @@ footer .social img:hover { transform: scale(1.1); }
   background: #25D366;
   border-radius: 50%;
   display: grid; place-items: center;
-  box-shadow: 0 8px 20px rgba(0,0,0,.2);
+  box-shadow: 0 8px 20px rgba(0,0,0,.3);
   animation: pulse 1.8s infinite;
   z-index: 100;
 }
@@ -209,7 +265,7 @@ footer .social img:hover { transform: scale(1.1); }
   70% { box-shadow: 0 0 0 20px rgba(37,211,102,0); }
   100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
 }
-.wa-float img { width: 32px; height: 32px; }
+.wa-float img { width: 30px; height: 30px; }
 
 </style>
 </head>
@@ -220,154 +276,74 @@ footer .social img:hover { transform: scale(1.1); }
     <div class="logo">Moreira & Borges</div>
     <nav>
       <a href="#inicio">Início</a>
-      <a href="#servicos">Serviços</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#depoimentos">Depoimentos</a>
+      <a href="#arvore">Árvore</a>
+      <a href="#busca">Pesquisa</a>
+      <a href="#historias">Histórias</a>
     </nav>
-    <div class="lang" id="langBtn">🌍 PT</div>
-    <div class="lang-menu" id="langMenu">
-      <button data-lang="pt">🇧🇷 Português</button>
-      <button data-lang="en">🇬🇧 English</button>
-      <button data-lang="es">🇪🇸 Español</button>
-    </div>
   </div>
 </header>
 
 <section class="hero" id="inicio">
-  <h1 id="heroTitle">Conquiste sua cidadania europeia.</h1>
-  <p id="heroText">Moreira & Borges transforma seu direito em realidade. Atendimento humano, ágil e internacional — do documento ao passaporte. 🌍</p>
-
-  <!-- BOTÃO DE ARRASTE -->
-  <div class="drag-btn" id="dragBtn">
-    <div class="drag-circle" id="dragCircle">👍</div>
-    <span class="drag-text" id="dragText">Arraste para falar com consultor</span>
-  </div>
-
-  <img src="https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?auto=format&fit=crop&w=1100&q=80" alt="Cidadania">
-</section>
-
-<section id="servicos">
-  <h2 class="section-title" id="servicesTitle">Nossos Serviços</h2>
-  <div class="grid3">
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1568831769114-80fef42f89b1?auto=format&fit=crop&w=800&q=80">
-      <h3>Cidadania Portuguesa 🇵🇹</h3>
-      <p>Processos completos, orientação clara e acompanhamento até a conclusão.</p>
-    </div>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=800&q=80">
-      <h3>Cidadania Italiana 🇮🇹</h3>
-      <p>Pesquisa genealógica, conferência documental e suporte jurídico completo.</p>
-    </div>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1565183997392-2f6b6b52fe3b?auto=format&fit=crop&w=800&q=80">
-      <h3>Cidadania Espanhola 🇪🇸</h3>
-      <p>Do histórico familiar à obtenção do passaporte. Ética e agilidade garantidas.</p>
-    </div>
+  <h1>Descubra Suas Raízes</h1>
+  <p>Explore a história da sua família e construa sua jornada de cidadania europeia com confiança e elegância.</p>
+  <div class="buttons">
+    <button onclick="window.open('https://wa.me/5564999522932')">Comece Sua Jornada</button>
+    <button onclick="document.getElementById('arvore').scrollIntoView({behavior:'smooth'})">Saiba Mais</button>
   </div>
 </section>
 
-<section id="sobre">
-  <h2 class="section-title" id="aboutTitle">Sobre a M&B</h2>
-  <p>Fundada em 2021, a Moreira & Borges é uma consultoria internacional especializada em genealogia e cidadanias europeias.  
-  Nossa missão é transformar sonhos em dupla cidadania, com transparência, agilidade e humanidade.</p>
+<section class="features">
+  <div class="feature">
+    <h3>Construa Sua Árvore</h3>
+    <p>Monte sua árvore genealógica digital de forma prática e segura.</p>
+  </div>
+  <div class="feature">
+    <h3>Pesquise Seus Ancestrais</h3>
+    <p>Encontre registros históricos e conecte gerações passadas.</p>
+  </div>
+  <div class="feature">
+    <h3>Compartilhe Suas Histórias</h3>
+    <p>Preserve memórias e compartilhe sua herança com sua família.</p>
+  </div>
+</section>
+
+<section class="tree-section" id="arvore">
+  <h2>Sua Árvore Genealógica</h2>
+  <div class="tree-preview">
+    <img src="https://i.ibb.co/1ZpJmPC/family-tree-preview.png" alt="Árvore Genealógica">
+  </div>
+</section>
+
+<section class="search-section" id="busca">
+  <h2>Encontre Seus Antepassados</h2>
+  <div class="search-bar">
+    <input type="text" placeholder="Nome">
+    <input type="text" placeholder="Sobrenome">
+    <input type="text" placeholder="Ano de nascimento">
+    <button>Pesquisar</button>
+  </div>
+</section>
+
+<section class="history" id="historias">
+  <h2>Histórias de Família</h2>
+  <p>Memórias que atravessam gerações e inspiram novas conquistas.</p>
+  <button>Ler Relatos</button>
 </section>
 
 <footer>
-  <div style="font-size:1.5rem;font-weight:800;">Moreira & Borges</div>
-  <p style="opacity:.8;">Cidadanias & Consultoria Internacional</p>
+  <div class="logo">Moreira & Borges</div>
+  <p>Cidadanias & Consultoria Genealógica</p>
   <div class="social">
-    <a href="https://facebook.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"></a>
-    <a href="https://instagram.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png"></a>
-    <a href="https://wa.me/5564999522932" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"></a>
+    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"></a>
+    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png"></a>
+    <a href="https://wa.me/5564999522932"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"></a>
   </div>
-  <p style="font-size:.9rem;opacity:.7;">© 2026 Moreira & Borges • Todos os direitos reservados</p>
+  <p>© 2026 Moreira & Borges — Todos os direitos reservados.</p>
 </footer>
 
 <a class="wa-float" href="https://wa.me/5564999522932" target="_blank">
   <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
 </a>
-
-<script>
-// Troca de idioma
-const translations = {
-  pt: {
-    heroTitle: "Conquiste sua cidadania europeia.",
-    heroText: "Moreira & Borges transforma seu direito em realidade. Atendimento humano, ágil e internacional — do documento ao passaporte. 🌍",
-    servicesTitle: "Nossos Serviços",
-    aboutTitle: "Sobre a M&B"
-  },
-  en: {
-    heroTitle: "Claim your European citizenship.",
-    heroText: "Moreira & Borges turns your right into reality. Human, fast and international service — from document to passport. 🌍",
-    servicesTitle: "Our Services",
-    aboutTitle: "About M&B"
-  },
-  es: {
-    heroTitle: "Consigue tu ciudadanía europea hoy.",
-    heroText: "Moreira & Borges transforma tu derecho en realidad. Servicio humano, ágil e internacional — del documento al pasaporte. 🌍",
-    servicesTitle: "Nuestros Servicios",
-    aboutTitle: "Sobre M&B"
-  }
-};
-const langBtn = document.getElementById('langBtn');
-const langMenu = document.getElementById('langMenu');
-langBtn.onclick = () => langMenu.style.display = langMenu.style.display === 'block' ? 'none' : 'block';
-document.querySelectorAll('.lang-menu button').forEach(btn => {
-  btn.onclick = () => {
-    const lang = btn.dataset.lang;
-    const t = translations[lang];
-    document.getElementById('heroTitle').textContent = t.heroTitle;
-    document.getElementById('heroText').textContent = t.heroText;
-    document.getElementById('servicesTitle').textContent = t.servicesTitle;
-    document.getElementById('aboutTitle').textContent = t.aboutTitle;
-    langBtn.textContent = `🌍 ${lang.toUpperCase()}`;
-    langMenu.style.display = 'none';
-  };
-});
-
-// Botão de arrastar
-const dragBtn = document.getElementById('dragBtn');
-const dragCircle = document.getElementById('dragCircle');
-const dragText = document.getElementById('dragText');
-let dragging = false;
-let offsetX = 0;
-const maxMove = 260;
-
-// Efeito de chamada automática até o meio
-setInterval(() => {
-  dragCircle.animate([
-    { left: "5px" },
-    { left: "140px" },
-    { left: "5px" }
-  ], { duration: 3000, iterations: 1, easing: "ease-in-out" });
-}, 4000);
-
-dragCircle.addEventListener('mousedown', e => { dragging = true; offsetX = e.clientX; dragBtn.classList.add('dragging'); });
-window.addEventListener('mouseup', () => {
-  if (!dragging) return;
-  dragging = false;
-  dragBtn.classList.remove('dragging');
-  if (parseInt(dragCircle.style.left) >= maxMove - 30) {
-    dragText.textContent = "WhatsApp ✅";
-    dragCircle.style.left = maxMove + "px";
-    setTimeout(() => window.open('https://wa.me/5564999522932', '_blank'), 500);
-  } else {
-    dragCircle.style.left = "5px";
-    dragText.textContent = "Arraste para falar com consultor";
-  }
-});
-window.addEventListener('mousemove', e => {
-  if (!dragging) return;
-  let move = e.clientX - offsetX;
-  move = Math.max(0, Math.min(maxMove, move));
-  dragCircle.style.left = move + "px";
-  const progress = Math.floor((move / maxMove) * 8);
-  const word = "WhatsApp";
-  dragText.textContent = word.slice(0, progress);
-  if (move >= maxMove - 5) dragCircle.style.left = maxMove + "px";
-});
-</script>
 
 </body>
 </html>
