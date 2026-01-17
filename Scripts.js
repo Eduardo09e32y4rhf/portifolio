@@ -1,43 +1,70 @@
-document.addEventListener('DOMContentLoaded', () => {
+// MENU SANDUÍCHE
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navMenu");
+menuToggle.onclick = () => {
+  navMenu.classList.toggle("active");
+  menuToggle.classList.toggle("open");
+};
 
-    // --- Lógica 1: Pausa de Carrossel Animado em Interação (MANTIDA) --- 
-    const carousels = document.querySelectorAll('.carousel-container');
-    
-    carousels.forEach(container => {
-        const track = container.querySelector('.carousel-track');
-        
-        const pauseAnimation = () => {
-            if (track) track.style.animationPlayState = 'paused';
-        };
-        
-        const resumeAnimation = () => {
-            if (track) track.style.animationPlayState = 'running';
-        };
+// ÁRVORE GENEALÓGICA (geração automática)
+const pessoas = [
+  { nome: "Carlos Borges", idade: 68, relacao: "Avô", foto: "https://randomuser.me/api/portraits/men/1.jpg" },
+  { nome: "Helena Moreira", idade: 65, relacao: "Avó", foto: "https://randomuser.me/api/portraits/women/2.jpg" },
+  { nome: "Ricardo Borges", idade: 42, relacao: "Filho", foto: "https://randomuser.me/api/portraits/men/3.jpg" },
+  { nome: "Ana Borges", idade: 39, relacao: "Nora", foto: "https://randomuser.me/api/portraits/women/4.jpg" },
+  { nome: "Lucas Borges", idade: 17, relacao: "Neto", foto: "https://randomuser.me/api/portraits/men/5.jpg" },
+  { nome: "Marina Borges", idade: 15, relacao: "Neta", foto: "https://randomuser.me/api/portraits/women/6.jpg" }
+];
 
-        // Desktop e Mobile
-        container.addEventListener('mouseenter', pauseAnimation);
-        container.addEventListener('mouseleave', resumeAnimation);
-        container.addEventListener('touchstart', pauseAnimation);
-        
-        container.addEventListener('touchend', () => {
-            // Pausa por 1 segundo após o toque ser liberado
-            setTimeout(resumeAnimation, 1000); 
-        });
-    });
+const treeContainer = document.querySelector(".tree-container");
 
-    // --- Lógica 2: Botão Curtir (REMOVIDA) ---
-    // O código de likes foi totalmente removido daqui.
-
-    // --- BLOQUEIO 4: Bloqueia a cópia pelo teclado (Ctrl/Cmd + C) (MANTIDO) --- 
-    document.addEventListener('keydown', (e) => {
-        if (e.ctrlKey || e.metaKey) { // Ctrl ou Cmd
-            if (e.key === 'c' || e.key === 'C' || e.key === 'u' || e.key === 'U' || e.key === 'i' || e.key === 'I' || e.key === 'j' || e.key === 'J' || e.key === 's' || e.key === 'S') {
-                e.preventDefault();
-                return false;
-            }
-        }
-    }); 
+pessoas.forEach((pessoa, i) => {
+  const div = document.createElement("div");
+  div.classList.add("person");
+  div.innerHTML = `
+    <img src="${pessoa.foto}" alt="${pessoa.nome}">
+    <h4>${pessoa.nome}</h4>
+    <p>${pessoa.relacao} • ${pessoa.idade} anos</p>
+  `;
+  treeContainer.appendChild(div);
 });
 
-// Função para gerar o link do WhatsApp (REMOVIDA) 
-// A função 'gerarLinkZap' foi removida, pois ela era usada pelo bloco de Orçamento Rápido removido.
+// ANIMAÇÕES GSAP
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.utils.toArray(".person").forEach((el, i) => {
+  gsap.fromTo(
+    el,
+    { opacity: 0, y: 60 },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      delay: i * 0.1,
+      scrollTrigger: {
+        trigger: el,
+        start: "top 85%",
+      },
+    }
+  );
+});
+
+// EFEITO BRILHO AO ROLAR
+anime({
+  targets: "h2, h1",
+  opacity: [0, 1],
+  translateY: [50, 0],
+  duration: 1500,
+  easing: "easeOutExpo",
+  delay: anime.stagger(200),
+});
+
+// BLOQUEIO DE TECLAS
+document.addEventListener("keydown", (e) => {
+  if (
+    (e.ctrlKey && ["c", "u", "s"].includes(e.key)) ||
+    e.key === "F12"
+  ) {
+    e.preventDefault();
+  }
+});
