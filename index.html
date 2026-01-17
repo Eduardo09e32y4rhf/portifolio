@@ -8,14 +8,13 @@
 
 <style>
 :root {
-  --gold: #D4AF37;
-  --dark: #1A1A1A;
-  --light: #F5F1E8;
-  --bg: #2B241C;
-  --text: #F8F8F8;
-  --muted: #C4BBA7;
-  --shadow: 0 10px 25px rgba(0,0,0,.3);
-  --radius: 14px;
+  --gold: #d4af37;
+  --dark: #12100f;
+  --bg: #1b1815;
+  --text: #f8f8f8;
+  --muted: #c4bba7;
+  --radius: 16px;
+  --shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -25,43 +24,45 @@ body {
   color: var(--text);
   overflow-x: hidden;
   scroll-behavior: smooth;
+  text-align: center;
 }
 
 /* HEADER */
 header {
-  position: sticky; top: 0;
-  background: rgba(26,26,26,.95);
+  position: sticky;
+  top: 0;
+  background: rgba(17,17,17,0.95);
   backdrop-filter: blur(10px);
   z-index: 99;
-  box-shadow: 0 1px 8px rgba(0,0,0,.3);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
 .nav {
   max-width: 1200px;
   margin: auto;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 18px 20px;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .logo {
   font-family: 'Playfair Display', serif;
-  font-size: 1.6rem;
   color: var(--gold);
-  letter-spacing: 1px;
+  font-size: 1.6rem;
+  font-weight: 700;
 }
 nav a {
-  margin: 0 14px;
   color: var(--muted);
-  font-weight: 500;
+  margin: 0 12px;
   text-decoration: none;
-  transition: .3s;
+  font-weight: 500;
+  transition: 0.3s;
 }
 nav a:hover { color: var(--gold); }
 
 /* HERO */
 .hero {
-  background: linear-gradient(rgba(26,26,26,0.6), rgba(26,26,26,0.9)),
-              url('https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
-  color: var(--light);
-  text-align: center;
+  background: linear-gradient(rgba(18,16,12,0.6), rgba(18,16,12,0.8)),
+    url('https://images.unsplash.com/photo-1516387938699-a93567ec168e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
   padding: 120px 20px;
 }
 .hero h1 {
@@ -71,54 +72,34 @@ nav a:hover { color: var(--gold); }
   margin-bottom: 20px;
 }
 .hero p {
-  max-width: 680px;
+  max-width: 700px;
   margin: auto;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   color: var(--muted);
   line-height: 1.7;
 }
-.hero .buttons {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-.hero button {
-  background: var(--gold);
-  color: var(--dark);
-  font-weight: 700;
-  border: none;
-  padding: 14px 28px;
-  border-radius: 40px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: .3s;
-  box-shadow: 0 6px 18px rgba(0,0,0,.3);
-}
-.hero button:hover { background: #F0D77A; transform: scale(1.05); }
 
 /* FEATURES */
 .features {
-  background: #1F1A14;
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
   padding: 80px 20px;
-  text-align: center;
+  background: #181512;
 }
 .feature {
-  background: rgba(255,255,255,0.04);
+  background: rgba(255,255,255,0.05);
   border-radius: var(--radius);
-  padding: 40px 20px;
   box-shadow: var(--shadow);
-  transition: .3s;
+  padding: 40px 20px;
+  transition: 0.3s;
 }
-.feature:hover { transform: translateY(-5px); }
+.feature:hover { transform: translateY(-6px); }
 .feature h3 {
   color: var(--gold);
-  font-size: 1.3rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
   margin-bottom: 10px;
-  font-weight: 700;
 }
 .feature p {
   color: var(--muted);
@@ -126,80 +107,97 @@ nav a:hover { color: var(--gold); }
   line-height: 1.6;
 }
 
-/* ÁRVORE GENEALÓGICA */
+/* TREE */
 .tree-section {
-  background: linear-gradient(#231C16, #1A1A1A);
-  padding: 90px 20px;
-  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(#1d1a15, #12100f);
 }
 .tree-section h2 {
+  color: var(--gold);
   font-family: 'Playfair Display', serif;
   font-size: 2.2rem;
-  color: var(--gold);
   margin-bottom: 30px;
 }
-.tree-preview {
-  max-width: 800px;
-  margin: auto;
-  background: rgba(255,255,255,0.05);
+.tree-preview img {
+  width: 90%;
+  max-width: 700px;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  padding: 20px;
-}
-.tree-preview img {
-  width: 100%;
-  border-radius: var(--radius);
 }
 
-/* BUSCA */
+/* SEARCH */
 .search-section {
-  background: #17130F;
   padding: 80px 20px;
-  text-align: center;
+  background: #161310;
 }
 .search-section h2 {
   color: var(--gold);
   font-family: 'Playfair Display', serif;
-  margin-bottom: 20px;
+  font-size: 2rem;
 }
 .search-bar {
+  margin-top: 30px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 20px;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
 }
 .search-bar input {
+  width: 260px;
   padding: 12px 18px;
-  border-radius: 30px;
   border: none;
-  width: 220px;
+  border-radius: 30px;
   font-size: 1rem;
+  text-align: center;
 }
 .search-bar button {
   background: var(--gold);
-  color: var(--dark);
-  font-weight: 700;
+  color: #000;
   border: none;
   border-radius: 30px;
   padding: 12px 30px;
   cursor: pointer;
-  transition: .3s;
+  font-weight: 700;
+  transition: 0.3s;
 }
-.search-bar button:hover { background: #F0D77A; }
+.search-bar button:hover { background: #f0d77a; }
+
+/* SOBRE NÓS */
+.about {
+  background: linear-gradient(rgba(17,17,17,0.9), rgba(17,17,17,1)),
+    url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+  padding: 100px 20px;
+  color: var(--light);
+}
+.about h2 {
+  color: var(--gold);
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+.about p {
+  max-width: 800px;
+  margin: auto;
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.about strong {
+  color: var(--gold);
+}
 
 /* HISTÓRIAS */
 .history {
   background: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
   background-blend-mode: multiply;
   background-color: rgba(26,26,26,0.85);
-  color: var(--light);
-  text-align: center;
+  color: var(--text);
   padding: 100px 20px;
 }
 .history h2 {
-  font-family: 'Playfair Display', serif;
   color: var(--gold);
+  font-family: 'Playfair Display', serif;
   font-size: 2rem;
   margin-bottom: 20px;
 }
@@ -207,28 +205,16 @@ nav a:hover { color: var(--gold); }
   max-width: 680px;
   margin: auto;
   font-size: 1.1rem;
-  line-height: 1.7;
+  line-height: 1.6;
 }
-.history button {
-  margin-top: 25px;
-  background: var(--gold);
-  border: none;
-  color: var(--dark);
-  padding: 14px 28px;
-  border-radius: 40px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: .3s;
-}
-.history button:hover { background: #F0D77A; }
 
 /* FOOTER */
 footer {
-  background: #111;
+  background: #0e0d0c;
   color: var(--muted);
   text-align: center;
-  padding: 60px 20px;
-  font-size: .9rem;
+  padding: 50px 20px;
+  font-size: 0.9rem;
 }
 footer .logo {
   color: var(--gold);
@@ -242,21 +228,24 @@ footer .social {
   gap: 18px;
 }
 footer .social img {
-  width: 34px;
-  height: 34px;
-  transition: .3s;
+  width: 32px;
+  height: 32px;
+  transition: 0.3s;
 }
 footer .social img:hover { transform: scale(1.1); }
 
-/* WHATSAPP FLOAT */
+/* WHATSAPP */
 .wa-float {
   position: fixed;
-  right: 18px; bottom: 18px;
-  width: 60px; height: 60px;
+  right: 18px;
+  bottom: 18px;
+  width: 60px;
+  height: 60px;
   background: #25D366;
   border-radius: 50%;
-  display: grid; place-items: center;
-  box-shadow: 0 8px 20px rgba(0,0,0,.3);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
   animation: pulse 1.8s infinite;
   z-index: 100;
 }
@@ -278,6 +267,7 @@ footer .social img:hover { transform: scale(1.1); }
       <a href="#inicio">Início</a>
       <a href="#arvore">Árvore</a>
       <a href="#busca">Pesquisa</a>
+      <a href="#sobre">Sobre Nós</a>
       <a href="#historias">Histórias</a>
     </nav>
   </div>
@@ -285,25 +275,21 @@ footer .social img:hover { transform: scale(1.1); }
 
 <section class="hero" id="inicio">
   <h1>Descubra Suas Raízes</h1>
-  <p>Explore a história da sua família e construa sua jornada de cidadania europeia com confiança e elegância.</p>
-  <div class="buttons">
-    <button onclick="window.open('https://wa.me/5564999522932')">Comece Sua Jornada</button>
-    <button onclick="document.getElementById('arvore').scrollIntoView({behavior:'smooth'})">Saiba Mais</button>
-  </div>
+  <p>Explore a história da sua família, reconecte-se com suas origens e transforme memórias em cidadania europeia. 🕰️</p>
 </section>
 
 <section class="features">
   <div class="feature">
     <h3>Construa Sua Árvore</h3>
-    <p>Monte sua árvore genealógica digital de forma prática e segura.</p>
+    <p>Monte sua árvore genealógica digital e descubra laços familiares ocultos.</p>
   </div>
   <div class="feature">
     <h3>Pesquise Seus Ancestrais</h3>
-    <p>Encontre registros históricos e conecte gerações passadas.</p>
+    <p>Busque registros históricos de forma simples e intuitiva.</p>
   </div>
   <div class="feature">
     <h3>Compartilhe Suas Histórias</h3>
-    <p>Preserve memórias e compartilhe sua herança com sua família.</p>
+    <p>Preserve memórias e celebre sua herança cultural com o mundo.</p>
   </div>
 </section>
 
@@ -317,33 +303,55 @@ footer .social img:hover { transform: scale(1.1); }
 <section class="search-section" id="busca">
   <h2>Encontre Seus Antepassados</h2>
   <div class="search-bar">
-    <input type="text" placeholder="Nome">
-    <input type="text" placeholder="Sobrenome">
-    <input type="text" placeholder="Ano de nascimento">
-    <button>Pesquisar</button>
+    <input type="text" id="nome" placeholder="Nome">
+    <input type="text" id="sobrenome" placeholder="Sobrenome">
+    <input type="text" id="ano" placeholder="Ano de nascimento">
+    <button onclick="sendToWhatsApp()">Pesquisar</button>
   </div>
+</section>
+
+<section class="about" id="sobre">
+  <h2>Sobre Nós</h2>
+  <p><strong>Moreira & Borges</strong> nasceu com o propósito de transformar histórias em identidades. Desde 2021, ajudamos famílias de todo o mundo a redescobrirem suas origens e conquistarem sua cidadania europeia com ética, agilidade e humanidade.</p>
+  <p>Com uma equipe especializada e atendimento internacional, nossa missão é conectar gerações e fazer do seu direito à dupla cidadania uma jornada inesquecível. 🌍</p>
 </section>
 
 <section class="history" id="historias">
   <h2>Histórias de Família</h2>
-  <p>Memórias que atravessam gerações e inspiram novas conquistas.</p>
-  <button>Ler Relatos</button>
+  <p>Memórias que atravessam gerações e inspiram novas conquistas. Cada documento é uma herança viva. Descubra a sua.</p>
 </section>
 
 <footer>
   <div class="logo">Moreira & Borges</div>
-  <p>Cidadanias & Consultoria Genealógica</p>
+  <p>Cidadanias & Consultoria Genealógica Internacional</p>
   <div class="social">
     <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"></a>
     <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png"></a>
     <a href="https://wa.me/5564999522932"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"></a>
   </div>
-  <p>© 2026 Moreira & Borges — Todos os direitos reservados.</p>
+  <p>© 2026 Moreira & Borges • Todos os direitos reservados.</p>
 </footer>
 
 <a class="wa-float" href="https://wa.me/5564999522932" target="_blank">
   <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
 </a>
+
+<script>
+function sendToWhatsApp() {
+  const nome = document.getElementById('nome').value.trim();
+  const sobrenome = document.getElementById('sobrenome').value.trim();
+  const ano = document.getElementById('ano').value.trim();
+
+  if (!nome || !sobrenome) {
+    alert('Por favor, preencha Nome e Sobrenome.');
+    return;
+  }
+
+  const msg = `Olá! Gostaria de ajuda para encontrar meus antepassados.%0A%0A🧾 Nome: ${nome}%0A👨‍👩‍👧‍👦 Sobrenome: ${sobrenome}%0A📅 Ano de nascimento: ${ano}`;
+  const link = `https://wa.me/5564999522932?text=${msg}`;
+  window.open(link, '_blank');
+}
+</script>
 
 </body>
 </html>
